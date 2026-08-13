@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <!--
-  ============================================================
-  YASNA MOGHEI — PERSONAL SITE
-  ============================================================
+  ==============================================================
+  YASNA MOGHEI - PERSONAL SITE
+  ==============================================================
   HOW TO EDIT THIS PAGE
   - Everything you'd want to change is in the body of the page below.
-  - Each section is marked with a comment line reading "SECTION: ESSAYS",
+  - Each section starts with a comment line reading "SECTION: ESSAYS",
     "SECTION: SHORT FILMS", and so on.
   - To add a new piece of work, copy one "article class=work" block,
     paste it below the last one, and change the text inside.
   - To link a PDF: upload the PDF to the repo, then set href="my-file.pdf"
   - Anything that says REPLACE ME is a placeholder.
-  ============================================================
+  - The two theme colours are set at the top of the style block:
+    --burgundy and --green.
+  ==============================================================
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yasna Moghei — Writer &amp; Filmmaker</title>
+<title>Yasna Moghei — Screenwriter &amp; Filmmaker</title>
 <meta name="description" content="Screenwriting, film criticism, essays and short films by Yasna Moghei.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  /* ---------- COLOURS & TYPE (change these to restyle the whole site) ---------- */
+  /* ---------- THEME COLOURS ---------- */
   :root{
-    --bg:#0c0c0e;
-    --bg-soft:#131316;
-    --ink:#ece9e4;
-    --muted:#9a958d;
-    --accent:#c9a227;      /* warm gold */
-    --line:rgba(236,233,228,.14);
+    --burgundy:#7B2233;
+    --burgundy-lt:#C0596B;
+    --green:#12362B;
+    --green-lt:#2E6B55;
+    --bg:#0A1310;
+    --bg-2:#0E1B16;
+    --ink:#F0EBE4;
+    --muted:#9AA79F;
+    --line:rgba(240,235,228,.13);
     --serif:"Cormorant Garamond", Georgia, serif;
     --sans:"Inter", system-ui, -apple-system, sans-serif;
   }
@@ -39,92 +44,129 @@
   html{scroll-behavior:smooth}
   body{
     margin:0;background:var(--bg);color:var(--ink);
-    font-family:var(--sans);font-weight:300;line-height:1.7;
-    -webkit-font-smoothing:antialiased;
+    font-family:var(--sans);font-weight:300;line-height:1.75;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
   a{color:inherit}
   img{max-width:100%;display:block}
 
   /* film-grain overlay */
   body::after{
-    content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.05;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='.9'/></svg>");
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.055;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='.9'/></svg>");
   }
 
   /* ---------- NAV ---------- */
   nav{
-    position:sticky;top:0;z-index:10;background:rgba(12,12,14,.82);
-    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:15;background:rgba(10,19,16,.82);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
   }
-  nav .inner{
-    max-width:1000px;margin:0 auto;padding:14px 24px;
-    display:flex;gap:26px;align-items:center;flex-wrap:wrap;
-  }
-  nav .mark{font-family:var(--serif);font-size:19px;letter-spacing:.06em;margin-right:auto}
+  nav .inner{max-width:1060px;margin:0 auto;padding:15px 26px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+  nav .mark{font-family:var(--serif);font-size:20px;letter-spacing:.07em;margin-right:auto}
+  nav .mark span{color:var(--burgundy-lt)}
   nav a{
-    text-decoration:none;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--muted);transition:color .25s;
+    position:relative;text-decoration:none;font-size:11.5px;letter-spacing:.17em;
+    text-transform:uppercase;color:var(--muted);transition:color .3s;
   }
-  nav a:hover{color:var(--accent)}
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;
+    background:var(--burgundy-lt);transition:width .3s;
+  }
+  nav a:hover{color:var(--ink)}
+  nav a:hover::after{width:100%}
 
   /* ---------- LAYOUT ---------- */
-  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
-  section{padding:92px 0;border-bottom:1px solid var(--line)}
-  section:last-of-type{border-bottom:none}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+  section{padding:104px 0;position:relative}
+  .alt{background:var(--bg-2)}
 
   h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0}
   .eyebrow{
-    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--accent);margin-bottom:18px;
+    display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--burgundy-lt);margin-bottom:14px;
   }
-  h2{font-size:clamp(30px,5vw,44px);margin-bottom:34px;letter-spacing:.01em}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--burgundy)}
+  h2{font-size:clamp(32px,5.4vw,50px);margin-bottom:44px;letter-spacing:.01em}
+  h2 em{font-style:italic;color:var(--burgundy-lt)}
 
   /* ---------- HERO ---------- */
   header.hero{
-    min-height:82vh;display:flex;align-items:center;
+    position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;
     border-bottom:1px solid var(--line);
-    background:radial-gradient(1100px 500px at 22% 15%,rgba(201,162,39,.10),transparent 62%);
   }
-  header.hero h1{font-size:clamp(46px,10vw,104px);line-height:1.02;letter-spacing:-.01em}
+  header.hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(900px 620px at 12% 18%, rgba(123,34,51,.55), transparent 62%),
+      radial-gradient(950px 700px at 88% 82%, rgba(18,54,43,.85), transparent 60%),
+      linear-gradient(160deg,#0A1310 0%,#0E1B16 55%,#150E12 100%);
+  }
+  header.hero .wrap{position:relative;z-index:1}
+  header.hero h1{
+    font-size:clamp(52px,11.5vw,124px);line-height:.98;letter-spacing:-.015em;
+  }
+  header.hero h1 .last{color:var(--burgundy-lt)}
   header.hero .tagline{
-    font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.6vw,27px);
-    color:var(--muted);margin-top:20px;max-width:600px;
+    font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.7vw,29px);
+    color:#CFD6D0;margin-top:22px;max-width:640px;line-height:1.45;
   }
-  .rule{width:64px;height:1px;background:var(--accent);margin:34px 0}
+  .rule{width:78px;height:2px;background:linear-gradient(90deg,var(--burgundy),var(--green-lt));margin:34px 0}
+  .hero-links{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+  .hero-links a{
+    text-decoration:none;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    padding:11px 20px;border:1px solid var(--line);border-radius:2px;color:var(--ink);
+    transition:background .3s,border-color .3s,color .3s;
+  }
+  .hero-links a:hover{background:var(--burgundy);border-color:var(--burgundy)}
 
   /* ---------- ABOUT ---------- */
-  .about p{font-size:18px;max-width:640px;color:#d6d2cb}
-  .about p + p{margin-top:20px}
+  .about-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:56px}
+  .about p{font-size:18.5px;max-width:660px;color:#DCD8D1}
+  .about p + p{margin-top:22px}
+  .facts{border-left:2px solid var(--burgundy);padding-left:24px;align-self:start}
+  .facts dt{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:20px}
+  .facts dt:first-child{margin-top:0}
+  .facts dd{margin:3px 0 0;font-family:var(--serif);font-size:20px}
+  @media(max-width:800px){.about-grid{grid-template-columns:1fr;gap:34px}}
 
   /* ---------- WORK ITEMS ---------- */
   .work{
-    padding:26px 0;border-top:1px solid var(--line);
-    display:grid;grid-template-columns:112px 1fr;gap:26px;align-items:start;
-    transition:background .3s;
+    display:grid;grid-template-columns:120px 1fr;gap:28px;align-items:start;
+    padding:28px 22px 28px 18px;margin-left:-18px;
+    border-top:1px solid var(--line);
+    border-left:2px solid transparent;
+    transition:border-color .35s,background .35s,transform .35s;
   }
-  .work:hover{background:var(--bg-soft)}
-  .work .meta{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding-top:6px}
-  .work h3{font-size:26px;margin-bottom:8px}
-  .work h3 a{text-decoration:none;border-bottom:1px solid transparent;transition:border-color .25s,color .25s}
-  .work h3 a:hover{color:var(--accent);border-color:var(--accent)}
-  .work p{margin:0;color:#b9b4ac;max-width:620px}
-  .work .tag{
-    display:inline-block;margin-top:12px;font-size:11px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--accent);
-  }
+  .work:hover{border-left-color:var(--burgundy);background:rgba(123,34,51,.07);transform:translateX(5px)}
+  .work .meta{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding-top:9px}
+  .work h3{font-size:27px;margin-bottom:9px}
+  .work h3 a{text-decoration:none;background-image:linear-gradient(var(--burgundy-lt),var(--burgundy-lt));
+    background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .35s,color .3s}
+  .work:hover h3 a{background-size:100% 1px}
+  .work p{margin:0;color:#B4BDB6;max-width:640px}
+  .work .tag{display:inline-block;margin-top:14px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy-lt)}
   @media(max-width:640px){
     .work{grid-template-columns:1fr;gap:8px}
     .work .meta{padding-top:0}
   }
 
-  /* ---------- CONTACT / FOOTER ---------- */
-  .contact a{
-    display:inline-block;margin-right:26px;font-size:14px;letter-spacing:.08em;
-    color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);
-    padding-bottom:3px;transition:color .25s,border-color .25s;
+  /* ---------- CONTACT ---------- */
+  .contact{background:linear-gradient(150deg,rgba(123,34,51,.30),rgba(18,54,43,.55))}
+  .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .links a{
+    text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    padding:13px 22px;border:1px solid rgba(240,235,228,.22);border-radius:2px;
+    transition:background .3s,border-color .3s;
   }
-  .contact a:hover{color:var(--accent);border-color:var(--accent)}
-  footer{padding:44px 0 60px;color:var(--muted);font-size:12px;letter-spacing:.1em}
+  .links a:hover{background:rgba(240,235,228,.10);border-color:var(--burgundy-lt)}
+
+  footer{padding:40px 0 64px;color:var(--muted);font-size:11.5px;letter-spacing:.12em;border-top:1px solid var(--line)}
+
+  /* ---------- SCROLL REVEAL ---------- */
+  /* content is visible by default; the fade-in only applies when JS is running */
+  html.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+  html.js .reveal.on{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -132,7 +174,7 @@
 <!-- ============ NAVIGATION ============ -->
 <nav>
   <div class="inner">
-    <span class="mark">Yasna Moghei</span>
+    <span class="mark">Yasna <span>Moghei</span></span>
     <a href="#about">About</a>
     <a href="#screenwriting">Screenwriting</a>
     <a href="#criticism">Film Criticism</a>
@@ -145,29 +187,45 @@
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="wrap">
-    <h1>Yasna Moghei</h1>
+    <h1>Yasna<br><span class="last">Moghei</span></h1>
     <div class="rule"></div>
-    <p class="tagline">Screenwriter, essayist and filmmaker. Stories about memory, exile and the ordinary strangeness of being a person.</p>
-    <!-- REPLACE ME: rewrite the tagline above in your own words -->
+    <p class="tagline">Screenwriter and filmmaker. Stories that move across borders — the literal ones and the emotional ones.</p>
+    <div class="hero-links">
+      <a href="#screenwriting">See the work</a>
+      <a href="#contact">Get in touch</a>
+    </div>
   </div>
 </header>
 
 <!-- ============ SECTION: ABOUT ============ -->
-<section id="about" class="about">
-  <div class="wrap">
+<section id="about" class="about alt">
+  <div class="wrap reveal">
     <div class="eyebrow">About</div>
-    <h2>Who I am</h2>
-    <p>REPLACE ME — a short paragraph about who you are and what you write. Where you're from, what drew you to film and writing, the kinds of stories you keep coming back to.</p>
-    <p>REPLACE ME — a second paragraph if you want: what you're working on now, where you've studied or been published, and what you're looking for next.</p>
+    <h2>Who <em>I am</em></h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm a screenwriting student at York University and a filmmaker working across scripts, short films and essays. I'm drawn to stories that move across borders — the literal ones people cross, and the emotional ones they carry with them long after.</p>
+        <p>My films tend to start as questions rather than plots: what a person keeps, what they leave behind, and how memory rearranges both. Alongside screenwriting I make short films and cinematic experiments, and I write essays and criticism about the films that shape how I see.</p>
+        <p>This page collects that work in one place — scripts, films, essays and criticism. If something here interests you, I'd like to hear from you.</p>
+      </div>
+      <dl class="facts">
+        <dt>Based in</dt>
+        <dd>Toronto, Canada</dd>
+        <dt>Studying</dt>
+        <dd>Screenwriting, York University</dd>
+        <dt>Working in</dt>
+        <dd>Film &amp; prose</dd>
+      </dl>
+    </div>
   </div>
 </section>
 
 <!-- ============ SECTION: SCREENWRITING ============ -->
-<!-- To add a screenplay: copy one <article class="work"> block and edit it. -->
+<!-- To add a screenplay: copy one "article class=work" block and edit it. -->
 <section id="screenwriting">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="eyebrow">Screenwriting</div>
-    <h2>Screenplays</h2>
+    <h2>Screen<em>plays</em></h2>
 
     <article class="work">
       <div class="meta">2025 · Feature</div>
@@ -191,10 +249,10 @@
 </section>
 
 <!-- ============ SECTION: FILM CRITICISM ============ -->
-<section id="criticism">
-  <div class="wrap">
+<section id="criticism" class="alt">
+  <div class="wrap reveal">
     <div class="eyebrow">Film Criticism</div>
-    <h2>On other people's films</h2>
+    <h2>On other <em>people's films</em></h2>
 
     <article class="work">
       <div class="meta">2025</div>
@@ -219,9 +277,9 @@
 
 <!-- ============ SECTION: ESSAYS ============ -->
 <section id="essays">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="eyebrow">Essays</div>
-    <h2>Essays &amp; non-fiction</h2>
+    <h2>Essays &amp; <em>non-fiction</em></h2>
 
     <article class="work">
       <div class="meta">2025</div>
@@ -245,26 +303,26 @@
 </section>
 
 <!-- ============ SECTION: SHORT FILMS ============ -->
-<section id="films">
-  <div class="wrap">
+<section id="films" class="alt">
+  <div class="wrap reveal">
     <div class="eyebrow">Short Films</div>
-    <h2>Films</h2>
+    <h2><em>Films</em></h2>
 
     <article class="work">
       <div class="meta">2025 · 12 min</div>
       <div>
-        <h3><a href="#">Title of the Film</a></h3>
+        <h3><a href="https://vimeo.com/yasnam">Title of the Film</a></h3>
         <p>REPLACE ME — a short description, plus your role (writer, director, editor) and any festivals it played.</p>
-        <span class="tag">Watch →</span>
+        <span class="tag">Watch on Vimeo →</span>
       </div>
     </article>
 
     <article class="work">
       <div class="meta">2023 · 7 min</div>
       <div>
-        <h3><a href="#">Title of the Film</a></h3>
+        <h3><a href="https://www.youtube.com/channel/UCfaOUS3uezLduv2SVEKgj0w">Title of the Film</a></h3>
         <p>REPLACE ME — a short description and your role.</p>
-        <span class="tag">Watch →</span>
+        <span class="tag">Watch on YouTube →</span>
       </div>
     </article>
 
@@ -273,18 +331,18 @@
 
 <!-- ============ SECTION: CONTACT ============ -->
 <section id="contact" class="contact">
-  <div class="wrap">
+  <div class="wrap reveal">
     <div class="eyebrow">Contact</div>
-    <h2>Get in touch</h2>
-    <p style="color:#b9b4ac;max-width:560px;margin:0 0 28px">
-      For commissions, collaborations, or to read a full script, write to me.
+    <h2>Get in <em>touch</em></h2>
+    <p style="color:#DCD8D1;max-width:580px;margin:0;font-size:18px">
+      For commissions, collaborations, or to read a full script — write to me.
     </p>
-    <a href="mailto:yasnamoghei@gmail.com">Email</a>
-    <a href="https://github.com/yasnamoghei">GitHub</a>
-    <!-- Add more links below, e.g.:
-    <a href="https://instagram.com/USERNAME">Instagram</a>
-    <a href="https://letterboxd.com/USERNAME">Letterboxd</a>
-    -->
+    <div class="links">
+      <a href="mailto:yasnamoghei@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/yasna-moghei-721903397" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://vimeo.com/yasnam" target="_blank" rel="noopener">Vimeo</a>
+      <a href="https://www.youtube.com/channel/UCfaOUS3uezLduv2SVEKgj0w" target="_blank" rel="noopener">YouTube</a>
+    </div>
   </div>
 </section>
 
@@ -292,6 +350,13 @@
   <div class="wrap">© <span id="yr"></span> Yasna Moghei</div>
 </footer>
 
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>
+  document.documentElement.classList.add('js');
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
