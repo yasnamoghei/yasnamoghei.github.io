@@ -368,48 +368,65 @@
   .modal .close{position:absolute;top:clamp(10px,2vw,26px);right:clamp(10px,2vw,26px);z-index:5;
     background:none;border:1px solid rgba(255,255,255,.35);color:#fff;width:44px;height:44px;
     font-size:20px;cursor:pointer;border-radius:50%;line-height:1}
-  .spread{display:grid;grid-template-columns:1fr 1fr;width:min(980px,100%);max-height:86vh;overflow:auto;
-    background:var(--paper);color:var(--paper-ink);border-radius:4px;
+  .spread{display:flex;flex-direction:column;width:min(1060px,100%);height:min(88vh,840px);
+    background:var(--paper);color:var(--paper-ink);border-radius:4px;overflow:hidden;
     box-shadow:0 40px 90px rgba(0,0,0,.6);transform:perspective(1800px) rotateY(-14deg) scale(.92);
     opacity:0;transition:transform .6s var(--ease),opacity .5s}
   .modal.open .spread{transform:perspective(1800px) rotateY(0) scale(1);opacity:1}
-  .spread .pg{padding:clamp(22px,3.4vw,52px)}
-  .spread .pg.l{background:linear-gradient(90deg,#EADFCB,var(--paper));border-right:1px solid #d8cab1}
-  .spread h3{font-size:clamp(26px,3.4vw,46px);margin-bottom:10px;color:#1E1710}
-  .spread .m{font-size:clamp(10px,.75vw,12px);font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+
+  /* --- the leaf: content flows through columns, each column is a page --- */
+  .bookv{position:relative;flex:1 1 auto;min-height:0;overflow:hidden;
+    padding:clamp(20px,3.2vw,46px) clamp(22px,3.4vw,52px) clamp(10px,1.4vw,18px)}
+  .bookv::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:34px;margin-left:-17px;
+    background:linear-gradient(90deg,rgba(90,60,30,0) 0,rgba(90,60,30,.09) 42%,rgba(90,60,30,.16) 50%,
+      rgba(90,60,30,.09) 58%,rgba(90,60,30,0) 100%);pointer-events:none;z-index:2}
+  .flow{column-count:2;column-gap:clamp(34px,5vw,74px);column-fill:auto;
+    transition:transform .55s var(--ease);will-change:transform}
+  .flow .cover{break-after:column;-webkit-column-break-after:column}
+  .flow .m{font-size:clamp(10px,.75vw,12px);font-weight:600;letter-spacing:.2em;text-transform:uppercase;
     color:#8A5A34;margin-bottom:16px}
-  .spread p{margin:0 0 1em;font-size:clamp(15px,1.05vw,18px);line-height:1.75;color:#3B2E22}
-  .spread a.read{display:inline-block;margin-top:6px;font-size:clamp(10px,.75vw,12px);font-weight:600;
+  .flow h3{font-size:clamp(24px,3vw,40px);line-height:1.12;margin-bottom:14px;color:#1E1710}
+  .flow .sub{font-size:clamp(14px,1.05vw,17px);line-height:1.7;color:#5A4735;margin:0}
+  .flow p{margin:0 0 1em;font-size:clamp(14.5px,1vw,17px);line-height:1.72;color:#3B2E22}
+  .flow h4{font-family:var(--serif,inherit);font-size:clamp(16px,1.4vw,21px);line-height:1.25;
+    color:#1E1710;margin:1.9em 0 .65em;font-weight:600;break-after:avoid}
+  .flow .lede{font-size:clamp(16px,1.25vw,20px);line-height:1.5;color:#1E1710;margin-bottom:1.2em}
+  .flow blockquote{margin:1.5em 0;padding:2px 0 2px clamp(13px,1.5vw,20px);
+    border-left:2px solid #8E1626;color:#4A3928;font-style:italic}
+  .flow blockquote p{font-size:clamp(13.5px,.95vw,16px);margin-bottom:.5em}
+  .flow blockquote cite{display:block;font-style:normal;font-size:clamp(11px,.78vw,12.5px);
+    letter-spacing:.06em;color:#8A5A34;margin-top:.5em}
+  .flow em{font-style:italic}
+  .flow hr{border:0;height:1px;background:#d8cab1;margin:2.2em 0 1.6em}
+  .flow .bib h5{font-size:clamp(10px,.75vw,12px);font-weight:600;letter-spacing:.2em;
+    text-transform:uppercase;color:#8A5A34;margin-bottom:1em}
+  .flow .bib p{font-size:clamp(11.5px,.8vw,13px);line-height:1.58;margin-bottom:.85em;
+    padding-left:1.4em;text-indent:-1.4em;color:#5A4735}
+  .flow .bib a{color:#8E1626;text-decoration:none;border-bottom:1px solid rgba(142,22,38,.35);
+    word-break:break-word}
+  .flow a.read{display:inline-block;margin-top:6px;font-size:clamp(10px,.75vw,12px);font-weight:600;
     letter-spacing:.16em;text-transform:uppercase;color:#8E1626;text-decoration:none;
     border-bottom:1px solid #8E1626;padding-bottom:3px}
-  @media(max-width:760px){.spread{grid-template-columns:1fr}.spread .pg.l{border-right:0;border-bottom:1px solid #d8cab1}}
 
-  /* --- long-form reading pane --- */
-  .spread .pg.l{align-self:stretch}
-  .spread .pg.l .bk-head{position:sticky;top:0}
-  .spread .pg.body{max-width:68ch}
-  .spread .pg.body h4{font-family:var(--serif,inherit);font-size:clamp(17px,1.5vw,23px);line-height:1.25;
-    color:#1E1710;margin:2.1em 0 .7em;font-weight:600}
-  .spread .pg.body h4:first-child{margin-top:0}
-  .spread .pg.body .lede{font-size:clamp(17px,1.35vw,21px);line-height:1.5;color:#1E1710;
-    margin-bottom:1.3em}
-  .spread .pg.body blockquote{margin:1.6em 0;padding:2px 0 2px clamp(14px,1.6vw,22px);
-    border-left:2px solid #8E1626;color:#4A3928;font-style:italic}
-  .spread .pg.body blockquote p{font-size:clamp(14px,1vw,17px);margin-bottom:.5em}
-  .spread .pg.body blockquote cite{display:block;font-style:normal;font-size:clamp(11px,.8vw,13px);
-    letter-spacing:.06em;color:#8A5A34;margin-top:.5em}
-  .spread .pg.body em{font-style:italic}
-  .spread .pg.body hr{border:0;height:1px;background:#d8cab1;margin:2.6em 0 1.8em}
-  .spread .pg.body .bib h5{font-size:clamp(10px,.75vw,12px);font-weight:600;letter-spacing:.2em;
-    text-transform:uppercase;color:#8A5A34;margin-bottom:1em}
-  .spread .pg.body .bib p{font-size:clamp(12px,.82vw,13.5px);line-height:1.6;margin-bottom:.9em;
-    padding-left:1.4em;text-indent:-1.4em;color:#5A4735}
-  .spread .pg.body .bib a{color:#8E1626;text-decoration:none;border-bottom:1px solid rgba(142,22,38,.35);
-    word-break:break-word}
-  .spread .rights{grid-column:1/-1;padding:0 clamp(22px,3.4vw,52px) clamp(20px,2.6vw,34px);
-    font-size:clamp(10px,.75vw,11.5px);letter-spacing:.06em;color:#8A7455;border-top:1px solid #e2d6bf;
-    padding-top:16px;margin-top:8px}
-  @media(max-width:760px){.spread .pg.l .bk-head{position:static}}
+  /* --- page turning --- */
+  .bk-bar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:0 clamp(22px,3.4vw,52px) clamp(12px,1.6vw,18px)}
+  .bk-bar.off{display:none}
+  .turn{background:none;border:1px solid #cdbc9f;color:#6E4A28;border-radius:2px;cursor:pointer;
+    font:600 clamp(9.5px,.72vw,11px)/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+    padding:11px 15px;transition:background .25s,border-color .25s,color .25s}
+  .turn:hover:not(:disabled){background:#8E1626;border-color:#8E1626;color:#fff}
+  .turn:disabled{opacity:.28;cursor:default}
+  .bk-bar .num{font:600 clamp(9.5px,.72vw,11px)/1 var(--sans);letter-spacing:.2em;
+    text-transform:uppercase;color:#8A5A34;white-space:nowrap}
+  .spread .rights{flex:0 0 auto;padding:14px clamp(22px,3.4vw,52px) clamp(16px,2.2vw,26px);
+    font-size:clamp(10px,.75vw,11.5px);line-height:1.55;letter-spacing:.04em;color:#8A7455;
+    border-top:1px solid #e2d6bf}
+  @media(max-width:760px){
+    .flow{column-count:1}
+    .bookv::before{display:none}
+    .spread{height:min(92vh,none)}
+  }
 
   /* --- reading protection --- */
   .spread.protect,.spread.protect *{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
@@ -647,8 +664,12 @@
 <div class="modal" id="book" role="dialog" aria-modal="true" aria-label="Book">
   <button class="close" data-close aria-label="Close">&times;</button>
   <div class="spread" id="bk-spread">
-    <div class="pg l"><div class="bk-head"><div class="m" id="bk-m"></div><h3 id="bk-t"></h3><p id="bk-s"></p></div></div>
-    <div class="pg body" id="bk-b"></div>
+    <div class="bookv" id="bk-v"><div class="flow" id="bk-flow"></div></div>
+    <div class="bk-bar" id="bk-bar">
+      <button class="turn" id="bk-prev" aria-label="Previous page">&lsaquo;&nbsp; Back</button>
+      <div class="num" id="bk-num" aria-live="polite"></div>
+      <button class="turn" id="bk-next" aria-label="Next page">Turn &nbsp;&rsaquo;</button>
+    </div>
     <div class="rights" id="bk-rights">&copy; Yasna Moghei. This text is the author’s original work and may not be reproduced, republished or used to train machine learning models without written permission. To quote or reprint, write to <a href="mailto:yasnamoghei@gmail.com" style="color:#8E1626">yasnamoghei@gmail.com</a>.</div>
   </div>
 </div>
@@ -862,33 +883,92 @@ addEventListener('keydown',function(e){ if(e.key==='Escape') closeM(); });
   });
 })();
 
+/* ---- the book: content flows through CSS columns, one column per page ---- */
+var bkFlow=document.getElementById('bk-flow'), bkV=document.getElementById('bk-v'),
+    bkBar=document.getElementById('bk-bar'), bkNum=document.getElementById('bk-num'),
+    bkPrev=document.getElementById('bk-prev'), bkNext=document.getElementById('bk-next'),
+    bkSpread=document.getElementById('bk-spread'), bkRights=document.getElementById('bk-rights'),
+    leaf=1, page=0, pages=1, step=0;
+
+function perView(){ return matchMedia('(max-width:760px)').matches ? 1 : 2; }
+
+function layout(){
+  if(!bookM.classList.contains('open')) return;
+  var cs=getComputedStyle(bkV),
+      h=bkV.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom),
+      w=bkV.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+  leaf=perView();
+  bkFlow.style.transform='none';
+  bkFlow.style.height=Math.max(120,h)+'px';
+  var gap=parseFloat(getComputedStyle(bkFlow).columnGap)||40;
+  var colW=leaf===2?(w-gap)/2:w;
+  step=colW+gap;
+  /* How far do the columns actually run? Measure with scrollWidth, not client rects:
+     the modal sits inside a perspective/rotateY transform, and rect coordinates come
+     back projected through it, which wildly overstates anything far to the right. */
+  var cols=Math.max(1,Math.ceil((bkFlow.scrollWidth-1)/step));
+  pages=Math.max(1,Math.ceil(cols/leaf));
+  if(page>pages-1) page=pages-1;
+  go(page,true);
+}
+
+function go(n,instant){
+  page=Math.min(Math.max(0,n),pages-1);
+  if(instant) bkFlow.style.transition='none';
+  bkFlow.style.transform='translateX('+(-page*leaf*step)+'px)';
+  if(instant){ void bkFlow.offsetWidth; bkFlow.style.transition=''; }
+  bkPrev.disabled=(page===0); bkNext.disabled=(page===pages-1);
+  bkBar.classList.toggle('off',pages<2);
+  bkNum.textContent=leaf===2
+    ? 'Spread '+(page+1)+' of '+pages
+    : 'Page '+(page+1)+' of '+pages;
+}
+
+bkPrev.addEventListener('click',function(){ go(page-1); });
+bkNext.addEventListener('click',function(){ go(page+1); });
+addEventListener('keydown',function(e){
+  if(!bookM.classList.contains('open')) return;
+  if(e.key==='ArrowRight'||e.key==='PageDown'){ e.preventDefault(); go(page+1); }
+  if(e.key==='ArrowLeft' ||e.key==='PageUp'){ e.preventDefault(); go(page-1); }
+});
+(function(){ var x0=null,y0=null;
+  bkV.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; },{passive:true});
+  bkV.addEventListener('touchend',function(e){
+    if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>46&&Math.abs(dx)>Math.abs(dy)) go(dx<0?page+1:page-1);
+    x0=null;
+  },{passive:true});
+})();
+addEventListener('resize',function(){ clearTimeout(window.__bkT); window.__bkT=setTimeout(layout,160); });
+
+function openBook(it,kind){
+  var tpl=it.src?document.getElementById(it.src):null, html='';
+  html+='<div class="cover">'
+     +  '<div class="m">'+esc(it.m||'')+'</div>'
+     +  '<h3>'+esc(it.t||'')+'</h3>'
+     +  '<p class="sub">'+esc(it.s||'')+'</p></div>';
+  if(tpl){ html+=tpl.textContent; }
+  else { html+='<p>'+esc(it.b||(kind==='f'?'From my list of the best films I have ever seen.':''))+'</p>'; }
+  if(it.link){
+    html+='<p><a class="read" href="'+esc(it.link)+'" target="_blank" rel="noopener">'
+        + esc(it.linkText||'Read')+' \u203a</a></p>';
+  }
+  bkFlow.innerHTML=html;
+  bkSpread.classList.toggle('protect',!!tpl);
+  bkRights.style.display=tpl?'':'none';
+  page=0;
+  openM(bookM);
+  requestAnimationFrame(function(){ requestAnimationFrame(layout); });
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ layout(); });
+}
+function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
 document.addEventListener('click',function(e){
   var sp=e.target.closest('.spine');
   if(sp){
     var arr={s:SCREENPLAYS,e:ESSAYS,f:FAVOURITES}[sp.dataset.kind], it=arr[+sp.dataset.i];
-    document.getElementById('bk-m').textContent=it.m||'';
-    document.getElementById('bk-t').textContent=it.t||'';
-    document.getElementById('bk-s').textContent=it.s||'';
-    var body=document.getElementById('bk-b'), spread=document.getElementById('bk-spread'),
-        rights=document.getElementById('bk-rights'), tpl=it.src?document.getElementById(it.src):null;
-    body.scrollTop=0; spread.scrollTop=0;
-    if(tpl){
-      body.innerHTML=tpl.textContent;
-      spread.classList.add('protect'); rights.style.display='';
-    }else{
-      body.innerHTML='';
-      var pp=document.createElement('p');
-      pp.textContent=it.b||(sp.dataset.kind==='f'?'From my list of the best films I have ever seen.':'');
-      body.appendChild(pp);
-      spread.classList.remove('protect'); rights.style.display='none';
-    }
-    if(it.link){
-      var a=document.createElement('a');
-      a.className='read'; a.href=it.link; a.target='_blank'; a.rel='noopener';
-      a.textContent=(it.linkText||'Read')+' ›';
-      body.appendChild(a);
-    }
-    openM(bookM); return;
+    openBook(it, sp.dataset.kind); return;
   }
   var po=e.target.closest('.poster');
   if(po){
