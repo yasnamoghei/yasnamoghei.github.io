@@ -384,6 +384,39 @@
     border-bottom:1px solid #8E1626;padding-bottom:3px}
   @media(max-width:760px){.spread{grid-template-columns:1fr}.spread .pg.l{border-right:0;border-bottom:1px solid #d8cab1}}
 
+  /* --- long-form reading pane --- */
+  .spread .pg.l{align-self:stretch}
+  .spread .pg.l .bk-head{position:sticky;top:0}
+  .spread .pg.body{max-width:68ch}
+  .spread .pg.body h4{font-family:var(--serif,inherit);font-size:clamp(17px,1.5vw,23px);line-height:1.25;
+    color:#1E1710;margin:2.1em 0 .7em;font-weight:600}
+  .spread .pg.body h4:first-child{margin-top:0}
+  .spread .pg.body .lede{font-size:clamp(17px,1.35vw,21px);line-height:1.5;color:#1E1710;
+    margin-bottom:1.3em}
+  .spread .pg.body blockquote{margin:1.6em 0;padding:2px 0 2px clamp(14px,1.6vw,22px);
+    border-left:2px solid #8E1626;color:#4A3928;font-style:italic}
+  .spread .pg.body blockquote p{font-size:clamp(14px,1vw,17px);margin-bottom:.5em}
+  .spread .pg.body blockquote cite{display:block;font-style:normal;font-size:clamp(11px,.8vw,13px);
+    letter-spacing:.06em;color:#8A5A34;margin-top:.5em}
+  .spread .pg.body em{font-style:italic}
+  .spread .pg.body hr{border:0;height:1px;background:#d8cab1;margin:2.6em 0 1.8em}
+  .spread .pg.body .bib h5{font-size:clamp(10px,.75vw,12px);font-weight:600;letter-spacing:.2em;
+    text-transform:uppercase;color:#8A5A34;margin-bottom:1em}
+  .spread .pg.body .bib p{font-size:clamp(12px,.82vw,13.5px);line-height:1.6;margin-bottom:.9em;
+    padding-left:1.4em;text-indent:-1.4em;color:#5A4735}
+  .spread .pg.body .bib a{color:#8E1626;text-decoration:none;border-bottom:1px solid rgba(142,22,38,.35);
+    word-break:break-word}
+  .spread .rights{grid-column:1/-1;padding:0 clamp(22px,3.4vw,52px) clamp(20px,2.6vw,34px);
+    font-size:clamp(10px,.75vw,11.5px);letter-spacing:.06em;color:#8A7455;border-top:1px solid #e2d6bf;
+    padding-top:16px;margin-top:8px}
+  @media(max-width:760px){.spread .pg.l .bk-head{position:static}}
+
+  /* --- reading protection --- */
+  .spread.protect,.spread.protect *{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    user-select:none;-webkit-touch-callout:none}
+  .spread.protect a{-webkit-user-select:none;user-select:none}
+  @media print{.modal,.modal *{display:none !important}}
+
   /* ================= PLAYER MODAL ================= */
   #player .frame{width:min(1100px,100%);aspect-ratio:16/9;background:#000;position:relative;
     transform:scale(.92);opacity:0;transition:transform .5s var(--ease),opacity .4s;
@@ -613,15 +646,74 @@
 <!-- ============ MODALS ============ -->
 <div class="modal" id="book" role="dialog" aria-modal="true" aria-label="Book">
   <button class="close" data-close aria-label="Close">&times;</button>
-  <div class="spread">
-    <div class="pg l"><div class="m" id="bk-m"></div><h3 id="bk-t"></h3><p id="bk-s"></p></div>
-    <div class="pg"><p id="bk-b"></p><a class="read" id="bk-a" target="_blank" rel="noopener"></a></div>
+  <div class="spread" id="bk-spread">
+    <div class="pg l"><div class="bk-head"><div class="m" id="bk-m"></div><h3 id="bk-t"></h3><p id="bk-s"></p></div></div>
+    <div class="pg body" id="bk-b"></div>
+    <div class="rights" id="bk-rights">&copy; Yasna Moghei. This text is the author’s original work and may not be reproduced, republished or used to train machine learning models without written permission. To quote or reprint, write to <a href="mailto:yasnamoghei@gmail.com" style="color:#8E1626">yasnamoghei@gmail.com</a>.</div>
   </div>
 </div>
 <div class="modal" id="player" role="dialog" aria-modal="true" aria-label="Film player">
   <button class="close" data-close aria-label="Close">&times;</button>
   <div class="frame"><div id="pl-mount"></div><div class="ttl" id="pl-t"></div></div>
 </div>
+
+<script type="text/x-essay" id="w-odyssey">
+<p class="lede">Nolan's <em>Odyssey</em> is not about Odysseus. Not in any way that matters.</p>
+<p>I've been sitting with that for a while, and the person I keep coming back to is a Roman who died about two thousand years before Matt Damon got the part. In his eighty-eighth letter to Lucilius, Seneca goes after one specific way of reading Homer badly. He's annoyed by people who pick up the <em>Odyssey</em> and spend their time working out exactly which islands Odysseus drifted past, or whether Penelope was ever really going to give in, instead of asking what the poem is doing to them. He has no patience for it. He thinks it's a way of handling a book without ever letting it touch you.</p>
+<p>He says it plainly:</p>
+<blockquote><p>&ldquo;Do you raise the question, &lsquo;Through what regions did Ulysses stray?&rsquo; instead of trying to prevent ourselves from going astray at all times? We have no leisure to hear lectures on the question whether he was sea-tost between Italy and Sicily, or outside our known world&hellip; We ourselves encounter storms of the spirit, which toss us daily, and our depravity drives us into all the ills which troubled Ulysses.&rdquo;</p><cite>Seneca, Epistle 88.7, trans. Gummere</cite></blockquote>
+<p>That's the poem, as far as I'm concerned. It's about how easily a mind loses its way, and it's wearing monsters and islands as a costume.</p>
+<p>Two thousand years later we're making the same mistake Seneca was complaining about. We're just doing it at a much bigger scale, and in public.</p>
+
+<h4>The conversation we got instead</h4>
+<p>The film opened on July 17, 2026, with Matt Damon as Odysseus and Anne Hathaway as Penelope, Tom Holland as Telemachus, Zendaya as Athena, Lupita Nyong'o doubling as Helen and Clytemnestra, and Charlize Theron as Circe. Nolan shot the whole thing on IMAX film across several countries, and it's his first release since <em>Oppenheimer</em>. It made an estimated $264 million worldwide in its opening weekend, more than <em>Oppenheimer</em> did.</p>
+<p>Almost none of the conversation has been about the film.</p>
+<p>Some of that is fair. Casting isn't neutral, and a poem this old doesn't arrive clean. It comes carrying three thousand years of assumptions about who gets to be the hero. Nolan made a $250 million movie and sold it as <em>the</em> retelling, so he invited every bit of the scrutiny he got. I'm not interested in waving that away.</p>
+<p>But most of it stopped being criticism and turned into litigation. When Nyong'o's casting got out, Elon Musk announced that Nolan had &ldquo;lost his integrity,&rdquo; because Homer describes Helen as fair and blonde. Travis Scott's casting got the same treatment, even though Nolan had already explained it: he wanted an explicit line drawn between rap and oral poetry as two versions of the same thing. Which is, if anything, a reading unusually close to the text. The <em>Odyssey</em> was an oral poem for centuries before anyone wrote it down.</p>
+<p>None of these are stupid questions. What gets me is how fast all of them collapse into one question, which is: <em>is it faithful.</em></p>
+<p>And sitting underneath that question is an assumption I don't think survives five minutes with the scholarship, that there's a real, findable Odysseus somewhere in the eighth century BCE, and every choice made since is either loyal to him or a betrayal of him.</p>
+
+<h4>There was never an original to be faithful to</h4>
+<p>Milman Parry, and then his student Albert Lord, worked this out in the early twentieth century. The <em>Iliad</em> and the <em>Odyssey</em> were built inside an oral tradition, out of a kit of ready-made phrases &mdash; &ldquo;rosy-fingered dawn,&rdquo; &ldquo;wine-dark sea&rdquo; &mdash; that a poet could slot in and out to fit the metre while performing. Parry and Lord didn't just theorise this; they went and studied oral epic singers still working in the Balkans, and watched the &ldquo;same&rdquo; song come out different from one night to the next, shaped by who was singing and who was listening.</p>
+<p>So the single fixed Homeric text, stable, finished, sitting there before anyone came along and started messing with it, is something we invented later. The multiplicity was there at the start. Adapters didn't introduce it. They inherited it.</p>
+<p>Charles Martindale takes this further. In <em>Redeeming the Text</em>, he argues that you can't recover an &ldquo;original&rdquo; meaning for an ancient text that exists apart from the whole history of people reading it, and that you shouldn't try. Meaning happens at the point of reception, not at the point of composition.</p>
+<p>Which means asking whether Nolan got Homer's meaning right assumes there's one fixed meaning to get right. The poem isn't cargo that a film either delivers intact or damages in transit. It gets remade, a little, by everyone who receives it. That includes this film. It also includes me, writing this.</p>
+<p>Linda Hutcheon gets somewhere similar from a different direction. In <em>A Theory of Adaptation</em>, she argues that judging an adaptation mainly on fidelity builds a hierarchy that's rigged from the start. The adaptation is automatically the lesser thing, a bad photocopy rather than an argument in its own right. She'd rather we say &ldquo;adapted text&rdquo; than &ldquo;original,&rdquo; and she describes adaptations as palimpsests: familiar stories with every era that retold them still faintly showing through. She isn't saying adaptations are above criticism. She's saying fidelity can't be the only axis you're allowed to criticise along.</p>
+<p>W. B. Stanford's <em>The Ulysses Theme</em> is the part that settles it for me, because it's just history. Stanford tracks Odysseus across two and a half thousand years &mdash; Virgil, Dante, Shakespeare, Tennyson, Joyce, Kazantzakis &mdash; and finds each of them pulling a completely different man out of the same outline. Some want the clever statesman. Some want the restless wanderer. And it was already contested in antiquity: later Greek and Roman writers split hard over whether his cunning was admirable or just lying, with some of them attacking the exact quality earlier audiences had loved him for.</p>
+<p>Stanford's argument is that Odysseus survived <em>because</em> he bends, not despite it. Virgil's Ulysses is not Dante's. Neither of them is Tennyson's aging king. None of them is Leopold Bloom, wandering Dublin for one day instead of the Aegean for ten years.</p>
+<p>Every one of those was, at the time, an unfaithful departure from what came before. All of them are now what we mean when we say &ldquo;the Ulysses theme.&rdquo; Nolan's film, whatever's wrong with it, is the newest entry in a line that has never once agreed on what faithfulness would even look like.</p>
+
+<h4>What the wandering is for</h4>
+<p>If fidelity is the wrong question, then the right one is Seneca's: what does this telling, made now, ask of the person sitting in the cinema.</p>
+<p>The poem isn't a travel diary or a cast list. It's about spending years away from what you thought was home, and arriving again and again at something that looks like safety, and getting pushed back out.</p>
+<p>Read that way, Calypso's island is anywhere you've stayed too long, out of comfort, or exhaustion, or fear, and mistaken the stillness for a life. The Cyclops is any obstacle big enough that it looks like the end of the road. The Sirens are any voice, a habit, a person, an older version of yourself, whose promise of something beautiful pulls you off course. And the Trojan War isn't only an ancient war. It's every ruin you built yourself and then had to spend years finding your way home from.</p>
+<p>Somewhere else in the letters Seneca writes <em>tempestates nos animi cotidie iactant</em> &mdash; the storms of the mind toss us daily. That's where I think the <em>Odyssey</em> actually lives. Not in Bronze Age Greece, not on a reconstructed Ithaca, and not in whichever face Nolan picked for Helen, but in whoever's watching, and in whatever version of the journey home is still, for each of us, unfinished.</p>
+<p>None of that means ignoring the particulars. Part of why the poem lasts is the tension between how specific it is and how general it turns out to be: it's a precise story about one man returning to one island, and it's the precision that lets so many people recognise themselves in it.</p>
+<p>What Nolan gets right, whatever else is arguable, is scale. He treats the wandering as genuinely long and genuinely dangerous, not as a detour before a tidy homecoming. That's faithful to something real in the text: home isn't guaranteed. You earn it back slowly, across years that mostly feel like failing.</p>
+
+<h4>Where that leaves us</h4>
+<p>This doesn't put the casting conversation off-limits, and it doesn't mean criticism of the film is somehow beneath the poem. Reception theory doesn't exempt anything from judgment. It just moves where the judgment happens. There's real room to ask who Nolan chose to centre and why, and what a $250 million IMAX epic owes the tradition it's borrowing from.</p>
+<p>But I'd want that conversation to come after a quieter and much harder one. What does this story want you to recognise about your own situation? Where are you still circling an island you've mistaken for a destination? What's your Cyclops &mdash; the thing you've decided is too big to get past? What are your Sirens, singing at exactly the moment the job is to keep rowing?</p>
+<p>If the only thing anyone takes from this film, or from the poem behind it, is whether the casting was accurate, then Seneca's verdict on his own generation covers us too: we didn't read the <em>Odyssey</em>. We watched it.</p>
+
+<hr>
+<div class="bib">
+<h5>Bibliography</h5>
+<p>Britannica. &ldquo;Christopher Nolan's The Odyssey | 2026 Movie, IMAX, Cast, Matt Damon, Zendaya, Tom Holland, Trailer, &amp; Controversy.&rdquo; <em>Encyclop&aelig;dia Britannica</em>. Accessed August 2026. <a href="https://www.britannica.com/topic/The-Odyssey-film-by-Nolan" target="_blank" rel="noopener">britannica.com</a></p>
+<p>&ldquo;Elon Musk Blasts Christopher Nolan's &lsquo;Integrity&rsquo; Amid The Odyssey Rumors.&rdquo; <em>AOL</em>, February 2026. <a href="https://www.aol.com/articles/elon-musk-blasts-christopher-nolan-130000912.html" target="_blank" rel="noopener">aol.com</a></p>
+<p>Hutcheon, Linda. <em>A Theory of Adaptation</em>. 2nd ed. Routledge, 2013.</p>
+<p>&ldquo;Linda Hutcheon, A Theory of Adaptation (2006).&rdquo; Adaptations Wiki, Fandom. Accessed August 2026. <a href="https://adaptations.fandom.com/wiki/Linda_Hutcheon,_A_Theory_of_Adaptation_(2006)" target="_blank" rel="noopener">adaptations.fandom.com</a></p>
+<p>Martindale, Charles. <em>Redeeming the Text: Latin Poetry and the Hermeneutics of Reception</em>. Cambridge University Press, 1993.</p>
+<p>&ldquo;Oral Formulaic Method.&rdquo; Poets.org, Academy of American Poets. Accessed August 2026. <a href="https://poets.org/glossary/oral-formulaic-method" target="_blank" rel="noopener">poets.org</a></p>
+<p>&ldquo;Oral Formulaic Theory and the Individual Poet.&rdquo; Academia.edu. Accessed August 2026. <a href="https://www.academia.edu/1817115/Oral_Formulaic_Theory_and_the_Individual_Poet" target="_blank" rel="noopener">academia.edu</a></p>
+<p>&ldquo;Oral-formulaic composition.&rdquo; <em>Wikipedia, The Free Encyclopedia</em>. Accessed August 2026. <a href="https://en.wikipedia.org/wiki/Oral-formulaic_composition" target="_blank" rel="noopener">wikipedia.org</a></p>
+<p>&ldquo;Redeeming the Text: Latin Poetry and the Hermeneutics of Reception.&rdquo; <em>Bryn Mawr Classical Review</em>. Accessed August 2026. <a href="https://bmcr.brynmawr.edu/2007/2007.07.19/" target="_blank" rel="noopener">bmcr.brynmawr.edu</a></p>
+<p>Seneca, Lucius Annaeus. <em>Moral Letters to Lucilius (Epistulae Morales)</em>, Letter 88: &ldquo;On Liberal and Vocational Studies.&rdquo; Translated by Richard Mott Gummere, Loeb Classical Library, 1917&ndash;1925. <a href="https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_88" target="_blank" rel="noopener">wikisource.org</a></p>
+<p>Stanford, W. B. <em>The Ulysses Theme: A Study in the Adaptability of a Traditional Hero</em>. 2nd ed. University of Michigan Press, 1968.</p>
+<p><em>Variety</em>. &ldquo;&lsquo;The Odyssey' Cast Guide: All the Heroes, Gods and Characters in Christopher Nolan's Greek Epic.&rdquo; Accessed August 2026. <a href="https://variety.com/lists/odyssey-cast-characters-christopher-nolan/" target="_blank" rel="noopener">variety.com</a></p>
+<p>Wikipedia contributors. &ldquo;The Odyssey (2026 film).&rdquo; <em>Wikipedia, The Free Encyclopedia</em>. Accessed August 2026. <a href="https://en.wikipedia.org/wiki/The_Odyssey_(2026_film)" target="_blank" rel="noopener">wikipedia.org</a></p>
+</div>
+</script>
 
 <script>
 (function(){
@@ -640,7 +732,13 @@ var SCREENPLAYS=[
    b:'Trapped in a nightmarish hallway that repeats itself, a terrified young man is hunted by whispers and shadows that blur the line between guilt and reality, until he faces the monster wearing his own face.',
    link:'https://www.youtube.com/watch?v=Wjk_jA_h4Eg',linkText:'Watch the film'}
 ];
-var ESSAYS=[]; /* add {t:'Title',m:'2026 · Writing',c:'#1C5744',s:'One line',b:'Full text or summary',link:'',linkText:''} */
+var ESSAYS=[
+  {t:'Nolan\u2019s Odyssey Is Not About Odysseus',
+   m:'2026 \u00b7 Essay',
+   c:'#1C5744',
+   s:'Two thousand years ago Seneca complained that people read the Odyssey for the map instead of the mind. We are still doing it.',
+   src:'w-odyssey'}
+]; /* add {t:'Title',m:'2026 \u00b7 Writing',c:'#1C5744',s:'One line',b:'Full text or summary',link:'',linkText:''} */
 var FAVOURITES=[
   {t:'Taste of Cherry',m:'Abbas Kiarostami · 1997',imdb:'tt0120265'},
   {t:'Cléo from 5 to 7',m:'Agnès Varda · 1962',imdb:'tt0055852'},
@@ -750,6 +848,20 @@ document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListene
 [bookM,playM].forEach(function(m){ m.addEventListener('click',function(e){ if(e.target===m) closeM(); }); });
 addEventListener('keydown',function(e){ if(e.key==='Escape') closeM(); });
 
+/* ---- reading protection: discourages casual copying of my writing ---- */
+(function(){
+  var sp=document.getElementById('bk-spread');
+  function guarded(){ return sp.classList.contains('protect'); }
+  ['copy','cut','contextmenu','dragstart','selectstart'].forEach(function(ev){
+    sp.addEventListener(ev,function(e){ if(guarded()) e.preventDefault(); });
+  });
+  addEventListener('keydown',function(e){
+    if(!bookM.classList.contains('open')||!guarded()) return;
+    var k=(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&(k==='c'||k==='x'||k==='a'||k==='s'||k==='p'||k==='u')){ e.preventDefault(); }
+  });
+})();
+
 document.addEventListener('click',function(e){
   var sp=e.target.closest('.spine');
   if(sp){
@@ -757,10 +869,25 @@ document.addEventListener('click',function(e){
     document.getElementById('bk-m').textContent=it.m||'';
     document.getElementById('bk-t').textContent=it.t||'';
     document.getElementById('bk-s').textContent=it.s||'';
-    document.getElementById('bk-b').textContent=it.b||(sp.dataset.kind==='f'?'From my list of the best films I have ever seen.':'');
-    var a=document.getElementById('bk-a');
-    if(it.link){ a.href=it.link; a.textContent=(it.linkText||'Read')+' ›'; a.style.display=''; }
-    else a.style.display='none';
+    var body=document.getElementById('bk-b'), spread=document.getElementById('bk-spread'),
+        rights=document.getElementById('bk-rights'), tpl=it.src?document.getElementById(it.src):null;
+    body.scrollTop=0; spread.scrollTop=0;
+    if(tpl){
+      body.innerHTML=tpl.textContent;
+      spread.classList.add('protect'); rights.style.display='';
+    }else{
+      body.innerHTML='';
+      var pp=document.createElement('p');
+      pp.textContent=it.b||(sp.dataset.kind==='f'?'From my list of the best films I have ever seen.':'');
+      body.appendChild(pp);
+      spread.classList.remove('protect'); rights.style.display='none';
+    }
+    if(it.link){
+      var a=document.createElement('a');
+      a.className='read'; a.href=it.link; a.target='_blank'; a.rel='noopener';
+      a.textContent=(it.linkText||'Read')+' ›';
+      body.appendChild(a);
+    }
     openM(bookM); return;
   }
   var po=e.target.closest('.poster');
