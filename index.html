@@ -18,10 +18,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>Yasna Moghei | Screenwriter, Filmmaker and Essayist</title>
+<meta name="copyright" content="Yasna Moghei">
 <meta name="description" content="Official site of Yasna Moghei, Iranian Canadian screenwriter and filmmaker based in Toronto. Short films Runaway, The Parking Garage and 59th Floor, plus screenplays and essays.">
 <meta name="author" content="Yasna Moghei">
 <link rel="canonical" href="https://yasnamoghei.github.io/">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="theme-color" content="#0E241C">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Yasna Moghei | Screenwriter and Filmmaker">
@@ -34,7 +35,7 @@
 <meta name="twitter:image" content="https://i.ytimg.com/vi/Wjk_jA_h4Eg/maxresdefault.jpg">
 <link rel="preconnect" href="https://i.ytimg.com">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Yasna Moghei","alternateName":"یسنا موقعی","url":"https://yasnamoghei.github.io/","jobTitle":"Screenwriter and Filmmaker","email":"mailto:yasnamoghei@gmail.com","nationality":"Iranian","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"alumniOf":{"@type":"CollegeOrUniversity","name":"York University"},"knowsAbout":["Screenwriting","Filmmaking","Film Criticism","Essay Writing"],"sameAs":["https://www.linkedin.com/in/yasna-moghei-721903397","https://www.imdb.com/name/nm18232323/","https://vimeo.com/yasnam","https://www.youtube.com/channel/UCfaOUS3uezLduv2SVEKgj0w"]}
+{"@context":"https://schema.org","@type":"Person","name":"Yasna Moghei","alternateName":"یسنا موقعی","url":"https://yasnamoghei.github.io/","jobTitle":"Screenwriter and Filmmaker","email":"mailto:yasnamoghei@gmail.com","nationality":"Iranian","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"Ontario","addressCountry":"CA"},"alumniOf":{"@type":"CollegeOrUniversity","name":"York University"},"knowsAbout":["Screenwriting","Filmmaking","Film Criticism","Essay Writing"],"sameAs":["https://t.me/dunologist","https://www.linkedin.com/in/yasna-moghei-721903397","https://www.imdb.com/name/nm18232323/","https://vimeo.com/yasnam","https://www.youtube.com/channel/UCfaOUS3uezLduv2SVEKgj0w"]}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,19 +148,6 @@
   @media(max-width:520px){.pillar{opacity:.16;width:26px}}
 
   /* ================= CURSOR ================= */
-  @media (hover:hover) and (pointer:fine){html.cursor-on,html.cursor-on *{cursor:none !important}}
-  #cur-dot,#cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:95;border-radius:50%;opacity:0;
-    transition:opacity .35s;will-change:transform}
-  #cur-dot{width:8px;height:8px;background:var(--rose);margin:-4px 0 0 -4px}
-  #cur-ring{width:36px;height:36px;border:1px solid rgba(238,151,164,.75);margin:-18px 0 0 -18px;
-    display:grid;place-items:center;
-    transition:opacity .35s,width .3s var(--ease),height .3s var(--ease),margin .3s var(--ease),background .3s}
-  #cur-ring b{font:600 9px/1 var(--sans);letter-spacing:.14em;color:#fff;opacity:0;transition:opacity .25s}
-  html.cursor-on #cur-dot,html.cursor-on #cur-ring{opacity:1}
-  html.cursor-on #cur-ring.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(238,151,164,.13)}
-  html.cursor-on #cur-ring.play{width:96px;height:96px;margin:-48px 0 0 -48px;background:rgba(110,18,32,.78);
-    border-color:var(--rose)}
-  html.cursor-on #cur-ring.play b{opacity:1}
   #bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:80;
     background:linear-gradient(90deg,var(--red-deep),var(--rose))}
 
@@ -331,6 +319,7 @@
   .books::-webkit-scrollbar{height:6px}
   .books::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:3px}
   .spine{position:relative;flex:0 0 auto;border:0;background:transparent;cursor:pointer;padding:0;margin-right:5px;
+    text-decoration:none;
     display:flex;align-items:center;justify-content:center;border-radius:2px 5px 5px 2px;
     transform-origin:50% 100%;
     box-shadow:0 12px 20px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.07);
@@ -413,6 +402,8 @@
   .big-mail:hover{background-size:100% 2px}
   footer{padding:clamp(28px,4vw,52px) 0 clamp(38px,6vw,80px);color:var(--muted);
     font-size:clamp(11px,.75vw,13px);letter-spacing:.1em;position:relative;z-index:3}
+  footer .rights{margin-top:14px;max-width:62ch;font-size:clamp(11.5px,1.1vw,13px);line-height:1.65;opacity:.75}
+  footer .rights a{color:var(--rose-lg,#E8808F)}
   footer .fa{font-family:var(--nasta);font-size:1.5em;color:var(--rose);margin-left:10px;vertical-align:-.35em}
 
   .rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
@@ -519,8 +510,6 @@
 <button id="skip">Skip intro</button>
 
 <div id="bar"></div>
-<div id="cur-ring"><b>PLAY</b></div>
-<div id="cur-dot"></div>
 
 <nav id="nav">
   <div class="inner">
@@ -556,9 +545,9 @@
     <h2><span class="rw"><i>Who</i></span> <span class="rw"><i><em>I am</em></i></span></h2>
     <div class="about-grid">
       <div>
-        <p>I am a screenwriting student at York University and a filmmaker working across scripts, short films and essays. I am drawn to stories that move across borders: the literal ones people cross, and the emotional ones they carry with them long after.</p>
-        <p>My films tend to start as questions rather than plots. What a person keeps, what they leave behind, and how memory rearranges both. Alongside screenwriting I make short films and cinematic experiments, and I write essays and criticism about the films that shape how I see.</p>
-        <p>This page collects that work in one place. If something here interests you, I would like to hear from you.</p>
+        <p>I'm a screenwriting student at York University, in Toronto. So far that has meant a horror short about a man hunted down a hallway by something wearing his own face, a comedy I made with friends about being too tired to find your car, and a nearly silent film set on the 59th floor of an empty building. I'm not going to pretend they add up to a thesis yet.</p>
+        <p>I grew up on Iranian cinema and never learned to separate it from everything else, so Mehrjui and Kiarostami sit on the same shelf as Villeneuve and Chaplin, and I will defend that shelf. Mostly I'm interested in what a place does to a person when nobody else is in it, which is probably why so much of what I write happens in corridors, elevators and empty floors.</p>
+        <p>Alongside the films I write, about movies and around them, and I'm still working out whether that's criticism or just thinking out loud in public. Either way it's here, and I'd rather hear what you make of it than be told it's good.</p>
       </div>
       <dl class="facts">
         <dt>Based in</dt><dd>Toronto, Canada</dd>
@@ -592,11 +581,11 @@
 <!-- ============ SECTION: LIBRARY ============ -->
 <section id="library">
   <div class="wrap rv">
-    <div class="eyebrow">Screenplays, Essays &amp; Favourites</div>
+    <div class="eyebrow">Screenplays, Writings &amp; Favourites</div>
     <h2><span class="rw"><i>The</i></span> <span class="rw"><i><em>shelf</em></i></span></h2>
     <div class="shelfunit">
       <div class="shelf"><div class="label">Screenplays</div><div class="books" id="sh-scripts"></div><div class="plank"></div></div>
-      <div class="shelf"><div class="label">Essays</div><div class="books" id="sh-essays"></div><div class="plank"></div></div>
+      <div class="shelf"><div class="label">Writings</div><div class="books" id="sh-essays"></div><div class="plank"></div></div>
       <div class="shelf"><div class="label">Favourite books &amp; films</div><div class="books" id="sh-favs"></div><div class="plank"></div></div>
     </div>
   </div>
@@ -609,6 +598,7 @@
     <h2><span class="rw"><i>Get in</i></span> <span class="rw"><i><em>touch</em></i></span></h2>
     <a class="big-mail" href="mailto:yasnamoghei@gmail.com">yasnamoghei@gmail.com</a>
     <div class="links">
+      <a class="btn" href="https://t.me/dunologist" target="_blank" rel="noopener"><span>Telegram</span></a>
       <a class="btn" href="https://www.linkedin.com/in/yasna-moghei-721903397" target="_blank" rel="noopener"><span>LinkedIn</span></a>
       <a class="btn" href="https://www.imdb.com/name/nm18232323/" target="_blank" rel="noopener"><span>IMDb</span></a>
       <a class="btn" href="https://vimeo.com/yasnam" target="_blank" rel="noopener"><span>Vimeo</span></a>
@@ -617,7 +607,7 @@
   </div>
 </section>
 
-<footer><div class="wrap">&copy; <span id="yr"></span> Yasna Moghei <span class="fa">یسنا موقعی</span></div></footer>
+<footer><div class="wrap">&copy; <span id="yr"></span> Yasna Moghei <span class="fa">یسنا موقعی</span><div class="rights">All screenplays, films, essays and other writing on this site are the original work of Yasna Moghei and are protected by copyright. No part may be copied, reproduced, adapted, performed or used to train machine learning models without written permission. For permissions, write to <a href="mailto:yasnamoghei@gmail.com">yasnamoghei@gmail.com</a>.</div></div></footer>
 
 <!-- ============ MODALS ============ -->
 <div class="modal" id="book" role="dialog" aria-modal="true" aria-label="Book">
@@ -649,21 +639,21 @@ var SCREENPLAYS=[
    b:'Trapped in a nightmarish hallway that repeats itself, a terrified young man is hunted by whispers and shadows that blur the line between guilt and reality, until he faces the monster wearing his own face.',
    link:'https://www.youtube.com/watch?v=Wjk_jA_h4Eg',linkText:'Watch the film'}
 ];
-var ESSAYS=[]; /* add {t:'Title',m:'2026 · Essay',c:'#1C5744',s:'One line',b:'Full text or summary',link:'',linkText:''} */
+var ESSAYS=[]; /* add {t:'Title',m:'2026 · Writing',c:'#1C5744',s:'One line',b:'Full text or summary',link:'',linkText:''} */
 var FAVOURITES=[
-  {t:'Taste of Cherry',m:'Abbas Kiarostami · 1997'},
-  {t:'Cléo from 5 to 7',m:'Agnès Varda · 1962'},
-  {t:'Dune',m:'Denis Villeneuve · 2021'},
-  {t:'Dune: Part Two',m:'Denis Villeneuve · 2024'},
-  {t:'Oppenheimer',m:'Christopher Nolan · 2023'},
-  {t:'A Woman Is a Woman',m:'Jean-Luc Godard · 1961'},
-  {t:'The Cow',m:'Dariush Mehrjui · 1969'},
-  {t:'Conclave',m:'Edward Berger · 2024'},
-  {t:'In the Shadow of the Cypress',m:'Sohani & Molayemi · 2023'},
-  {t:'The Night of the Hunter',m:'Charles Laughton · 1955'},
-  {t:'Hugo',m:'Martin Scorsese · 2011'},
-  {t:'Modern Times',m:'Charlie Chaplin · 1936'},
-  {t:'Ganj-e Qarun',m:'Siamak Yasemi · 1965'}
+  {t:'Taste of Cherry',m:'Abbas Kiarostami · 1997',imdb:'tt0120265'},
+  {t:'Cléo from 5 to 7',m:'Agnès Varda · 1962',imdb:'tt0055852'},
+  {t:'Dune',m:'Denis Villeneuve · 2021',imdb:'tt1160419'},
+  {t:'Dune: Part Two',m:'Denis Villeneuve · 2024',imdb:'tt15239678'},
+  {t:'Oppenheimer',m:'Christopher Nolan · 2023',imdb:'tt15398776'},
+  {t:'A Woman Is a Woman',m:'Jean-Luc Godard · 1961',imdb:'tt0055572'},
+  {t:'The Cow',m:'Dariush Mehrjui · 1969',imdb:'tt0064356'},
+  {t:'Conclave',m:'Edward Berger · 2024',imdb:'tt20215234'},
+  {t:'In the Shadow of the Cypress',m:'Sohani & Molayemi · 2023',imdb:'tt28768883'},
+  {t:'The Night of the Hunter',m:'Charles Laughton · 1955',imdb:'tt0048424'},
+  {t:'Hugo',m:'Martin Scorsese · 2011',imdb:'tt0970179'},
+  {t:'Modern Times',m:'Charlie Chaplin · 1936',imdb:'tt0027977'},
+  {t:'Ganj-e Qarun',m:'Siamak Yasemi · 1965',imdb:'tt0434044'}
 ];
 /* ============================================================ */
 
@@ -726,12 +716,18 @@ function spine(item,i,kind){
   var cloth=item.c||CLOTH[i%CLOTH.length];
   var fs=len>24?10.5:(len>15?12:13.5);
   var lean=(i>1 && i%7===6)?' lean':'';
+  var style='--cloth:'+cloth+';height:clamp('+Math.round(h)+'px,'+(12+(i%3))+'vw,'+Math.round(h*1.5)+'px);'
+    + 'width:clamp('+Math.round(w)+'px,4.4vw,'+Math.round(w*1.5)+'px)';
+  var inner='<span class="cloth"></span><span class="bands"></span><span class="pages"></span>'
+    + '<span class="ttl" style="font-size:clamp('+fs+'px,'+(fs/14)+'vw,'+(fs+3)+'px)">'+item.t+'</span>';
+  /* a favourite opens its IMDb page; everything else opens as a book */
+  if(item.imdb){
+    return '<a class="spine'+lean+'" href="https://www.imdb.com/title/'+item.imdb+'/" target="_blank" '
+      + 'rel="noopener" aria-label="'+item.t+' on IMDb" title="'+item.t+' on IMDb" style="'+style+'">'
+      + inner + '</a>';
+  }
   return '<button class="spine'+lean+'" data-kind="'+kind+'" data-i="'+i+'" aria-label="'+item.t+'" '
-    + 'style="--cloth:'+cloth+';height:clamp('+Math.round(h)+'px,'+(12+(i%3))+'vw,'+Math.round(h*1.5)+'px);'
-    + 'width:clamp('+Math.round(w)+'px,4.4vw,'+Math.round(w*1.5)+'px)">'
-    + '<span class="cloth"></span><span class="bands"></span><span class="pages"></span>'
-    + '<span class="ttl" style="font-size:clamp('+fs+'px,'+(fs/14)+'vw,'+(fs+3)+'px)">'+item.t+'</span>'
-    + '</button>';
+    + 'style="'+style+'">' + inner + '</button>';
 }
 function fill(el,arr,kind,empty){
   if(!arr.length){ el.innerHTML='<div class="emptyshelf">'+empty+'</div>'; return; }
@@ -773,7 +769,6 @@ document.addEventListener('click',function(e){
       + 'title="'+f.t+'" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     document.getElementById('pl-t').textContent=f.t+' — '+f.m;
     openM(playM);
-    if(ring) ring.classList.remove('play');
   }
 });
 
@@ -844,25 +839,7 @@ addEventListener('mousemove',function(e){
   root.classList.add('spot-on');
 },{passive:true});
 
-var ring=null;
 if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!reduce){
-  var dot=document.getElementById('cur-dot'); ring=document.getElementById('cur-ring');
-  var tx=0,ty=0,rx=0,ry=0;
-  addEventListener('mousemove',function(e){
-    tx=e.clientX; ty=e.clientY; dot.style.transform='translate('+tx+'px,'+ty+'px)';
-    root.classList.add('cursor-on');
-  },{passive:true});
-  (function loop(){ rx+=(tx-rx)*.16; ry+=(ty-ry)*.16;
-    ring.style.transform='translate('+rx+'px,'+ry+'px)'; requestAnimationFrame(loop); })();
-  document.addEventListener('mouseover',function(e){
-    if(e.target.closest('.poster')) ring.classList.add('play');
-    else if(e.target.closest('a,button,.spine')) ring.classList.add('big');
-  });
-  document.addEventListener('mouseout',function(e){
-    if(e.target.closest('.poster')) ring.classList.remove('play');
-    else if(e.target.closest('a,button,.spine')) ring.classList.remove('big');
-  });
-  document.addEventListener('mouseleave',function(){ root.classList.remove('cursor-on'); });
   document.querySelectorAll('.btn').forEach(function(b){
     b.addEventListener('mousemove',function(e){
       var r=b.getBoundingClientRect();
