@@ -1864,6 +1864,7 @@ function lbRender(){
   if(window.__hls){ window.__hls.destroy(); window.__hls=null; }
   if(m.yt) lbm.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+m.yt+'?rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="'+esc(lbS.t)+'"></iframe>';
   else if(m.hls){ lbm.innerHTML='<video'+(m.poster?' poster="'+m.poster+'"':'')+' controls playsinline preload="metadata"></video>'; var hv=lbm.querySelector('video');
+    hv.addEventListener('error',function(){ if(/\.m3u8/.test(hv.currentSrc||hv.src)&&m.mp4) hv.src=m.mp4; });
     if(hv.canPlayType('application/vnd.apple.mpegurl')) hv.src=m.hls;
     else loadHls(function(ok){ if(!document.body.contains(hv)) return;
       if(ok&&window.Hls&&Hls.isSupported()){ var h=new Hls({capLevelToPlayerSize:true}); window.__hls=h;
