@@ -40,7 +40,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
 <style>
   /* ================= COLOURS ================= */
   :root{
@@ -526,8 +526,8 @@
     display:flex;gap:.28em;align-items:baseline;margin-bottom:clamp(8px,1.4vw,18px);color:#F4E9DA;
     opacity:0;transform:translateY(12px);transition:opacity 1s var(--ease) .2s,transform 1s var(--ease) .2s}
   html.ready .rot{opacity:1;transform:none}
-  .rot-w{position:relative;display:inline-block;height:1.05em;overflow:hidden;min-width:7ch;color:var(--rose-lg)}
-  .rot-w span{position:absolute;left:0;top:0;white-space:nowrap;transform:translateY(110%);transition:transform .7s var(--ease)}
+  .rot-w{position:relative;display:inline-grid;height:1.05em;overflow:hidden;vertical-align:top;color:var(--rose-lg)}
+  .rot-w span{grid-area:1/1;white-space:nowrap;transform:translateY(110%);transition:transform .7s var(--ease)}
   .rot-w span.on{transform:none}
   .rot-w span.out{transform:translateY(-110%)}
   .btn.solid{background:var(--red-deep);border-color:var(--red-deep)} .btn.solid::before{background:var(--red)}
@@ -708,9 +708,9 @@
   #lbox .lb{position:relative;width:min(1100px,100%);height:min(86vh,900px);display:flex;flex-direction:column;
     transform:scale(.94);opacity:0;transition:transform .5s var(--ease),opacity .4s}
   #lbox.open .lb{transform:none;opacity:1}
-  #lbox .lbm{flex:1;min-height:0;display:grid;place-items:center;position:relative}
-  #lbox .lbm img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
-  #lbox .lbm iframe,#lbox .lbm video{width:100%;aspect-ratio:16/9;max-height:100%;border:0;background:#000}
+  #lbox .lbm{flex:1;min-height:0;position:relative;overflow:hidden}
+  #lbox .lbm img{position:absolute;inset:0;margin:auto;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  #lbox .lbm iframe,#lbox .lbm video{position:absolute;inset:0;margin:auto;width:100%;height:auto;aspect-ratio:16/9;max-height:100%;border:0;background:#000}
   #lbox .lbc{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:16px;color:var(--ink)}
   #lbox .lbc b{font-family:var(--serif);font-size:clamp(18px,1.6vw,26px);font-weight:600}
   #lbox .lbc span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
@@ -794,7 +794,19 @@
     transition:-webkit-text-stroke-color .5s,transform .8s var(--ease)}
   .ecover:hover .cnum{-webkit-text-stroke-color:rgba(244,233,216,.6);transform:translateY(-6px)}
 
-  #lbox .lbm iframe.ig{width:min(400px,100%);aspect-ratio:9/16;height:auto;max-height:100%;background:#fff;border-radius:6px}
+  #lbox .lbm iframe.ig{inset:0 auto auto 50%;margin:0;transform:translateX(-50%);width:auto;height:100%;max-width:100%;aspect-ratio:9/16;max-height:100%;background:#fff;border-radius:6px}
+  /* ---- screenplays in the book: industry layout, scaled to the page ---- */
+  .flow .sp p{font-family:'Courier Prime','Courier New',Courier,monospace;font-size:clamp(12px,.86vw,14.5px);line-height:1.42;color:#261d15;margin:0 0 1em}
+  .flow .sp .tp{font-family:inherit;font-size:clamp(13px,.95vw,15px);line-height:1.6;color:#4a3a2b}
+  .flow .sp .tp b{display:block;font-size:clamp(9.5px,.7vw,11px);letter-spacing:.2em;text-transform:uppercase;color:#8E1626;margin-bottom:2px}
+  .flow .sp .wb{text-align:center;margin:1.8em 0 2.4em;letter-spacing:.04em}
+  .flow .sp .sl{font-weight:700;text-transform:uppercase;margin:1.7em 0 1em;break-after:avoid;-webkit-column-break-after:avoid}
+  .flow .sp .sl:first-of-type{margin-top:0}
+  .flow .sp .ch{margin:1.1em 0 0 37%;text-transform:uppercase;break-after:avoid;-webkit-column-break-after:avoid}
+  .flow .sp .pa{margin:0 16% 0 28%;break-after:avoid;-webkit-column-break-after:avoid}
+  .flow .sp .dl{margin:0 14% 1em 17%}
+  .flow .sp .tr{text-align:right;text-transform:uppercase;margin:1.2em 0}
+  .flow .sp .end{text-align:center;font-weight:700;letter-spacing:.2em;margin-top:2.4em}
 
 </style>
 </head>
@@ -987,7 +999,6 @@
     <div class="shead rv"><span class="idx">04</span><h2 class="dsp"><span class="ln"><span>On stage</span></span></h2>
       <p class="sub">Two plays and a charity concert in Shiraz. Click one to see it.</p></div>
     <div class="prods" id="prods"></div>
-    <p class="stage-note rv"><i></i>Photos and video from the performances are on their way.</p>
   </div>
 </section>
 
@@ -1073,6 +1084,255 @@
       <div class="lbn"><button class="rbtn" id="lbP" aria-label="Previous">&#8592;</button><button class="rbtn" id="lbN" aria-label="Next">&#8594;</button></div></div></div>
 </div>
 
+<script type="text/x-essay" id="w-runaway">
+<div class="sp">
+<p class="tp"><b>Logline</b> Trapped in a nightmarish hallway that repeats itself, a terrified young man is hunted by whispers and shadows that blur the line between guilt and reality — until he faces the monster wearing his own face.</p>
+<p class="tp"><b>Trigger warnings</b> Psychological horror, implied violence, implied child endangerment.</p>
+<p class="tp wb">Written by<br>Yasna Moghei</p>
+<p class="sl">INT. HALLWAY — NIGHT</p>
+<p class="ac">A long, narrow residential hallway — the kind that shouldn’t feel ominous, but does.</p>
+<p class="ac">Its proportions are slightly off. Too long. Too narrow. The ceiling a little too low. It feels like the walls lean inward when Jason isn’t looking.</p>
+<p class="ac">The wallpaper is faded, yellowed with age, patterned with small flowers that have lost their color. Patches peel away like shedding skin, revealing faint scribbles beneath — ghosts of drawings, uneven lines, smudges of red, blue, green. The kind a child would make on a wall they thought no one would notice.</p>
+<p class="ac">A single flickering ceiling bulb sways slightly, as if disturbed by a breeze that doesn’t exist. Every flicker distorts the shadows, stretching them unnaturally, contracting them, breathing with them.</p>
+<p class="ac">A deep silence, thick enough to press against the ears.</p>
+<p class="ac">Then—</p>
+<p class="ch">FOOTSTEPS.</p>
+<p class="dl">Heavy. Uneven. Echoing far louder than they should in a hallway this small.</p>
+<p class="ac">JASON (20) stumbles into frame.</p>
+<p class="ac">Jason looks like he hasn’t slept in days. Dark circles carve into his face, a faint tremor in his hands, sweat beading at his temples. His shirt is torn at the shoulder. His hair is damp, disheveled. Dirt clings to his arms and under his nails.</p>
+<p class="ac">He stops.</p>
+<p class="ac">Listens.</p>
+<p class="ac">His breathing fogs in the stale air — not because it’s cold, but because the air feels wrong, thick, as if the hallway itself exhales with him.</p>
+<p class="ac">Jason reaches the nearest door.</p>
+<p class="ac">He tries the doorknob.</p>
+<p class="ac">Locked.</p>
+<p class="ac">He moves to the next — each handle colder than the last.</p>
+<p class="ac">Locked.</p>
+<p class="ac">Locked.</p>
+<p class="ac">Locked.</p>
+<p class="ac">His breathing becomes harsher, more frantic. The hallway seems endless — but also claustrophobically close. Every step he takes echoes like it's coming from behind him rather than beneath him.</p>
+<p class="ac">Behind him, faint layered whispers rise. Not fully formed words, but fragments — a girl’s breath, a boy’s tremor, an adult voice buried deep inside. The tones overlap, distort, turn inside-out.</p>
+<p class="ac">Jason presses a hand against the peeling wall. The wallpaper curls beneath his touch, revealing deeper crayon marks — circles, stick figures, a sun with too many rays.</p>
+<p class="ch">JASON</p>
+<p class="pa">(whispers, trembling)</p>
+<p class="dl">Not again… please…</p>
+<p class="ac">A sudden BANG travels the entire length of the hallway, as if every door slammed at once.</p>
+<p class="ac">Jason jumps.</p>
+<p class="ac">Then — a single door ahead creaks open slowly. The hinges drag long and low.</p>
+<p class="ac">Jason hesitates…</p>
+<p class="ac">Then rushes toward it.</p>
+<p class="ac">He steps inside.</p>
+<p class="sl">INT. ROOM A — CONTINUOUS</p>
+<p class="ac">A small bedroom, stripped of anything comforting.</p>
+<p class="ac">The same wallpaper continues inside, but more damaged. Long tears run down the wall like old wounds. The air smells damp — fabric, dust, something metallic underneath.</p>
+<p class="ac">A dim table lamp in the corner flickers weakly.</p>
+<p class="ac">In the far corner sits a GIRL (12).</p>
+<p class="ac">She is curled tight, knees pulled to her chest, arms wrapped around herself. Her pajama shirt is dusty, pattern faded. Her hair clings to her face, damp with sweat. Her breathing is fast, shallow, painful.</p>
+<p class="ac">Jason freezes — caught between recognition and confusion.</p>
+<p class="ac">He kneels gently.</p>
+<p class="ch">JASON (CONT'D)</p>
+<p class="dl">Hey… hey… you’re okay…</p>
+<p class="pa">(beat)</p>
+<p class="dl">Do you… know me?</p>
+<p class="ac">The Girl doesn’t answer.</p>
+<p class="ac">She just stares — directly at him, through him, around him. Recognition… and accusation.</p>
+<p class="ac">On the wall behind her, in thick multicolored crayon:</p>
+<p class="ac">“IT’S YOU.”</p>
+<p class="ac">Jason doesn’t see it.</p>
+<p class="ac">Silence swallows the room — even Jason’s breathing feels muted, absorbed by the walls.</p>
+<p class="ac">He backs away and slips out.</p>
+<p class="sl">INT. HALLWAY — CONTINUOUS</p>
+<p class="ac">The hallway looks the same — but the atmosphere is different.</p>
+<p class="ac">The overhead bulb flickers slower now, heavier, like a heartbeat.</p>
+<p class="ac">Shadows tremble with each pulse.</p>
+<p class="ac">A handprint smears the wall beside Jason — fresh, faintly glistening.</p>
+<p class="ac">It’s unmistakably his.</p>
+<p class="ac">But he never touched the wall there.</p>
+<p class="ac">He staggers backward as whispers pour through the hallway like drifting fog.</p>
+<p class="ac">A door to his left creaks open.</p>
+<p class="ac">Jason swallows hard and enters.</p>
+<p class="sl">INT. ROOM B — CONTINUOUS</p>
+<p class="ac">This room feels colder.</p>
+<p class="ac">Not visually — just a subtle bite in the air.</p>
+<p class="ac">The ambient light has a bluish tint, as though something unseen casts it.</p>
+<p class="ac">A BOY (8) sits against the wall, clothes matching the Girl’s — same fabric texture, same faded style.</p>
+<p class="ac">His posture is rigid, arms wrapped tightly around his legs. His knuckles pale from the pressure.</p>
+<p class="ac">A small framed photograph lies in his lap, slightly bent.</p>
+<p class="ac">Jason approaches cautiously.</p>
+<p class="ac">He crouches.</p>
+<p class="ac">The Boy doesn’t lift his head.</p>
+<p class="ac">Jason gently picks up the photo.</p>
+<p class="ac">In it:</p>
+<p class="ac">Jason. The Girl. The Boy.</p>
+<p class="ac">Standing in a backyard under warm afternoon sun. All smiling — a moment that feels impossibly distant.</p>
+<p class="ac">Jason's hands tremble.</p>
+<p class="ac">His jaw tightens.</p>
+<p class="ch">BOY</p>
+<p class="pa">(quiet, barely formed)</p>
+<p class="dl">You were supposed to protect us.</p>
+<p class="ac">The Boy never looks up.</p>
+<p class="ac">Jason stumbles back.</p>
+<p class="ac">On the wall behind the Boy, a clock hangs crooked.</p>
+<p class="ch">3:07.</p>
+<p class="dl">The second hand unmoving.</p>
+<p class="ac">Jason fumbles for the door and slips out.</p>
+<p class="sl">INT. HALLWAY — CONTINUOUS</p>
+<p class="ac">Jason runs.</p>
+<p class="ac">He sprints past the same torn patch of wallpaper — again.</p>
+<p class="ac">Then again.</p>
+<p class="ac">The hallway bends subtly, curving in ways it shouldn’t, recoiling as if alive.</p>
+<p class="ac">More handprints appear on the walls — identical, repeating like a malfunction.</p>
+<p class="ac">The whispers merge, forming a single voice:</p>
+<p class="ch">VOICES (O.S.)</p>
+<p class="dl">JASON.</p>
+<p class="ac">He collapses to his knees.</p>
+<p class="ac">The shadows around him shiver sharply, reacting to his breath.</p>
+<p class="ac">He forces himself up.</p>
+<p class="ac">There is only one door left.</p>
+<p class="ac">He grabs the handle.</p>
+<p class="sl">INT. ROOM C — CONTINUOUS</p>
+<p class="ac">Jason slams the door shut and leans against it, shaking. His breath is uneven, almost breaking. His body stays tense as if expecting the door to burst open at any moment. He runs a trembling hand through his hair, trying and failing to steady himself.</p>
+<p class="ac">The room is almost empty.</p>
+<p class="ac">Across from him, a tall mirror leans against the wall. Its surface faintly ripples, like disturbed water.</p>
+<p class="ac">Jason notices it after a moment. He hesitates, then slowly walks toward it. Each step feels cautious, reluctant. He looks like someone forcing himself to confront something he doesn't want to see.</p>
+<p class="ac">He stops in front of the mirror and looks up.</p>
+<p class="ac">His reflection appears slightly delayed, as if struggling to keep up with him. Jason blinks, confused, and shifts his weight. Again, the reflection reacts a moment too late.</p>
+<p class="ac">Jason stiffens. Fear replaces confusion.</p>
+<p class="ac">He steps back slightly.</p>
+<p class="ac">The reflection does not.</p>
+<p class="ac">Instead, the reflection slowly tilts its head, studying him. Calm. Curious. Almost amused. The stillness of the reflection contrasts sharply with Jason’s frantic energy.</p>
+<p class="ac">Jason’s breathing becomes shaky again.</p>
+<p class="ac">Then the reflection changes.</p>
+<p class="ac">Blood stains its clothes and skin. Its posture relaxes, shoulders loose, comfortable. Where Jason looks exhausted and terrified, this version looks at ease, completely in control. Killer Jason smiles. Not wildly. Just a small, knowing grin, like someone enjoying a private joke.</p>
+<p class="ch">KILLER JASON (IN THE REFLECTION)</p>
+<p class="dl">You were supposed to protect us.</p>
+<p class="ac">Jason shakes his head violently, panic taking over.</p>
+<p class="ch">JASON</p>
+<p class="pa">(whispers)</p>
+<p class="dl">No...</p>
+<p class="ac">Killer Jason casually adjusts something draped over his shoulders, handling it as if it were nothing unusual. His movements are smooth and deliberate, almost graceful. He shows no fear, no urgency. He takes his time, watching Jason’s fear grow.</p>
+<p class="ac">Jason backs away, stumbling slightly, his breath hitching.</p>
+<p class="ac">His eyes dart around the room, searching for escape.</p>
+<p class="ac">Killer Jason steps forward inside the reflection, slow and confident, closing the distance. His expression never loses that calm certainty.</p>
+<p class="ac">Jason retreats further, overwhelmed, barely able to keep his footing.</p>
+<p class="ac">Suddenly the mirror’s surface ripples violently.</p>
+<p class="ac">Killer Jason lunges forward.</p>
+<p class="ac">Jason screams as he falls backward out of frame.</p>
+<p class="sl">INT. HALLWAY — SILENCE</p>
+<p class="ac">Everything is still. The hallway appears untouched, exactly as it was before.</p>
+<p class="ac">The overhead light flickers gently.</p>
+<p class="ac">The clock on the wall reads 3:07.</p>
+<p class="ac">Jason stands motionless in the center of the hallway, eyes closed. His chest rises and falls slowly.</p>
+<p class="ac">His breathing is calm now. Rhythmic. Peaceful.</p>
+<p class="ac">The light flickers once more.</p>
+<p class="ac">Darkness swallows the hallway.</p>
+<p class="ac">CUT TO BLACK.</p>
+</div>
+</script>
+<script type="text/x-essay" id="w-1357">
+<div class="sp">
+<p class="tp wb">Written by<br>Yasna Moghei</p>
+<p class="sl">EXT. KAHRIZAK FORENSIC CENTER – DAWN</p>
+<p class="ac">A pale, bruised dawn hangs over the compound. The sky looks swollen, as if it has cried all night.</p>
+<p class="ac">Wind sweeps across the concrete yard, carrying dust, disinfectant, and the metallic scent of dried blood. The air feels heavy, like it’s holding its breath.</p>
+<p class="ac">Families stand in a long, unmoving line outside the metal gates. Women clutch photographs so tightly the edges bend.</p>
+<p class="ac">Men hold ID cards with trembling fingers. Everyone wears hijab, not out of devotion, but because fear has become a uniform.</p>
+<p class="ac">No one speaks. Grief sits on their shoulders like a physical weight.</p>
+<p class="ac">Inside the gates, the yard is a geometry of death: Rows of black body bags, arranged with bureaucratic precision.</p>
+<p class="ac">Workers in military-style uniforms drag the bags across the ground. Plastic scrapes concrete. Boots thud. The sound is cold, mechanical, like a factory line.</p>
+<p class="ac">A zipper opens. A mother collapses. A zipper closes. Next.</p>
+<p class="ac">The wind shifts. A sour smell rises, disinfectant, blood, and something older, like rusted metal and grief.</p>
+<p class="sl">INT. BODY BAG – TOTAL DARKNESS</p>
+<p class="ac">No light. No space. Just the suffocating press of plastic against skin. A shallow breath trembles in the darkness.</p>
+<p class="ch">BOY (V.O.)</p>
+<p class="dl">I don’t know if I’m alive… or if I’m already one of them.</p>
+<p class="ac">His heartbeat is loud in his ears, too loud. He tries to quiet it, as if the executioner outside might hear it through layers of plastic and flesh.</p>
+<p class="ac">Bodies are stacked around him. Their weight presses in from every direction. He can feel the cold stiffness of an arm against his ribs. He doesn’t know whose.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">Maybe I’m dead and my body just hasn’t understood yet.</p>
+<p class="ac">He shifts a millimetre, just enough to feel the plastic tighten across his face. He freezes.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">We went to protest. Just saying what we wanted. Just walking. Just wanting to live like normal people.</p>
+<p class="ac">A memory flickers, bright, chaotic, too alive compared to this darkness.</p>
+<p class="sl">FLASHBACK – EXT. STREET – DAY</p>
+<p class="ac">Crowds chanting. A girl on her father’s shoulders, smiling. A boy handing out water bottles. A fragile sense of possibility.</p>
+<p class="ac">Then, the first shot. Then the second. Then rooftop gunmen. Then screams.</p>
+<p class="ac">People run. Children fall. Mothers call names swallowed by chaos.</p>
+<p class="sl">BACK TO BODY BAG</p>
+<p class="ch">BOY (V.O.)</p>
+<p class="dl">Blood on the streets where I used to walk every day. And suddenly we weren’t people anymore. We were enemies.</p>
+<p class="ac">A groan from somewhere close. Then a gunshot. Then silence so complete it feels like the world is holding its breath.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">Sometimes someone cries. Then a shot comes. Final bullet for the wounded who survived the first one.</p>
+<p class="ac">He forces his body to go still. Still like the dead. Still like the ones he’s lying between.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">Dead people don’t move. Dead people don’t cry.</p>
+<p class="ac">Another gunshot. He counts in his head, carving each number into memory like a gravestone.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">One hundred shots so far. One hundred souls freed from pain.</p>
+<p class="sl">EXT. FORENSIC YARD – CONTINUOUS</p>
+<p class="ac">A SOLDIER, face hidden behind a mask, a keffiyeh wrapped around his hand, walks the rows.</p>
+<p class="ac">He opens a bag. A faint breath escapes from inside. He raises his gun. BANG.</p>
+<p class="ac">Blood splashes onto the next bag. He wipes his hand with the keffiyeh, almost ritualistically, and keeps walking.</p>
+<p class="sl">INT. BODY BAG – CONTINUOUS</p>
+<p class="ac">The boy flinches as warm droplets hit the plastic above him.</p>
+<p class="ch">BOY (V.O.)</p>
+<p class="dl">My mouth tastes like blood. I don’t know whose.</p>
+<p class="ac">Footsteps approach. Slow. Heavy. Deliberate. The executioner stops above him.</p>
+<p class="ch">EXECUTIONER (O.S.)</p>
+<p class="dl">(counting) ‘Ashara… ‘Ishroon… Thalathoon… Arba’a… Khamsoun… Sittoon…</p>
+<p class="ac">The boy’s eyes widen.</p>
+<p class="ch">BOY (V.O.)</p>
+<p class="dl">I don’t know what language that is. I don’t know what he’s counting. I only know it means death.</p>
+<p class="ac">The plastic dents inward, a hand pressing down. The boy stops breathing. The hand lingers. Presses harder. A distant shout breaks the moment.</p>
+<p class="ch">SOLDIER (O.S.)</p>
+<p class="dl">Sar-kar! Come here!</p>
+<p class="ac">The hand lifts. Footsteps move away. The boy finally lets out a tiny, trembling breath.</p>
+<p class="sl">FLASHBACK – EXT. STREET – DAY</p>
+<p class="ac">Mani, 17, kneels beside a girl whose leg is bleeding.</p>
+<p class="ch">MANI</p>
+<p class="dl">Go, Baba. I’ll help her. I’ll catch up.</p>
+<p class="ac">His father hesitates, then runs. Mani lifts the girl. A shot hits him in the back. He falls forward, still holding her.</p>
+<p class="ch">BOY (V.O.)</p>
+<p class="dl">He died trying to save her.</p>
+<p class="sl">FLASHBACK – EXT. HIGHWAY – DAY</p>
+<p class="ac">A car stuck in traffic. A father driving. A mother. Two daughters in the backseat. Soldiers surround the car. Set it on fire. Shoot into it.</p>
+<p class="ch">BOY (V.O.)</p>
+<p class="dl">They said they wanted it to be a lesson.</p>
+<p class="ac">The mother dies first. The girls scream inside the burning car.</p>
+<p class="sl">FLASHBACK – EXT. FORENSIC YARD – DAY</p>
+<p class="ac">A father runs from bag to bag, unzipping them with shaking hands.</p>
+<p class="ch">FATHER</p>
+<p class="dl">Sepehr… Sepehr jan… where are you?</p>
+<p class="ch">BOY (V.O.)</p>
+<p class="dl">Woe to a father searching for his son among the nameless dead.</p>
+<p class="sl">INT. BODY BAG – BACK TO PRESENT</p>
+<p class="ac">The boy’s breathing grows shallow. His leg throbs, broken.</p>
+<p class="ac">His throat burns. His head spins.</p>
+<p class="ch">BOY (V.O.)</p>
+<p class="dl">I don’t feel human anymore.</p>
+<p class="ac">A warmth spreads across his side, someone’s arm, or someone’s blood. He can’t tell.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">For a second… it feels like someone is holding me. Like an embrace. Or a final warmth.</p>
+<p class="ac">He doesn’t know which.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">Am I alive… or already gone?</p>
+<p class="ac">He closes his eyes. Then opens them again, a decision forming.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">I have to rise from this grave. I am alive. I have to be.</p>
+<p class="ac">He presses his hand against the plastic. Just enough to feel it. Not enough to be seen.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">I saw their names become eternal. I saw courage in the dark. I saw hope buried but not dead.</p>
+<p class="ac">He gathers what strength he has left.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">Iran will live again. Its story will not end here. Not in this yard. Not in this darkness.</p>
+<p class="ac">A long breath.</p>
+<p class="ch">BOY (V.O.) (CONT'D)</p>
+<p class="dl">For all those who died for me… I have to fight. I have to win.</p>
+<p class="tr">FADE OUT.</p>
+<p class="end">THE END</p>
+</div>
+</script>
 <script type="text/x-essay" id="w-critics">
 <p class="lede">A movie is made for the public. There are exceptions, and they matter. If I make a film only for the eyes of my family, or only for a room full of historians, that is a different thing, and it should be judged differently, because it was aimed at someone specific. But a commercial movie is made for the eyes of the entire world. There are more than eight billion of us now, somewhere north of 8.3 billion by the current count (Worldometer).</p>
 <p>When someone says a movie is good or bad, they are saying it out of their own taste. And among eight billion people, there are no two identical tastes. Taste is a fingerprint. Even if two people overlap by 99.9 percent, they are still not the same person and they still do not want the same thing from a film. Which makes me wonder: if every single person alive but one says a movie is bad, that one person is still not making a mistake.</p>
@@ -1184,7 +1444,11 @@ var SCREENPLAYS=[
   {t:'Runaway',m:'2026 · Short · Produced',c:'#6E1220',
    s:'Screenplay by Yasna Moghei. Directed by Negar Golshanibasir.',
    b:'Trapped in a nightmarish hallway that repeats itself, a terrified young man is hunted by whispers and shadows that blur the line between guilt and reality, until he faces the monster wearing his own face.',
-   link:'https://www.youtube.com/watch?v=Wjk_jA_h4Eg',linkText:'Watch the film'}
+   src:'w-runaway',link:'https://www.youtube.com/watch?v=Wjk_jA_h4Eg',linkText:'Watch the film'},
+  {t:'1357',m:'Short \u00b7 Screenplay',c:'#26303A',
+   s:'Screenplay by Yasna Moghei.',
+   b:'A boy lies among the dead in the yard of the Kahrizak Forensic Center, not sure whether he is still alive, while the soldiers walk the rows.',
+   src:'w-1357'}
 ];
 var ESSAYS=[
   {t:'Criticizing Movies Is Wrong',
@@ -1600,7 +1864,7 @@ if(!reduce) setInterval(function(){
 var PANELS=[
   {h:'Write',d:'Screenplays, essays and film criticism.',go:'#writing',
    imgs:['img/r-poster.jpg',IMG(FILMS[0].id,'maxresdefault'),IMG(FILMS[2].id,'maxresdefault')],
-   list:[{t:'Runaway',s:'Screenplay',a:'book:s:0'}].concat(ESSAYS.map(function(e,i){return {t:e.t,s:'Essay',a:'book:e:'+i};}))},
+   list:[{t:'Runaway',s:'Screenplay',a:'book:s:0'},{t:'1357',s:'Screenplay',a:'book:s:1'}].concat(ESSAYS.map(function(e,i){return {t:e.t,s:'Essay',a:'book:e:'+i};}))},
   {h:'Film',d:'Three shorts made in Toronto since 2025.',go:'#films',
    imgs:[IMG(FILMS[2].id,'maxresdefault'),IMG(FILMS[1].id,'maxresdefault'),IMG(FILMS[0].id,'maxresdefault')],
    list:[{t:'Runaway',s:'Writer · 2026',a:'film:0'},{t:'The Parking Garage',s:'Co-creator · 2025',a:'film:1'},{t:'59th Floor',s:'Writer & director · 2025',a:'film:2'}]},
@@ -1749,7 +2013,8 @@ var TL=[
   {yr:'2022',sm:'20 September',w:'Shiraz · Stage',t:'Classical Monologues for Women and Men',p:'Actor and assistant director. Abu Rayhan Hall, Shiraz City Theatre, with the acting programme at Karnameh Cinema School.',img:MONO[7].s,wide:1,act:'stage:monologues'},
   {yr:'2023',sm:'11 March',w:'Shiraz · Stage',t:'Veronika Decides to Live',p:'Actor, assistant director, and I designed the poster. Two performances at the Ostad Hoodi Playhouse in Azadi Park.',img:VERO[2].s,wide:1,act:'stage:veronika'},
   {yr:'2023',sm:'19 April',w:'Shiraz · Concert',t:'Mehr dar Bahar',p:'Guitar with the Mehr-e-Taban DP Ensemble, in a charity concert for the victims of the Khoy earthquake. Two performances at the Greenland Complex.',img:CONC[0].s,wide:1,act:'stage:concert'},
-  {yr:'2025',sm:'Toronto',w:'Toronto · Screen',t:'59th Floor & The Parking Garage',p:'My first student short, which I wrote and directed, and a comedy I co-created with Bianca Tomasi and Adelaide Zettler.',img:IMG(FILMS[2].id,'maxresdefault'),wide:1,act:'film:2'},
+  {yr:'2025',sm:'Toronto',w:'Toronto · Screen',t:'59th Floor',p:'My first student short, which I wrote and directed.',img:IMG(FILMS[2].id,'maxresdefault'),wide:1,act:'film:2'},
+  {yr:'2025',sm:'Toronto',w:'Toronto · Screen',t:'The Parking Garage',p:'A comedy I co-created with Bianca Tomasi and Adelaide Zettler.',img:IMG(FILMS[1].id,'maxresdefault'),wide:1,act:'film:1'},
   {yr:'2026',sm:'Toronto',w:'Toronto · Screen & page',t:'Runaway, and the first essays',p:'My screenplay, directed by Negar Golshanibasir. The same year I started publishing criticism here.',img:'img/r-poster.jpg',act:'film:0'}
 ];
 document.getElementById('tl').innerHTML=TL.map(function(r){
