@@ -1067,6 +1067,104 @@
   .u-read.single .u-leaf.to-l{transform-origin:100% 50%}
   @media (prefers-reduced-motion:reduce){ .u-read{transition:none} .u-leaf.go{animation-duration:.01s!important} }
 
+/* verse inside a piece: poetry and lyrics she quotes */
+.u-txt p.vs{text-align:center;font-style:italic;color:#5A4735;
+  margin:1.15em auto;max-width:44ch;unicode-bidi:plaintext;line-height:1.75;
+  font-size:clamp(13px,.95vw,15.5px)}
+.u-txt p.vs+p.vs{margin-top:-.75em}
+
+/* ---- Notes from the room: talks, kept on tape ---- */
+.ntr{background:linear-gradient(180deg,var(--bg) 0%,var(--green-1) 46%,var(--bg) 100%)}
+.nt-strip{margin:clamp(20px,3vw,34px) 0 clamp(26px,4vw,44px);overflow:hidden;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.nt-run{display:flex;width:max-content;gap:0;animation:ntrun 46s linear infinite}
+.ntr:hover .nt-run{animation-play-state:paused}
+.nt-run span{font:400 clamp(12px,1vw,15px)/1 "Courier Prime",ui-monospace,monospace;
+  color:var(--ink-2);opacity:.72;white-space:nowrap;padding:0 clamp(16px,2vw,28px)}
+.nt-run i{font-style:normal;color:var(--rose);opacity:.7;align-self:center}
+@keyframes ntrun{to{transform:translateX(-50%)}}
+
+.nt-rack{display:flex;flex-direction:column;gap:clamp(34px,5vw,64px)}
+.nt-row{display:grid;gap:clamp(20px,3.4vw,52px);align-items:center;
+  grid-template-columns:minmax(260px,clamp(300px,31vw,430px)) minmax(0,1fr)}
+.nt-kick{font:600 clamp(9.5px,.72vw,11px)/1 var(--sans);letter-spacing:.24em;
+  text-transform:uppercase;color:var(--rose);margin-bottom:clamp(10px,1.2vw,16px)}
+.nt-hd{font:600 clamp(26px,3.3vw,46px)/1.08 var(--serif);color:var(--ink);margin:0 0 clamp(10px,1.2vw,16px);
+  letter-spacing:-.01em}
+.nt-dek{font:400 clamp(14.5px,1.12vw,18px)/1.62 var(--sans);color:var(--ink-2);margin:0 0 .9em;max-width:60ch}
+.nt-go{display:inline-block;margin-top:clamp(8px,1vw,14px);font:600 clamp(10px,.75vw,12px)/1 var(--sans);
+  letter-spacing:.18em;text-transform:uppercase;color:var(--rose);text-decoration:none;
+  border-bottom:1px solid rgba(238,151,164,.45);padding-bottom:5px;transition:color .25s,border-color .25s}
+.nt-go:hover{color:var(--ink);border-color:var(--ink)}
+
+.nt-tape{position:relative;display:block;width:100%;text-align:left;cursor:pointer;
+  border:0;padding:0;background:none;color:inherit;
+  transition:transform .4s var(--ease)}
+.nt-tape:hover,.nt-tape:focus-visible{transform:translateY(-5px)}
+.nt-tape:focus-visible{outline:2px solid var(--rose);outline-offset:6px}
+
+.nt-shell{position:relative;aspect-ratio:1.58/1;border-radius:8px;
+  background:linear-gradient(165deg,#2b2b2e 0%,#191a1c 46%,#101012 100%);
+  box-shadow:0 18px 38px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.09),
+    inset 0 0 0 1px rgba(255,255,255,.06);
+  padding:clamp(11px,1.5vw,16px);display:flex;flex-direction:column;overflow:hidden}
+.nt-shell::after{content:'';position:absolute;inset:0;border-radius:8px;pointer-events:none;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px)}
+.nt-screw{position:absolute;width:6px;height:6px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#5a5a5f,#232326);box-shadow:inset 0 0 0 1px rgba(0,0,0,.5)}
+.nt-screw.a{top:7px;left:7px}.nt-screw.b{top:7px;right:7px}
+.nt-screw.c{bottom:7px;left:7px}.nt-screw.d{bottom:7px;right:7px}
+
+.nt-label{position:relative;z-index:2;flex:1 1 auto;border-radius:3px;
+  background:linear-gradient(180deg,#f6efe1 0%,#ece1cd 100%);
+  color:#2A2119;padding:clamp(10px,1.3vw,15px) clamp(11px,1.4vw,16px) clamp(8px,1vw,12px);
+  box-shadow:0 2px 5px rgba(0,0,0,.35);display:flex;flex-direction:column}
+.nt-label::before{content:'';position:absolute;left:0;right:0;top:0;height:5px;
+  background:var(--red-deep);border-radius:3px 3px 0 0;opacity:.85}
+.nt-side{font:700 9.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;
+  color:#8A5A34;margin:5px 0 7px}
+.nt-who{font:700 clamp(17px,1.65vw,23px)/1.12 var(--serif);margin:0 0 3px;color:#1E1710}
+.nt-role{font:400 clamp(10.5px,.82vw,12.5px)/1.45 "Courier Prime",ui-monospace,monospace;
+  color:#6a553d;margin:0 0 auto}
+.nt-meta{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;
+  margin-top:clamp(8px,1.1vw,13px);
+  font:400 10px/1 "Courier Prime",ui-monospace,monospace;color:#8A5A34;letter-spacing:.06em}
+
+.nt-reels{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;
+  gap:clamp(30px,5vw,58px);padding:clamp(9px,1.2vw,14px) 0 2px}
+.nt-win{position:relative;width:clamp(44px,5.4vw,60px);height:clamp(44px,5.4vw,60px);border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,rgba(0,0,0,.72) 0 58%,rgba(255,255,255,.06) 59% 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.13),inset 0 3px 9px rgba(0,0,0,.6);
+  display:grid;place-items:center}
+.nt-hub{width:54%;height:54%;border-radius:50%;
+  background:conic-gradient(from 0deg,#d9d2c6 0 12%,#8e8579 12% 25%,#d9d2c6 25% 37%,
+    #8e8579 37% 50%,#d9d2c6 50% 62%,#8e8579 62% 75%,#d9d2c6 75% 87%,#8e8579 87% 100%);
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.4);transition:transform .5s linear}
+.nt-tape:hover .nt-hub{animation:ntspin 2.4s linear infinite}
+.nt-tape:hover .nt-win:last-child .nt-hub{animation-duration:3.4s}
+@keyframes ntspin{to{transform:rotate(360deg)}}
+.nt-play{position:absolute;left:50%;bottom:clamp(9px,1.2vw,14px);transform:translateX(-50%);
+  z-index:3;font:700 9.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink);background:var(--red-deep);padding:7px 14px;border-radius:999px;
+  opacity:0;transition:opacity .3s var(--ease),transform .3s var(--ease);white-space:nowrap}
+.nt-tape:hover .nt-play,.nt-tape:focus-visible .nt-play{opacity:1;transform:translateX(-50%) translateY(-2px)}
+.nt-under{margin:0;font:400 clamp(13px,.95vw,15px)/1.65 var(--sans);color:var(--muted);max-width:62ch}
+.nt-under b{color:var(--ink-2);font-weight:600}
+
+@media(max-width:900px){
+  .nt-row{grid-template-columns:1fr}
+  .nt-tape{max-width:420px}
+}
+@media(max-width:640px){
+  .nt-play{opacity:1;transform:translateX(-50%)}
+}
+@media(prefers-reduced-motion:reduce){
+  .nt-run{animation:none}
+  .nt-tape:hover .nt-hub{animation:none}
+}
+
 </style>
 </head>
 <body>
@@ -1166,6 +1264,7 @@
       <a href="#stage">Stage</a>
       <a href="#stubs">Stubs</a>
       <a href="#library">Shelf</a>
+      <a href="#notes">Notes</a>
       <a href="#sites">Sites</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1309,9 +1408,18 @@
 </section>
 
 <!-- ============ SECTION: EVERYTHING SO FAR ============ -->
+<section id="notes" class="ntr">
+  <div class="wrap">
+    <div class="shead rv"><span class="idx">08</span><h2 class="dsp"><span class="ln"><span>Notes from the room</span></span></h2>
+      <p class="sub">People from the industry come and talk to our class. I write down what was actually said, and then I argue with some of it.</p></div>
+    <div class="nt-strip" aria-hidden="true"><div class="nt-run" id="ntRun"></div></div>
+    <div class="nt-rack" id="ntRack"></div>
+  </div>
+</section>
+
 <section id="untranslated" class="untr">
   <div class="wrap">
-    <div class="shead rv"><span class="idx">08</span><h2 class="dsp"><span class="ln"><span>Untranslated</span></span></h2>
+    <div class="shead rv"><span class="idx">09</span><h2 class="dsp"><span class="ln"><span>Untranslated</span></span></h2>
       <p class="sub">Some things only exist in Persian. These stay the way I wrote them.</p></div>
     <div class="u-fa rv" lang="fa" dir="rtl">بی‌ترجمه</div>
     <div class="u-deck" id="uDeck"></div>
@@ -1337,7 +1445,7 @@
 
 <section id="sofar" class="sofar">
   <div class="wrap">
-    <div class="shead rv"><span class="idx">09</span><h2 class="dsp"><span class="ln"><span>Everything so far</span></span></h2>
+    <div class="shead rv"><span class="idx">10</span><h2 class="dsp"><span class="ln"><span>Everything so far</span></span></h2>
       <p class="sub">Every play, film, concert and essay, in order. Pick a line on the board.</p></div>
     <div class="jstats rv">
       <div><b data-count="2">0</b><span>Plays</span></div>
@@ -1356,7 +1464,7 @@
 <!-- ============ SECTION: CONTACT ============ -->
 <section id="sites" class="sites">
   <div class="wrap">
-    <div class="shead rv"><span class="idx">10</span><h2 class="dsp"><span class="ln"><span>I design the stage too</span></span></h2>
+    <div class="shead rv"><span class="idx">11</span><h2 class="dsp"><span class="ln"><span>I design the stage too</span></span></h2>
       <p class="sub">I design websites, and the team at Torqal builds them. Flip the switch to see the plan underneath each one.</p></div>
     <div class="bench rv">
       <div class="browser" id="brw">
@@ -1372,7 +1480,7 @@
 
 <section id="contact" class="contact">
   <div class="wrap rv">
-    <div class="shead"><span class="idx">11</span><h2 class="dsp"><span class="ln"><span>Get in touch</span></span></h2>
+    <div class="shead"><span class="idx">12</span><h2 class="dsp"><span class="ln"><span>Get in touch</span></span></h2>
       <p class="sub">Collaborations, screenplay requests, or just to argue with me about a film.</p></div>
     <a class="big-mail" href="mailto:yasnamoghei@gmail.com">yasnamoghei@gmail.com</a>
     <ul class="soc">
@@ -1572,6 +1680,241 @@
 <p class="ac">CUT TO BLACK.</p>
 </div>
 </script>
+<script type="text/x-essay" id="w-eat">
+<div class="sp">
+<p class="tp"><b>A comedy, freely adapted from <i>Hamlet</i></b></p>
+<p class="tp wb">Written by<br>Yasna Moghei</p>
+<p class="tr">FADE IN:</p>
+<p class="sl">INT. SAM'S KITCHEN - NIGHT</p>
+<p class="ac">A fridge hums under dim light. SAM (30s, sweatpants, on his third donut of the night) stands centre, holding the donut aloft like Yorick's skull. In the corner, a TREADMILL sits ignored, its screen blinking "0.0 KM" reproachfully. Near the door, a BATHROOM SCALE waits, ominous. Behind Sam, three ROOMMATES freeze mid-motion, all facing camera.</p>
+<p class="ch">ALL</p>
+<p class="pa">V.O., together, deadpan, a Greek chorus in pyjamas)</p>
+<p class="dl">To eat, or not to eat: that is the question.</p>
+<p class="ac">They unfreeze and shuffle out. Sam is alone with the donut.</p>
+<p class="ch">SAM</p>
+<p class="pa">(to the donut)</p>
+<p class="dl">Whether 'tis nobler in the gut to suffer The siren smell of pizza and of hot dogs, Or to take arms against a sea of butter, Dumbbells, and jump-ropes, and by opposing, end them?</p>
+<p class="pa">(He mimes lifting invisible dumbbells, grunting)</p>
+<p class="dl">These fatty, gelatinous strips of bacon that so besiege my thighs.</p>
+<p class="ac">He tosses the donut and catches it.</p>
+<p class="ch">SAM (CONT'D)</p>
+<p class="dl">To eat. to feast. no more; and by a feast to say we end The heartache, and the thousand tortures That treadmill promised us, 'tis a consummation Devoutly to be wished. To eat. to feast.</p>
+<p class="pa">(beat)</p>
+<p class="dl">To feast: perchance to dream, ay, there's the rub.</p>
+<p class="ac">He glares at the treadmill like it's a disappointing ex.</p>
+<p class="ch">SAM (CONT'D)</p>
+<p class="dl">For in that double bacon cheeseburger what dreams may come, When we have shuffled off this mortal diet, Must give us pause.</p>
+<p class="ac">He takes a bite. Chews. Stops. Stares into the middle distance.</p>
+<p class="ch">SAM (CONT'D)</p>
+<p class="dl">To eat, to sup, to sup again, perchance to swell. Ay, there's the rub indeed: for in that swelling, What manner of man emerges from this bun, After we have surrendered every calorie, That must give us pause.</p>
+<p class="pa">(He pats his stomach, alarmed)</p>
+<p class="dl">There's the respect That makes calamity of so long a diet.</p>
+<p class="ac">The scale's digital display flickers on, watching him like an eye.</p>
+<p class="ch">SAM (CONT'D)</p>
+<p class="pa">(pointing accusingly at the scale)</p>
+<p class="dl">For who would bear the whips and scorns of Spanx, Th' oppressor's crash-diet, the proud man's gym membership, The pangs of despis'd love handles, the law's delay Of "just one more rep," the insolence of skinny men, And the spurns that patient merit of the well-fed Takes from the unworthy, when he himself might his own Peace make with a simple bowl of plain penne?</p>
+<p class="ac">The treadmill BEEPS, as if answering him. He jumps back.</p>
+<p class="ch">SAM (CONT'D)</p>
+<p class="dl">Who would these fardels bear, To grunt and sweat beneath a steamed zucchini, But that the dread of something after cheeseburgers. The undiscover'd stomachache, from whose bourn No waistband e'er returns, puzzles the will, And makes us rather bear those ills we have to eat, Than fly to others that we cook at home?</p>
+<p class="ac">He sinks into a chair.</p>
+<p class="ch">SAM (CONT'D)</p>
+<p class="dl">Thus fear of fatness does make cowards of us all, And thus the native hue of appetite Is sicklied o'er with the pale cast of guilt, And enterprises of great gorge and moment With this regard their currents turn awry And lose the name of dinner.</p>
+<p class="ac">(He stands, suddenly resolute, holding the donut up again like a trophy)</p>
+<p class="dl">Soft you now, the fair fridge! Stomach, in thy churnings Be all my sins remember'd.</p>
+<p class="ac">He takes a huge, defiant bite of the donut.</p>
+<p class="ch">SAM (CONT'D)</p>
+<p class="pa">(mouth full, to the fridge)</p>
+<p class="dl">Eat! Eat, thou greedy, bottomless, ever-hungry thing. And in thy churnings, prithee, keep a thought For my poor, fatty liver too.</p>
+<p class="ac">He raises the donut to the treadmill in a toast. The treadmill's screen flickers to "0.0 KM" one more time, unimpressed.</p>
+<p class="ch">SAM (CONT'D)</p>
+<p class="pa">(to the treadmill)</p>
+<p class="dl">The rest is... tomorrow.</p>
+<p class="ac">He exits toward the couch. The fridge light clicks off behind him.</p>
+<p class="tr">FADE OUT.</p>
+</div>
+</script>
+<script type="text/x-essay" id="w-saduski">
+<p class="lede">Kirk Saduski has produced for Playtone for twenty seven years, which means Band of Brothers, John Adams, The Pacific, Charlie Wilson's War and Game Change. He came to our class in Toronto through the American Film Showcase. I expected a war stories afternoon. What I got was two hours of a man telling a room full of screenwriting and production students to stop making things up.</p>
+
+<p>These are my notes. The quotes are his, as close as I could get them. The opinions in between are mine, and he is not responsible for any of them.</p>
+
+<h4>He got in through a brewery</h4>
+
+<p>He studied history at UCLA, went to San Francisco for a master's, thought about the foreign service, thought about teaching, and none of it worked. So he took a job managing a closed brewery in Los Angeles. Forty acres. About twenty buildings. Offices, industrial looks, streets. The owners wanted to rent it out as a filming location.</p>
+
+<p>He had almost no experience. What the job gave him was a reason to be standing on a property every single time a production walked onto it, from a feature down to a commercial, and a reason to talk to every one of them.</p>
+
+<blockquote><p>&ldquo;I got to know so many people in different positions. Everybody from producers and directors to production designers and costume designers. That is how I learned about production without actually being in production.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>Then a friend opened a small company and wanted only people he trusted. They made one film and folded. Then a daily one hour show up near Santa Barbara, shot, cut and stuffed with its own commercials, which he called his Roger Corman school: no money, no prestige, and you learn everything because the train never stops. Then the friend called again. The friend was Gary Goetzman, the company was Playtone, and the other name on the door was Tom Hanks.</p>
+
+<p>He was honest that this is not a template. He grew up in Los Angeles. He was in the room because he was already near the room. But the part that transfers is real: he kept taking the job that taught him something, and he was useful to everyone who walked past him.</p>
+
+<h4>The story about Josh</h4>
+
+<p>Josh Feldman interned at Playtone while he was still at Ithaca College, did the job well, went home, and did not stay in touch. A year later Playtone needed an office assistant, remembered him, went looking, and found he had already moved to Los Angeles and taken a job at Disney animation. Saduski called him and asked him to leave Disney for a PA job.</p>
+
+<p>He took it. Playtone is small and not stratified, everybody eats lunch together, and eventually Tom Hanks asked him to co-write something. So Josh's day looked like this: write with one of the biggest movie stars alive in the morning, go get coffee in the afternoon. He did both without once suggesting he was above the second one. He now runs writing groups, and Saduski used to bring him into his UCLA class as the example of how it is done.</p>
+
+<blockquote><p>&ldquo;Whatever your job is, if it is getting coffee for the producer, if it is parking lot security, do it to the best of your ability, and you will be noticed. You will be noticed more than if you think you have something smart to say about the latest movie.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>He said the thing they never hired Josh for was his taste. Josh knows as much about movies as anyone he has ever met and they had great conversations at lunch, but that is not what got him in. He did the work well.</p>
+
+<p>I believe the advice. I also notice that the story only works because Josh was already in Los Angeles, already had a foot inside a company that remembers people, and had a year of luck land on him in the form of a phone call. Do the job well is necessary. It is not sufficient, and nobody in the room said it was.</p>
+
+<h4>The book is your first Bible</h4>
+
+<p>This is the part I actually came for. Saving Private Ryan had just hit and someone brought Hanks another Stephen Ambrose book, Citizen Soldiers, a wide panorama of the American army in Europe. He turned it down, because a panorama does not become a film. What he wanted was a different Ambrose book he had read while researching Captain Miller: Band of Brothers, one parachute company, as a limited series.</p>
+
+<p>Then comes the mechanic that nobody teaches you. In series work you build a Bible: the rough outline of every episode, the character list, the compendium of everything the story is made of, before there are scripts.</p>
+
+<blockquote><p>&ldquo;Our first Bible was the Ambrose book. Somebody has been there before you. They have scouted the territory.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>That is the whole argument for adaptation in one line, and it is also the answer he gave when a student asked why Christopher Nolan bothered to option American Prometheus when he could have read everything himself. Because someone has already walked the path and organised it, and because buying the book buys you their research. You can still leave the road. You just do not have to find it.</p>
+
+<h4>The script that never gets made is the one that gets you in the room</h4>
+
+<p>For Band of Brothers they needed writers, and they had been building a list from scripts the agencies were sending them, mostly by people who had never been produced.</p>
+
+<p>Erik Jendresen became the lead writer on the back of a script about Antoine de Saint Exupéry's years flying airmail. Playtone never made it. John Orloff had written a script arguing that the Earl of Oxford wrote Shakespeare, a premise Saduski said he did not buy for a second and thought was fabulous anyway. They never made that either, at least not with him. It got made years later as Anonymous. Orloff wrote two episodes of Band of Brothers.</p>
+
+<p>Our professor said out loud what a lot of us were thinking, which is that early writers put everything into one script believing it is the one that gets made, and mostly it is not the one that gets made, it is the one that gets you in the door. Saduski agreed and said Jendresen seems fine about it.</p>
+
+<p>That reframed something for me. The script is not only a product. It is a sample of how your brain works. And a producer who liked your brain will call you about something that has nothing to do with what you sent them.</p>
+
+<h4>The door, and who is holding it</h4>
+
+<p>He was completely blunt about this and I am glad he was.</p>
+
+<blockquote><p>&ldquo;If their agent had not sent us their scripts, we never would have known them. We would not have accepted a script from them. You cannot do that, and any legitimate production company will not.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>Agencies, he said, scout like baseball teams, which is what film festivals and writing competitions are for. So the sequence is: get seen at a festival, get an agent, get read.</p>
+
+<p>Here is my honest reaction. That loop costs money. Submission fees, travel, the year of unpaid writing underneath it, and the ability to live in a city where the scouting happens. He is describing the system accurately and I do not think he built it. But it is worth saying out loud that &ldquo;persevere&rdquo; is being asked to do a lot of work in a sentence where the actual variable is who can afford to keep submitting.</p>
+
+<h4>Steal a shape</h4>
+
+<p>He recommended Christopher Booker's The Seven Basic Plots, with the shrug that the seven plots thing is a cliché and there is truth in it anyway. Then he used it three times in an hour, which was more persuasive than the recommendation.</p>
+
+<p>My Big Fat Greek Wedding started as Nia Vardalos's one woman show in Los Angeles. Rita Wilson saw it, Hanks saw it, Playtone made it, it was independently financed and it went enormous. His read: it is Cinderella crossed with the ugly duckling, whether or not she was doing it on purpose.</p>
+
+<p>Game Change is the better lesson because the first version failed. Playtone got the Mark Halperin and John Heilemann book as a manuscript, so early that the agency locked him in a room with a guard outside rather than let the pages leave the building. The first plan was Clinton against Obama as a prizefight: the champion and the challenger, round by round. The scripts were good. It did not work.</p>
+
+<blockquote><p>&ldquo;Whenever we were with the Clinton campaign it was fascinating, because the wheels were always coming off. Whenever you were with the Obama campaign it was death. No drama Obama. That is perfect if you are a candidate. It is dead if you are trying to turn it into a story.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>So they threw it out and told the Sarah Palin story instead, through Steve Schmidt, the strategist who picked her. And the shape they hung it on was Frankenstein. Not Palin as the monster, he was careful about that, but Schmidt as the doctor: the clever man who makes a thing, is delighted with it, and then watches it get bigger than him.</p>
+
+<p>He walked us through the turn. Palin does badly, gets savaged, is nearly finished, then debates Biden and does well, and the film sits with her alone in a bedroom at night watching the cable coverage of herself. She says I can win this. I. The pronoun is the whole scene. From there she stops taking direction, and the film closes on Schmidt realising what he has made.</p>
+
+<p>I keep thinking about how much of that is structure and how little of it is research. The research told them what happened. Frankenstein told them where to put the camera.</p>
+
+<p>I also want to be careful with it. Seven plots is a tool for finding the spine of something shapeless. It is not a licence to bend a real person until they fit a myth you already like, and the next thing he said is exactly that.</p>
+
+<h4>The best thing he said all afternoon</h4>
+
+<p>Band of Brothers, in post. Richard Winters parachutes into Normandy the night before D Day, loses his rifle on the jump, and by the end of the day has earned the Distinguished Service Cross, the second highest award the American army gives. He did his job perfectly. That is what actually happened.</p>
+
+<p>And Playtone, in what Saduski called their Hollywood wisdom, decided that was not a character arc. So they recut the episode to make it look like he fumbled the map, hesitated, found his feet, and then got it done.</p>
+
+<p>They screened the cut for Winters, who had spent two years working with them, handed over his records and his maps, and got them the cooperation of his men. Saduski said you do not want to meet this man angry.</p>
+
+<blockquote><p>&ldquo;How could you do this? I trained for two years to do this job, and you make it look like I landed there and figured it out.&rdquo;</p><cite>Richard Winters, as Kirk Saduski recalled it</cite></blockquote>
+
+<p>They put it back. And John Orloff, who wrote the episode and had nothing to do with the recut, said the line I wrote down twice:</p>
+
+<blockquote><p>&ldquo;If we cannot make that dramatic without making shit up, then shame on us.&rdquo;</p><cite>John Orloff, as Kirk Saduski recalled it</cite></blockquote>
+
+<p>Saduski's version for us was shorter. Do not invent conflict that is not there. Find the conflict that is in the story and trust it. He said Playtone gets pitched World War Two projects constantly and there is always someone wanting to raise the stakes, on material where the stakes are already the highest stakes there are.</p>
+
+<p>Every note I have ever been given that made a script worse was some version of add conflict here. This is the first time I have heard a producer say it back as a failure of nerve.</p>
+
+<h4>Where the line is</h4>
+
+<p>He was not gentle about Darkest Hour. In the film Churchill wavers about negotiating with Hitler, rides the Underground, and is stiffened by ordinary Londoners telling him to stand up to the Nazis. Saduski's objection is not really the Tube ride, although he does not believe Churchill ever took one. It is that the scene reverses the truth. Churchill was the one bucking up the waverers, not the other way around.</p>
+
+<blockquote><p>&ldquo;You are going to have to make certain compromises when you tell a true story. The compromise you cannot make is the one that changes the nature of the story.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>He also admitted he once did about ten minutes of Monty Python on the subject over lunch in Washington, which I would pay to have seen.</p>
+
+<p>That is a usable rule and I am keeping it. Compress time, merge three people into one, invent a line of dialogue that gets you across a scene. Do not invert the meaning of what happened so the third act lands.</p>
+
+<h4>Rights, for the people who asked</h4>
+
+<p>Short and useful. Adapting history costs nothing, because history is not owned. If Playtone had told the story of John Adams from scratch there would be nothing to buy. They told it from David McCullough's biography, and that is an adaptation, and that has to be paid for.</p>
+
+<p>On John Adams he said they barely considered anyone but Kirk Ellis, who they knew from a West Point project that never happened. McCullough refused to read anything until all the scripts existed, then read all of them in one weekend in San Francisco while they sat there sweating, and had one note.</p>
+
+<p>Charlie Wilson's War came from Gary Goetzman's uncle, a congressman who knew Charlie Wilson and handed over the book. They took it to Universal, Universal bought it, and Aaron Sorkin came to it through the studio rather than through them, which Saduski said is the only time he can remember that happening at Playtone. Mike Nichols heard about it and wanted in.</p>
+
+<p>And then the thing students never hear: they have brought big properties to networks and been passed on, because however big you are and however good the material is, if it does not fit what that buyer wants to make, it does not happen.</p>
+
+<h4>Notes are a conversation</h4>
+
+<p>Someone asked how many drafts. He said it depends entirely, and then gave the better answer, which is about how you receive notes.</p>
+
+<blockquote><p>&ldquo;The way to respond to notes is with more notes. Danny Strong is the master of this. You give him seven notes and he will agree with most of them, and when he does not agree, he gives you a reason.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>He was funny about the other kind, the ones that come down from a studio and read like they were generated by a screenwriting app.</p>
+
+<blockquote><p>&ldquo;More conflict here. We need to understand this character. Can I say bullshit? More conflict means nothing. Be specific. Where can the conflict come from? Be specific in the note.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>And because most of us will be giving notes as often as taking them: be specific in both directions, and make suggestions gently.</p>
+
+<h4>Do not ask how to make it commercial</h4>
+
+<p>A student asked how you protect a story from notes designed to make it more digestible, the ones that turn a show into something you can half watch while doing the dishes. His first answer was that Playtone does not get those notes, which he acknowledged is a luxury of twenty seven years and of working with HBO and Apple. His second answer was the useful one.</p>
+
+<blockquote><p>&ldquo;If you are already thinking about platforms and commercial viability, you are thinking about it wrong. Eventually you are going to be asked to make all kinds of compromises. Not at this point.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>I want to hold both halves of that. It is genuinely good advice, and it is also advice from a man who is structurally protected from the thing he is telling us not to worry about. What makes it land anyway is that he was not pretending otherwise. He said out loud that he does not get those notes.</p>
+
+<h4>Read, and listen</h4>
+
+<p>His two pieces of closing advice were read and listen, which sound like nothing until you hear the way he says them.</p>
+
+<p>Read anything, he does not care what, because he has never met a successful screenwriter who was not a voracious reader, and because reading is how you build judgement about what is a good story and what is not, until it becomes instinct. And then he said the quiet part:</p>
+
+<blockquote><p>&ldquo;The TikTok Instagram of it all does not help you develop the sense and sensibility you need to be successful in this business.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>I am going to sit inside that contradiction rather than pretend it is not there, because one of the pieces on this site is a one minute video essay about stunt doubles, made for a feed, and it reached people an essay would not have. I think he is right that scrolling does not build judgement. I do not think the format is the problem. Short work made out of nothing is nothing. Short work made out of two years of reading is a very efficient way to hand that reading to someone who would never open the book.</p>
+
+<p>Then listen, which he got from someone outside the industry and called the best advice he ever received. Not wait for your turn to talk. Listen.</p>
+
+<blockquote><p>&ldquo;A lot of times we get into a discussion and I just cannot wait to get my point across.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<p>He was also asked, by one of us, how you tell the difference between information and misinformation when everything is being politicised. He said prefer sources that answer to somebody: a reporter has an editor and a publisher, so what you are reading has passed through more than one professional with something to lose. And then he said the line of the afternoon on arguments.</p>
+
+<blockquote><p>&ldquo;I am always suspicious when the basis of your argument is that the other side lacks integrity. Make the basis of your argument facts, or a way of looking at things. Defamation is not an art.&rdquo;</p><cite>Kirk Saduski</cite></blockquote>
+
+<h4>The question I am glad someone asked</h4>
+
+<p>A student asked how Playtone manages its relationship with the State Department given that it makes historical work about living political figures. He corrected the premise immediately: Playtone has no relationship with the State Department, he is in Toronto under its auspices for this programme, and that is the extent of it. Then he took the real question and said that in twenty seven years there has never been one minute of pressure from a network, a studio or a public figure about what to depict.</p>
+
+<p>He added, on his own, who knows what will happen in the future.</p>
+
+<p>I liked that he did not treat the question as hostile. The American Film Showcase is a cultural diplomacy programme, the consulate staff were in the room and introduced themselves at the end, and none of that is hidden. It is also true that a programme which flies American filmmakers around the world to talk to film students is doing something, and the honest version is the one he gave: the something is not a note on a script.</p>
+
+<h4>What I am still turning over</h4>
+
+<p>Not conclusions. Arguments I want to have with people.</p>
+
+<p>That the strongest craft advice of the day was a restriction. Do not invent. Find it and trust it. Almost every other note I have received in three years has been an instruction to add.</p>
+
+<p>That structure is what makes research into a film, and that the same tool becomes dangerous the moment the real person stops fitting it.</p>
+
+<p>That the industry's front door is held by agents, that agents find you at festivals, and that festivals cost money, and that all three of those facts were stated calmly and none of them were framed as a problem.</p>
+
+<p>That do the work well and you will be noticed is true, and is also a story told from the end, by people who were noticed.</p>
+
+<p>That advice to ignore the market is easiest to give from the one place in the industry that is allowed to ignore it, and that he said so himself, which is the reason I trust the rest of it.</p>
+
+<p>That read more and scroll less is correct about attention and wrong about form, and that I intend to keep making things for the feed out of things I read.</p>
+
+<hr>
+
+<p class="m">Kirk Saduski visited our screenwriting and production class in Toronto through the American Film Showcase, a programme of the US Department of State. Notes and opinions by Yasna Moghei. Quotations are from my transcript of the session and are reproduced as closely as I could manage.</p>
+
+</script>
 <script type="text/x-essay" id="w-critics">
 <p class="lede">A movie is made for the public. There are exceptions, and they matter. If I make a film only for the eyes of my family, or only for a room full of historians, that is a different thing, and it should be judged differently, because it was aimed at someone specific. But a commercial movie is made for the eyes of the entire world. There are more than eight billion of us now, somewhere north of 8.3 billion by the current count (Worldometer).</p>
 <p>When someone says a movie is good or bad, they are saying it out of their own taste. And among eight billion people, there are no two identical tastes. Taste is a fingerprint. Even if two people overlap by 99.9 percent, they are still not the same person and they still do not want the same thing from a film. Which makes me wonder: if every single person alive but one says a movie is bad, that one person is still not making a mistake.</p>
@@ -1683,7 +2026,11 @@ var SCREENPLAYS=[
   {t:'Runaway',m:'2026 · Short · Produced',c:'#6E1220',
    s:'Screenplay by Yasna Moghei. Directed by Negar Golshanibasir.',
    b:'Trapped in a nightmarish hallway that repeats itself, a terrified young man is hunted by whispers and shadows that blur the line between guilt and reality, until he faces the monster wearing his own face.',
-   src:'w-runaway',link:'https://www.youtube.com/watch?v=Wjk_jA_h4Eg',linkText:'Watch the film'}
+   src:'w-runaway',link:'https://www.youtube.com/watch?v=Wjk_jA_h4Eg',linkText:'Watch the film'},
+  {t:'To Eat or Not to Eat',m:'2026 · Short · Comedy',c:'#7A5A16',
+   s:'A comedy, freely adapted from Hamlet. Written by Yasna Moghei.',
+   b:'Sam has a donut in one hand, a treadmill he has never used behind him, and a bathroom scale watching from the door. What follows is the most famous soliloquy in English, rerouted through a fridge at midnight.',
+   src:'w-eat'}
 ];
 var ESSAYS=[
   {t:'Criticizing Movies Is Wrong',
@@ -2054,6 +2401,7 @@ function act(a){
   var p=a.split(':');
   if(p[0]==='film') playFilm(+p[1]);
   else if(p[0]==='book') openBook(p[1]==='s'?SCREENPLAYS[+p[2]]:ESSAYS[+p[2]],p[1]);
+  else if(p[0]==='talk') openBook(TALKS[+p[1]],'e');
   else if(p[0]==='stage') openStage(p[1]);
   else if(p[0]==='reel'){ if(bookM.classList.contains('open')) closeM(); openReel(p[1]); }
   else if(p[0]==='go'){ var el=document.querySelector(p[1]); if(el) el.scrollIntoView({behavior:reduce?'auto':'smooth'}); }
@@ -2104,7 +2452,7 @@ if(!reduce) setInterval(function(){
 var PANELS=[
   {h:'Write',d:'Screenplays, essays and film criticism.',go:'#writing',
    imgs:['img/r-poster.jpg',IMG(FILMS[0].id,'maxresdefault'),IMG(FILMS[2].id,'maxresdefault')],
-   list:[{t:'Runaway',s:'Screenplay',a:'book:s:0'}].concat(ESSAYS.map(function(e,i){return {t:e.t,s:e.kind||'Essay',a:'book:e:'+i};}))},
+   list:SCREENPLAYS.map(function(w,i){return {t:w.t,s:'Screenplay',a:'book:s:'+i};}).concat(ESSAYS.map(function(e,i){return {t:e.t,s:e.kind||'Essay',a:'book:e:'+i};}))},
   {h:'Film',d:'Three shorts made in Toronto since 2025.',go:'#films',
    imgs:[IMG(FILMS[2].id,'maxresdefault'),IMG(FILMS[1].id,'maxresdefault'),IMG(FILMS[0].id,'maxresdefault')],
    list:[{t:'Runaway',s:'Writer · 2026',a:'film:0'},{t:'The Parking Garage',s:'Co-creator · 2025',a:'film:1'},{t:'59th Floor',s:'Writer & director · 2025',a:'film:2'},{t:'The Stunts You Never Saw',s:'Video essay · 2026',a:'reel:stunts'}]},
@@ -2414,7 +2762,7 @@ var SITES=[
   show(0);
 })();
 
-var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می گویند دریا یک زن است. اما من مخالفم. دریا پسرک بازیگوشیست که زودتر از آنچه که باید مرد شد. دریا مردی ترسناک است که هیچگاه نمیدانی در چرژفای وجودش چه چیزی پنهان کرده. دریا مردی است که درست زمانی که در آن احساس آرامش میکنی به تو خیانت میکند.", "اما من تو را با تمام طوفان های کشنده ات دوست دارم. این طوفان هایی که همه را خرد کرد و من نگاه میکردم. هنوز دوستت دارم و دست مهربانی بر سر طغیان های بی پروایت میکشم همچو مادری که همچنان عاشق فرزند خود است که به او خیانت کرده. ای کاش میگذاشتی کمکت کنم. ای کاش میگذاشتی آرامت کنم اما تو تشویق های آن کودکان نادانی که دورت جمع شده اند را میپرستی. تو ترس آن شناگری که عاشقت بود را میپرستی. تو زخم های آن پسرکی که میخواست با تو بازی کند را هم میپرستی. گاهی با خود میگویم آیا آن روز فرا میرسد که من را هم در خود غرق کنی و اشک هایم را ستایش کنی؟", "من هنوز هم نمیخواهم باور کنم تو چیزی بیش از یک کودک خشمگین باشی. من هنوز هم میخواهم تو را از خودت نجات دهم چرا که میدانم اگر تشویق ها و هیاهو های آن کودکان نبود، تو ارامترین بودی. نمیخواهم باور کنم این تو هستی که میخواهی همه را در خود غرق کنی. نمیخواهم باور کنم تو به آن معصومی که فکر میکردم نیستی. نمیخواهم دستان خونینت را ببینم. نمیخواهم لبخند انتقامت را ببینم. من دلم میخواهد همانطور که من تو را میبینم خودت را ببینی. دلم میخواهد دست بکشی از تغیان کردن و چشمانت را روی هم بگذاری.", "من میترسم. میترسم از آن روزی که دریایی خشمگین تر و بزرگتر از خودت پیدا کنی. میترسم که آن کودکان کورت کرده باشند و این بار تو باشی که غرق شوی. اگر غرق شوی چه میکنی؟ آیا اصلا به این فکر کرده ای که روزی ممکن است در این جنگ هایی که خودت راه می اندازی کشته شوی؟ من نمیتوانم نجاتت دهم همچون مریمی که با چشمانی خونین مرگ پسرش را شاهد بود.", "صداها. صداها به من میگویند که دست از تو بکشم. میگویند نمیتوانم به تو کمک کنم. میگویند اگر دستت را بگیرم من نیز غرق میشوم. ولی نمیدانند که من نمیتوانم ترکت کنم. اگر تو را ترک کنم چه کسی دست نوازش بر سرت بکشد آن زمان که دلت میخواهد به کودکیت باز گردی؟ اگر بدانی میخواهم ترکت کنم چه میکنی؟ مرا هم غرق میکنی؟ من غرق شدن صدها تن را دیده ام در دریای خشمت و هیچ نگفتم. شاید این سزای سکوت من است که در راه رفتن از پیش تو به اعماق وجود تاریکت بروم. شاید اینبار توانستم تو را بشناسم. اگر بمانم چه؟ من را در زندان شیشه ای دوستی ات زندانی میکنی و بازمیگردی به همان کودکانی که برایت فریاد میزنند؟", "این زندان شیشه ای دوستی.", "شاید تو بنایی بودی که بتوانم ببینم چیست این زندان دوستی ای که از آن دم میزنند.", "تو اگر میخواهی یک دین جدید را میان مردم پایگذاری کنی نمیتوانی با زور شمشیر ایمان انها را محکم کنی. شاید این راه حل تا مدتی جوابگو باشد اما بعد از مدتی دینت از هم میپاشد. ایمان از قلب نشات میگیرد. جایی که عشق و دوستی خانه دارد. برای یک دین موفق تو باید به قلب انسان ها راه یابی.", "و اما تو چه کردی؟ تو با اغوشی گرم و مهربان نشان دوستی دادی و زمانی که تو را در اغوش گرفتم تیزی خنجری در پهلوی خود حس کردم. نمیدانم کدامین تو را باور کنم. تویی که مهربانی و لبخند میزنی و اهمیت میدهی و دوست میداری. یا تویی که همه میگویند ترسناک و سواستفاده گر و خشمگین است.", "به من بگو این تو هستی که خنجری در پهلوی من نگه داشتی؟ یا این منم که میترسم اگر از اغوشت فاصله بگیرم خنجری در قلبم فرو میکنی؟", "نمیدانم. دیگر تو را نمیدانم. دیگر دوستی ات را نمیدانم. دیگر خودم را نمیدانم."]], "label": ""}, {"t": "رز", "big": "رز", "parts": [["جسد بی جان احساساتم با آخرین ذرات قدرت خود لبخندی بر لب می آورد. گویا دلش میخواهد بایستد و باری دیگر با مرگ خود که حال در لباسی زیباتر ظاهر شده برقصد. دلم به حالش می سوزد. هربار کمرنگ تر از قبل برای مرگ شیرین خود لبخند می زند و گمان می کنم این آخرین باری است که چشم هایش می تواند چیزی ببیند.", "چقدر شاد بود، چقدر زنده بود و حال، من چیزی جز اشک حسرت در چشمان سیاهش نمی بینم. چشمانی که با دقت به ستاره های نگاهش خیره شده بودند. احساسات، این موجود بیچاره در همه چیزی میبیند و این بار ستاره ها را دید. میدانستی من عاشق این لکه های درخشان شناور در آسمانم؟", "همه ماه و غروب و آسمان را دوست میدارند ولی ستاره ها، آه ازین پدیده های کوچک که لبخندی تلخ بر لبم می آورند. همین لبخند تلخ احساساتم را وا میدارد باری دیگر وارد این میدان جنگ شود. من می خواهم برای ستاره هایم بجنگم اما لرزش دستانم مرا زمین میزند. ای کاش حرف هایم را میفهمیدی دوست من.", "ای کاش با اشک های بیهوده خود را نکشته بودم. ای کاش می توانستم چیزی که میخواهم را بنویسم. قلم توان درک دوست داشتن را ندارد. این انسان کوچک و خرده پسند چطور میتواند آنقدر عمیق به چیزی علاقه مند شود. اصلا چرا ستاره ها؟ لکه های درخشان کوچکی که مانند کودکان با تو بازی میکنند.", "دقت کرده ای آنهایی که چشم هایی پر از ستاره دارند زیاد نگاهت نمی کنند؟ میترسند از آنها دزدی کنی. همه ما روزی چشمانی مثل آسمان شب کویر داشتیم و حال، آلودگی های نور ترس که از زخم هایمان دخول کرده زیبایی های چشمانمان را دزدیده. این همه نوشتم تا بگویم نگاهم کن.", "من سالهاست ستاره ای ندیدم و دلم میخواهد به حال آسمان پاک و معصوم چشمانت اشک بریزم. نگاهم کن و بگذار احساساتم در لحظه مرگشان شاهد پرتو های نور مهربانی باشند. نگاهم کن، قول میدهم اگر روزی از ستاره های دو گوی قهوه ای رنگت خسته شدم بگذارم آسمان چشمان مرا تیره تر کنی بلکه از خورشید نگاهت چیزی کم نشود.", "کنایه زدن و راهنمایی کردن کافیست اینبار می خواهم حقیقت را فریاد بزنم. حقیقت چیست؟ هنوز نمیدانم، شاید بقدر کافی نگاهت نکردم تا بگویم چه چیزی در کنج قلبم میدرخشد. ولی همچنان فریاد میزنم من عاشق آغوش گرم ستاره های نگاهت شدم."], ["چه دنیای عجیبی است. تو با دستان مهربانت بدن زخم خورده مرا با لطافت زیر آب های عشق نگه میداری و من با تمام توان این آب ها را نفس می کشم. تو همان صدای ویالون سوزناکی هستی که آرزو داشتم ساعت ها و روزها با آن برقصم. حال گوش هایم غرق خون شده اند و من هیچ علاقه ندارم از حرکت بایستم.", "چرا همیشه با مثال های دردناک توصیفت می کنم؟ تو شادترین زندگی ای بودی که داشتم و با این حال من مانند پدرم بدبینم و میخواهم قبل از اینکه تو مرا بکشی خود را دار بزنم؛ غافل از اینکه تو هیچگاه قصد جان مرا نکردی و من از خود فرار می کنم. از خودی که دوست داشتن را لمس کرده و در کنارت لبخندی از ته دل زده.", "تو دیدنی ترین سمفونی زندگی من بودی و می خواهم آنطور که لیاقتش را داری برایت بنویسم. عشق آن نیست که خود را وقف دیگری کنی بلکه آن است که با وجودش سرت را بالا بگیری و قدم های استوار برداری. دوست داشتن آن نیست که قلب دیگری را سرشار از کلمات محبت آمیز بکنی، بلکه دوست داشتن کامل شدن در کنار یکدیگر است.", "تو همانی بودی ارزشش را داشت تا تمام دیوارهایم را برایش خراب کنم چرا که تو مرا امن تر و مهربان تر از همه آن دیوار ها در آغوش میکشی. تمام حرف هایم را آهنگ ها خوانده اند و هیچ چیز جدیدی ندارم برایت بگویم و با این حال کافی نیست. اهنگ های شوبرت برای توصیف عشقمان کافی نیستند.", "سمفونی های موتزارت در بیان شور و نشاطمان در کنار هم ناتوان اند. نواهای خیابان های پاریس حتی ذره ای از آرامش ما را در بر نمیگیرند و من هیچ ندارم بگویم. حرف هایی که میزنم را دوست ندارم ولی با این حال دلم میخواهد مدام از تو سخن بگویم.", "از اینکه چطور به زیبایی تمام دنیای خالی از رنگ مرا با مهربانی هایت رنگ آمیزی کردی. از اینکه چطور قلب سنگی خرد شده ام را باری دیگر به تپش وا داشتی. از لبخند معصوم و کودکانه ات، از خنده های شیرین و شیطنت آمیزت، از دستان گرم و امنت، از چشمان امیدبخشت. از قلب زیبا و کاملت.", "از تو و تمام تو که تمام عشق مرا تمام کرد."], ["دیریست که برایت چیزی ننوشته ام چرا که تو را در زیباترین قسمت های روز میافتم. تو را در رنگ های شاد، در نت های یک موسیقی گوشنوازء، در ظرافت دستان یک رقاص و حتی در چشمک های ستارگان دیدم؛ اما هیچ یک نتوانستند تو را به زیبایی آنچه هستی توصیف کنند.", "هیچ یک نتوانست آنگونه که تو مرا در آغوش میکشی، امنیت و آرامش را به من هدیه دهند. هیچ یک به دلنوازی لبخندت نبود و هیچ یک همانند چشمانت پر از زندگی نبود. آه از آن نگاه هایت که خاطره درخششش مرا به ادامه دادن وا می دارد. این چشم هایت بود که مرا عاشق کرد؛", "همانطور که ون گوک عاشق رنگ هایی شد که نمی توانست آنها را ببیند. همانطور که بتهوون عاشق صداهایی که قادر به شنیدن آنها نبود. همانطور که رابرت شومان عاشق قطعه هایی شد که نمی توانست آنها را بنوازد.", "همانطور که هلن کلر عاشق کلماتی شد که نمی توانست آنها را ببیند، من هم عاشق قلبی شدم که قادر به نگه داشتنش نبودم. هر روز آرشه غم را بر سیم های تلاش می کشم بلکه شاید بتوانم کمی بیشتر تو را در کنارم نگه دارم ولی حقیقتی ناگفته مرا پس میزند.", "عشق دردی به زیبایی مرگ است.", "و اگر این چنین باشد می خواهم در دریای مهربانی هایت غرق شوم. می خواهم مرا از طناب زیبایی هایت حلق آویز کنی. می خواهم مرا با گلوله هایی از صدای خنده ات تیرباران کنی چرا که من چیزی جز یک رهگذر نخواهم بود و خود را مانند شیشه ای شکسته تکه تکه خواهم کرد اگر بدانم گذشتن من از زندگی ات آن روشنایی روحت را خواهد گرفت.", "انسان موجود خودخواهی است، اما عشقش نه.", "هیچگاه نمیفهمی من حاضر به دست زدن به چه کار هایی برای تو هستم و شاید اینگونه بهتر باشد. هیچگاه نخواهی فهمید برای محافظت از تو چه کسانی را می کشم و شاید اینگونه بهتر باشد.", "هیچگاه نخواهی دید چه اشک هایی برایت ریختم و می ریزم و شاید اینگونه بهتر باشد چرا که تو رهایی و من به هیچ قیمتی حاضر به گرفتن آزادی ات نیستم. جای پرستو شادی هایت در قفس قلب نیست جانا. می خواهم پروازت را بر بلندای آن سرو ببینم و با لبخند بگویم \"من روزی آن پرنده زیبا را میشناختم.\"", "چرا که در شیرین ترین خاطراتم جای داری و به من عشق را آموختی."]], "label": "رز"}];
+var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می گویند دریا یک زن است. اما من مخالفم. دریا پسرک بازیگوشیست که زودتر از آنچه که باید مرد شد. دریا مردی ترسناک است که هیچگاه نمیدانی در چرژفای وجودش چه چیزی پنهان کرده. دریا مردی است که درست زمانی که در آن احساس آرامش میکنی به تو خیانت میکند.", "اما من تو را با تمام طوفان های کشنده ات دوست دارم. این طوفان هایی که همه را خرد کرد و من نگاه میکردم. هنوز دوستت دارم و دست مهربانی بر سر طغیان های بی پروایت میکشم همچو مادری که همچنان عاشق فرزند خود است که به او خیانت کرده. ای کاش میگذاشتی کمکت کنم. ای کاش میگذاشتی آرامت کنم اما تو تشویق های آن کودکان نادانی که دورت جمع شده اند را میپرستی. تو ترس آن شناگری که عاشقت بود را میپرستی. تو زخم های آن پسرکی که میخواست با تو بازی کند را هم میپرستی. گاهی با خود میگویم آیا آن روز فرا میرسد که من را هم در خود غرق کنی و اشک هایم را ستایش کنی؟", "من هنوز هم نمیخواهم باور کنم تو چیزی بیش از یک کودک خشمگین باشی. من هنوز هم میخواهم تو را از خودت نجات دهم چرا که میدانم اگر تشویق ها و هیاهو های آن کودکان نبود، تو ارامترین بودی. نمیخواهم باور کنم این تو هستی که میخواهی همه را در خود غرق کنی. نمیخواهم باور کنم تو به آن معصومی که فکر میکردم نیستی. نمیخواهم دستان خونینت را ببینم. نمیخواهم لبخند انتقامت را ببینم. من دلم میخواهد همانطور که من تو را میبینم خودت را ببینی. دلم میخواهد دست بکشی از تغیان کردن و چشمانت را روی هم بگذاری.", "من میترسم. میترسم از آن روزی که دریایی خشمگین تر و بزرگتر از خودت پیدا کنی. میترسم که آن کودکان کورت کرده باشند و این بار تو باشی که غرق شوی. اگر غرق شوی چه میکنی؟ آیا اصلا به این فکر کرده ای که روزی ممکن است در این جنگ هایی که خودت راه می اندازی کشته شوی؟ من نمیتوانم نجاتت دهم همچون مریمی که با چشمانی خونین مرگ پسرش را شاهد بود.", "صداها. صداها به من میگویند که دست از تو بکشم. میگویند نمیتوانم به تو کمک کنم. میگویند اگر دستت را بگیرم من نیز غرق میشوم. ولی نمیدانند که من نمیتوانم ترکت کنم. اگر تو را ترک کنم چه کسی دست نوازش بر سرت بکشد آن زمان که دلت میخواهد به کودکیت باز گردی؟ اگر بدانی میخواهم ترکت کنم چه میکنی؟ مرا هم غرق میکنی؟ من غرق شدن صدها تن را دیده ام در دریای خشمت و هیچ نگفتم. شاید این سزای سکوت من است که در راه رفتن از پیش تو به اعماق وجود تاریکت بروم. شاید اینبار توانستم تو را بشناسم. اگر بمانم چه؟ من را در زندان شیشه ای دوستی ات زندانی میکنی و بازمیگردی به همان کودکانی که برایت فریاد میزنند؟", "این زندان شیشه ای دوستی.", "شاید تو بنایی بودی که بتوانم ببینم چیست این زندان دوستی ای که از آن دم میزنند.", "تو اگر میخواهی یک دین جدید را میان مردم پایگذاری کنی نمیتوانی با زور شمشیر ایمان انها را محکم کنی. شاید این راه حل تا مدتی جوابگو باشد اما بعد از مدتی دینت از هم میپاشد. ایمان از قلب نشات میگیرد. جایی که عشق و دوستی خانه دارد. برای یک دین موفق تو باید به قلب انسان ها راه یابی.", "و اما تو چه کردی؟ تو با اغوشی گرم و مهربان نشان دوستی دادی و زمانی که تو را در اغوش گرفتم تیزی خنجری در پهلوی خود حس کردم. نمیدانم کدامین تو را باور کنم. تویی که مهربانی و لبخند میزنی و اهمیت میدهی و دوست میداری. یا تویی که همه میگویند ترسناک و سواستفاده گر و خشمگین است.", "به من بگو این تو هستی که خنجری در پهلوی من نگه داشتی؟ یا این منم که میترسم اگر از اغوشت فاصله بگیرم خنجری در قلبم فرو میکنی؟", "نمیدانم. دیگر تو را نمیدانم. دیگر دوستی ات را نمیدانم. دیگر خودم را نمیدانم."]], "label": ""}, {"t": "رز", "big": "رز", "parts": [["جسد بی جان احساساتم با آخرین ذرات قدرت خود لبخندی بر لب می آورد. گویا دلش میخواهد بایستد و باری دیگر با مرگ خود که حال در لباسی زیباتر ظاهر شده برقصد. دلم به حالش می سوزد. هربار کمرنگ تر از قبل برای مرگ شیرین خود لبخند می زند و گمان می کنم این آخرین باری است که چشم هایش می تواند چیزی ببیند.", "چقدر شاد بود، چقدر زنده بود و حال، من چیزی جز اشک حسرت در چشمان سیاهش نمی بینم. چشمانی که با دقت به ستاره های نگاهش خیره شده بودند. احساسات، این موجود بیچاره در همه چیزی میبیند و این بار ستاره ها را دید. میدانستی من عاشق این لکه های درخشان شناور در آسمانم؟", "همه ماه و غروب و آسمان را دوست میدارند ولی ستاره ها، آه ازین پدیده های کوچک که لبخندی تلخ بر لبم می آورند. همین لبخند تلخ احساساتم را وا میدارد باری دیگر وارد این میدان جنگ شود. من می خواهم برای ستاره هایم بجنگم اما لرزش دستانم مرا زمین میزند. ای کاش حرف هایم را میفهمیدی دوست من.", "ای کاش با اشک های بیهوده خود را نکشته بودم. ای کاش می توانستم چیزی که میخواهم را بنویسم. قلم توان درک دوست داشتن را ندارد. این انسان کوچک و خرده پسند چطور میتواند آنقدر عمیق به چیزی علاقه مند شود. اصلا چرا ستاره ها؟ لکه های درخشان کوچکی که مانند کودکان با تو بازی میکنند.", "دقت کرده ای آنهایی که چشم هایی پر از ستاره دارند زیاد نگاهت نمی کنند؟ میترسند از آنها دزدی کنی. همه ما روزی چشمانی مثل آسمان شب کویر داشتیم و حال، آلودگی های نور ترس که از زخم هایمان دخول کرده زیبایی های چشمانمان را دزدیده. این همه نوشتم تا بگویم نگاهم کن.", "من سالهاست ستاره ای ندیدم و دلم میخواهد به حال آسمان پاک و معصوم چشمانت اشک بریزم. نگاهم کن و بگذار احساساتم در لحظه مرگشان شاهد پرتو های نور مهربانی باشند. نگاهم کن، قول میدهم اگر روزی از ستاره های دو گوی قهوه ای رنگت خسته شدم بگذارم آسمان چشمان مرا تیره تر کنی بلکه از خورشید نگاهت چیزی کم نشود.", "کنایه زدن و راهنمایی کردن کافیست اینبار می خواهم حقیقت را فریاد بزنم. حقیقت چیست؟ هنوز نمیدانم، شاید بقدر کافی نگاهت نکردم تا بگویم چه چیزی در کنج قلبم میدرخشد. ولی همچنان فریاد میزنم من عاشق آغوش گرم ستاره های نگاهت شدم."], ["چه دنیای عجیبی است. تو با دستان مهربانت بدن زخم خورده مرا با لطافت زیر آب های عشق نگه میداری و من با تمام توان این آب ها را نفس می کشم. تو همان صدای ویالون سوزناکی هستی که آرزو داشتم ساعت ها و روزها با آن برقصم. حال گوش هایم غرق خون شده اند و من هیچ علاقه ندارم از حرکت بایستم.", "چرا همیشه با مثال های دردناک توصیفت می کنم؟ تو شادترین زندگی ای بودی که داشتم و با این حال من مانند پدرم بدبینم و میخواهم قبل از اینکه تو مرا بکشی خود را دار بزنم؛ غافل از اینکه تو هیچگاه قصد جان مرا نکردی و من از خود فرار می کنم. از خودی که دوست داشتن را لمس کرده و در کنارت لبخندی از ته دل زده.", "تو دیدنی ترین سمفونی زندگی من بودی و می خواهم آنطور که لیاقتش را داری برایت بنویسم. عشق آن نیست که خود را وقف دیگری کنی بلکه آن است که با وجودش سرت را بالا بگیری و قدم های استوار برداری. دوست داشتن آن نیست که قلب دیگری را سرشار از کلمات محبت آمیز بکنی، بلکه دوست داشتن کامل شدن در کنار یکدیگر است.", "تو همانی بودی ارزشش را داشت تا تمام دیوارهایم را برایش خراب کنم چرا که تو مرا امن تر و مهربان تر از همه آن دیوار ها در آغوش میکشی. تمام حرف هایم را آهنگ ها خوانده اند و هیچ چیز جدیدی ندارم برایت بگویم و با این حال کافی نیست. اهنگ های شوبرت برای توصیف عشقمان کافی نیستند.", "سمفونی های موتزارت در بیان شور و نشاطمان در کنار هم ناتوان اند. نواهای خیابان های پاریس حتی ذره ای از آرامش ما را در بر نمیگیرند و من هیچ ندارم بگویم. حرف هایی که میزنم را دوست ندارم ولی با این حال دلم میخواهد مدام از تو سخن بگویم.", "از اینکه چطور به زیبایی تمام دنیای خالی از رنگ مرا با مهربانی هایت رنگ آمیزی کردی. از اینکه چطور قلب سنگی خرد شده ام را باری دیگر به تپش وا داشتی. از لبخند معصوم و کودکانه ات، از خنده های شیرین و شیطنت آمیزت، از دستان گرم و امنت، از چشمان امیدبخشت. از قلب زیبا و کاملت.", "از تو و تمام تو که تمام عشق مرا تمام کرد."], ["دیریست که برایت چیزی ننوشته ام چرا که تو را در زیباترین قسمت های روز میافتم. تو را در رنگ های شاد، در نت های یک موسیقی گوشنوازء، در ظرافت دستان یک رقاص و حتی در چشمک های ستارگان دیدم؛ اما هیچ یک نتوانستند تو را به زیبایی آنچه هستی توصیف کنند.", "هیچ یک نتوانست آنگونه که تو مرا در آغوش میکشی، امنیت و آرامش را به من هدیه دهند. هیچ یک به دلنوازی لبخندت نبود و هیچ یک همانند چشمانت پر از زندگی نبود. آه از آن نگاه هایت که خاطره درخششش مرا به ادامه دادن وا می دارد. این چشم هایت بود که مرا عاشق کرد؛", "همانطور که ون گوک عاشق رنگ هایی شد که نمی توانست آنها را ببیند. همانطور که بتهوون عاشق صداهایی که قادر به شنیدن آنها نبود. همانطور که رابرت شومان عاشق قطعه هایی شد که نمی توانست آنها را بنوازد.", "همانطور که هلن کلر عاشق کلماتی شد که نمی توانست آنها را ببیند، من هم عاشق قلبی شدم که قادر به نگه داشتنش نبودم. هر روز آرشه غم را بر سیم های تلاش می کشم بلکه شاید بتوانم کمی بیشتر تو را در کنارم نگه دارم ولی حقیقتی ناگفته مرا پس میزند.", "عشق دردی به زیبایی مرگ است.", "و اگر این چنین باشد می خواهم در دریای مهربانی هایت غرق شوم. می خواهم مرا از طناب زیبایی هایت حلق آویز کنی. می خواهم مرا با گلوله هایی از صدای خنده ات تیرباران کنی چرا که من چیزی جز یک رهگذر نخواهم بود و خود را مانند شیشه ای شکسته تکه تکه خواهم کرد اگر بدانم گذشتن من از زندگی ات آن روشنایی روحت را خواهد گرفت.", "انسان موجود خودخواهی است، اما عشقش نه.", "هیچگاه نمیفهمی من حاضر به دست زدن به چه کار هایی برای تو هستم و شاید اینگونه بهتر باشد. هیچگاه نخواهی فهمید برای محافظت از تو چه کسانی را می کشم و شاید اینگونه بهتر باشد.", "هیچگاه نخواهی دید چه اشک هایی برایت ریختم و می ریزم و شاید اینگونه بهتر باشد چرا که تو رهایی و من به هیچ قیمتی حاضر به گرفتن آزادی ات نیستم. جای پرستو شادی هایت در قفس قلب نیست جانا. می خواهم پروازت را بر بلندای آن سرو ببینم و با لبخند بگویم \"من روزی آن پرنده زیبا را میشناختم.\"", "چرا که در شیرین ترین خاطراتم جای داری و به من عشق را آموختی."]], "label": "رز"}, {"t": "نیلوفر آبی", "big": "نیلوفر", "parts": [["مثل دیوونه ها با خودش تکرار میکرد؛ \" همه چیز درست میشه.\" از کلافگی دستاش رو مدام لای موهاش میکشید و لب هایش رو می جوید. مثل پاندول ساعت مدام اینور و اونور میرفت و چشم های پر از اشکش رو از خودش قایم میکرد. از شدت اضطراب حالت تهوع داشت و خونی که از لب هاش میومد رو با دستای سرد و لرزونش پاک می کرد. اشک هاش و خونش هردو شور بودند. با خودش فکر کرد چقدر درد شوره. از جو نا آروم اتاقش به دستشویی پناه برد و پشت در، روی زمین نشست. زانوهایش را توی بغلش گرفت و آروم و بی صدا شروع کرد به گریه کردن. سکوت کردن با اون همه زخم داشت خفه اش می کرد. انگار نفسش داشت تنگ تر و تنگ تر می شد. صداهای توی سرش فقط حالشو بدتر می کردند. \" نمیخواهی پاشی یک کاری بکنی؟… حالا بعدش چی میشه؟… خودتو خلاص کن…\" اشکاشو وحشیانه پاک کرد. بلند شد و به لبه وان تکیه داد. شیر آب رو باز کرد تا صدای هق هقش بیرون نره. گوشیشو درآورد و یه اهنگ گذاشت و شروع کرد باهاش زمزمه کردن.", "¶Who am I? Someone that's afraid to let go", "¶Suiside if you ever try to let go", "¶…I'm sad, I know", "دلش می خواست تکلیفش رو با خودش مشخص کنه ولی هروقت که به نتیجش فکر می کرد نفسش بند میومد. روی زمین نشسته بود و به جریان آب نگاه می کرد، انگار شیر آب و اشک هایش با هم مسابقه گذاشته بودند. دست هاش رو محکم توی هم قفل کرده بود تا نلرزن. دلش می خواست فرار کنه؛ نه از خونه، نه از زندگی، بلکه از واقعیت. واقعیتی که بهش نشون داده بود کل زندگی یک بازی کثیف و دردناکه.", "به سقف بی روح بالای سرش خیره شده بود. میخواست حرف بزنه اما همینکه دهنش رو باز میکرد همه چیز نیست میشد. ای کاش یکبار، فقط یکبار میتونست حرف دلش رو بزنه. ای کاش کسی بود که حتی به دروغ به او می گفت \" همه چیز درست میشه.\" اما افسوس از این حقیقت تلخ که هیچ چیزی قرار نیست درست بشه؛ این ماییم که از سر عادت تلخی این درد رو به جون میخریم."], ["¶دیدی ای دل که غم عشق دگربار چه کرد. چون بشد دلبر و با یار وفادار چه کرد.", "دیشب کتابی که خیلی وقت بود تو دستم داشتم رو با این آهنگ تموم کردم؛ همزمان با خواندن خطی از داستان که می گفت\"همه عشق های اول میمیرند.\" اون مکث و لبخند تلخ موقع خوندن یک جمله ساده بیشتر از هزار بار گریه کردن دردناکه. هزاران خاطره و حرف از جلوی چشم آدم میگذره، مثل یک رویا یا یک خواب. هیچوقت نفهمیدم این عشق چیه که همه با شنیدنش انقدر متاثر میشن. یکی گریه میکنه، یکی میخنده و یکی برای فرار از گذشته و آینده احتمالیش انکارش میکنه. عشق ترسناکه؟ پس چرا بعضی ها چنان با تامل و تعمق راجبش حرف میزنن که آدم ترغیب میشه تجربش کنه؟ عشق قشنگه؟ پس چرا بعضی دیگه ازش فرارین و موقع روبرو شدن باهاش وحشت میکنن؟ عشق چیست؟ شاید مشکل همینجاست؛ چرا اصلا عشق باید چیز معنی داری باشه؟", "¶آدمک گریه نکن زار بخند، عشق بازیچه ی ماهاست بخند.", "چرا ما نمی توانیم بپذیریم که عشق صرفا وجود دارد؟ مثل یک درخت زیبا؛ ما به محض دیدنش اون رو زیر سوال نمیبرم، تحسینش میکنیم. چرا نمیتونیم صرفا عشق رو با ارزش بدانیم و در کنارش زندگی کنیم؟ انقدر سخته کور بودن؟ انقدر سخته سرمست و دیوانه باشیم؟ کی گفته باید هوشیار باشیم؟ کی گفته که باید معنی همه چیز رو بدونیم؟ من دیگه نمیخوام فکر کنم.", "¶حیلت رها کن عاشقا دیوانه شو دیوانه. واندر دل آتش درآ پروانه شو پروانه شو.", "آره، همه عشق های اول میمیرن چون وقتی ما برای اولین بار با عشق روبرو میشیم خوشیم و سرمست و به عمق ماجرا فکر نمیکنیم ولی از اون به بعد میشیم متفکرهای دردمندی که زیباترین ویژگی های جهان هستی رو به چالش می کشند و قلب خودشون رو با کنجکاوی ها و سردرگمی ها و بی جوابی ها سیاه می کنند. من از اون عشق اول ممنونم. هرچند دور بود، کوتاه بود، شکست و خورد شد و با باد رفت و دیگه فقط یک اسم ازش باقیه؛ ولی ازش ممنونم که گذاشت من قبل از متفکر شدن شادی رو تجربه کنم."]], "label": "نیلوفر آبی"}];
 (function(){
   var deck=document.getElementById('uDeck'); if(!deck) return;
   /* the reader must live at the top of the page: inside its section (z-index 3) later sections painted over its buttons */
@@ -2427,7 +2775,7 @@ var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می �
   UNTR.forEach(function(u){ u.words=u.parts.reduce(function(s,p){ return s+p.join(' ').split(/\s+/).length; },0); });
   deck.innerHTML=UNTR.map(function(u,i){
     return '<button class="u-card rv" data-u="'+i+'" data-big="'+esc(u.big)+'" lang="fa" aria-label="'+esc(u.t)+', open the book">'
-      + '<span class="u-n">0'+(i+1)+'</span><h3>'+esc(u.t)+'</h3>'+(u.parts.length>1?'<span class="u-parts">'+u.parts.map(function(_,k){ return '<i>'+fa(k+1)+'</i>'; }).join('')+'</span>':'')+'<p class="u-first">'+esc(u.parts[0][0])+'</p>'
+      + '<span class="u-n">0'+(i+1)+'</span><h3>'+esc(u.t)+'</h3>'+(u.parts.length>1?'<span class="u-parts">'+u.parts.map(function(_,k){ return '<i>'+fa(k+1)+'</i>'; }).join('')+'</span>':'')+'<p class="u-first">'+esc(u.parts[0][0].replace(/^\u00b6/,''))+'</p>'
       + '<span class="u-go"><b>Open the book</b><span>'+(u.parts.length>1?u.parts.length+' parts':'One piece')+'</span></span></button>';
   }).join('');
   deck.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
@@ -2449,9 +2797,10 @@ var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می �
       if(b.h){ if(b.brk) flush(); var h=document.createElement('h4'); h.textContent=b.h; mTxt.appendChild(h);
         var o=document.createElement('p'); o.className='orn'; o.textContent='❦'; mTxt.appendChild(o);
         if(!fits()){ mTxt.removeChild(h); mTxt.removeChild(o); flush(); mTxt.appendChild(h); mTxt.appendChild(o); } return; }
-      var words=b.p.split(/\s+/), cont=false;
+      var vs=b.p.charAt(0)==='\u00b6', txt=vs?b.p.slice(1):b.p;
+      var words=txt.split(/\s+/), cont=false;
       while(words.length){
-        var el=document.createElement('p'); if(cont) el.className='cont'; if(b.last) el.className+=' last';
+        var el=document.createElement('p'); if(cont) el.className='cont'; if(vs) el.className+=' vs'; if(b.last) el.className+=' last';
         el.textContent=words.join(' '); mTxt.appendChild(el);
         if(fits()){ words=[]; break; }
         var lo=0, hi=words.length;          /* largest prefix that still fits */
@@ -2543,6 +2892,59 @@ var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می �
     if(document.getElementById('uRead')&&!document.getElementById('uRead').hidden&&window.__uClose) window.__uClose();
     if(document.querySelector('.modal.open')){ var lb=document.getElementById('lbox'); if(lb&&lb.classList.contains('open')){ lb.classList.remove('open'); var lm=document.getElementById('lbm'); if(lm) lm.innerHTML=''; if(window.__hls){ window.__hls.destroy(); window.__hls=null; } } closeM(); }
   });
+})();
+
+
+/* ---- Notes from the room ---- */
+var TALKS=[
+  {t:'The Man Who Made Band of Brothers Told Us to Stop Making Things Up',
+   who:'Kirk Saduski',
+   role:'Producer, Playtone',
+   m:'August 2026 · Notes from the room',
+   date:'13.08.26',
+   side:'Side A',
+   run:'2 hrs',
+   s:'Two hours with the producer of Band of Brothers, John Adams and Game Change, on adaptation, getting in, and the one compromise you are not allowed to make.',
+   under:'<b>Kirk Saduski</b> on why the book is your first Bible, how Frankenstein rescued Game Change, and the day Richard Winters watched the cut and told them to put it back.',
+   src:'w-saduski'}
+];
+var NTQ=['Somebody has been there before you. They have scouted the territory.',
+  'No drama Obama is perfect if you are a candidate. It is dead if you are a story.',
+  'If we cannot make that dramatic without making shit up, then shame on us.',
+  'The compromise you cannot make is the one that changes the nature of the story.',
+  'More conflict means nothing. Be specific.',
+  'Defamation is not an art.'];
+(function(){
+  var run=document.getElementById('ntRun'), rack=document.getElementById('ntRack');
+  if(!run||!rack) return;
+  var one=NTQ.map(function(q){ return '<span>“'+q+'”</span><i>●</i>'; }).join('');
+  run.innerHTML=one+one;
+  rack.innerHTML=TALKS.map(function(k,i){
+    return '<article class="nt-row rv">'
+      + '<button class="nt-tape" data-act="talk:'+i+'" aria-label="Read the notes: '+esc(k.who)+'">'
+      +   '<div class="nt-shell">'
+      +     '<span class="nt-screw a"></span><span class="nt-screw b"></span>'
+      +     '<span class="nt-screw c"></span><span class="nt-screw d"></span>'
+      +     '<div class="nt-label">'
+      +       '<div class="nt-side">'+esc(k.side)+'</div>'
+      +       '<h3 class="nt-who">'+esc(k.who)+'</h3>'
+      +       '<p class="nt-role">'+esc(k.role)+'</p>'
+      +       '<div class="nt-meta"><span>'+esc(k.date)+'</span><span>'+esc(k.run)+'</span></div>'
+      +     '</div>'
+      +     '<div class="nt-reels"><div class="nt-win"><div class="nt-hub"></div></div>'
+      +       '<div class="nt-win"><div class="nt-hub"></div></div></div>'
+      +     '<span class="nt-play">Play the notes</span>'
+      +   '</div>'
+      + '</button>'
+      + '<div class="nt-side2">'
+      +   '<div class="nt-kick">'+esc(k.m)+'</div>'
+      +   '<h3 class="nt-hd">'+esc(k.t)+'</h3>'
+      +   '<p class="nt-dek">'+esc(k.s)+'</p>'
+      +   '<p class="nt-under">'+k.under+'</p>'
+      +   '<a class="nt-go" href="#" data-act="talk:'+i+'">Read the notes \u203a</a>'
+      + '</div></article>';
+  }).join('');
+  rack.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 })();
 
 })();
