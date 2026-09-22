@@ -978,20 +978,52 @@
     background:radial-gradient(90% 70% at 15% 10%,rgba(30,107,82,.28),transparent 60%),radial-gradient(80% 60% at 90% 90%,rgba(110,18,32,.35),transparent 60%),#070F0C}
   .untr::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
-  .u-fa{font:400 clamp(44px,7vw,110px)/1.4 var(--nasta);color:rgba(238,151,164,.16);text-align:left;margin:-.4em 0 .1em;pointer-events:none;user-select:none}
-  .u-deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));max-width:760px;margin-left:auto;gap:clamp(20px,3vw,44px);margin-top:clamp(10px,2vw,30px)}
-  .u-card{position:relative;text-align:right;direction:rtl;cursor:pointer;border:1px solid rgba(251,247,240,.14);border-radius:4px;
-    background:linear-gradient(160deg,rgba(251,247,240,.06),rgba(251,247,240,.015));color:var(--ink);padding:clamp(26px,3vw,40px);min-height:clamp(300px,34vw,420px);
-    display:flex;flex-direction:column;gap:18px;overflow:hidden;transition:transform .6s var(--ease),border-color .4s,background .4s}
-  .u-card:hover,.u-card:focus-visible{transform:translateY(-6px);border-color:rgba(238,151,164,.55);background:linear-gradient(160deg,rgba(238,151,164,.1),rgba(251,247,240,.02))}
-  .u-card:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
-  .u-card .u-n{font:400 13px/1 var(--sans);letter-spacing:.3em;color:var(--rose);direction:ltr;text-align:right}
-  .u-card h3{font:400 clamp(34px,3.6vw,54px)/1.5 var(--nasta);margin:0;color:#FBF7F0}
-  .u-card .u-first{font:300 clamp(17px,1.35vw,21px)/2.05 "Vazirmatn",Tahoma,sans-serif;color:rgba(251,247,240,.78);margin:0;
-    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-  .u-card .u-go{margin-top:auto;display:flex;justify-content:space-between;align-items:center;direction:ltr;font:600 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-  .u-card .u-go b{font-weight:600;color:var(--rose)}
-  .u-card::after{content:attr(data-big);position:absolute;left:-.1em;bottom:-.45em;font:400 clamp(150px,16vw,240px)/1 var(--nasta);color:rgba(251,247,240,.035);pointer-events:none}
+  .u-fa{font:400 clamp(44px,7vw,110px)/1.18 var(--nasta);color:rgba(238,151,164,.16);text-align:left;margin:-.4em 0 .1em;pointer-events:none;user-select:none}
+  /* ---- the rail: pieces hang off it as ribbons, so the section never grows ---- */
+  .u-rail{position:relative;padding-top:clamp(22px,3vw,38px);margin-top:clamp(6px,1.4vw,18px)}
+  .u-rail::before{content:"";position:absolute;left:0;right:0;top:clamp(22px,3vw,38px);height:2px;border-radius:1px;
+    background:linear-gradient(90deg,transparent,rgba(238,151,164,.45) 12%,rgba(238,151,164,.45) 88%,transparent)}
+  .u-deck{display:flex;gap:clamp(10px,1.8vw,26px);align-items:flex-start}
+  .u-rib{position:relative;flex:1 1 0;min-width:0;cursor:pointer;border:0;color:inherit;
+    display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.2vw,14px);overflow:hidden;
+    padding:clamp(14px,2vw,24px) clamp(7px,1.1vw,16px) clamp(28px,3.6vw,44px);
+    min-height:clamp(210px,24vw,310px);border-radius:0 0 3px 3px;
+    background:linear-gradient(180deg,rgba(110,18,32,.92),rgba(74,14,25,.84) 58%,rgba(48,9,17,.92));
+    box-shadow:0 14px 30px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.12);
+    transition:transform .55s var(--ease),filter .45s var(--ease)}
+  .u-rib::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(16px,2vw,24px);
+    background:linear-gradient(180deg,transparent,rgba(0,0,0,.4));
+    -webkit-clip-path:polygon(0 0,100% 0,100% 100%,50% 56%,0 100%);clip-path:polygon(0 0,100% 0,100% 100%,50% 56%,0 100%)}
+  .u-rib.sel{transform:translateY(clamp(14px,2vw,26px))}
+  .u-rib:not(.sel){filter:saturate(.7) brightness(.84)}
+  .u-rib:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
+  .u-rib .u-n{font:400 clamp(10px,.8vw,12px)/1 var(--sans);letter-spacing:.24em;color:rgba(251,247,240,.6);direction:ltr}
+  .u-rib .u-big{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;
+    font:400 clamp(78px,10vw,150px)/1 var(--nasta);color:rgba(251,247,240,.075)}
+  .u-rib .u-ttl{position:relative;text-align:center;color:#FBF7F0;
+    font:400 clamp(17px,2vw,31px)/1.95 var(--nasta)}
+  .u-rib .u-sub{position:relative;margin-top:auto;color:rgba(251,247,240,.62);
+    font:400 clamp(10.5px,.88vw,13px)/1.9 "Vazirmatn",Tahoma,sans-serif}
+  .u-peek{margin-top:clamp(34px,4.4vw,56px);padding-top:clamp(14px,1.8vw,20px);min-height:clamp(96px,10vw,118px);
+    border-top:1px solid rgba(251,247,240,.13);opacity:0;transform:translateY(8px);
+    transition:opacity .5s var(--ease),transform .5s var(--ease);
+    display:flex;gap:clamp(16px,2.4vw,34px);align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+  .u-peek.on{opacity:1;transform:none}
+  .u-peek p{flex:1 1 340px;margin:0;text-align:right;direction:rtl;color:rgba(251,247,240,.8);
+    font:300 clamp(13.5px,1.05vw,17px)/2.05 "Vazirmatn",Tahoma,sans-serif;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .u-peekgo{cursor:pointer;border:0;background:none;padding:4px 0 0;white-space:nowrap;color:var(--rose);
+    font:600 clamp(10px,.8vw,12px)/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;
+    border-bottom:1px solid rgba(238,151,164,.4);transition:color .25s,border-color .25s}
+  .u-peekgo:hover{color:var(--ink);border-color:var(--ink)}
+  @media(max-width:720px){
+    .u-deck{gap:6px}
+    .u-rib{padding:12px 5px 22px;min-height:clamp(180px,48vw,230px);gap:8px}
+    .u-rib .u-ttl{font-size:clamp(13px,4vw,17px);line-height:1.85}
+    .u-rib .u-sub{font-size:10px}
+    .u-rib .u-big{font-size:clamp(56px,18vw,86px)}
+    .u-peek p{-webkit-line-clamp:4}
+  }
   .u-read{position:fixed;inset:0;z-index:300;opacity:0;transition:opacity .5s;overflow:hidden;
     background:radial-gradient(120% 90% at 50% 40%,#2B2019 0%,#140E0A 60%,#0A0705 100%);
     display:grid;grid-template-rows:1fr auto;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
@@ -1073,96 +1105,70 @@
   font-size:clamp(13px,.95vw,15.5px)}
 .u-txt p.vs+p.vs{margin-top:-.75em}
 
-/* ---- Notes from the room: talks, kept on tape ---- */
+/* ---- Notes from the room: the talk, scrubbed like a tape ---- */
 .ntr{background:linear-gradient(180deg,var(--bg) 0%,var(--green-1) 46%,var(--bg) 100%)}
-.nt-strip{margin:clamp(20px,3vw,34px) 0 clamp(26px,4vw,44px);overflow:hidden;
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 0;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
-.nt-run{display:flex;width:max-content;gap:0;animation:ntrun 46s linear infinite}
-.ntr:hover .nt-run{animation-play-state:paused}
-.nt-run span{font:400 clamp(12px,1vw,15px)/1 "Courier Prime",ui-monospace,monospace;
-  color:var(--ink-2);opacity:.72;white-space:nowrap;padding:0 clamp(16px,2vw,28px)}
-.nt-run i{font-style:normal;color:var(--rose);opacity:.7;align-self:center}
-@keyframes ntrun{to{transform:translateX(-50%)}}
 
-.nt-rack{display:flex;flex-direction:column;gap:clamp(34px,5vw,64px)}
-.nt-row{display:grid;gap:clamp(20px,3.4vw,52px);align-items:center;
-  grid-template-columns:minmax(260px,clamp(300px,31vw,430px)) minmax(0,1fr)}
-.nt-kick{font:600 clamp(9.5px,.72vw,11px)/1 var(--sans);letter-spacing:.24em;
-  text-transform:uppercase;color:var(--rose);margin-bottom:clamp(10px,1.2vw,16px)}
-.nt-hd{font:600 clamp(26px,3.3vw,46px)/1.08 var(--serif);color:var(--ink);margin:0 0 clamp(10px,1.2vw,16px);
-  letter-spacing:-.01em}
-.nt-dek{font:400 clamp(14.5px,1.12vw,18px)/1.62 var(--sans);color:var(--ink-2);margin:0 0 .9em;max-width:60ch}
-.nt-go{display:inline-block;margin-top:clamp(8px,1vw,14px);font:600 clamp(10px,.75vw,12px)/1 var(--sans);
-  letter-spacing:.18em;text-transform:uppercase;color:var(--rose);text-decoration:none;
-  border-bottom:1px solid rgba(238,151,164,.45);padding-bottom:5px;transition:color .25s,border-color .25s}
-.nt-go:hover{color:var(--ink);border-color:var(--ink)}
+.nt-head{display:grid;gap:clamp(18px,3vw,54px);align-items:end;margin:clamp(24px,3.4vw,44px) 0 clamp(26px,3.6vw,48px);
+  grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}
+.nt-kick{display:block;font:400 clamp(10px,.78vw,12px)/1 "Courier Prime",ui-monospace,monospace;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:clamp(10px,1.2vw,16px)}
+.nt-name{margin:0 0 clamp(8px,1vw,14px);font:600 clamp(34px,4.6vw,68px)/1 var(--serif);color:var(--ink);letter-spacing:-.015em}
+.nt-role{margin:0;font:400 clamp(12.5px,.92vw,14.5px)/1.65 var(--sans);color:var(--muted);max-width:44ch}
+.nt-dek{margin:0;font:400 clamp(14.5px,1.12vw,18px)/1.62 var(--sans);color:var(--ink-2);max-width:56ch}
 
-.nt-tape{position:relative;display:block;width:100%;text-align:left;cursor:pointer;
-  border:0;padding:0;background:none;color:inherit;
-  transition:transform .4s var(--ease)}
-.nt-tape:hover,.nt-tape:focus-visible{transform:translateY(-5px)}
-.nt-tape:focus-visible{outline:2px solid var(--rose);outline-offset:6px}
+/* the tape */
+.nt-deck{display:flex;align-items:center;gap:clamp(12px,2vw,28px)}
+.nt-reel{flex:0 0 auto;width:clamp(36px,4.2vw,54px);height:clamp(36px,4.2vw,54px);border-radius:50%;
+  background:radial-gradient(circle,rgba(0,0,0,.72) 0 56%,rgba(255,255,255,.07) 57% 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 3px 9px rgba(0,0,0,.6);display:grid;place-items:center}
+.nt-hub{width:54%;height:54%;border-radius:50%;transition:transform .8s var(--ease);
+  background:conic-gradient(from 0deg,#d9d2c6 0 12%,#8e8579 12% 25%,#d9d2c6 25% 37%,#8e8579 37% 50%,
+   #d9d2c6 50% 62%,#8e8579 62% 75%,#d9d2c6 75% 87%,#8e8579 87% 100%);box-shadow:inset 0 0 0 2px rgba(0,0,0,.4)}
+.nt-line{position:relative;flex:1 1 auto;min-width:0;height:4px;border-radius:2px;background:rgba(251,247,240,.16)}
+.nt-fill{position:absolute;left:0;top:0;bottom:0;border-radius:2px;background:var(--rose);transition:width .45s var(--ease)}
+.nt-ticks{position:absolute;left:0;right:0;top:-10px;display:flex}
+.nt-tick{position:relative;flex:1 1 0;min-width:0;cursor:pointer;border:0;background:none;padding:0;color:var(--muted);
+  display:flex;flex-direction:column;align-items:center;gap:9px}
+.nt-tick::after{content:"";position:absolute;left:0;right:0;top:-13px;height:48px}
+.nt-tick i{width:2px;height:22px;border-radius:1px;background:rgba(251,247,240,.28);transition:.3s var(--ease)}
+.nt-tick span{font:600 8.5px/1.35 var(--sans);letter-spacing:.06em;text-transform:uppercase;text-align:center;
+  max-width:12ch;opacity:0;transform:translateY(-4px);transition:.3s var(--ease)}
+.nt-tick:hover i,.nt-tick.on i{background:var(--rose);height:31px}
+.nt-tick:hover span,.nt-tick.on span{opacity:1;transform:none;color:var(--ink-2)}
+.nt-tick.on span{color:var(--rose)}
+.nt-tick:focus-visible{outline:2px solid var(--rose);outline-offset:4px;border-radius:3px}
 
-.nt-shell{position:relative;aspect-ratio:1.58/1;border-radius:8px;
-  background:linear-gradient(165deg,#2b2b2e 0%,#191a1c 46%,#101012 100%);
-  box-shadow:0 18px 38px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.09),
-    inset 0 0 0 1px rgba(255,255,255,.06);
-  padding:clamp(11px,1.5vw,16px);display:flex;flex-direction:column;overflow:hidden}
-.nt-shell::after{content:'';position:absolute;inset:0;border-radius:8px;pointer-events:none;
-  background:repeating-linear-gradient(115deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px)}
-.nt-screw{position:absolute;width:6px;height:6px;border-radius:50%;
-  background:radial-gradient(circle at 34% 30%,#5a5a5f,#232326);box-shadow:inset 0 0 0 1px rgba(0,0,0,.5)}
-.nt-screw.a{top:7px;left:7px}.nt-screw.b{top:7px;right:7px}
-.nt-screw.c{bottom:7px;left:7px}.nt-screw.d{bottom:7px;right:7px}
+/* the panel */
+.nt-panel{margin-top:clamp(54px,6vw,78px);padding-top:clamp(20px,2.6vw,32px);
+  border-top:1px solid rgba(251,247,240,.13);min-height:clamp(270px,27vw,320px);
+  display:flex;flex-direction:column}
+.nt-panel.flip>*{animation:ntfade .45s var(--ease)}
+@keyframes ntfade{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.nt-n{font:400 clamp(11px,.82vw,13px)/1 "Courier Prime",ui-monospace,monospace;letter-spacing:.3em;color:var(--rose)}
+.nt-panel h4{margin:10px 0 clamp(14px,1.8vw,20px);font:600 clamp(22px,2.8vw,38px)/1.12 var(--serif);color:var(--ink)}
+.nt-panel blockquote{margin:0 0 clamp(14px,1.8vw,20px);padding-left:clamp(14px,1.6vw,22px);
+  border-left:2px solid var(--rose);font:italic 400 clamp(16px,1.5vw,24px)/1.5 var(--serif);color:var(--ink);max-width:56ch}
+.nt-a{margin:0;font:400 clamp(14px,1.02vw,16.5px)/1.75 var(--sans);color:var(--muted);max-width:74ch}
+.nt-nav{margin-top:auto;padding-top:clamp(20px,2.6vw,30px);display:flex;align-items:center;gap:clamp(12px,1.6vw,20px);flex-wrap:wrap}
+.nt-btn{cursor:pointer;border:1px solid var(--line);background:none;color:var(--ink-2);border-radius:999px;
+  padding:11px 19px;font:600 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:.25s var(--ease)}
+.nt-btn:hover:not(:disabled){border-color:var(--rose);color:var(--ink)}
+.nt-btn:disabled{opacity:.32;cursor:default}
+.nt-c{font:400 11px/1 "Courier Prime",ui-monospace,monospace;letter-spacing:.2em;color:var(--muted)}
+.nt-long{margin-left:auto;font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(185,199,188,.35);padding-bottom:4px;
+  transition:color .25s,border-color .25s}
+.nt-long:hover{color:var(--rose);border-color:var(--rose)}
 
-.nt-label{position:relative;z-index:2;flex:1 1 auto;border-radius:3px;
-  background:linear-gradient(180deg,#f6efe1 0%,#ece1cd 100%);
-  color:#2A2119;padding:clamp(10px,1.3vw,15px) clamp(11px,1.4vw,16px) clamp(8px,1vw,12px);
-  box-shadow:0 2px 5px rgba(0,0,0,.35);display:flex;flex-direction:column}
-.nt-label::before{content:'';position:absolute;left:0;right:0;top:0;height:5px;
-  background:var(--red-deep);border-radius:3px 3px 0 0;opacity:.85}
-.nt-side{font:700 9.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;
-  color:#8A5A34;margin:5px 0 7px}
-.nt-who{font:700 clamp(17px,1.65vw,23px)/1.12 var(--serif);margin:0 0 3px;color:#1E1710}
-.nt-role{font:400 clamp(10.5px,.82vw,12.5px)/1.45 "Courier Prime",ui-monospace,monospace;
-  color:#6a553d;margin:0 0 auto}
-.nt-meta{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;
-  margin-top:clamp(8px,1.1vw,13px);
-  font:400 10px/1 "Courier Prime",ui-monospace,monospace;color:#8A5A34;letter-spacing:.06em}
-
-.nt-reels{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;
-  gap:clamp(30px,5vw,58px);padding:clamp(9px,1.2vw,14px) 0 2px}
-.nt-win{position:relative;width:clamp(44px,5.4vw,60px);height:clamp(44px,5.4vw,60px);border-radius:50%;
-  background:radial-gradient(circle at 50% 50%,rgba(0,0,0,.72) 0 58%,rgba(255,255,255,.06) 59% 100%);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.13),inset 0 3px 9px rgba(0,0,0,.6);
-  display:grid;place-items:center}
-.nt-hub{width:54%;height:54%;border-radius:50%;
-  background:conic-gradient(from 0deg,#d9d2c6 0 12%,#8e8579 12% 25%,#d9d2c6 25% 37%,
-    #8e8579 37% 50%,#d9d2c6 50% 62%,#8e8579 62% 75%,#d9d2c6 75% 87%,#8e8579 87% 100%);
-  box-shadow:inset 0 0 0 2px rgba(0,0,0,.4);transition:transform .5s linear}
-.nt-tape:hover .nt-hub{animation:ntspin 2.4s linear infinite}
-.nt-tape:hover .nt-win:last-child .nt-hub{animation-duration:3.4s}
-@keyframes ntspin{to{transform:rotate(360deg)}}
-.nt-play{position:absolute;left:50%;bottom:clamp(9px,1.2vw,14px);transform:translateX(-50%);
-  z-index:3;font:700 9.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;
-  color:var(--ink);background:var(--red-deep);padding:7px 14px;border-radius:999px;
-  opacity:0;transition:opacity .3s var(--ease),transform .3s var(--ease);white-space:nowrap}
-.nt-tape:hover .nt-play,.nt-tape:focus-visible .nt-play{opacity:1;transform:translateX(-50%) translateY(-2px)}
-.nt-under{margin:0;font:400 clamp(13px,.95vw,15px)/1.65 var(--sans);color:var(--muted);max-width:62ch}
-.nt-under b{color:var(--ink-2);font-weight:600}
-
-@media(max-width:900px){
-  .nt-row{grid-template-columns:1fr}
-  .nt-tape{max-width:420px}
-}
-@media(max-width:640px){
-  .nt-play{opacity:1;transform:translateX(-50%)}
+@media(max-width:860px){
+  .nt-head{grid-template-columns:1fr;align-items:start}
+  .nt-tick span{display:none}
+  .nt-panel{margin-top:40px}
+  .nt-long{margin-left:0;width:100%}
 }
 @media(prefers-reduced-motion:reduce){
-  .nt-run{animation:none}
-  .nt-tape:hover .nt-hub{animation:none}
+  .nt-panel.flip>*{animation:none}
+  .nt-hub{transition:none}
 }
 
 </style>
@@ -1412,8 +1418,37 @@
   <div class="wrap">
     <div class="shead rv"><span class="idx">08</span><h2 class="dsp"><span class="ln"><span>Notes from the room</span></span></h2>
       <p class="sub">People from the industry come and talk to our class. I write down what was actually said, and then I argue with some of it.</p></div>
-    <div class="nt-strip" aria-hidden="true"><div class="nt-run" id="ntRun"></div></div>
-    <div class="nt-rack" id="ntRack"></div>
+
+    <div class="nt-head rv">
+      <div class="nt-who">
+        <span class="nt-kick">Side A &middot; 13.08.26 &middot; 2 hrs</span>
+        <h3 class="nt-name">Kirk Saduski</h3>
+        <p class="nt-role">Producer, Playtone. Band of Brothers, John Adams, The Pacific, Charlie Wilson&rsquo;s War, Game Change. In Toronto through the American Film Showcase.</p>
+      </div>
+      <p class="nt-dek">I expected a war stories afternoon. What I got was two hours of a man telling a room full of screenwriting students to stop making things up. Twelve things he said, and what I make of them.</p>
+    </div>
+
+    <div class="nt-deck rv">
+      <div class="nt-reel" aria-hidden="true"><div class="nt-hub"></div></div>
+      <div class="nt-line">
+        <div class="nt-fill" id="ntFill"></div>
+        <div class="nt-ticks" id="ntTicks" role="tablist" aria-label="Chapters"></div>
+      </div>
+      <div class="nt-reel" aria-hidden="true"><div class="nt-hub"></div></div>
+    </div>
+
+    <div class="nt-panel" id="ntPanel">
+      <span class="nt-n" id="ntN"></span>
+      <h4 id="ntH"></h4>
+      <blockquote id="ntQ"></blockquote>
+      <p class="nt-a" id="ntA"></p>
+      <div class="nt-nav">
+        <button class="nt-btn" id="ntPrev">&larr; Back</button>
+        <span class="nt-c" id="ntC"></span>
+        <button class="nt-btn" id="ntNext">Next &rarr;</button>
+        <a class="nt-long" href="#" data-act="talk:0">Read the long version &rsaquo;</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1422,7 +1457,8 @@
     <div class="shead rv"><span class="idx">09</span><h2 class="dsp"><span class="ln"><span>Untranslated</span></span></h2>
       <p class="sub">Some things only exist in Persian. These stay the way I wrote them.</p></div>
     <div class="u-fa rv" lang="fa" dir="rtl">بی‌ترجمه</div>
-    <div class="u-deck" id="uDeck"></div>
+    <div class="u-rail"><div class="u-deck" id="uDeck"></div></div>
+    <div class="u-peek" id="uPeek"><p id="uPeekTxt" lang="fa" dir="rtl"></p><button class="u-peekgo" id="uPeekGo"></button></div>
   </div>
   <div class="u-read" id="uRead" role="dialog" aria-modal="true" aria-label="Book" hidden>
     <button class="u-x" id="uClose" aria-label="Close the book"><span aria-hidden="true">&times;</span> Close</button>
@@ -2762,7 +2798,7 @@ var SITES=[
   show(0);
 })();
 
-var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می گویند دریا یک زن است. اما من مخالفم. دریا پسرک بازیگوشیست که زودتر از آنچه که باید مرد شد. دریا مردی ترسناک است که هیچگاه نمیدانی در چرژفای وجودش چه چیزی پنهان کرده. دریا مردی است که درست زمانی که در آن احساس آرامش میکنی به تو خیانت میکند.", "اما من تو را با تمام طوفان های کشنده ات دوست دارم. این طوفان هایی که همه را خرد کرد و من نگاه میکردم. هنوز دوستت دارم و دست مهربانی بر سر طغیان های بی پروایت میکشم همچو مادری که همچنان عاشق فرزند خود است که به او خیانت کرده. ای کاش میگذاشتی کمکت کنم. ای کاش میگذاشتی آرامت کنم اما تو تشویق های آن کودکان نادانی که دورت جمع شده اند را میپرستی. تو ترس آن شناگری که عاشقت بود را میپرستی. تو زخم های آن پسرکی که میخواست با تو بازی کند را هم میپرستی. گاهی با خود میگویم آیا آن روز فرا میرسد که من را هم در خود غرق کنی و اشک هایم را ستایش کنی؟", "من هنوز هم نمیخواهم باور کنم تو چیزی بیش از یک کودک خشمگین باشی. من هنوز هم میخواهم تو را از خودت نجات دهم چرا که میدانم اگر تشویق ها و هیاهو های آن کودکان نبود، تو ارامترین بودی. نمیخواهم باور کنم این تو هستی که میخواهی همه را در خود غرق کنی. نمیخواهم باور کنم تو به آن معصومی که فکر میکردم نیستی. نمیخواهم دستان خونینت را ببینم. نمیخواهم لبخند انتقامت را ببینم. من دلم میخواهد همانطور که من تو را میبینم خودت را ببینی. دلم میخواهد دست بکشی از تغیان کردن و چشمانت را روی هم بگذاری.", "من میترسم. میترسم از آن روزی که دریایی خشمگین تر و بزرگتر از خودت پیدا کنی. میترسم که آن کودکان کورت کرده باشند و این بار تو باشی که غرق شوی. اگر غرق شوی چه میکنی؟ آیا اصلا به این فکر کرده ای که روزی ممکن است در این جنگ هایی که خودت راه می اندازی کشته شوی؟ من نمیتوانم نجاتت دهم همچون مریمی که با چشمانی خونین مرگ پسرش را شاهد بود.", "صداها. صداها به من میگویند که دست از تو بکشم. میگویند نمیتوانم به تو کمک کنم. میگویند اگر دستت را بگیرم من نیز غرق میشوم. ولی نمیدانند که من نمیتوانم ترکت کنم. اگر تو را ترک کنم چه کسی دست نوازش بر سرت بکشد آن زمان که دلت میخواهد به کودکیت باز گردی؟ اگر بدانی میخواهم ترکت کنم چه میکنی؟ مرا هم غرق میکنی؟ من غرق شدن صدها تن را دیده ام در دریای خشمت و هیچ نگفتم. شاید این سزای سکوت من است که در راه رفتن از پیش تو به اعماق وجود تاریکت بروم. شاید اینبار توانستم تو را بشناسم. اگر بمانم چه؟ من را در زندان شیشه ای دوستی ات زندانی میکنی و بازمیگردی به همان کودکانی که برایت فریاد میزنند؟", "این زندان شیشه ای دوستی.", "شاید تو بنایی بودی که بتوانم ببینم چیست این زندان دوستی ای که از آن دم میزنند.", "تو اگر میخواهی یک دین جدید را میان مردم پایگذاری کنی نمیتوانی با زور شمشیر ایمان انها را محکم کنی. شاید این راه حل تا مدتی جوابگو باشد اما بعد از مدتی دینت از هم میپاشد. ایمان از قلب نشات میگیرد. جایی که عشق و دوستی خانه دارد. برای یک دین موفق تو باید به قلب انسان ها راه یابی.", "و اما تو چه کردی؟ تو با اغوشی گرم و مهربان نشان دوستی دادی و زمانی که تو را در اغوش گرفتم تیزی خنجری در پهلوی خود حس کردم. نمیدانم کدامین تو را باور کنم. تویی که مهربانی و لبخند میزنی و اهمیت میدهی و دوست میداری. یا تویی که همه میگویند ترسناک و سواستفاده گر و خشمگین است.", "به من بگو این تو هستی که خنجری در پهلوی من نگه داشتی؟ یا این منم که میترسم اگر از اغوشت فاصله بگیرم خنجری در قلبم فرو میکنی؟", "نمیدانم. دیگر تو را نمیدانم. دیگر دوستی ات را نمیدانم. دیگر خودم را نمیدانم."]], "label": ""}, {"t": "رز", "big": "رز", "parts": [["جسد بی جان احساساتم با آخرین ذرات قدرت خود لبخندی بر لب می آورد. گویا دلش میخواهد بایستد و باری دیگر با مرگ خود که حال در لباسی زیباتر ظاهر شده برقصد. دلم به حالش می سوزد. هربار کمرنگ تر از قبل برای مرگ شیرین خود لبخند می زند و گمان می کنم این آخرین باری است که چشم هایش می تواند چیزی ببیند.", "چقدر شاد بود، چقدر زنده بود و حال، من چیزی جز اشک حسرت در چشمان سیاهش نمی بینم. چشمانی که با دقت به ستاره های نگاهش خیره شده بودند. احساسات، این موجود بیچاره در همه چیزی میبیند و این بار ستاره ها را دید. میدانستی من عاشق این لکه های درخشان شناور در آسمانم؟", "همه ماه و غروب و آسمان را دوست میدارند ولی ستاره ها، آه ازین پدیده های کوچک که لبخندی تلخ بر لبم می آورند. همین لبخند تلخ احساساتم را وا میدارد باری دیگر وارد این میدان جنگ شود. من می خواهم برای ستاره هایم بجنگم اما لرزش دستانم مرا زمین میزند. ای کاش حرف هایم را میفهمیدی دوست من.", "ای کاش با اشک های بیهوده خود را نکشته بودم. ای کاش می توانستم چیزی که میخواهم را بنویسم. قلم توان درک دوست داشتن را ندارد. این انسان کوچک و خرده پسند چطور میتواند آنقدر عمیق به چیزی علاقه مند شود. اصلا چرا ستاره ها؟ لکه های درخشان کوچکی که مانند کودکان با تو بازی میکنند.", "دقت کرده ای آنهایی که چشم هایی پر از ستاره دارند زیاد نگاهت نمی کنند؟ میترسند از آنها دزدی کنی. همه ما روزی چشمانی مثل آسمان شب کویر داشتیم و حال، آلودگی های نور ترس که از زخم هایمان دخول کرده زیبایی های چشمانمان را دزدیده. این همه نوشتم تا بگویم نگاهم کن.", "من سالهاست ستاره ای ندیدم و دلم میخواهد به حال آسمان پاک و معصوم چشمانت اشک بریزم. نگاهم کن و بگذار احساساتم در لحظه مرگشان شاهد پرتو های نور مهربانی باشند. نگاهم کن، قول میدهم اگر روزی از ستاره های دو گوی قهوه ای رنگت خسته شدم بگذارم آسمان چشمان مرا تیره تر کنی بلکه از خورشید نگاهت چیزی کم نشود.", "کنایه زدن و راهنمایی کردن کافیست اینبار می خواهم حقیقت را فریاد بزنم. حقیقت چیست؟ هنوز نمیدانم، شاید بقدر کافی نگاهت نکردم تا بگویم چه چیزی در کنج قلبم میدرخشد. ولی همچنان فریاد میزنم من عاشق آغوش گرم ستاره های نگاهت شدم."], ["چه دنیای عجیبی است. تو با دستان مهربانت بدن زخم خورده مرا با لطافت زیر آب های عشق نگه میداری و من با تمام توان این آب ها را نفس می کشم. تو همان صدای ویالون سوزناکی هستی که آرزو داشتم ساعت ها و روزها با آن برقصم. حال گوش هایم غرق خون شده اند و من هیچ علاقه ندارم از حرکت بایستم.", "چرا همیشه با مثال های دردناک توصیفت می کنم؟ تو شادترین زندگی ای بودی که داشتم و با این حال من مانند پدرم بدبینم و میخواهم قبل از اینکه تو مرا بکشی خود را دار بزنم؛ غافل از اینکه تو هیچگاه قصد جان مرا نکردی و من از خود فرار می کنم. از خودی که دوست داشتن را لمس کرده و در کنارت لبخندی از ته دل زده.", "تو دیدنی ترین سمفونی زندگی من بودی و می خواهم آنطور که لیاقتش را داری برایت بنویسم. عشق آن نیست که خود را وقف دیگری کنی بلکه آن است که با وجودش سرت را بالا بگیری و قدم های استوار برداری. دوست داشتن آن نیست که قلب دیگری را سرشار از کلمات محبت آمیز بکنی، بلکه دوست داشتن کامل شدن در کنار یکدیگر است.", "تو همانی بودی ارزشش را داشت تا تمام دیوارهایم را برایش خراب کنم چرا که تو مرا امن تر و مهربان تر از همه آن دیوار ها در آغوش میکشی. تمام حرف هایم را آهنگ ها خوانده اند و هیچ چیز جدیدی ندارم برایت بگویم و با این حال کافی نیست. اهنگ های شوبرت برای توصیف عشقمان کافی نیستند.", "سمفونی های موتزارت در بیان شور و نشاطمان در کنار هم ناتوان اند. نواهای خیابان های پاریس حتی ذره ای از آرامش ما را در بر نمیگیرند و من هیچ ندارم بگویم. حرف هایی که میزنم را دوست ندارم ولی با این حال دلم میخواهد مدام از تو سخن بگویم.", "از اینکه چطور به زیبایی تمام دنیای خالی از رنگ مرا با مهربانی هایت رنگ آمیزی کردی. از اینکه چطور قلب سنگی خرد شده ام را باری دیگر به تپش وا داشتی. از لبخند معصوم و کودکانه ات، از خنده های شیرین و شیطنت آمیزت، از دستان گرم و امنت، از چشمان امیدبخشت. از قلب زیبا و کاملت.", "از تو و تمام تو که تمام عشق مرا تمام کرد."], ["دیریست که برایت چیزی ننوشته ام چرا که تو را در زیباترین قسمت های روز میافتم. تو را در رنگ های شاد، در نت های یک موسیقی گوشنوازء، در ظرافت دستان یک رقاص و حتی در چشمک های ستارگان دیدم؛ اما هیچ یک نتوانستند تو را به زیبایی آنچه هستی توصیف کنند.", "هیچ یک نتوانست آنگونه که تو مرا در آغوش میکشی، امنیت و آرامش را به من هدیه دهند. هیچ یک به دلنوازی لبخندت نبود و هیچ یک همانند چشمانت پر از زندگی نبود. آه از آن نگاه هایت که خاطره درخششش مرا به ادامه دادن وا می دارد. این چشم هایت بود که مرا عاشق کرد؛", "همانطور که ون گوک عاشق رنگ هایی شد که نمی توانست آنها را ببیند. همانطور که بتهوون عاشق صداهایی که قادر به شنیدن آنها نبود. همانطور که رابرت شومان عاشق قطعه هایی شد که نمی توانست آنها را بنوازد.", "همانطور که هلن کلر عاشق کلماتی شد که نمی توانست آنها را ببیند، من هم عاشق قلبی شدم که قادر به نگه داشتنش نبودم. هر روز آرشه غم را بر سیم های تلاش می کشم بلکه شاید بتوانم کمی بیشتر تو را در کنارم نگه دارم ولی حقیقتی ناگفته مرا پس میزند.", "عشق دردی به زیبایی مرگ است.", "و اگر این چنین باشد می خواهم در دریای مهربانی هایت غرق شوم. می خواهم مرا از طناب زیبایی هایت حلق آویز کنی. می خواهم مرا با گلوله هایی از صدای خنده ات تیرباران کنی چرا که من چیزی جز یک رهگذر نخواهم بود و خود را مانند شیشه ای شکسته تکه تکه خواهم کرد اگر بدانم گذشتن من از زندگی ات آن روشنایی روحت را خواهد گرفت.", "انسان موجود خودخواهی است، اما عشقش نه.", "هیچگاه نمیفهمی من حاضر به دست زدن به چه کار هایی برای تو هستم و شاید اینگونه بهتر باشد. هیچگاه نخواهی فهمید برای محافظت از تو چه کسانی را می کشم و شاید اینگونه بهتر باشد.", "هیچگاه نخواهی دید چه اشک هایی برایت ریختم و می ریزم و شاید اینگونه بهتر باشد چرا که تو رهایی و من به هیچ قیمتی حاضر به گرفتن آزادی ات نیستم. جای پرستو شادی هایت در قفس قلب نیست جانا. می خواهم پروازت را بر بلندای آن سرو ببینم و با لبخند بگویم \"من روزی آن پرنده زیبا را میشناختم.\"", "چرا که در شیرین ترین خاطراتم جای داری و به من عشق را آموختی."]], "label": "رز"}, {"t": "نیلوفر آبی", "big": "نیلوفر", "parts": [["مثل دیوونه ها با خودش تکرار میکرد؛ \" همه چیز درست میشه.\" از کلافگی دستاش رو مدام لای موهاش میکشید و لب هایش رو می جوید. مثل پاندول ساعت مدام اینور و اونور میرفت و چشم های پر از اشکش رو از خودش قایم میکرد. از شدت اضطراب حالت تهوع داشت و خونی که از لب هاش میومد رو با دستای سرد و لرزونش پاک می کرد. اشک هاش و خونش هردو شور بودند. با خودش فکر کرد چقدر درد شوره. از جو نا آروم اتاقش به دستشویی پناه برد و پشت در، روی زمین نشست. زانوهایش را توی بغلش گرفت و آروم و بی صدا شروع کرد به گریه کردن. سکوت کردن با اون همه زخم داشت خفه اش می کرد. انگار نفسش داشت تنگ تر و تنگ تر می شد. صداهای توی سرش فقط حالشو بدتر می کردند. \" نمیخواهی پاشی یک کاری بکنی؟… حالا بعدش چی میشه؟… خودتو خلاص کن…\" اشکاشو وحشیانه پاک کرد. بلند شد و به لبه وان تکیه داد. شیر آب رو باز کرد تا صدای هق هقش بیرون نره. گوشیشو درآورد و یه اهنگ گذاشت و شروع کرد باهاش زمزمه کردن.", "¶Who am I? Someone that's afraid to let go", "¶Suiside if you ever try to let go", "¶…I'm sad, I know", "دلش می خواست تکلیفش رو با خودش مشخص کنه ولی هروقت که به نتیجش فکر می کرد نفسش بند میومد. روی زمین نشسته بود و به جریان آب نگاه می کرد، انگار شیر آب و اشک هایش با هم مسابقه گذاشته بودند. دست هاش رو محکم توی هم قفل کرده بود تا نلرزن. دلش می خواست فرار کنه؛ نه از خونه، نه از زندگی، بلکه از واقعیت. واقعیتی که بهش نشون داده بود کل زندگی یک بازی کثیف و دردناکه.", "به سقف بی روح بالای سرش خیره شده بود. میخواست حرف بزنه اما همینکه دهنش رو باز میکرد همه چیز نیست میشد. ای کاش یکبار، فقط یکبار میتونست حرف دلش رو بزنه. ای کاش کسی بود که حتی به دروغ به او می گفت \" همه چیز درست میشه.\" اما افسوس از این حقیقت تلخ که هیچ چیزی قرار نیست درست بشه؛ این ماییم که از سر عادت تلخی این درد رو به جون میخریم."], ["¶دیدی ای دل که غم عشق دگربار چه کرد. چون بشد دلبر و با یار وفادار چه کرد.", "دیشب کتابی که خیلی وقت بود تو دستم داشتم رو با این آهنگ تموم کردم؛ همزمان با خواندن خطی از داستان که می گفت\"همه عشق های اول میمیرند.\" اون مکث و لبخند تلخ موقع خوندن یک جمله ساده بیشتر از هزار بار گریه کردن دردناکه. هزاران خاطره و حرف از جلوی چشم آدم میگذره، مثل یک رویا یا یک خواب. هیچوقت نفهمیدم این عشق چیه که همه با شنیدنش انقدر متاثر میشن. یکی گریه میکنه، یکی میخنده و یکی برای فرار از گذشته و آینده احتمالیش انکارش میکنه. عشق ترسناکه؟ پس چرا بعضی ها چنان با تامل و تعمق راجبش حرف میزنن که آدم ترغیب میشه تجربش کنه؟ عشق قشنگه؟ پس چرا بعضی دیگه ازش فرارین و موقع روبرو شدن باهاش وحشت میکنن؟ عشق چیست؟ شاید مشکل همینجاست؛ چرا اصلا عشق باید چیز معنی داری باشه؟", "¶آدمک گریه نکن زار بخند، عشق بازیچه ی ماهاست بخند.", "چرا ما نمی توانیم بپذیریم که عشق صرفا وجود دارد؟ مثل یک درخت زیبا؛ ما به محض دیدنش اون رو زیر سوال نمیبرم، تحسینش میکنیم. چرا نمیتونیم صرفا عشق رو با ارزش بدانیم و در کنارش زندگی کنیم؟ انقدر سخته کور بودن؟ انقدر سخته سرمست و دیوانه باشیم؟ کی گفته باید هوشیار باشیم؟ کی گفته که باید معنی همه چیز رو بدونیم؟ من دیگه نمیخوام فکر کنم.", "¶حیلت رها کن عاشقا دیوانه شو دیوانه. واندر دل آتش درآ پروانه شو پروانه شو.", "آره، همه عشق های اول میمیرن چون وقتی ما برای اولین بار با عشق روبرو میشیم خوشیم و سرمست و به عمق ماجرا فکر نمیکنیم ولی از اون به بعد میشیم متفکرهای دردمندی که زیباترین ویژگی های جهان هستی رو به چالش می کشند و قلب خودشون رو با کنجکاوی ها و سردرگمی ها و بی جوابی ها سیاه می کنند. من از اون عشق اول ممنونم. هرچند دور بود، کوتاه بود، شکست و خورد شد و با باد رفت و دیگه فقط یک اسم ازش باقیه؛ ولی ازش ممنونم که گذاشت من قبل از متفکر شدن شادی رو تجربه کنم."]], "label": "نیلوفر آبی"}];
+var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می گویند دریا یک زن است. اما من مخالفم. دریا پسرک بازیگوشیست که زودتر از آنچه که باید مرد شد. دریا مردی ترسناک است که هیچگاه نمیدانی در چرژفای وجودش چه چیزی پنهان کرده. دریا مردی است که درست زمانی که در آن احساس آرامش میکنی به تو خیانت میکند.", "اما من تو را با تمام طوفان های کشنده ات دوست دارم. این طوفان هایی که همه را خرد کرد و من نگاه میکردم. هنوز دوستت دارم و دست مهربانی بر سر طغیان های بی پروایت میکشم همچو مادری که همچنان عاشق فرزند خود است که به او خیانت کرده. ای کاش میگذاشتی کمکت کنم. ای کاش میگذاشتی آرامت کنم اما تو تشویق های آن کودکان نادانی که دورت جمع شده اند را میپرستی. تو ترس آن شناگری که عاشقت بود را میپرستی. تو زخم های آن پسرکی که میخواست با تو بازی کند را هم میپرستی. گاهی با خود میگویم آیا آن روز فرا میرسد که من را هم در خود غرق کنی و اشک هایم را ستایش کنی؟", "من هنوز هم نمیخواهم باور کنم تو چیزی بیش از یک کودک خشمگین باشی. من هنوز هم میخواهم تو را از خودت نجات دهم چرا که میدانم اگر تشویق ها و هیاهو های آن کودکان نبود، تو ارامترین بودی. نمیخواهم باور کنم این تو هستی که میخواهی همه را در خود غرق کنی. نمیخواهم باور کنم تو به آن معصومی که فکر میکردم نیستی. نمیخواهم دستان خونینت را ببینم. نمیخواهم لبخند انتقامت را ببینم. من دلم میخواهد همانطور که من تو را میبینم خودت را ببینی. دلم میخواهد دست بکشی از تغیان کردن و چشمانت را روی هم بگذاری.", "من میترسم. میترسم از آن روزی که دریایی خشمگین تر و بزرگتر از خودت پیدا کنی. میترسم که آن کودکان کورت کرده باشند و این بار تو باشی که غرق شوی. اگر غرق شوی چه میکنی؟ آیا اصلا به این فکر کرده ای که روزی ممکن است در این جنگ هایی که خودت راه می اندازی کشته شوی؟ من نمیتوانم نجاتت دهم همچون مریمی که با چشمانی خونین مرگ پسرش را شاهد بود.", "صداها. صداها به من میگویند که دست از تو بکشم. میگویند نمیتوانم به تو کمک کنم. میگویند اگر دستت را بگیرم من نیز غرق میشوم. ولی نمیدانند که من نمیتوانم ترکت کنم. اگر تو را ترک کنم چه کسی دست نوازش بر سرت بکشد آن زمان که دلت میخواهد به کودکیت باز گردی؟ اگر بدانی میخواهم ترکت کنم چه میکنی؟ مرا هم غرق میکنی؟ من غرق شدن صدها تن را دیده ام در دریای خشمت و هیچ نگفتم. شاید این سزای سکوت من است که در راه رفتن از پیش تو به اعماق وجود تاریکت بروم. شاید اینبار توانستم تو را بشناسم. اگر بمانم چه؟ من را در زندان شیشه ای دوستی ات زندانی میکنی و بازمیگردی به همان کودکانی که برایت فریاد میزنند؟", "این زندان شیشه ای دوستی.", "شاید تو بنایی بودی که بتوانم ببینم چیست این زندان دوستی ای که از آن دم میزنند.", "تو اگر میخواهی یک دین جدید را میان مردم پایگذاری کنی نمیتوانی با زور شمشیر ایمان انها را محکم کنی. شاید این راه حل تا مدتی جوابگو باشد اما بعد از مدتی دینت از هم میپاشد. ایمان از قلب نشات میگیرد. جایی که عشق و دوستی خانه دارد. برای یک دین موفق تو باید به قلب انسان ها راه یابی.", "و اما تو چه کردی؟ تو با اغوشی گرم و مهربان نشان دوستی دادی و زمانی که تو را در اغوش گرفتم تیزی خنجری در پهلوی خود حس کردم. نمیدانم کدامین تو را باور کنم. تویی که مهربانی و لبخند میزنی و اهمیت میدهی و دوست میداری. یا تویی که همه میگویند ترسناک و سواستفاده گر و خشمگین است.", "به من بگو این تو هستی که خنجری در پهلوی من نگه داشتی؟ یا این منم که میترسم اگر از اغوشت فاصله بگیرم خنجری در قلبم فرو میکنی؟", "نمیدانم. دیگر تو را نمیدانم. دیگر دوستی ات را نمیدانم. دیگر خودم را نمیدانم."]], "label": ""}, {"t": "رز", "big": "رز", "parts": [["جسد بی جان احساساتم با آخرین ذرات قدرت خود لبخندی بر لب می آورد. گویا دلش میخواهد بایستد و باری دیگر با مرگ خود که حال در لباسی زیباتر ظاهر شده برقصد. دلم به حالش می سوزد. هربار کمرنگ تر از قبل برای مرگ شیرین خود لبخند می زند و گمان می کنم این آخرین باری است که چشم هایش می تواند چیزی ببیند.", "چقدر شاد بود، چقدر زنده بود و حال، من چیزی جز اشک حسرت در چشمان سیاهش نمی بینم. چشمانی که با دقت به ستاره های نگاهش خیره شده بودند. احساسات، این موجود بیچاره در همه چیزی میبیند و این بار ستاره ها را دید. میدانستی من عاشق این لکه های درخشان شناور در آسمانم؟", "همه ماه و غروب و آسمان را دوست میدارند ولی ستاره ها، آه ازین پدیده های کوچک که لبخندی تلخ بر لبم می آورند. همین لبخند تلخ احساساتم را وا میدارد باری دیگر وارد این میدان جنگ شود. من می خواهم برای ستاره هایم بجنگم اما لرزش دستانم مرا زمین میزند. ای کاش حرف هایم را میفهمیدی دوست من.", "ای کاش با اشک های بیهوده خود را نکشته بودم. ای کاش می توانستم چیزی که میخواهم را بنویسم. قلم توان درک دوست داشتن را ندارد. این انسان کوچک و خرده پسند چطور میتواند آنقدر عمیق به چیزی علاقه مند شود. اصلا چرا ستاره ها؟ لکه های درخشان کوچکی که مانند کودکان با تو بازی میکنند.", "دقت کرده ای آنهایی که چشم هایی پر از ستاره دارند زیاد نگاهت نمی کنند؟ میترسند از آنها دزدی کنی. همه ما روزی چشمانی مثل آسمان شب کویر داشتیم و حال، آلودگی های نور ترس که از زخم هایمان دخول کرده زیبایی های چشمانمان را دزدیده. این همه نوشتم تا بگویم نگاهم کن.", "من سالهاست ستاره ای ندیدم و دلم میخواهد به حال آسمان پاک و معصوم چشمانت اشک بریزم. نگاهم کن و بگذار احساساتم در لحظه مرگشان شاهد پرتو های نور مهربانی باشند. نگاهم کن، قول میدهم اگر روزی از ستاره های دو گوی قهوه ای رنگت خسته شدم بگذارم آسمان چشمان مرا تیره تر کنی بلکه از خورشید نگاهت چیزی کم نشود.", "کنایه زدن و راهنمایی کردن کافیست اینبار می خواهم حقیقت را فریاد بزنم. حقیقت چیست؟ هنوز نمیدانم، شاید بقدر کافی نگاهت نکردم تا بگویم چه چیزی در کنج قلبم میدرخشد. ولی همچنان فریاد میزنم من عاشق آغوش گرم ستاره های نگاهت شدم."], ["چه دنیای عجیبی است. تو با دستان مهربانت بدن زخم خورده مرا با لطافت زیر آب های عشق نگه میداری و من با تمام توان این آب ها را نفس می کشم. تو همان صدای ویالون سوزناکی هستی که آرزو داشتم ساعت ها و روزها با آن برقصم. حال گوش هایم غرق خون شده اند و من هیچ علاقه ندارم از حرکت بایستم.", "چرا همیشه با مثال های دردناک توصیفت می کنم؟ تو شادترین زندگی ای بودی که داشتم و با این حال من مانند پدرم بدبینم و میخواهم قبل از اینکه تو مرا بکشی خود را دار بزنم؛ غافل از اینکه تو هیچگاه قصد جان مرا نکردی و من از خود فرار می کنم. از خودی که دوست داشتن را لمس کرده و در کنارت لبخندی از ته دل زده.", "تو دیدنی ترین سمفونی زندگی من بودی و می خواهم آنطور که لیاقتش را داری برایت بنویسم. عشق آن نیست که خود را وقف دیگری کنی بلکه آن است که با وجودش سرت را بالا بگیری و قدم های استوار برداری. دوست داشتن آن نیست که قلب دیگری را سرشار از کلمات محبت آمیز بکنی، بلکه دوست داشتن کامل شدن در کنار یکدیگر است.", "تو همانی بودی ارزشش را داشت تا تمام دیوارهایم را برایش خراب کنم چرا که تو مرا امن تر و مهربان تر از همه آن دیوار ها در آغوش میکشی. تمام حرف هایم را آهنگ ها خوانده اند و هیچ چیز جدیدی ندارم برایت بگویم و با این حال کافی نیست. اهنگ های شوبرت برای توصیف عشقمان کافی نیستند.", "سمفونی های موتزارت در بیان شور و نشاطمان در کنار هم ناتوان اند. نواهای خیابان های پاریس حتی ذره ای از آرامش ما را در بر نمیگیرند و من هیچ ندارم بگویم. حرف هایی که میزنم را دوست ندارم ولی با این حال دلم میخواهد مدام از تو سخن بگویم.", "از اینکه چطور به زیبایی تمام دنیای خالی از رنگ مرا با مهربانی هایت رنگ آمیزی کردی. از اینکه چطور قلب سنگی خرد شده ام را باری دیگر به تپش وا داشتی. از لبخند معصوم و کودکانه ات، از خنده های شیرین و شیطنت آمیزت، از دستان گرم و امنت، از چشمان امیدبخشت. از قلب زیبا و کاملت.", "از تو و تمام تو که تمام عشق مرا تمام کرد."], ["دیریست که برایت چیزی ننوشته ام چرا که تو را در زیباترین قسمت های روز میافتم. تو را در رنگ های شاد، در نت های یک موسیقی گوشنوازء، در ظرافت دستان یک رقاص و حتی در چشمک های ستارگان دیدم؛ اما هیچ یک نتوانستند تو را به زیبایی آنچه هستی توصیف کنند.", "هیچ یک نتوانست آنگونه که تو مرا در آغوش میکشی، امنیت و آرامش را به من هدیه دهند. هیچ یک به دلنوازی لبخندت نبود و هیچ یک همانند چشمانت پر از زندگی نبود. آه از آن نگاه هایت که خاطره درخششش مرا به ادامه دادن وا می دارد. این چشم هایت بود که مرا عاشق کرد؛", "همانطور که ون گوک عاشق رنگ هایی شد که نمی توانست آنها را ببیند. همانطور که بتهوون عاشق صداهایی که قادر به شنیدن آنها نبود. همانطور که رابرت شومان عاشق قطعه هایی شد که نمی توانست آنها را بنوازد.", "همانطور که هلن کلر عاشق کلماتی شد که نمی توانست آنها را ببیند، من هم عاشق قلبی شدم که قادر به نگه داشتنش نبودم. هر روز آرشه غم را بر سیم های تلاش می کشم بلکه شاید بتوانم کمی بیشتر تو را در کنارم نگه دارم ولی حقیقتی ناگفته مرا پس میزند.", "عشق دردی به زیبایی مرگ است.", "و اگر این چنین باشد می خواهم در دریای مهربانی هایت غرق شوم. می خواهم مرا از طناب زیبایی هایت حلق آویز کنی. می خواهم مرا با گلوله هایی از صدای خنده ات تیرباران کنی چرا که من چیزی جز یک رهگذر نخواهم بود و خود را مانند شیشه ای شکسته تکه تکه خواهم کرد اگر بدانم گذشتن من از زندگی ات آن روشنایی روحت را خواهد گرفت.", "انسان موجود خودخواهی است، اما عشقش نه.", "هیچگاه نمیفهمی من حاضر به دست زدن به چه کار هایی برای تو هستم و شاید اینگونه بهتر باشد. هیچگاه نخواهی فهمید برای محافظت از تو چه کسانی را می کشم و شاید اینگونه بهتر باشد.", "هیچگاه نخواهی دید چه اشک هایی برایت ریختم و می ریزم و شاید اینگونه بهتر باشد چرا که تو رهایی و من به هیچ قیمتی حاضر به گرفتن آزادی ات نیستم. جای پرستو شادی هایت در قفس قلب نیست جانا. می خواهم پروازت را بر بلندای آن سرو ببینم و با لبخند بگویم \"من روزی آن پرنده زیبا را میشناختم.\"", "چرا که در شیرین ترین خاطراتم جای داری و به من عشق را آموختی."]], "label": "رز"}, {"t": "نیلوفر آبی", "big": "نیلوفر", "parts": [["مثل دیوونه ها با خودش تکرار میکرد؛ \" همه چیز درست میشه.\" از کلافگی دستاش رو مدام لای موهاش میکشید و لب هایش رو می جوید. مثل پاندول ساعت مدام اینور و اونور میرفت و چشم های پر از اشکش رو از خودش قایم میکرد. از شدت اضطراب حالت تهوع داشت و خونی که از لب هاش میومد رو با دستای سرد و لرزونش پاک می کرد. اشک هاش و خونش هردو شور بودند. با خودش فکر کرد چقدر درد شوره. از جو نا آروم اتاقش به دستشویی پناه برد و پشت در، روی زمین نشست. زانوهایش را توی بغلش گرفت و آروم و بی صدا شروع کرد به گریه کردن. سکوت کردن با اون همه زخم داشت خفه اش می کرد. انگار نفسش داشت تنگ تر و تنگ تر می شد. صداهای توی سرش فقط حالشو بدتر می کردند. \" نمیخواهی پاشی یک کاری بکنی؟… حالا بعدش چی میشه؟… خودتو خلاص کن…\" اشکاشو وحشیانه پاک کرد. بلند شد و به لبه وان تکیه داد. شیر آب رو باز کرد تا صدای هق هقش بیرون نره. گوشیشو درآورد و یه اهنگ گذاشت و شروع کرد باهاش زمزمه کردن.", "¶Who am I? Someone that's afraid to let go", "¶Suiside if you ever try to let go", "¶…I'm sad, I know", "دلش می خواست تکلیفش رو با خودش مشخص کنه ولی هروقت که به نتیجش فکر می کرد نفسش بند میومد. روی زمین نشسته بود و به جریان آب نگاه می کرد، انگار شیر آب و اشک هایش با هم مسابقه گذاشته بودند. دست هاش رو محکم توی هم قفل کرده بود تا نلرزن. دلش می خواست فرار کنه؛ نه از خونه، نه از زندگی، بلکه از واقعیت. واقعیتی که بهش نشون داده بود کل زندگی یک بازی کثیف و دردناکه.", "به سقف بی روح بالای سرش خیره شده بود. میخواست حرف بزنه اما همینکه دهنش رو باز میکرد همه چیز نیست میشد. ای کاش یکبار، فقط یکبار میتونست حرف دلش رو بزنه. ای کاش کسی بود که حتی به دروغ به او می گفت \" همه چیز درست میشه.\" اما افسوس از این حقیقت تلخ که هیچ چیزی قرار نیست درست بشه؛ این ماییم که از سر عادت تلخی این درد رو به جون میخریم."], ["¶دیدی ای دل که غم عشق دگربار چه کرد. چون بشد دلبر و با یار وفادار چه کرد.", "دیشب کتابی که خیلی وقت بود تو دستم داشتم رو با این آهنگ تموم کردم؛ همزمان با خواندن خطی از داستان که می گفت\"همه عشق های اول میمیرند.\" اون مکث و لبخند تلخ موقع خوندن یک جمله ساده بیشتر از هزار بار گریه کردن دردناکه. هزاران خاطره و حرف از جلوی چشم آدم میگذره، مثل یک رویا یا یک خواب. هیچوقت نفهمیدم این عشق چیه که همه با شنیدنش انقدر متاثر میشن. یکی گریه میکنه، یکی میخنده و یکی برای فرار از گذشته و آینده احتمالیش انکارش میکنه. عشق ترسناکه؟ پس چرا بعضی ها چنان با تامل و تعمق راجبش حرف میزنن که آدم ترغیب میشه تجربش کنه؟ عشق قشنگه؟ پس چرا بعضی دیگه ازش فرارین و موقع روبرو شدن باهاش وحشت میکنن؟ عشق چیست؟ شاید مشکل همینجاست؛ چرا اصلا عشق باید چیز معنی داری باشه؟", "¶آدمک گریه نکن زار بخند، عشق بازیچه ی ماهاست بخند.", "چرا ما نمی توانیم بپذیریم که عشق صرفا وجود دارد؟ مثل یک درخت زیبا؛ ما به محض دیدنش اون رو زیر سوال نمیبرم، تحسینش میکنیم. چرا نمیتونیم صرفا عشق رو با ارزش بدانیم و در کنارش زندگی کنیم؟ انقدر سخته کور بودن؟ انقدر سخته سرمست و دیوانه باشیم؟ کی گفته باید هوشیار باشیم؟ کی گفته که باید معنی همه چیز رو بدونیم؟ من دیگه نمیخوام فکر کنم.", "¶حیلت رها کن عاشقا دیوانه شو دیوانه. واندر دل آتش درآ پروانه شو پروانه شو.", "آره، همه عشق های اول میمیرن چون وقتی ما برای اولین بار با عشق روبرو میشیم خوشیم و سرمست و به عمق ماجرا فکر نمیکنیم ولی از اون به بعد میشیم متفکرهای دردمندی که زیباترین ویژگی های جهان هستی رو به چالش می کشند و قلب خودشون رو با کنجکاوی ها و سردرگمی ها و بی جوابی ها سیاه می کنند. من از اون عشق اول ممنونم. هرچند دور بود، کوتاه بود، شکست و خورد شد و با باد رفت و دیگه فقط یک اسم ازش باقیه؛ ولی ازش ممنونم که گذاشت من قبل از متفکر شدن شادی رو تجربه کنم."]], "label": "نیلوفر آبی"}, {"t": "دیده شدن، یا نشدن؟", "big": "شدن", "parts": [["آیا شریف‌تر آنست که نگاه های قضاوتگرانه و تمسخر آمیز آن انسان های توخالی را متحمل شویم و یا آنکه خود را با پس زمینه یکی کرده از میان جمع ها رفته و خود را غرق در افکار خویش کنیم؟ رفتن... خاموش شدن... همین و بس؟ اگر خواب مرگ دردهای قلب ما و هزاران آلام دیگر را که طبیعت بر جسم ما مستولی می‌کند پایان بخشد، غایتی است که بایستی البته البته آرزومند آن بود. مردن... خفتن... خفتن، و شاید خواب دیدن. آه، مانع همین جاست.", "در آن زمان که این کالبد خاکی را به دور انداخته باشیم، در آن خواب مرگ ‌، شاید رویاهای ناگواری ببینیم! ترس از همین رویاهاست که ما را به تأمل وا می‌دارد و همین گونه مالحظات است که عمر مصیبت و سختی را اینقدر طوالنی می‌کند. زیر اگر شخصی یقین داشته باشد که با یک خنجر برهنه می‌تواند خود را آسوده کند کیست که در مقابل لطمه‌ها و خفت‌های زمانه، ظلم ظالم، تفرعن مرد متکبر‌، آلام عشق مردود، درنگ‌های دیوانی، وقاحت منصب‌داران، و تحقیرهایی که الیقان صبور از دست ناالیقان می‌بینند، تن به تحمل در دهد؟ کیست که حاضر به بردن این بارها باشد، و بخواهد که در زیر فشار زندگانی پرملال پیوسته ناله و شکایت کند و عرق بریزد؟ همانا بیم از ماورای مرگ ‌، آن سرزمین نامکشوفی که از سرحدش هیچ مسافری برنمی‌گردد شخص را حیران و ارادۀ او را سست می‌کند، و ما را وا می‌دارد تا همه رنجهایی را که در حال کنونی داریم تحمل نماییم و خود را به میان مشقاتی که از حد و نوع آن بی‌خبر هستیم پرتاب نکنیم! آری تفکر و تعقل همه ما را ترسو و جبان می‌کند، و عزم و اراده، هر زمان که با افکار احتیاط‌آمیز توأم گردد رنگ باخته صلابت خود را از دست می‌دهد، خیالات بسیار بلند، به مالحظۀ همین مراتب، از سیر و جریان طبیعی خود باز می‌مانند و به مرحلۀ عمل نمی‌رسند و از میان می‌روند... خاموش!... افلیای زیبا!... ای پری، هر وقت دعا می‌کنی گناهان مرا نیز به خاطر داشته باش ‌، و برای من هم طلب آمرزش بکن."]], "label": ""}, {"t": "طبقه اول: فریاد", "big": "فریاد", "parts": [["داستان ها از کجا شروع میشن؟ از جزوه ای که روی زمین میوفته؟ بچه ای که تنهاست و میخواد تغییر کنه؟ دو گونه از خطرناک ترین موجودات که توی دوردست ترین کهکشان گذاشته شدن؟ منفجر شدن همه چیز؟ اوردن اسم یک کلمه و خلق شدن اون؟ یا شاید هم همه چیز از اول وجود داشته و ما محکوم شدیم به گشتن دنبال داستان های کوچکی که مارو شکل میدن. این داستان ها چی هستند؟ تاریخ کشورمون؟ جنگ ها؟ خاطرات بچگیمون؟ داستان های قبل خواب؟ شعر ها و کتاب ها؟ شاید هم اصلا این داستان ها مهم نیستن و ما فقط دنبال یک پایان جنجالی میگردیم. یک جنگ عظیم که به نابود شدن همه چیز منجر میشه؟ دو دسته شدن همه انسان ها و بهشتی و جهنمی شدنشون؟ یا فقط تاریکی مطلق و هیچ؟", "مشکل من همینجاست. همین انفجار ها، همین داستان ها، همین تاریکی ها. ما بین اینهمه اتفاقات بزرگ چی هستیم؟ لکه خونی که دست و پا دراورد و محکوم به بردگی برای سرمایه داری شد و اخرش هم مرد؟ همین؟ نه این اتفاقات هرچقدر هم که عظیم بنظر برسند برای توصیف جنگل انسان ذره ای بیش نیستند.", "من اسمم نیستم. من خانواده ام نیستم. من کشورم نیستم. من دینم نیستم. من ظاهرم نیستم. من دوستانم نیستم. من پول و خانه ام نیستم. من علایقم نیستم. من تایپ ام بی تی آیم نیستم. من جوابی فراتر از این ملاک های پیش پا افتاده میخواهم برای جواب به سوال \" تو کیستی؟\" جوابی که من نیز هنوز پیدایش نکردم. همانطور که تو به دنبال پول و مقام میدوی من به دنبال خودم میگردم.", "شاید این دردیست که ادم های خوشبخت دچار ان میشوند. وقتی نگران جای خواب و غذا و تحصیلت نباشی شروع میکنی ساختن مشکلات بزرگی که نتوانی حلشان کنی تا توام مثل بقیه بشوی و بری بگویی \" نگاه کنید! من هم مثل شماها هستم! من هم دردمندم. با من هم دوست باشید\". دوست داشتن. اصلا میدونی چیه؟ هرچی میکشیم از همین دوست داشتنه. از همین اجتماعی بودن.", "دلم میخواد این جمله رو بپذیرم و این واقعیت رو قبول کنم که ما چیزی نیستیم جز یک پارچه چهل تیکه از آدم هایی که در طول زندگیمون ملاقات میکنیم. از پدری که شب ها خسته از سرکار میومد و مادری که مدام تو خونه باهاش دعوا داشتیم تا اون دختری که با دیدنش به خودمون گفتیم \" میخوام شبیهش باشم\". اما نمیخوام این حقیقت رو بپذیرم که من، منی که از بشریت نفرت دارم و بی صبرانه منتظر قیامت نشستم از آدم ها تشکل شدم. غرورم به من این اجازه رو نمیده که این پارچه چهل تیکه رو دوست داشته باشم.", "اما اینبار بزارین براتون از اولین تیکه این پارچه چهل تیکه بگم. تکه ای که در بین پارچه های رنگی بقیه گم شده تا اونها جاشون بشه. از تکه ای که قبلا خودش تنها بود و نیازی به پارچه دیگه ای نداشت.", "برگردیم به سوال اصلی داستانمون.", "در جواب \"تو کی هستی؟\" چه جوابی داریم بدیم؟", "اره من یک دختر ایرانی درونگرام ولی نه. اینها صرفا جنبه های انسانی من هستن. من واقعا کی ام؟ اصلا توی این نسل کسی هست که جواب درستی به این سوال داشته باشه؟ نمیدونم. ولی من میخوام سعی کنم جواب درست رو پیدا کنم. ما هر کدوم اثر انگشت های مختص به خودمون رو داریم که حتی شبیه به هم نیستن. جوابمون به این سوال هم باید مثل اثر انگشت هامون باشه؛ خاص و تک.", "حالا مشکل اصلی اینجاست که این خاص بودن رو از کجا بیاریم؟ دختر بودن، ایرانی بودن، و درونگرا بودن من خاص نیست چون هزاران هزار دختر ایرانی درونگرای دیگه هم هستند. پس من کی ام؟ من اخلاق هامم؟ باور هامم؟ ارزش هامم؟ یا شاید حرف های ساده که میزنم؟ موسیقی ای که گوش میدم؟ سریالی که میبینم؟ آدم های اطرافم؟ تو چی فکر میکنی دوست من؟"], ["اخلاقیات یا قانون؟ مسئله این است.", "مشکل من با بشر قرن بیست و یک قوانین بیش از حدشه. انسان اولیه احساسات واقعی خودش رو نشون میداد. زمانی که از یکی خوشش میومد میرفت بغلش میکرد، ازش مراقبت میکرد و بهش لبخند میزد. وقتی از یکی بدش میومد با سنگ میزد تو سرش، غذاش رو باهاش تقسیم نمیکرد یا حتی مسخرش میکرد. و ما چیکار میکنیم وقتی از یکی خوشمون میاد؟ میریم صبح تا شب توی اینستاگرام طرف میچرخیم و تا ادرس خونش رو هم پیدا میکنیم ولی تو روش حتی لبخند هم نمیزنیم چون بهمون یاد دادن خردادی ها مودی ان، امیر ها الشین، و… وقتی هم از یکی بدمون میاد باهاش دست میدیم و بعد با دوستامون میشینیم ازش بد میگیم. اگرم خیلی بچه خلاف باشیم زنگ میزنیم از پشت تلفن بهش فوش میدیم. ما محدود شدیم و خودمون رو توی این قفس مدرن گیر انداختیم. دوستی باید مثل بچه های کلاس اولی باشه که صرفا بخاطر اینکه از یک نفر حس خوبی میگرفتن میرفتن بهش میگفتن \"میای باهم دوست بشیم؟\" فارغ ازینکه طرفمون چه شکلیه یا وضع مالیش چطوریه. اما متاسفانه ما یاد گرفتیم معیار بزاریم. یاد گرفتیم نمیشه هم خدا رو داشت هم خرما رو. اینها اخلاقیات نیست اینها قانونه. قانون هایی که ما حتی نمیدونستیم ازشون پیروی میکنیم. حالا با توجه به این قانون هایی که درونمون رخنه کردن ایا ما واقعا با اخلاقیاتمون اشناییم؟", "این اخلاقیات اولین تیکه ازون پارچه ای هست که میخوام براتون داستانش رو تعریف کنم.", "بیاید از پررنگ ترینش شروع کنیم: خشم", "هفته هاست دارم چند خط از اهنگی که دوستش دارم رو با خودم مدام تکرار میکنم.", "¶عوض شدم", "¶دیگه می‌ترسم از خودم", "¶بغل گوشم، نخند بلند", "¶همه می‌تونن سگم کنن", "برام جالب نبود. فکر نمیکردم کس دیگه ای هم مثل من با شنیدن صدای قهقهه های بی معنی بقیه عصبی بشه. ولی چرا؟ چرا گاهی اوقات بهترین رویاهام دعوا با ادم های نفهم و توخالی دورمه؟ چرا دلم میخواد حقیقت رو به وحشیانه ترین شکل ممکن بکوبونم تو صورتشون؟ مگه من یه دختر لطیف و مهربون نیستم؟ پس چرا دلم جنگ میخواد؟ چرا دلم میخواد فریاد بزنم و همه چیز رو بشکونم تا شیشه هاش همرو زخمی کنه؟", "¶من از این جنگ معنی می‌گیرم", "¶من از این فرهنگ میام", "¶کودکیم تو عمق فکرم فریاد می‌کشه جنگ می‌خوام", "فکر این جنگ من رو آروم میکنه. اگر من رو ببینی به حرف های الانم میخندی. خودمم میخندم. این من نیستم؛ اما شاید هم خود واقعی من است که زیر نقاب ها دیگر نمیشناسمش. با چه چیزی میخواهم بجنگم؟ خودم؟ دوستام؟ خانوادم؟ سیاستمدارها؟ تاریخ؟ خدا؟ همین سوال هایی که مدام بی جواب توی ذهنم میچرخن؟", "من عصبانی ام. از چی رو نمیدونم و همین بیشتر عصبانیم میکنه. دلم میخواد فریاد بزنم و بگم. بگم چه حسی نسبت به این دنیا و ویروس هاش دارم. چرا دنیا اینجوریه؟ \"اینجوری\" رو دوست ندارم ولی هر کلمه دیگه ای بخوام بجاش استفاده کنم به اون کلمه توهین کردم؛ گرچه همین الانش هم به \"اینجوری\" توهین شد. اصن میدونی مشکل چیه؟ اینکه ما همش دنبال توهین شدنیم تا دعوا راه بندازیم\". ای وای! همه ی نقشای اول فیلمت مردن؟ داری به زنا توهین میکنی؟ داری میگی زنا ناچیزن و حساب نمیشن؟ ای وای!! همه ی نقشای مهم رو دادی به زنا؟ پس مردا چی؟ مردم فک میکنن ادمی هیزی هستی و از روی پاچه خواری اینکارو کردی و فیلمتو نمیبینن!\" من بهت پیشنهاد نمیکنم دهنتو ببیندی پیشنهاد میکنم یه تجدید نظری درمورد تفکر مریض و پوسیدت داشته باشی. آره خیلی چیزا قدیمیش بهتره و یا هرچی قدیمی تر بشه بهتر بشه ولی میتونم این اطمینان رو بهت بدم که طرز تفکر جزو این موردا نیست. البته بعضی وقتا. آره خیلی خوبه که عربا دیگه دختر هاشون رو زنده به گور نمیکنند ولی این اصلا قابل پذیرش نیست که به بچه های کودکستانی بگن تو باید جنسیتت رو احساس کنی و اگر نمیخوای میتونی هرچیزی باشی: دختر، پسر، وسطش، آدم فضایی…", "الان تو میتونی بیای به من بگی \"ای بی ادب تو به جامعه ما که اسمش از معنیش طولانی تره توهین کردی!\" و من هم با جرات توی روت می ایستم و میگم اره میدونی چرا؟ چون عقل انسانی من حکم میکنه که این کار تو غلطه. من یک کودک قرن بیست و یک نیستم که با تمام عقایدت موافقت کنم و دست نوازش به سرت بکشم. نه! من نظرم رو میکوبونم توی صورتت. چرا؟ تو این مسخره بازی هاتو از مرز حریم شخصیت اوردی بیرون و به بقیه اجازه دیدن و نظر دادن دادی پس انتظار هم داشته باش که باهات مخالفت شه. بجای اینکه بشینی یه گوشه گریه کنی و بگی بهم برخورد پاشو از خودت دفاع کن اگر واقعا فکر میکنی کارت معنا داره.", "برگردیم سر سناریوی طرح شدمون. هروقت اون طرف فیلمساز اومد گفت اره من بخاطر اینکه از زنا بدم میومد همه بازیگرای اصلیمو مرد انتخاب کردم میتونی بری یقش رو بگیری ولی خب اگه دلیلش این نبوده یا بخاطر فیلمنامش مجبور به همچین کاری کنه تو چه مرضی داری میای اون وسط میلولی؟ با اینکار خودتو مثل دلقکا جلوه میدی. اگه یکی بیاد ازت بپرسه خب چرا از طرف بدت میاد یا داری علیهش کاری میکنی تو عین بچه های دوساله میگی \"خب منو اوف کرد\". بزرگ شید خواهشا، این رفتارا واسه کسی که امروز میاد فردا میره خیلی زشته و فقط باعث میشه حالتون از خودتون بهم بخوره. تو حتی اگر فداکاری ای هم در اون زمینه کرده باشی حق نداری انتظار همچین کاری رو از بقیه داشته باشی. تو نه میتونی تمام و کمال اونو درک کنی نه اجازه داری براش تصمیم بگیری. این فکرا رو هم از سرت بیرون کن که چون من خیلی کار بزرگی برای این مشکل کردم حق دارم اینکارو بکنم. تو میتونی زندگیت رو فدای اون جامعت کرده باشی ولی نباید از من هیچ انتظاری داشته باشی که حمایتت کنم.", "این شرو ورای مضخرف فقط برای پوشوندن ذات خودخواهته و هم من اینو میدونم هم خودت. رفتی بخاطر حمایت از حقوق حیوانات یه لاک پشت گنده رو کمرت تتو کردی؟ اولا که مبارکت باشه؛ دوما اینکه تو یا از تتو بدت میاد یا خوشت میاد، اگه خوشت میاد که بحث تموم میشه چون اینکارو دوست داری و درواقع باعث شادی دل خودت میشده که اینکارو کردی. ولی اگه دوسش نداشتی قطعا اینکارو کردی که یا توی فضای مجازی کلی بازدید بخوری و مردم ذوقت کنن یا اینکه یه جایزه ای چیزی بهت بدن یا اینکه بهانه ای بوده که از خانواده فرار کنی یا هزارتا دلیل دیگه که به خودت برمیگرده و با هیچکدوم نمیتونی \"فداکاری\" رو ثابت کنی. حتی مقدس ترین ایثارگری های بشریت هم با یه نگاه دقیق به خودخواهانه ترین کار تبدیل میشن. من عصبانیم و توی عصبانیت من دیگه یه دختر مهربون نیستم. من پیرو نظریه شوپنهاورم که معتقده مهربونی توی این دنیا وجود نداره و ما فقط میخوایم روی همدیگه کنترل داشته باشیم. تو فداکاری نمیکنی که جامعت رو نجات بدی. تو فداکاری میکنی که ازت تقدیر بشه و حس خوبی به خودت داشته باشی و پزش رو بدی. اصن من نمیدونم چرا کلمه \"فداکاری\" انرژی مثبت داره؟ این کلمه فقط یه دروغه تا دروغ اصلی مشخص نشه. مثل یه پارچه خونیه که روی جسد میندازی تا مثال کسی شک نکنه و آدمای احمق چون یه نفر بهشون گفته این آب آلبالوعه دیگه نمیرن زیرشو نگاه کنن. واقعا از شدت حماقت و سطحی بودن آدما خندم میگیره؛ تازه معتقدم هستن روح \"خدا\" توشون دمیده شده. یه نگاه به ما بنداز. ایا بنظرت منی که هر روز برای دشمنم دعا میکنم به راه راست هدایت شه و تویی که جنسیتت رو میبری زیر سوال از یک خدا اومدیم؟ موجودات برتر؟ کیو گول میزنی؟ منو یا اون مغز بیخودت که داره با حماقت به چخ میره؟ هر صفتی روی همچین دنیایی بزارم به اون صفت بدبخت توهین کردم. چرا دنیا \"اینجوریه\"؟"]], "label": "پله"}, {"t": "نیم انسان", "big": "نیم", "parts": [["و چه زیباست که بعد از مدتها با لبخند قلمت را برداری و اینبار اشک های شوق باشند که از گونه ات سرازیر میشوند.", "¶آرزو…", "¶امید…", "هرچیزی که اسمش را بگذاری، آدمی را سر پا نگه میدارد. من احساس میکردم ترمیم یافتن زخم هایم را با طنین خنده ات. میدیدم لبخندم را زمانی که چشمانت با قدرتی فرای این دنیا درد هایت را کنار میزد و به من میدرخشید، همچون ستاره هایت. ستاره هایت هم مانند تو با من سخن نمیگویند. من همه را میشناسم، از اولین حرف هایی که میزنند قلب آنها را میبینم اما تو… ستاره هایت مرا گمراه میکنند، شاید هم حقیقتی را میگویند که من نمیتوانم ببینم. به من میگوینمند تو مرزی بین نابودی قوی ترین شکارچیان و نجیب ترین موجودی که تنها نیمیش انسان است. تو دقیقا در مرز آب و آتشی. به راستی که تو کیستی؟ تو چیستی؟", "مانند کودکی که برای اولین بار جسمی را در دستانش میگیرد کنجکاوانه خیره مانده ام. به تو، به قلبت، به حرف هایت که رنگ عوض میکنند. میترسم فرار کنی. میترسم به دستان این کودک اعتماد نکنی و خودت را از من غایم کنی پس محکمتر تورا در دستانم میگیرم. نمیتوانم تو را در اغوش بکشم، هنوز نه؛ من از تو میترسم. میترسم بجای اینکه نیمی انسان و نیمی فرشته باشی همان عقربی باشی که برای نابودی امده است. وحشت دارم. وحشت دارم که تو همان نیم انسان و نیم فرشته ای باشی اما من، کودکی نادان و ترسو، تو را زمین بیاندازم. وای اگر بندازمت…", "اگر از دستم بیوفتی این منم که میشکنم چرا که تو هنوز من را نمیبینی. تو به راهت چشم دوختی و من با چشمانی بغض آلود به پروازت خیره مانده ام. اگر از دستم بیوفتی این منم که خودم را به اتش می اندازم چرا که نمیخواهم این بار بخشیده بشوم. اگر از دستم بیوفتی من خودم را میشکنم تا دوباره بگیرمت و شاید اینبار نگذارم بیوفتی.", "¶ترس…", "¶شک…", "هرچیزی که اسمش را بگذاری، آدمی را از پا می اندازد.", "دلم میخواهد خودخواه باشم. دلم میخواهد بدون اینکه به من اجازه بدهی در آغوش بکشمت و همراه با خنده هایت قهقهه بزنم. دلم میخواهد تو را به همه نشان دهم تا ببینند انسانیت فراتر از چیزیست که تصورش را میکنیم. دلم میخواهد ساعت ها به حرف هایت گوش دهم و تو فقط برایم بگویی؛ از خودت، از دنیا، ازینکه چطور با حرف هایت مرا وادار به نوشتن میکنی، ازینکه چه ظریف پارچه های زخمی روحم را ارام ارام بهم میدوزی. اما من در رویاهایم غرقم. دلم میخواهد این تو باشی که مرا در آغوش بکشی و اسمم را صدا بزنی تا لبخند بزنم. اسمم را صدا بزن تا نگذارم دیگر هیچکس تو را ببیند بلکه از انسان هایی که شبیهت نیستند دور باشی. اسمم را صدا بزن تا ساعت ها از زیبایی و قدرتت برایت بخوانم گویا دارم میپرستمت. اسمم را صدا بزن تا صد ها بار دیگر هم برایت بنویسم.", "اما من ترسو تر از این حرف ها هستم. میترسم اسمم را صدا بزنی و من بی اختیار زخم هایم را نشانت دهم که همه را از من میراند. میترسم در آغوش بگیرمت و نتوانم رهایت کنم. میترسم نگذارم پرواز کنی و قصه ی زیباییت را به دنیا نشان دهی. میترسم اسمم را صدا بزنی و نتوانم جلوی اشک هایم را بگیرم.", "تمام این خط خطی های بی معنی، تمام این اشک های بی مزه، این لبخند های بی صدا، متنفرم ازین احساساتی که خفه شده اند. اما ترجیح میدهم ان کودک ترسویی باشم که پروازت را با حسرت نگاه میکند، تا آن کودک خودخواهی که تو را همچون عروسک مورد علاقه اش همه جا میبرد و همه میدانند که مال اوست."]], "label": ""}, {"t": "نیچه", "big": "نیچه", "parts": [["مثل خیلی شب های دیگر خوابم نمیبرد. همانطور که سعی میکردم پتو را طوری دور خودم بپیچم تا هیولاها نتوانند به من دست بزنند، خاطرات خوش روز های گذشته را مرور کردم. هویت اکثر دوستای جدیدم برایم نا آشنا بود. حس غربت ناخوشایندی وجودم را پر کرده بود اما چیزی، شاید هم کسی، مرا به جلو هل میداد. دوستانی که پیدا کرده بودم بوی شادی و صداقت می دادند. گرچه تک تک سلولهای بدنم درباره خیانت دردناک شان به من هشدار می داد، اما کودکی با درد همراه است", "از آن زمان خیلی میگذرد، شاید چند روز که برای من چند قرن گذشت. من در تنهایی در جستجوی نیروی عجیبی اطراف خودم بودم. آن ادم های رنگارنگ دور و سرد شده بودند اما من هنوز تپش قلبی را از پشت سرم میشنیدم. با خود میگفتم \" حتما آدمی بوده که در پس زمینه داستانم جای داشته و الان تکلیف خود را نمی داند\". و گوش هایم را محکم میگرفتم و به عقربه های ساعت خیره مشدم. عقربه هایی که با هر پیشرفت، به من نشان میدادند چقدر از جایگاهم دور ماندم. جایگاهی که همیشه دوست. داشتم در هنر داشته باشم؛ کسی که برای اولین بار عجیب ترین کار را کرد", "اشتباه من دقیقا همانجایی بود که برای پیشرفت در هنر از نیرو های طبیعی امید میگرفتم چرا که بعد از مدتی، دیگر قوه هنری ام را قلقلک نمی دادند. داستان اصلی از همان روزی شروع شد که من برای پیشرفت، انسان های دیگر را زیر و رو کردم. انسان هایی که کشف آنها گرچه آسان اما لذت بخش و جالب بود. تا روزی که انسان متفاوتی را دیدم؛ انسانی که در کودکی در پس زمینه داستان هایم قدم میزد اما من حتی چهره او را بخاطر نداشتم. او رهگذری سیاه پوش و مرموز، اما مهربان و سرزنده بود. همه همراه و همسفر او بودند، انگار او کسی بود که به انها زندگی بخشیده بود. اما از هرکدام میپرسیدی او کیست،. لبخند ملیحی تحویلت میدادند. بعد از این همه مدت هنوز هم از پس توصیف منظره زیبای دنیایش برنمیایم", "شاید این حس کارآگاهی من بود که تحریک میشد اما تا زمانی که مرا به سمتی میکشید اهمیتی نمیدادم. شب و روز کارم شده بود پرسیدن \"چرا\" های مکرر درمورد شخصیتش؛ چنگ زدن به تار و پود وجودش برای بدست آوردن ذره ای اطالعات، اما هیچ چیزی آنجا نبود. بنظر صادق ترین آدم دنیا می آمد و سفره دلش هم همین قصه را بازگو میکرد اما چرا من در هر لبخند کوچکش کولباری از درد میدیدم؟ از همان روز چرا و چطور های مغزم را در دفترچه ای کوچک نوشتم و دلم را به دریا زدم.. با تمام توان به سمتش دویدم تا پاسخ سوالاتم را جایی درمیان سکوت هایش پیدا کنم", "هر روز تلاش میکردم غبار هارا کنار بزنم تا بتوانم چهره اش را کامل ببینم، اما به این راحتی ها نبود. فکر میکردم میشناختمش؛ اما حتی اسمش هم برایم نامفهوم بود. بگذارید طور دیگری بگویم. آیا تابحال رویای شیرین اما ترسناک و هیجان انگیزی داشته اید که با وجود تار بودن برایتان جذاب ترین خواب دنیا باشد؟ او رویایی بود که در طول روز من را همراهی میکرد. رویایی که درهنگام بودنش نمیتوانستم هیچ چیزش را زیر سوال ببرم؛ انگار فکر کردن دشوار میشد. با وجود سوالات متداولی که در ذهنم میچرخید باز هم رویای زیبایی بود، اما من که نمیتوانستم آن را ببینم! گرد و غبارها دوباره دیدم را تار میکردند و ذهنم علیه خودم عمل میکرد و مرا سرگرم بازی با تیرگی های ظاهرش میکرد. انگار میدانست نمیتوانم روحش را درک کنم برای همین سر خود را با ظاهرش گرم میکرد. او دقیقا همچین آدمی بود؛ میدانستی آنجاست و میدانستی چیزهای زیادی درباره اش با عقل جور درنمی آید، اما انگار نمیخواستی قبول کنی و حقیقت را کنار میزدی. بعضی اوقات فکر میکنم شاید خودش هم حقیقتش را قایم کرده؛ اما چرا؟ دوحالت بیشتر نداشت. یا از درون مجرمی با دست های خونین و چشمان یخی بود و یا طفل معصومی که از ترس آسیب دیدن خود را لابلای این همه تظاهر گم کرده. اکثر اوقات رفتارهای کودکانه اش را با خود مرور میکردم تا فراموش کنم ممکن است همان قاتل بی رحمی باشد که همه کابوسش را میبینند، اما به خودم قول دادم. اینبار هرچقدر حقیقت دردناک بود آن را کنار نزنم و با آغوش باز به راهم ادامه بدهم", "خانه زیبایی را تصور کنید که سالهاست هیچکس آنجا زندگی نکرده. حدس اول چیست؟ لابد مشکلی دارد؛ اما شما کل خانه را زیر و رو کردید و هیچ مشکلی پیدا نکردید. حدس دوم چیست؟ قیمتش زیاد است؛ نه. قیمتش از خانه های معمولی هم بهتر است. یک به یک تمام فرضیه ها حذف میشوند و شما میمانید و یک دوراهی؛ دوراهی اینکه قبول کنید بی نقص وجود دارد ویا با ترس از خرافات پنهان شده در آن خانه فرار کنید. من به بی نقص بودن چیزی، مخصوصا انسان ها، باور ندارم اما از خرافات هم نمیترسم. من میخواهم درون ظاهری زیبا قلبی تیره و کبود پیدا کنم و چیزی که مرا میترساند نبودن این قلب است. فرق زیادی بین یک بازیگر خوب و یک ربات وجود دارد. اما چرا من باید یک ربات بازیگر را در ذهنم تصور کنم و خودم را با آن سرگرم کنم؟ این آخرین سوالی است که باید به آن پاسخ داده شود چرا که دوستان ذهنی ما، نیازهای ما هستند. نیاز به حواس پرتی؟ یا الگویی کامل؟ شاید هم باوری برای ادامه دادن. اما چرا الگوی ذهنی یک فرد باید با منطق های خود شخص مغایرت داشته باشد؟ دانستن حضور فرد دیگری در شخصی ترین مکان دنیا، ذهن خود، ترسناک و نگران کنندست. غریبه ای آشنا با بالهای سفید و دستان یک جنگجو که از شناخته شدن فراریست. نوری در دل تاریکی شب که ثابت میکرد همه ما انسان ها یکی هستیم و برای یک هدف خود را روی زمین میکشیم. طفل معصومی که دوست داشت قهرمان قصه خود و دیگران باشد و کم کم آن را باور کرد و خود را تبدیل به فکری متفاوت در ذهن همه کرد. او همان حرکت کوچک و مشکوکیست که در آینه میبینیم؛ همان اشتیاق ما در سفر به بینهایت؛ همان سنگینی نگاهی که پشت سر ماست؛ همان کودکی که درون ماست و محکم دستش را میفشاریم تا گریه نکند و در عین حال، همان هیولایی است که زیر تختمان قایم شده", "درست مثل تخمه شکستن زمانی که در راه شناختش قدم میگذاری نمیتوانی برگردی و تا ابد با رضایت به راهت ادامه میدهی. او دنیایی است که در آن کشورها مرزی ندارند و همه میخندند، اما با تمام این زیبایی ها یک جای کار میلنگد؛ مثل بزرگترین سفینه دنیا که زمان حرکت کردن هیچ تکانه ای از داخل آن احساس نمی شود. او مثل تکه کاغذ سفیدی بود که با تصورات ببیننده پر میشد و چیزی نشانت میداد که میخواستی اما گاهی اوقات آنقدر فراتر از مرزهای منطق میرفت، که دیگر شناختش ممکن نبود؛ همانطور که توصیفش با چندین و چند مثال هنوز هم ممکن نیست."]], "label": ""}];
 (function(){
   var deck=document.getElementById('uDeck'); if(!deck) return;
   /* the reader must live at the top of the page: inside its section (z-index 3) later sections painted over its buttons */
@@ -2774,10 +2810,29 @@ var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می �
   var FA='۰۱۲۳۴۵۶۷۸۹'; function fa(n){ return String(n).replace(/[0-9]/g,function(d){ return FA[+d]; }); }
   UNTR.forEach(function(u){ u.words=u.parts.reduce(function(s,p){ return s+p.join(' ').split(/\s+/).length; },0); });
   deck.innerHTML=UNTR.map(function(u,i){
-    return '<button class="u-card rv" data-u="'+i+'" data-big="'+esc(u.big)+'" lang="fa" aria-label="'+esc(u.t)+', open the book">'
-      + '<span class="u-n">0'+(i+1)+'</span><h3>'+esc(u.t)+'</h3>'+(u.parts.length>1?'<span class="u-parts">'+u.parts.map(function(_,k){ return '<i>'+fa(k+1)+'</i>'; }).join('')+'</span>':'')+'<p class="u-first">'+esc(u.parts[0][0].replace(/^\u00b6/,''))+'</p>'
-      + '<span class="u-go"><b>Open the book</b><span>'+(u.parts.length>1?u.parts.length+' parts':'One piece')+'</span></span></button>';
+    return '<button class="u-rib rv" data-u="'+i+'" lang="fa" aria-label="'+esc(u.t)+', open the book">'
+      + '<span class="u-n">'+fa('0'+(i+1))+'</span>'
+      + '<span class="u-big" aria-hidden="true">'+esc(u.big)+'</span>'
+      + '<span class="u-ttl">'+esc(u.t)+'</span>'
+      + '<span class="u-sub">'+(u.parts.length>1?fa(u.parts.length)+' \u0628\u062e\u0634':'\u06cc\u06a9 \u0646\u0648\u0634\u062a\u0647')+'</span>'
+      + '</button>';
   }).join('');
+  /* the rail reads out whichever ribbon you are on, so nothing has to stack */
+  (function(){
+    var rr=document.getElementById('uPeek'), rt=document.getElementById('uPeekTxt'),
+        rg=document.getElementById('uPeekGo'), cur=-1;
+    if(!rr) return;
+    function show(i){
+      if(cur===i) return; cur=i; var u=UNTR[i];
+      deck.querySelectorAll('.u-rib').forEach(function(x,k){ x.classList.toggle('sel',k===i); });
+      rt.textContent=u.parts[0][0].replace(/^\u00b6/,'');
+      rg.textContent=(u.parts.length>1?u.parts.length+' parts':'One piece')+'  \u00b7  Open the book \u203a';
+      rr.classList.add('on');
+    }
+    deck.addEventListener('pointerover',function(e){ var r=e.target.closest('.u-rib'); if(r) show(+r.dataset.u); });
+    deck.addEventListener('focusin',function(e){ var r=e.target.closest('.u-rib'); if(r) show(+r.dataset.u); });
+    show(0);
+  })();
   deck.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 
   /* ---- lay the text out into real pages, splitting paragraphs at word boundaries ---- */
@@ -2854,7 +2909,8 @@ var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می �
   function close(){ if(rd.hidden) return; rd.classList.remove('on'); document.documentElement.style.overflow=''; U=null;
     setTimeout(function(){ rd.hidden=true; PR.innerHTML=PL.innerHTML=''; },reduce?0:450); if(last&&last.focus) last.focus(); }
   window.__uClose=close;
-  deck.addEventListener('click',function(e){ var c=e.target.closest('.u-card'); if(c) open(+c.dataset.u); });
+  deck.addEventListener('click',function(e){ var c=e.target.closest('.u-rib'); if(c) open(+c.dataset.u); });
+  var pg=document.getElementById('uPeekGo'); if(pg) pg.addEventListener('click',function(){ var a=deck.querySelector('.u-rib.sel'); if(a) open(+a.dataset.u); });
   document.getElementById('uClose').addEventListener('click',close);
   document.getElementById('uClose2').addEventListener('click',close);
   nx.addEventListener('click',function(){ turn(1); }); pv.addEventListener('click',function(){ turn(-1); });
@@ -2894,57 +2950,51 @@ var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می �
   });
 })();
 
+var BEATS=[{"n": "01", "h": "How he got in", "q": "I got to know so many people in different positions. That is how I learned about production without actually being in production.", "a": "He managed a closed brewery in Los Angeles that got rented out as a filming location. Forty acres, twenty buildings. He was not in the industry. He was standing exactly where it walked past, every day, being useful to everyone who came through. That is the whole origin story."}, {"n": "02", "h": "Do the job you are given", "q": "If it is getting coffee for the producer, if it is parking lot security, do it to the best of your ability, and you will be noticed. More than if you think you have something smart to say about the latest movie.", "a": "Josh Feldman wrote with Tom Hanks in the morning and fetched coffee in the afternoon, and never once acted like the second one was beneath him. I believe the advice. I also notice it is a story told from the end, by someone who got the phone call."}, {"n": "03", "h": "The book is your first Bible", "q": "Our first Bible was the Ambrose book. Somebody has been there before you. They have scouted the territory.", "a": "That is the entire argument for adaptation in one line. It is also why Nolan bought American Prometheus instead of just reading it. The rights buy you somebody else's two years of research, already organised."}, {"n": "04", "h": "The script that never gets made", "q": "We were not going to make it. It was not a movie we were going to make. But we kept Erik in mind.", "a": "Erik Jendresen got Band of Brothers off an unmade script about Saint Exupéry flying airmail. John Orloff got two episodes off an unmade script about who really wrote Shakespeare. Your script is not a product. It is a sample of how your brain works, and the producer who liked your brain calls you about something else entirely."}, {"n": "05", "h": "The door, and who is holding it", "q": "If their agent had not sent us their scripts, we never would have known them. We would not have accepted a script from them. You cannot do that.", "a": "Festivals feed agents, agents feed producers. He said all three parts calmly and none of them as a problem. Nobody mentioned that the loop costs money, and that perseverance is doing a lot of work in a sentence where the real variable is who can afford to keep submitting."}, {"n": "06", "h": "Steal a shape", "q": "No drama Obama is perfect if you are a candidate. It is dead if you are trying to turn it into a story.", "a": "Game Change started as Clinton against Obama, a prizefight, round by round. It failed. They rebuilt it as Frankenstein, with the strategist as the doctor who loses control of what he made. Research tells you what happened. Structure tells you where to put the camera."}, {"n": "07", "h": "The best thing he said", "q": "If we cannot make that dramatic without making shit up, then shame on us.", "a": "They recut Band of Brothers to give Richard Winters a fake fumbling arc. Winters watched it and was furious: he trained two years to do that job. He lost his rifle on the jump and earned the Distinguished Service Cross by the end of the day. They put it back. Every note that ever made my work worse was some version of add conflict here."}, {"n": "08", "h": "Where the line is", "q": "You are going to have to make certain compromises when you tell a true story. The compromise you cannot make is the one that changes the nature of the story.", "a": "His example is Darkest Hour, where Londoners on the Tube stiffen a wavering Churchill. Churchill was the one stiffening the waverers. Compress time, merge three people into one, invent a line to get across a scene. Do not invert the meaning of what happened so the third act lands."}, {"n": "09", "h": "Answer notes with notes", "q": "More conflict means nothing. Be specific. Where can the conflict come from?", "a": "Agree where you agree, and give a reason where you do not. He named Danny Strong as the master of it. And since most of us will be giving notes as often as taking them, be that specific in both directions."}, {"n": "10", "h": "Do not ask how to make it commercial", "q": "If you are already thinking about platforms and commercial viability, you are thinking about it wrong.", "a": "This is advice from the one place in the industry that is allowed to ignore the market, and he said so himself before anyone could point it out. That admission is the reason I trust the rest of it."}, {"n": "11", "h": "The question someone asked", "q": "There has never been one minute of any kind of heat from a network, a studio or a public figure. Who knows what will happen in the future.", "a": "A student asked how Playtone manages its relationship with the State Department. He corrected the premise: there is no relationship, he is here under its auspices for this programme. Then he answered the real question anyway, and added the last sentence himself."}, {"n": "12", "h": "Read, and listen", "q": "The TikTok Instagram of it all does not help you develop the sense and sensibility you need. Defamation is not an art.", "a": "I am going to sit inside that contradiction rather than pretend it is not there, because one of the pieces on this site is a one minute video essay made for a feed. Scrolling does not build judgement. The format is not the problem. Short work made out of nothing is nothing. Short work made out of two years of reading hands that reading to someone who would never open the book."}];
 
-/* ---- Notes from the room ---- */
+/* ---- Notes from the room: the talk, scrubbed like a tape ---- */
 var TALKS=[
   {t:'The Man Who Made Band of Brothers Told Us to Stop Making Things Up',
-   who:'Kirk Saduski',
-   role:'Producer, Playtone',
    m:'August 2026 · Notes from the room',
-   date:'13.08.26',
-   side:'Side A',
-   run:'2 hrs',
    s:'Two hours with the producer of Band of Brothers, John Adams and Game Change, on adaptation, getting in, and the one compromise you are not allowed to make.',
-   under:'<b>Kirk Saduski</b> on why the book is your first Bible, how Frankenstein rescued Game Change, and the day Richard Winters watched the cut and told them to put it back.',
    src:'w-saduski'}
 ];
-var NTQ=['Somebody has been there before you. They have scouted the territory.',
-  'No drama Obama is perfect if you are a candidate. It is dead if you are a story.',
-  'If we cannot make that dramatic without making shit up, then shame on us.',
-  'The compromise you cannot make is the one that changes the nature of the story.',
-  'More conflict means nothing. Be specific.',
-  'Defamation is not an art.'];
 (function(){
-  var run=document.getElementById('ntRun'), rack=document.getElementById('ntRack');
-  if(!run||!rack) return;
-  var one=NTQ.map(function(q){ return '<span>“'+q+'”</span><i>●</i>'; }).join('');
-  run.innerHTML=one+one;
-  rack.innerHTML=TALKS.map(function(k,i){
-    return '<article class="nt-row rv">'
-      + '<button class="nt-tape" data-act="talk:'+i+'" aria-label="Read the notes: '+esc(k.who)+'">'
-      +   '<div class="nt-shell">'
-      +     '<span class="nt-screw a"></span><span class="nt-screw b"></span>'
-      +     '<span class="nt-screw c"></span><span class="nt-screw d"></span>'
-      +     '<div class="nt-label">'
-      +       '<div class="nt-side">'+esc(k.side)+'</div>'
-      +       '<h3 class="nt-who">'+esc(k.who)+'</h3>'
-      +       '<p class="nt-role">'+esc(k.role)+'</p>'
-      +       '<div class="nt-meta"><span>'+esc(k.date)+'</span><span>'+esc(k.run)+'</span></div>'
-      +     '</div>'
-      +     '<div class="nt-reels"><div class="nt-win"><div class="nt-hub"></div></div>'
-      +       '<div class="nt-win"><div class="nt-hub"></div></div></div>'
-      +     '<span class="nt-play">Play the notes</span>'
-      +   '</div>'
-      + '</button>'
-      + '<div class="nt-side2">'
-      +   '<div class="nt-kick">'+esc(k.m)+'</div>'
-      +   '<h3 class="nt-hd">'+esc(k.t)+'</h3>'
-      +   '<p class="nt-dek">'+esc(k.s)+'</p>'
-      +   '<p class="nt-under">'+k.under+'</p>'
-      +   '<a class="nt-go" href="#" data-act="talk:'+i+'">Read the notes \u203a</a>'
-      + '</div></article>';
+  var ticks=document.getElementById('ntTicks'); if(!ticks||typeof BEATS==='undefined') return;
+  var fill=document.getElementById('ntFill'), pan=document.getElementById('ntPanel'),
+      eN=document.getElementById('ntN'), eH=document.getElementById('ntH'), eQ=document.getElementById('ntQ'),
+      eA=document.getElementById('ntA'), eC=document.getElementById('ntC'),
+      pv=document.getElementById('ntPrev'), nx=document.getElementById('ntNext'), at=-1;
+  ticks.innerHTML=BEATS.map(function(b,i){
+    return '<button class="nt-tick" data-i="'+i+'" role="tab" aria-label="'+esc(b.n+'. '+b.h)+'">'
+      + '<i></i><span>'+esc(b.h)+'</span></button>';
   }).join('');
-  rack.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  function set(i,quiet){
+    i=Math.max(0,Math.min(BEATS.length-1,i)); if(i===at) return; at=i;
+    var b=BEATS[i];
+    eN.textContent=b.n; eH.textContent=b.h; eQ.textContent='“'+b.q+'”'; eA.textContent=b.a;
+    eC.textContent=(i+1)+' / '+BEATS.length;
+    fill.style.width=((i+1)/BEATS.length*100)+'%';
+    pv.disabled=i===0; nx.disabled=i===BEATS.length-1;
+    ticks.querySelectorAll('.nt-tick').forEach(function(t,k){
+      t.classList.toggle('on',k===i); t.setAttribute('aria-selected',k===i?'true':'false'); });
+    if(!quiet){ pan.classList.remove('flip'); void pan.offsetWidth; pan.classList.add('flip'); }
+    ticks.querySelectorAll('.nt-tick')[i].scrollIntoView({block:'nearest',inline:'nearest'});
+  }
+  ticks.addEventListener('click',function(e){ var t=e.target.closest('.nt-tick'); if(t) set(+t.dataset.i); });
+  pv.addEventListener('click',function(){ set(at-1); });
+  nx.addEventListener('click',function(){ set(at+1); });
+  ticks.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); set(at+1); ticks.querySelectorAll('.nt-tick')[at].focus(); }
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); set(at-1); ticks.querySelectorAll('.nt-tick')[at].focus(); }
+  });
+  /* swipe the panel on a phone */
+  var x0=null;
+  pan.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+  pan.addEventListener('touchend',function(e){ if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0; x0=null;
+    if(Math.abs(dx)>52) set(at+(dx<0?1:-1)); });
+  set(0,true);
 })();
 
 })();
