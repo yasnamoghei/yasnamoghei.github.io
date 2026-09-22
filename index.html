@@ -40,7 +40,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Vazirmatn:wght@300;400;500&family=Courier+Prime:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Vazirmatn:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&family=Courier+Prime:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
 <style>
   /* ================= COLOURS ================= */
   :root{
@@ -992,49 +992,76 @@
   .u-card .u-go{margin-top:auto;display:flex;justify-content:space-between;align-items:center;direction:ltr;font:600 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
   .u-card .u-go b{font-weight:600;color:var(--rose)}
   .u-card::after{content:attr(data-big);position:absolute;left:-.1em;bottom:-.45em;font:400 clamp(150px,16vw,240px)/1 var(--nasta);color:rgba(251,247,240,.035);pointer-events:none}
-  .u-read{position:fixed;inset:0;z-index:120;color:#EDE6DA;opacity:0;transition:opacity .5s;overflow:hidden;background:#04100D;
-    display:grid;grid-template-rows:auto 1fr auto auto;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+  .u-read{position:fixed;inset:0;z-index:120;opacity:0;transition:opacity .5s;overflow:hidden;
+    background:radial-gradient(120% 90% at 50% 40%,#2B2019 0%,#140E0A 60%,#0A0705 100%);
+    display:grid;grid-template-rows:1fr auto;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
   .u-read.on{opacity:1}
   .u-read[hidden]{display:none}
-  .u-sea{position:absolute;inset:-10%;z-index:0;transition:background 1.2s var(--ease);
-    background:radial-gradient(120% 70% at 50% 120%,hsla(var(--h,168),55%,var(--l,22%),.9),transparent 60%),linear-gradient(180deg,#04100D,hsl(var(--h,168),45%,calc(var(--l,22%) / 2.2)))}
-  .u-sea::before,.u-sea::after{content:"";position:absolute;left:-20%;right:-20%;bottom:-6%;height:34%;border-radius:45%;background:rgba(237,230,218,.035);animation:swell 12s ease-in-out infinite}
-  .u-sea::after{bottom:-12%;height:30%;background:rgba(237,230,218,.03);animation-duration:17s;animation-direction:reverse}
-  @keyframes swell{0%,100%{transform:translateX(-3%) rotate(-1deg)}50%{transform:translateX(3%) rotate(1deg)}}
-  .u-top,.u-stage,.u-ctrl,.u-hint{position:relative;z-index:1}
-  .u-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:clamp(22px,4vh,40px) clamp(22px,6vw,90px) 0;max-width:1100px;width:100%;margin:0 auto;box-sizing:border-box}
-  .u-top h3{font:400 clamp(30px,4.4vw,58px)/1.4 var(--nasta);color:#F4A7B3;margin:0}
-  .u-count{font:500 clamp(14px,1.2vw,18px)/1 "Vazirmatn",Tahoma,sans-serif;color:#9FB3A8;direction:rtl}
-  .u-stage{display:grid;place-items:center;padding:clamp(10px,3vh,30px) clamp(22px,6vw,90px);min-height:0;overflow:hidden}
-  .u-pg{grid-area:1/1;max-width:760px;margin:0;font:300 clamp(18px,1.75vw,25px)/2.15 "Vazirmatn",Tahoma,sans-serif;text-align:justify;text-align-last:right;
-    transition:opacity .7s var(--ease),transform .9s var(--ease),filter .7s;max-height:100%;overflow-y:auto;scrollbar-width:none}
-  .u-pg::-webkit-scrollbar{display:none}
-  .u-pg.in-l{opacity:0;transform:translateX(-60px);filter:blur(6px)}
-  .u-pg.in-r{opacity:0;transform:translateX(60px);filter:blur(6px)}
-  .u-pg.short{font-size:clamp(26px,3vw,44px);line-height:1.8;text-align:center;text-align-last:center}
-  .u-pg.hit{color:#F4A7B3}
-  .u-ctrl{display:flex;align-items:center;justify-content:center;gap:clamp(14px,3vw,30px);padding:0 20px clamp(10px,2vh,18px)}
-  .u-nav{width:54px;height:54px;border-radius:50%;border:1px solid rgba(237,230,218,.3);background:rgba(4,16,13,.4);color:#EDE6DA;font-size:22px;cursor:pointer;transition:all .3s}
+  .u-desk{display:grid;place-items:center;padding:clamp(56px,7vh,80px) clamp(10px,3vw,40px) 6px;min-height:0;perspective:2200px}
+  .u-book{--pw:min(46vw,calc((100vh - 170px) * .7),560px);--ph:calc(var(--pw) / .7);position:relative;display:flex;flex-direction:row;
+    width:calc(var(--pw) * 2);height:var(--ph);filter:drop-shadow(0 30px 50px rgba(0,0,0,.6));transform-style:preserve-3d}
+  .u-page{position:relative;box-sizing:border-box;width:var(--pw);height:var(--ph);overflow:hidden;
+    padding:calc(var(--pw) * .11) calc(var(--pw) * .1) calc(var(--pw) * .13);color:#3A2716;
+    background-color:#E4D2AE;
+    background-image:
+      var(--stain,linear-gradient(transparent,transparent)),
+      radial-gradient(circle at 18% 22%,rgba(120,72,24,.16) 0 2px,transparent 3px),
+      radial-gradient(circle at 72% 64%,rgba(120,72,24,.12) 0 3px,transparent 5px),
+      radial-gradient(circle at 40% 86%,rgba(110,64,20,.12) 0 1.5px,transparent 3px),
+      radial-gradient(ellipse 38% 26% at 82% 12%,rgba(150,95,40,.18),transparent 70%),
+      radial-gradient(ellipse 30% 22% at 12% 90%,rgba(120,75,30,.16),transparent 70%),
+      radial-gradient(120% 120% at 50% 50%,transparent 50%,rgba(92,56,20,.55) 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.2' numOctaves='1' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .25 0 0 0 0 .15 0 0 0 0 .06 0 0 0 -9 1.1'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23d)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .22 0 0 0 0 .1 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"),
+      linear-gradient(180deg,#EADBBB,#DCC79E)}
+  .u-page::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 40px rgba(80,45,15,.35),inset 0 0 3px rgba(60,35,10,.6)}
+  .u-r{border-radius:2px 6px 6px 2px}
+  .u-l>.u-txt,.u-l>.u-title,.u-l>.u-blank{position:relative;z-index:0}
+  .u-l{--stain:radial-gradient(circle at 76% 82%,transparent 36px,rgba(125,72,25,.17) 38px,rgba(125,72,25,.05) 44px,transparent 46px)}
+  .u-r{--stain:radial-gradient(ellipse 22% 14% at 28% 18%,rgba(140,85,30,.14),transparent 70%)}
+  .u-l{border-radius:6px 2px 2px 6px}
+  .u-r::before,.u-l::before{content:"";position:absolute;top:0;bottom:0;width:18%;pointer-events:none;z-index:1}
+  .u-r::before{left:0;background:linear-gradient(90deg,rgba(60,35,12,.42),rgba(60,35,12,.08) 45%,transparent)}
+  .u-l::before{right:0;background:linear-gradient(270deg,rgba(60,35,12,.42),rgba(60,35,12,.08) 45%,transparent)}
+  .u-txt{font:400 calc(var(--pw) * .036)/2.05 "Noto Naskh Arabic","Vazirmatn",Tahoma,serif;text-align:justify;text-align-last:right;
+    color:#3A2716;text-shadow:0 0 .6px rgba(58,39,22,.55);opacity:.94}
+  .u-txt p{margin:0 0 .65em;text-indent:1.4em}
+  .u-txt p.cont{text-indent:0}
+  .u-txt h4{font:400 calc(var(--pw) * .085)/1.4 var(--nasta);color:#6E1220;margin:0 0 .35em;text-align:center}
+  .u-txt .orn{text-align:center;color:#8A5A2B;letter-spacing:.6em;margin:.4em 0 .9em;text-indent:0;font-size:.9em}
+  .u-txt p.last{color:#6E1220}
+  .u-num{position:absolute;bottom:calc(var(--pw) * .055);left:0;right:0;text-align:center;font:400 calc(var(--pw) * .03)/1 "Noto Naskh Arabic",Tahoma,serif;color:#8A5A2B}
+  .u-title{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+  .u-title h3{font:400 calc(var(--pw) * .16)/1.35 var(--nasta);color:#6E1220;margin:0}
+  .u-title .by{font:400 calc(var(--pw) * .04)/1.8 "Noto Naskh Arabic",Tahoma,serif;color:#5A3A1E;margin-top:.4em}
+  .u-title .orn{font-size:calc(var(--pw) * .05);color:#8A5A2B;margin-top:.6em;letter-spacing:.5em}
+  .u-blank{height:100%;display:grid;place-items:center;color:rgba(138,90,43,.5);font-size:calc(var(--pw) * .06)}
+  .u-leaf{position:absolute;top:0;left:0;width:var(--pw);height:var(--ph);transform-origin:100% 50%;transform-style:preserve-3d;display:none;z-index:5}
+  .u-leaf.to-r{left:0;transform-origin:100% 50%}
+  .u-leaf.to-l{left:var(--pw);transform-origin:0 50%}
+  .u-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  .u-face>.u-page{width:100%;height:100%}
+  .u-back{transform:rotateY(180deg)}
+  .u-leaf.go{display:block}
+  .u-leaf.to-r.go{animation:turnR .8s cubic-bezier(.45,.1,.25,1) forwards}
+  .u-leaf.to-l.go{animation:turnL .8s cubic-bezier(.45,.1,.25,1) forwards}
+  @keyframes turnR{from{transform:rotateY(0)}to{transform:rotateY(180deg)}}
+  @keyframes turnL{from{transform:rotateY(0)}to{transform:rotateY(-180deg)}}
+  .u-ctrl{display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,34px);padding:10px 20px clamp(14px,2.4vh,24px)}
+  .u-nav{width:52px;height:52px;border-radius:50%;border:1px solid rgba(228,210,174,.35);background:rgba(20,14,10,.6);color:#E4D2AE;font-size:22px;cursor:pointer;transition:all .3s}
   .u-nav:hover:not(:disabled),.u-nav:focus-visible{border-color:#F4A7B3;color:#F4A7B3;outline:none;transform:scale(1.06)}
   .u-nav:disabled{opacity:.25;cursor:default}
-  .u-dots{display:flex;gap:6px;direction:rtl}
-  .u-dots i{width:7px;height:7px;border-radius:50%;background:rgba(237,230,218,.2);transition:all .4s}
-  .u-dots i.on{background:#F4A7B3;width:22px;border-radius:4px}
-  .u-hint{text-align:center;font:600 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(237,230,218,.4);padding-bottom:clamp(14px,3vh,26px);transition:opacity .6s}
-  .u-hint.gone{opacity:0}
-  .u-x{position:absolute;top:18px;right:18px;z-index:3;width:48px;height:48px;border-radius:50%;border:1px solid rgba(237,230,218,.25);background:rgba(6,12,10,.5);color:#EDE6DA;font-size:24px;cursor:pointer}
+  .u-count{min-width:7em;text-align:center;font:400 15px/1 "Noto Naskh Arabic",Tahoma,serif;color:#CDB894}
+  .u-x{position:absolute;top:16px;right:16px;z-index:9;width:46px;height:46px;border-radius:50%;border:1px solid rgba(228,210,174,.3);background:rgba(20,14,10,.6);color:#E4D2AE;font-size:24px;cursor:pointer}
   .u-x:hover,.u-x:focus-visible{border-color:#F4A7B3;outline:none}
-  @media(max-width:600px){ .u-top{padding:74px 20px 0} .u-ctrl{gap:10px;padding:0 14px 10px} .u-nav{width:46px;height:46px;flex:0 0 auto}
-    .u-dots{flex:1;min-width:0;gap:2px} .u-dots i{flex:1;width:auto;height:3px;border-radius:2px} .u-dots i.on{width:auto} .u-stage{padding:10px 22px} }
-  @media (prefers-reduced-motion:reduce){ .u-pg{transition:none} .u-read{transition:none} .u-sea::before,.u-sea::after{animation:none} }
-
-  .u-card .u-parts{display:flex;gap:6px;direction:rtl}
-  .u-card .u-parts i{font:500 13px/1 "Vazirmatn",Tahoma,sans-serif;font-style:normal;color:#F4A7B3;border:1px solid rgba(244,167,179,.4);border-radius:999px;width:28px;height:28px;display:grid;place-items:center}
-  .u-chap{display:block;font:400 clamp(22px,2.2vw,32px)/1.6 var(--nasta);color:#F4A7B3;margin-bottom:.4em;text-align:right}
-  .u-pg.short .u-chap{text-align:center}
-  .u-dots i.brk{margin-right:10px}
-  @media(max-width:600px){ .u-dots i.brk{margin-right:6px} }
-  .u-pg.leaving{pointer-events:none}
+  .u-measure{position:absolute;left:-9999px;top:0;visibility:hidden}
+  .u-measure .u-page{background:none}
+  .u-read.single .u-book{--pw:min(92vw,calc((100vh - 150px) * .68),520px);width:var(--pw)}
+  .u-read.single .u-l{display:none}
+  .u-read.single .u-leaf.to-r,.u-read.single .u-leaf.to-l{left:0}
+  .u-read.single .u-leaf.to-r{transform-origin:100% 50%}
+  .u-read.single .u-leaf.to-l{transform-origin:100% 50%}
+  @media (prefers-reduced-motion:reduce){ .u-read{transition:none} .u-leaf.go{animation-duration:.01s!important} }
 
 </style>
 </head>
@@ -1285,17 +1312,21 @@
     <div class="u-fa rv" lang="fa" dir="rtl">بی‌ترجمه</div>
     <div class="u-deck" id="uDeck"></div>
   </div>
-  <div class="u-read" id="uRead" role="dialog" aria-modal="true" aria-labelledby="uTitle" hidden>
-    <div class="u-sea" id="uSea" aria-hidden="true"></div>
-    <button class="u-x" id="uClose" aria-label="Close">&times;</button>
-    <header class="u-top" lang="fa" dir="rtl"><h3 id="uTitle"></h3><span class="u-count" id="uCount"></span></header>
-    <div class="u-stage" id="uStage" lang="fa" dir="rtl" aria-live="polite"></div>
-    <div class="u-ctrl">
-      <button class="u-nav" id="uPrev" aria-label="Previous">&rarr;</button>
-      <div class="u-dots" id="uDots" aria-hidden="true"></div>
-      <button class="u-nav" id="uNext" aria-label="Next">&larr;</button>
+  <div class="u-read" id="uRead" role="dialog" aria-modal="true" aria-label="Book" hidden>
+    <button class="u-x" id="uClose" aria-label="Close the book">&times;</button>
+    <div class="u-desk">
+      <div class="u-book" id="uBook" lang="fa" dir="rtl">
+        <div class="u-page u-r" id="uPR"></div>
+        <div class="u-page u-l" id="uPL"></div>
+        <div class="u-leaf" id="uLeaf" aria-hidden="true"><div class="u-face u-front"></div><div class="u-face u-back"></div></div>
+      </div>
     </div>
-    <div class="u-hint" id="uHint">Swipe, or use the arrows</div>
+    <div class="u-ctrl">
+      <button class="u-nav" id="uPrev" aria-label="Previous page">&rarr;</button>
+      <span class="u-count" id="uCount" dir="rtl"></span>
+      <button class="u-nav" id="uNext" aria-label="Next page">&larr;</button>
+    </div>
+    <div class="u-measure" id="uMeasure" lang="fa" dir="rtl" aria-hidden="true"><div class="u-page"><div class="u-txt" id="uMTxt"></div></div></div>
   </div>
 </section>
 
@@ -2378,60 +2409,132 @@ var SITES=[
   show(0);
 })();
 
-var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "hue": 168, "parts": [["می گویند دریا یک زن است. اما من مخالفم. دریا پسرک بازیگوشیست که زودتر از آنچه که باید مرد شد. دریا مردی ترسناک است که هیچگاه نمیدانی در چرژفای وجودش چه چیزی پنهان کرده. دریا مردی است که درست زمانی که در آن احساس آرامش میکنی به تو خیانت میکند.", "اما من تو را با تمام طوفان های کشنده ات دوست دارم. این طوفان هایی که همه را خرد کرد و من نگاه میکردم. هنوز دوستت دارم و دست مهربانی بر سر طغیان های بی پروایت میکشم همچو مادری که همچنان عاشق فرزند خود است که به او خیانت کرده. ای کاش میگذاشتی کمکت کنم. ای کاش میگذاشتی آرامت کنم اما تو تشویق های آن کودکان نادانی که دورت جمع شده اند را میپرستی. تو ترس آن شناگری که عاشقت بود را میپرستی. تو زخم های آن پسرکی که میخواست با تو بازی کند را هم میپرستی. گاهی با خود میگویم آیا آن روز فرا میرسد که من را هم در خود غرق کنی و اشک هایم را ستایش کنی؟", "من هنوز هم نمیخواهم باور کنم تو چیزی بیش از یک کودک خشمگین باشی. من هنوز هم میخواهم تو را از خودت نجات دهم چرا که میدانم اگر تشویق ها و هیاهو های آن کودکان نبود، تو ارامترین بودی. نمیخواهم باور کنم این تو هستی که میخواهی همه را در خود غرق کنی. نمیخواهم باور کنم تو به آن معصومی که فکر میکردم نیستی. نمیخواهم دستان خونینت را ببینم. نمیخواهم لبخند انتقامت را ببینم. من دلم میخواهد همانطور که من تو را میبینم خودت را ببینی. دلم میخواهد دست بکشی از تغیان کردن و چشمانت را روی هم بگذاری.", "من میترسم. میترسم از آن روزی که دریایی خشمگین تر و بزرگتر از خودت پیدا کنی. میترسم که آن کودکان کورت کرده باشند و این بار تو باشی که غرق شوی. اگر غرق شوی چه میکنی؟ آیا اصلا به این فکر کرده ای که روزی ممکن است در این جنگ هایی که خودت راه می اندازی کشته شوی؟ من نمیتوانم نجاتت دهم همچون مریمی که با چشمانی خونین مرگ پسرش را شاهد بود.", "صداها. صداها به من میگویند که دست از تو بکشم. میگویند نمیتوانم به تو کمک کنم. میگویند اگر دستت را بگیرم من نیز غرق میشوم. ولی نمیدانند که من نمیتوانم ترکت کنم. اگر تو را ترک کنم چه کسی دست نوازش بر سرت بکشد آن زمان که دلت میخواهد به کودکیت باز گردی؟ اگر بدانی میخواهم ترکت کنم چه میکنی؟ مرا هم غرق میکنی؟ من غرق شدن صدها تن را دیده ام در دریای خشمت و هیچ نگفتم. شاید این سزای سکوت من است که در راه رفتن از پیش تو به اعماق وجود تاریکت بروم. شاید اینبار توانستم تو را بشناسم. اگر بمانم چه؟ من را در زندان شیشه ای دوستی ات زندانی میکنی و بازمیگردی به همان کودکانی که برایت فریاد میزنند؟", "این زندان شیشه ای دوستی.", "شاید تو بنایی بودی که بتوانم ببینم چیست این زندان دوستی ای که از آن دم میزنند.", "تو اگر میخواهی یک دین جدید را میان مردم پایگذاری کنی نمیتوانی با زور شمشیر ایمان انها را محکم کنی. شاید این راه حل تا مدتی جوابگو باشد اما بعد از مدتی دینت از هم میپاشد. ایمان از قلب نشات میگیرد. جایی که عشق و دوستی خانه دارد. برای یک دین موفق تو باید به قلب انسان ها راه یابی.", "و اما تو چه کردی؟ تو با اغوشی گرم و مهربان نشان دوستی دادی و زمانی که تو را در اغوش گرفتم تیزی خنجری در پهلوی خود حس کردم. نمیدانم کدامین تو را باور کنم. تویی که مهربانی و لبخند میزنی و اهمیت میدهی و دوست میداری. یا تویی که همه میگویند ترسناک و سواستفاده گر و خشمگین است.", "به من بگو این تو هستی که خنجری در پهلوی من نگه داشتی؟ یا این منم که میترسم اگر از اغوشت فاصله بگیرم خنجری در قلبم فرو میکنی؟", "نمیدانم. دیگر تو را نمیدانم. دیگر دوستی ات را نمیدانم. دیگر خودم را نمیدانم."]], "label": "پاره"}, {"t": "رز", "big": "رز", "hue": 344, "parts": [["جسد بی جان احساساتم با آخرین ذرات قدرت خود لبخندی بر لب می آورد. گویا دلش میخواهد بایستد و باری دیگر با مرگ خود که حال در لباسی زیباتر ظاهر شده برقصد. دلم به حالش می سوزد. هربار کمرنگ تر از قبل برای مرگ شیرین خود لبخند می زند و گمان می کنم این آخرین باری است که چشم هایش می تواند چیزی ببیند.", "چقدر شاد بود، چقدر زنده بود و حال، من چیزی جز اشک حسرت در چشمان سیاهش نمی بینم. چشمانی که با دقت به ستاره های نگاهش خیره شده بودند. احساسات، این موجود بیچاره در همه چیزی میبیند و این بار ستاره ها را دید. میدانستی من عاشق این لکه های درخشان شناور در آسمانم؟", "همه ماه و غروب و آسمان را دوست میدارند ولی ستاره ها، آه ازین پدیده های کوچک که لبخندی تلخ بر لبم می آورند. همین لبخند تلخ احساساتم را وا میدارد باری دیگر وارد این میدان جنگ شود. من می خواهم برای ستاره هایم بجنگم اما لرزش دستانم مرا زمین میزند. ای کاش حرف هایم را میفهمیدی دوست من.", "ای کاش با اشک های بیهوده خود را نکشته بودم. ای کاش می توانستم چیزی که میخواهم را بنویسم. قلم توان درک دوست داشتن را ندارد. این انسان کوچک و خرده پسند چطور میتواند آنقدر عمیق به چیزی علاقه مند شود. اصلا چرا ستاره ها؟ لکه های درخشان کوچکی که مانند کودکان با تو بازی میکنند.", "دقت کرده ای آنهایی که چشم هایی پر از ستاره دارند زیاد نگاهت نمی کنند؟ میترسند از آنها دزدی کنی. همه ما روزی چشمانی مثل آسمان شب کویر داشتیم و حال، آلودگی های نور ترس که از زخم هایمان دخول کرده زیبایی های چشمانمان را دزدیده. این همه نوشتم تا بگویم نگاهم کن.", "من سالهاست ستاره ای ندیدم و دلم میخواهد به حال آسمان پاک و معصوم چشمانت اشک بریزم. نگاهم کن و بگذار احساساتم در لحظه مرگشان شاهد پرتو های نور مهربانی باشند. نگاهم کن، قول میدهم اگر روزی از ستاره های دو گوی قهوه ای رنگت خسته شدم بگذارم آسمان چشمان مرا تیره تر کنی بلکه از خورشید نگاهت چیزی کم نشود.", "کنایه زدن و راهنمایی کردن کافیست اینبار می خواهم حقیقت را فریاد بزنم. حقیقت چیست؟ هنوز نمیدانم، شاید بقدر کافی نگاهت نکردم تا بگویم چه چیزی در کنج قلبم میدرخشد. ولی همچنان فریاد میزنم من عاشق آغوش گرم ستاره های نگاهت شدم."], ["چه دنیای عجیبی است. تو با دستان مهربانت بدن زخم خورده مرا با لطافت زیر آب های عشق نگه میداری و من با تمام توان این آب ها را نفس می کشم. تو همان صدای ویالون سوزناکی هستی که آرزو داشتم ساعت ها و روزها با آن برقصم. حال گوش هایم غرق خون شده اند و من هیچ علاقه ندارم از حرکت بایستم.", "چرا همیشه با مثال های دردناک توصیفت می کنم؟ تو شادترین زندگی ای بودی که داشتم و با این حال من مانند پدرم بدبینم و میخواهم قبل از اینکه تو مرا بکشی خود را دار بزنم؛ غافل از اینکه تو هیچگاه قصد جان مرا نکردی و من از خود فرار می کنم. از خودی که دوست داشتن را لمس کرده و در کنارت لبخندی از ته دل زده.", "تو دیدنی ترین سمفونی زندگی من بودی و می خواهم آنطور که لیاقتش را داری برایت بنویسم. عشق آن نیست که خود را وقف دیگری کنی بلکه آن است که با وجودش سرت را بالا بگیری و قدم های استوار برداری. دوست داشتن آن نیست که قلب دیگری را سرشار از کلمات محبت آمیز بکنی، بلکه دوست داشتن کامل شدن در کنار یکدیگر است.", "تو همانی بودی ارزشش را داشت تا تمام دیوارهایم را برایش خراب کنم چرا که تو مرا امن تر و مهربان تر از همه آن دیوار ها در آغوش میکشی. تمام حرف هایم را آهنگ ها خوانده اند و هیچ چیز جدیدی ندارم برایت بگویم و با این حال کافی نیست. اهنگ های شوبرت برای توصیف عشقمان کافی نیستند.", "سمفونی های موتزارت در بیان شور و نشاطمان در کنار هم ناتوان اند. نواهای خیابان های پاریس حتی ذره ای از آرامش ما را در بر نمیگیرند و من هیچ ندارم بگویم. حرف هایی که میزنم را دوست ندارم ولی با این حال دلم میخواهد مدام از تو سخن بگویم.", "از اینکه چطور به زیبایی تمام دنیای خالی از رنگ مرا با مهربانی هایت رنگ آمیزی کردی. از اینکه چطور قلب سنگی خرد شده ام را باری دیگر به تپش وا داشتی. از لبخند معصوم و کودکانه ات، از خنده های شیرین و شیطنت آمیزت، از دستان گرم و امنت، از چشمان امیدبخشت. از قلب زیبا و کاملت.", "از تو و تمام تو که تمام عشق مرا تمام کرد."], ["دیریست که برایت چیزی ننوشته ام چرا که تو را در زیباترین قسمت های روز میافتم. تو را در رنگ های شاد، در نت های یک موسیقی گوشنوازء، در ظرافت دستان یک رقاص و حتی در چشمک های ستارگان دیدم؛ اما هیچ یک نتوانستند تو را به زیبایی آنچه هستی توصیف کنند.", "هیچ یک نتوانست آنگونه که تو مرا در آغوش میکشی، امنیت و آرامش را به من هدیه دهند. هیچ یک به دلنوازی لبخندت نبود و هیچ یک همانند چشمانت پر از زندگی نبود. آه از آن نگاه هایت که خاطره درخششش مرا به ادامه دادن وا می دارد. این چشم هایت بود که مرا عاشق کرد؛", "همانطور که ون گوک عاشق رنگ هایی شد که نمی توانست آنها را ببیند. همانطور که بتهوون عاشق صداهایی که قادر به شنیدن آنها نبود. همانطور که رابرت شومان عاشق قطعه هایی شد که نمی توانست آنها را بنوازد.", "همانطور که هلن کلر عاشق کلماتی شد که نمی توانست آنها را ببیند، من هم عاشق قلبی شدم که قادر به نگه داشتنش نبودم. هر روز آرشه غم را بر سیم های تلاش می کشم بلکه شاید بتوانم کمی بیشتر تو را در کنارم نگه دارم ولی حقیقتی ناگفته مرا پس میزند.", "عشق دردی به زیبایی مرگ است.", "و اگر این چنین باشد می خواهم در دریای مهربانی هایت غرق شوم. می خواهم مرا از طناب زیبایی هایت حلق آویز کنی. می خواهم مرا با گلوله هایی از صدای خنده ات تیرباران کنی چرا که من چیزی جز یک رهگذر نخواهم بود و خود را مانند شیشه ای شکسته تکه تکه خواهم کرد اگر بدانم گذشتن من از زندگی ات آن روشنایی روحت را خواهد گرفت.", "انسان موجود خودخواهی است، اما عشقش نه.", "هیچگاه نمیفهمی من حاضر به دست زدن به چه کار هایی برای تو هستم و شاید اینگونه بهتر باشد. هیچگاه نخواهی فهمید برای محافظت از تو چه کسانی را می کشم و شاید اینگونه بهتر باشد.", "هیچگاه نخواهی دید چه اشک هایی برایت ریختم و می ریزم و شاید اینگونه بهتر باشد چرا که تو رهایی و من به هیچ قیمتی حاضر به گرفتن آزادی ات نیستم. جای پرستو شادی هایت در قفس قلب نیست جانا. می خواهم پروازت را بر بلندای آن سرو ببینم و با لبخند بگویم \"من روزی آن پرنده زیبا را میشناختم.\"", "چرا که در شیرین ترین خاطراتم جای داری و به من عشق را آموختی."]], "label": "رز"}];
+var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می گویند دریا یک زن است. اما من مخالفم. دریا پسرک بازیگوشیست که زودتر از آنچه که باید مرد شد. دریا مردی ترسناک است که هیچگاه نمیدانی در چرژفای وجودش چه چیزی پنهان کرده. دریا مردی است که درست زمانی که در آن احساس آرامش میکنی به تو خیانت میکند.", "اما من تو را با تمام طوفان های کشنده ات دوست دارم. این طوفان هایی که همه را خرد کرد و من نگاه میکردم. هنوز دوستت دارم و دست مهربانی بر سر طغیان های بی پروایت میکشم همچو مادری که همچنان عاشق فرزند خود است که به او خیانت کرده. ای کاش میگذاشتی کمکت کنم. ای کاش میگذاشتی آرامت کنم اما تو تشویق های آن کودکان نادانی که دورت جمع شده اند را میپرستی. تو ترس آن شناگری که عاشقت بود را میپرستی. تو زخم های آن پسرکی که میخواست با تو بازی کند را هم میپرستی. گاهی با خود میگویم آیا آن روز فرا میرسد که من را هم در خود غرق کنی و اشک هایم را ستایش کنی؟", "من هنوز هم نمیخواهم باور کنم تو چیزی بیش از یک کودک خشمگین باشی. من هنوز هم میخواهم تو را از خودت نجات دهم چرا که میدانم اگر تشویق ها و هیاهو های آن کودکان نبود، تو ارامترین بودی. نمیخواهم باور کنم این تو هستی که میخواهی همه را در خود غرق کنی. نمیخواهم باور کنم تو به آن معصومی که فکر میکردم نیستی. نمیخواهم دستان خونینت را ببینم. نمیخواهم لبخند انتقامت را ببینم. من دلم میخواهد همانطور که من تو را میبینم خودت را ببینی. دلم میخواهد دست بکشی از تغیان کردن و چشمانت را روی هم بگذاری.", "من میترسم. میترسم از آن روزی که دریایی خشمگین تر و بزرگتر از خودت پیدا کنی. میترسم که آن کودکان کورت کرده باشند و این بار تو باشی که غرق شوی. اگر غرق شوی چه میکنی؟ آیا اصلا به این فکر کرده ای که روزی ممکن است در این جنگ هایی که خودت راه می اندازی کشته شوی؟ من نمیتوانم نجاتت دهم همچون مریمی که با چشمانی خونین مرگ پسرش را شاهد بود.", "صداها. صداها به من میگویند که دست از تو بکشم. میگویند نمیتوانم به تو کمک کنم. میگویند اگر دستت را بگیرم من نیز غرق میشوم. ولی نمیدانند که من نمیتوانم ترکت کنم. اگر تو را ترک کنم چه کسی دست نوازش بر سرت بکشد آن زمان که دلت میخواهد به کودکیت باز گردی؟ اگر بدانی میخواهم ترکت کنم چه میکنی؟ مرا هم غرق میکنی؟ من غرق شدن صدها تن را دیده ام در دریای خشمت و هیچ نگفتم. شاید این سزای سکوت من است که در راه رفتن از پیش تو به اعماق وجود تاریکت بروم. شاید اینبار توانستم تو را بشناسم. اگر بمانم چه؟ من را در زندان شیشه ای دوستی ات زندانی میکنی و بازمیگردی به همان کودکانی که برایت فریاد میزنند؟", "این زندان شیشه ای دوستی.", "شاید تو بنایی بودی که بتوانم ببینم چیست این زندان دوستی ای که از آن دم میزنند.", "تو اگر میخواهی یک دین جدید را میان مردم پایگذاری کنی نمیتوانی با زور شمشیر ایمان انها را محکم کنی. شاید این راه حل تا مدتی جوابگو باشد اما بعد از مدتی دینت از هم میپاشد. ایمان از قلب نشات میگیرد. جایی که عشق و دوستی خانه دارد. برای یک دین موفق تو باید به قلب انسان ها راه یابی.", "و اما تو چه کردی؟ تو با اغوشی گرم و مهربان نشان دوستی دادی و زمانی که تو را در اغوش گرفتم تیزی خنجری در پهلوی خود حس کردم. نمیدانم کدامین تو را باور کنم. تویی که مهربانی و لبخند میزنی و اهمیت میدهی و دوست میداری. یا تویی که همه میگویند ترسناک و سواستفاده گر و خشمگین است.", "به من بگو این تو هستی که خنجری در پهلوی من نگه داشتی؟ یا این منم که میترسم اگر از اغوشت فاصله بگیرم خنجری در قلبم فرو میکنی؟", "نمیدانم. دیگر تو را نمیدانم. دیگر دوستی ات را نمیدانم. دیگر خودم را نمیدانم."]], "label": ""}, {"t": "رز", "big": "رز", "parts": [["جسد بی جان احساساتم با آخرین ذرات قدرت خود لبخندی بر لب می آورد. گویا دلش میخواهد بایستد و باری دیگر با مرگ خود که حال در لباسی زیباتر ظاهر شده برقصد. دلم به حالش می سوزد. هربار کمرنگ تر از قبل برای مرگ شیرین خود لبخند می زند و گمان می کنم این آخرین باری است که چشم هایش می تواند چیزی ببیند.", "چقدر شاد بود، چقدر زنده بود و حال، من چیزی جز اشک حسرت در چشمان سیاهش نمی بینم. چشمانی که با دقت به ستاره های نگاهش خیره شده بودند. احساسات، این موجود بیچاره در همه چیزی میبیند و این بار ستاره ها را دید. میدانستی من عاشق این لکه های درخشان شناور در آسمانم؟", "همه ماه و غروب و آسمان را دوست میدارند ولی ستاره ها، آه ازین پدیده های کوچک که لبخندی تلخ بر لبم می آورند. همین لبخند تلخ احساساتم را وا میدارد باری دیگر وارد این میدان جنگ شود. من می خواهم برای ستاره هایم بجنگم اما لرزش دستانم مرا زمین میزند. ای کاش حرف هایم را میفهمیدی دوست من.", "ای کاش با اشک های بیهوده خود را نکشته بودم. ای کاش می توانستم چیزی که میخواهم را بنویسم. قلم توان درک دوست داشتن را ندارد. این انسان کوچک و خرده پسند چطور میتواند آنقدر عمیق به چیزی علاقه مند شود. اصلا چرا ستاره ها؟ لکه های درخشان کوچکی که مانند کودکان با تو بازی میکنند.", "دقت کرده ای آنهایی که چشم هایی پر از ستاره دارند زیاد نگاهت نمی کنند؟ میترسند از آنها دزدی کنی. همه ما روزی چشمانی مثل آسمان شب کویر داشتیم و حال، آلودگی های نور ترس که از زخم هایمان دخول کرده زیبایی های چشمانمان را دزدیده. این همه نوشتم تا بگویم نگاهم کن.", "من سالهاست ستاره ای ندیدم و دلم میخواهد به حال آسمان پاک و معصوم چشمانت اشک بریزم. نگاهم کن و بگذار احساساتم در لحظه مرگشان شاهد پرتو های نور مهربانی باشند. نگاهم کن، قول میدهم اگر روزی از ستاره های دو گوی قهوه ای رنگت خسته شدم بگذارم آسمان چشمان مرا تیره تر کنی بلکه از خورشید نگاهت چیزی کم نشود.", "کنایه زدن و راهنمایی کردن کافیست اینبار می خواهم حقیقت را فریاد بزنم. حقیقت چیست؟ هنوز نمیدانم، شاید بقدر کافی نگاهت نکردم تا بگویم چه چیزی در کنج قلبم میدرخشد. ولی همچنان فریاد میزنم من عاشق آغوش گرم ستاره های نگاهت شدم."], ["چه دنیای عجیبی است. تو با دستان مهربانت بدن زخم خورده مرا با لطافت زیر آب های عشق نگه میداری و من با تمام توان این آب ها را نفس می کشم. تو همان صدای ویالون سوزناکی هستی که آرزو داشتم ساعت ها و روزها با آن برقصم. حال گوش هایم غرق خون شده اند و من هیچ علاقه ندارم از حرکت بایستم.", "چرا همیشه با مثال های دردناک توصیفت می کنم؟ تو شادترین زندگی ای بودی که داشتم و با این حال من مانند پدرم بدبینم و میخواهم قبل از اینکه تو مرا بکشی خود را دار بزنم؛ غافل از اینکه تو هیچگاه قصد جان مرا نکردی و من از خود فرار می کنم. از خودی که دوست داشتن را لمس کرده و در کنارت لبخندی از ته دل زده.", "تو دیدنی ترین سمفونی زندگی من بودی و می خواهم آنطور که لیاقتش را داری برایت بنویسم. عشق آن نیست که خود را وقف دیگری کنی بلکه آن است که با وجودش سرت را بالا بگیری و قدم های استوار برداری. دوست داشتن آن نیست که قلب دیگری را سرشار از کلمات محبت آمیز بکنی، بلکه دوست داشتن کامل شدن در کنار یکدیگر است.", "تو همانی بودی ارزشش را داشت تا تمام دیوارهایم را برایش خراب کنم چرا که تو مرا امن تر و مهربان تر از همه آن دیوار ها در آغوش میکشی. تمام حرف هایم را آهنگ ها خوانده اند و هیچ چیز جدیدی ندارم برایت بگویم و با این حال کافی نیست. اهنگ های شوبرت برای توصیف عشقمان کافی نیستند.", "سمفونی های موتزارت در بیان شور و نشاطمان در کنار هم ناتوان اند. نواهای خیابان های پاریس حتی ذره ای از آرامش ما را در بر نمیگیرند و من هیچ ندارم بگویم. حرف هایی که میزنم را دوست ندارم ولی با این حال دلم میخواهد مدام از تو سخن بگویم.", "از اینکه چطور به زیبایی تمام دنیای خالی از رنگ مرا با مهربانی هایت رنگ آمیزی کردی. از اینکه چطور قلب سنگی خرد شده ام را باری دیگر به تپش وا داشتی. از لبخند معصوم و کودکانه ات، از خنده های شیرین و شیطنت آمیزت، از دستان گرم و امنت، از چشمان امیدبخشت. از قلب زیبا و کاملت.", "از تو و تمام تو که تمام عشق مرا تمام کرد."], ["دیریست که برایت چیزی ننوشته ام چرا که تو را در زیباترین قسمت های روز میافتم. تو را در رنگ های شاد، در نت های یک موسیقی گوشنوازء، در ظرافت دستان یک رقاص و حتی در چشمک های ستارگان دیدم؛ اما هیچ یک نتوانستند تو را به زیبایی آنچه هستی توصیف کنند.", "هیچ یک نتوانست آنگونه که تو مرا در آغوش میکشی، امنیت و آرامش را به من هدیه دهند. هیچ یک به دلنوازی لبخندت نبود و هیچ یک همانند چشمانت پر از زندگی نبود. آه از آن نگاه هایت که خاطره درخششش مرا به ادامه دادن وا می دارد. این چشم هایت بود که مرا عاشق کرد؛", "همانطور که ون گوک عاشق رنگ هایی شد که نمی توانست آنها را ببیند. همانطور که بتهوون عاشق صداهایی که قادر به شنیدن آنها نبود. همانطور که رابرت شومان عاشق قطعه هایی شد که نمی توانست آنها را بنوازد.", "همانطور که هلن کلر عاشق کلماتی شد که نمی توانست آنها را ببیند، من هم عاشق قلبی شدم که قادر به نگه داشتنش نبودم. هر روز آرشه غم را بر سیم های تلاش می کشم بلکه شاید بتوانم کمی بیشتر تو را در کنارم نگه دارم ولی حقیقتی ناگفته مرا پس میزند.", "عشق دردی به زیبایی مرگ است.", "و اگر این چنین باشد می خواهم در دریای مهربانی هایت غرق شوم. می خواهم مرا از طناب زیبایی هایت حلق آویز کنی. می خواهم مرا با گلوله هایی از صدای خنده ات تیرباران کنی چرا که من چیزی جز یک رهگذر نخواهم بود و خود را مانند شیشه ای شکسته تکه تکه خواهم کرد اگر بدانم گذشتن من از زندگی ات آن روشنایی روحت را خواهد گرفت.", "انسان موجود خودخواهی است، اما عشقش نه.", "هیچگاه نمیفهمی من حاضر به دست زدن به چه کار هایی برای تو هستم و شاید اینگونه بهتر باشد. هیچگاه نخواهی فهمید برای محافظت از تو چه کسانی را می کشم و شاید اینگونه بهتر باشد.", "هیچگاه نخواهی دید چه اشک هایی برایت ریختم و می ریزم و شاید اینگونه بهتر باشد چرا که تو رهایی و من به هیچ قیمتی حاضر به گرفتن آزادی ات نیستم. جای پرستو شادی هایت در قفس قلب نیست جانا. می خواهم پروازت را بر بلندای آن سرو ببینم و با لبخند بگویم \"من روزی آن پرنده زیبا را میشناختم.\"", "چرا که در شیرین ترین خاطراتم جای داری و به من عشق را آموختی."]], "label": "رز"}];
 (function(){
   var deck=document.getElementById('uDeck'); if(!deck) return;
-  var rd=document.getElementById('uRead'), stg=document.getElementById('uStage'), sea=document.getElementById('uSea'), dots=document.getElementById('uDots'),
-      pv=document.getElementById('uPrev'), nx=document.getElementById('uNext'), last=null, U=null, pg=0, busy=false;
+  var rd=document.getElementById('uRead'), PR=document.getElementById('uPR'), PL=document.getElementById('uPL'), leaf=document.getElementById('uLeaf'),
+      pv=document.getElementById('uPrev'), nx=document.getElementById('uNext'), cnt=document.getElementById('uCount'),
+      mPage=document.querySelector('#uMeasure .u-page'), mTxt=document.getElementById('uMTxt'),
+      U=null, pages=[], at=0, single=false, busy=false, last=null;
   var FA='۰۱۲۳۴۵۶۷۸۹'; function fa(n){ return String(n).replace(/[0-9]/g,function(d){ return FA[+d]; }); }
-  UNTR.forEach(function(u){ u.p=[]; u.pt=[]; u.parts.forEach(function(part,k){ part.forEach(function(x,j){ u.p.push(x); u.pt.push(j===0?k+1:0); }); }); });
+  UNTR.forEach(function(u){ u.words=u.parts.reduce(function(s,p){ return s+p.join(' ').split(/\s+/).length; },0); });
   deck.innerHTML=UNTR.map(function(u,i){
-    return '<button class="u-card rv" data-u="'+i+'" data-big="'+esc(u.big)+'" lang="fa" aria-label="'+esc(u.t)+', read in Persian">'
+    return '<button class="u-card rv" data-u="'+i+'" data-big="'+esc(u.big)+'" lang="fa" aria-label="'+esc(u.t)+', open the book">'
       + '<span class="u-n">0'+(i+1)+'</span><h3>'+esc(u.t)+'</h3>'+(u.parts.length>1?'<span class="u-parts">'+u.parts.map(function(_,k){ return '<i>'+fa(k+1)+'</i>'; }).join('')+'</span>':'')+'<p class="u-first">'+esc(u.parts[0][0])+'</p>'
-      + '<span class="u-go"><b>Read in Persian</b><span>'+(u.parts.length>1?u.parts.length+' parts':u.parts[0].length+' pages')+'</span></span></button>';
+      + '<span class="u-go"><b>Open the book</b><span>'+(u.parts.length>1?u.parts.length+' parts':'One piece')+'</span></span></button>';
   }).join('');
   deck.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
-  function render(dir){
-    var p=U.p[pg], olds=stg.querySelectorAll('.u-pg:not(.leaving)'), el=document.createElement('p');
-    el.className='u-pg'+(p.length<90?' short':'')+(pg===U.p.length-1?' hit':'')+(dir&&!reduce?(dir>0?' in-l':' in-r'):'');
-    el.textContent=p;
-    if(U.parts.length>1&&U.pt[pg]){ var ch=document.createElement('span'); ch.className='u-chap'; ch.textContent=U.label+' '+fa(U.pt[pg]); el.insertBefore(ch,el.firstChild); }
-    stg.appendChild(el);
-    [].forEach.call(olds,function(old){ if(reduce) old.remove(); else { old.classList.add('leaving',dir>0?'in-r':'in-l'); old.setAttribute('aria-hidden','true'); setTimeout(function(){ old.remove(); },700); } });
-    if(dir&&!reduce){ void el.offsetWidth; el.classList.remove('in-l','in-r'); }
-    var part=0; for(var q=0;q<=pg;q++) if(U.pt[q]) part=U.pt[q];
-    document.getElementById('uCount').textContent=(U.parts.length>1?U.label+' '+fa(part)+' \u00b7 ':'')+fa(pg+1)+' / '+fa(U.p.length);
-    [].forEach.call(dots.children,function(d,k){ d.classList.toggle('on',k===pg); });
-    pv.disabled=pg===0; nx.disabled=pg===U.p.length-1;
-    var t=pg/Math.max(1,U.p.length-1); sea.style.setProperty('--h',Math.round(U.hue+t*22)); sea.style.setProperty('--l',Math.round(24-t*14)+'%');
+
+  /* ---- lay the text out into real pages, splitting paragraphs at word boundaries ---- */
+  function paginate(){
+    var r=PR.getBoundingClientRect();
+    mPage.style.width=r.width+'px'; mPage.style.height=r.height+'px'; mPage.style.setProperty('--pw',r.width+'px');
+    var cs=getComputedStyle(mPage), avail=mPage.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-2;
+    var out=[], blocks=[];
+    U.parts.forEach(function(part,k){
+      if(U.parts.length>1) blocks.push({h:U.label+' '+fa(k+1),brk:k>0});
+      part.forEach(function(p,j){ blocks.push({p:p,last:k===U.parts.length-1&&j===part.length-1}); });
+    });
+    mTxt.innerHTML='';
+    function flush(){ if(mTxt.innerHTML) out.push(mTxt.innerHTML); mTxt.innerHTML=''; }
+    function fits(){ return mTxt.offsetHeight<=avail; }
+    blocks.forEach(function(b){
+      if(b.h){ if(b.brk) flush(); var h=document.createElement('h4'); h.textContent=b.h; mTxt.appendChild(h);
+        var o=document.createElement('p'); o.className='orn'; o.textContent='❦'; mTxt.appendChild(o);
+        if(!fits()){ mTxt.removeChild(h); mTxt.removeChild(o); flush(); mTxt.appendChild(h); mTxt.appendChild(o); } return; }
+      var words=b.p.split(/\s+/), cont=false;
+      while(words.length){
+        var el=document.createElement('p'); if(cont) el.className='cont'; if(b.last) el.className+=' last';
+        el.textContent=words.join(' '); mTxt.appendChild(el);
+        if(fits()){ words=[]; break; }
+        var lo=0, hi=words.length;          /* largest prefix that still fits */
+        while(lo<hi){ var mid=Math.ceil((lo+hi)/2); el.textContent=words.slice(0,mid).join(' '); if(fits()) lo=mid; else hi=mid-1; }
+        if(lo===0){ mTxt.removeChild(el); if(!mTxt.innerHTML){ el.textContent=words.join(' '); mTxt.appendChild(el); words=[]; } flush(); continue; }
+        el.textContent=words.slice(0,lo).join(' '); words=words.slice(lo); flush(); cont=true;
+      }
+    });
+    flush();
+    pages=['<div class="u-title"><h3>'+esc(U.t)+'</h3><div class="orn">❦</div><div class="by">یسنا موقعی</div></div>']
+      .concat(out.map(function(h,i){ return '<div class="u-txt">'+h+'</div><div class="u-num">'+fa(i+1)+'</div>'; }));
+    if(!single&&pages.length%2) pages.push('<div class="u-blank">❦</div>');
   }
-  function go(d){ if(!U) return; var n=pg+d; if(n<0||n>=U.p.length) return; pg=n; render(d); document.getElementById('uHint').classList.add('gone'); }
+  function pageHTML(i){ return i>=0&&i<pages.length?pages[i]:''; }
+  function step(){ return single?1:2; }
+  function paint(){
+    PR.innerHTML=pageHTML(at); PL.innerHTML=single?'':pageHTML(at+1);
+    var last=Math.max(0,pages.length-step());
+    pv.disabled=at<=0; nx.disabled=at>=last;
+    var n=pages.length-1, a=Math.max(0,at), b=single?a:Math.min(n,a+1);
+    cnt.textContent=a===0?(single?'جلد':'آغاز'):(single||a===b?fa(a):fa(a)+' و '+fa(b))+' از '+fa(n);
+  }
+  function turn(d){
+    if(busy||!U) return; var to=at+d*step(), lastI=Math.max(0,pages.length-step());
+    if(to<0||to>lastI) return;
+    var front=leaf.querySelector('.u-front'), back=leaf.querySelector('.u-back');
+    if(reduce){ at=to; paint(); return; }
+    busy=true; leaf.className='u-leaf';
+    if(!single&&d>0){ front.innerHTML='<div class="u-page u-l">'+pageHTML(at+1)+'</div>'; back.innerHTML='<div class="u-page u-r">'+pageHTML(to)+'</div>'; PL.innerHTML=pageHTML(to+1); leaf.classList.add('to-r'); }
+    else if(!single&&d<0){ front.innerHTML='<div class="u-page u-r">'+pageHTML(at)+'</div>'; back.innerHTML='<div class="u-page u-l">'+pageHTML(to+1)+'</div>'; PR.innerHTML=pageHTML(to); leaf.classList.add('to-l'); }
+    else if(d>0){ front.innerHTML='<div class="u-page u-r">'+pageHTML(at)+'</div>'; back.innerHTML='<div class="u-page u-l"></div>'; PR.innerHTML=pageHTML(to); leaf.classList.add('to-r'); }
+    else { front.innerHTML='<div class="u-page u-r">'+pageHTML(at)+'</div>'; back.innerHTML='<div class="u-page u-l"></div>'; PR.innerHTML=pageHTML(to); leaf.classList.add('to-l'); }
+    void leaf.offsetWidth; leaf.classList.add('go');
+    setTimeout(function(){ at=to; paint(); leaf.className='u-leaf'; busy=false; },820);
+  }
+  function layout(keep){
+    var frac=pages.length?at/pages.length:0;
+    single=matchMedia('(max-width:760px)').matches; rd.classList.toggle('single',single);
+    paginate();
+    at=keep?Math.round(frac*pages.length):0; if(!single) at-=at%2; at=Math.max(0,Math.min(at,pages.length-1));
+    paint();
+  }
   function open(i){
-    U=UNTR[i]; pg=0; last=document.activeElement;
-    document.getElementById('uTitle').textContent=U.t;
-    dots.innerHTML=U.p.map(function(_,k){ return '<i'+(k&&U.pt[k]?' class="brk"':'')+'></i>'; }).join('');
-    stg.innerHTML=''; document.getElementById('uHint').classList.remove('gone'); render(0);
+    U=UNTR[i]; last=document.activeElement; at=0; pages=[];
     rd.hidden=false; document.documentElement.style.overflow='hidden';
     requestAnimationFrame(function(){ rd.classList.add('on'); });
+    layout(false);
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ if(U) layout(true); });
     nx.focus();
   }
-  function close(){ rd.classList.remove('on'); document.documentElement.style.overflow=''; setTimeout(function(){ rd.hidden=true; stg.innerHTML=''; },reduce?0:450); U=null; if(last) last.focus(); }
+  function close(){ if(rd.hidden) return; rd.classList.remove('on'); document.documentElement.style.overflow=''; U=null;
+    setTimeout(function(){ rd.hidden=true; PR.innerHTML=PL.innerHTML=''; },reduce?0:450); if(last&&last.focus) last.focus(); }
+  window.__uClose=close;
   deck.addEventListener('click',function(e){ var c=e.target.closest('.u-card'); if(c) open(+c.dataset.u); });
   document.getElementById('uClose').addEventListener('click',close);
-  nx.addEventListener('click',function(){ go(1); }); pv.addEventListener('click',function(){ go(-1); });
+  nx.addEventListener('click',function(){ turn(1); }); pv.addEventListener('click',function(){ turn(-1); });
   addEventListener('keydown',function(e){ if(rd.hidden) return;
     if(e.key==='Escape') close();
-    else if(e.key==='ArrowLeft'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); go(1); }
-    else if(e.key==='ArrowRight'||e.key==='PageUp'){ e.preventDefault(); go(-1); }
+    else if(e.key==='ArrowLeft'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); turn(1); }
+    else if(e.key==='ArrowRight'||e.key==='PageUp'){ e.preventDefault(); turn(-1); }
     else if(e.key==='Tab'){ var f=[].filter.call(rd.querySelectorAll('button'),function(b){ return !b.disabled; }), k=f.indexOf(document.activeElement);
       e.preventDefault(); f[(k+(e.shiftKey?-1:1)+f.length)%f.length].focus(); }
-    var k=(e.key||'').toLowerCase(); if((e.ctrlKey||e.metaKey)&&'cxasp'.indexOf(k)>-1) e.preventDefault(); });
+    var k2=(e.key||'').toLowerCase(); if((e.ctrlKey||e.metaKey)&&'cxasp'.indexOf(k2)>-1) e.preventDefault(); });
   var x0=null,y0=null;
   rd.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; },{passive:true});
   rd.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
-    if(Math.abs(dx)>46&&Math.abs(dx)>Math.abs(dy)) go(dx>0?1:-1); x0=null; },{passive:true});
-  rd.addEventListener('wheel',function(e){ var pe=e.target.closest&&e.target.closest('.u-pg'); if(pe&&pe.scrollHeight>pe.clientHeight+2) return; if(busy||Math.abs(e.deltaY)<30) return; busy=true; go(e.deltaY>0?1:-1); setTimeout(function(){ busy=false; },650); },{passive:true});
+    if(Math.abs(dx)>46&&Math.abs(dx)>Math.abs(dy)) turn(dx>0?1:-1); x0=null; },{passive:true});
+  rd.addEventListener('click',function(e){ if(e.target.closest('button')) return; var bk=document.getElementById('uBook').getBoundingClientRect();
+    if(e.clientY<bk.top||e.clientY>bk.bottom) return; if(e.clientX<bk.left+bk.width/2) turn(1); else turn(-1); });
+  addEventListener('resize',function(){ if(!U) return; clearTimeout(window.__uT); window.__uT=setTimeout(function(){ layout(true); },180); });
   ['copy','cut','contextmenu','dragstart','selectstart'].forEach(function(ev){ rd.addEventListener(ev,function(e){ e.preventDefault(); }); });
+})();
+
+/* ---- the browser Back button closes whatever is open instead of leaving the site ---- */
+(function(){
+  var ours=false, skip=0;
+  function check(){
+    var open=!!document.querySelector('.modal.open')||(document.getElementById('uRead')&&!document.getElementById('uRead').hidden);
+    if(open&&!ours){ history.pushState({overlay:1},''); ours=true; }
+    else if(!open&&ours){ ours=false; if(history.state&&history.state.overlay){ skip++; history.back(); } }
+  }
+  var mo=new MutationObserver(function(){ setTimeout(check,0); });
+  document.querySelectorAll('.modal').forEach(function(m){ mo.observe(m,{attributes:true,attributeFilter:['class']}); });
+  var ur=document.getElementById('uRead'); if(ur) mo.observe(ur,{attributes:true,attributeFilter:['hidden','class']});
+  addEventListener('popstate',function(){
+    if(skip){ skip--; return; }
+    if(!ours) return; ours=false;
+    if(document.getElementById('uRead')&&!document.getElementById('uRead').hidden&&window.__uClose) window.__uClose();
+    if(document.querySelector('.modal.open')){ var lb=document.getElementById('lbox'); if(lb&&lb.classList.contains('open')){ lb.classList.remove('open'); var lm=document.getElementById('lbm'); if(lm) lm.innerHTML=''; if(window.__hls){ window.__hls.destroy(); window.__hls=null; } } closeM(); }
+  });
 })();
 
 })();
