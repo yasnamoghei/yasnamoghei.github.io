@@ -1473,7 +1473,7 @@ addEventListener('keydown',function(e){
 function closeM(){
   var was=document.querySelector('.modal.open');
   bookM.classList.remove('open'); playM.classList.remove('open');
-  var lbx=document.getElementById('lbox'); if(lbx){ lbx.classList.remove('open'); var lm=document.getElementById('lbm'); if(lm) lm.innerHTML=''; }
+  var lbx=document.getElementById('lbox'); if(lbx){ if(window.__hls){ window.__hls.destroy(); window.__hls=null; } lbx.classList.remove('open'); var lm=document.getElementById('lbm'); if(lm) lm.innerHTML=''; }
   document.body.classList.remove('lock'); mount.innerHTML='';
   if(was&&lastFocus&&lastFocus.focus) lastFocus.focus();
   lastFocus=null;
@@ -1690,10 +1690,10 @@ STAGE[1].media=MONO.map(function(m){return {img:m.img,cap:'On stage, 20 Septembe
 var VERO=[],CONC=[]; for(var n=1;n<=13;n++){ var k=(n<10?'0':'')+n; VERO.push({img:'img/vero-'+k+'.jpg',s:'img/vero-'+k+'-s.jpg'}); } for(var n=1;n<=12;n++){ var k=(n<10?'0':'')+n; CONC.push({img:'img/conc-'+k+'.jpg',s:'img/conc-'+k+'-s.jpg'}); }
 STAGE[0].cover=VERO[2].s;
 STAGE[0].media=VERO.map(function(m,i){return {img:m.img,cap:i===12?'After the show':'On stage, 11 March 2023'};}).concat([{img:ASSET.vfull,cap:'Poster, designed by Yasna Moghei'}]);
-var MV=[{mp4:'img/mono-v1.mp4',poster:'img/mono-v1.jpg',cap:'Video · on stage'},{mp4:'img/mono-v2.mp4',poster:'img/mono-v2.jpg',cap:'Video · a scene'},{mp4:'img/mono-v3.mp4',poster:'img/mono-v3.jpg',cap:'Video · the last scene and curtain call'}];
+var MV=[{hls:'img/mono-hls/v1.m3u8',mp4:'img/mono-v1.mp4',poster:'img/mono-v1.jpg',cap:'Video · on stage'}];
 STAGE[1].media.splice.apply(STAGE[1].media,[1,0].concat(MV));
 STAGE[2].cover=CONC[0].s;
-STAGE[2].media=[{img:CONC[0].img,cap:'On stage, 19 April 2023'}].concat(STAGE[2].media.slice(0,1),CONC.slice(1).map(function(m,i){return {img:m.img,cap:i>=6&&i<10?'With the ensemble':(i===10?'The poster outside the hall':'On stage, 19 April 2023')};}),STAGE[2].media.slice(1));
+STAGE[2].media=[{img:CONC[0].img,cap:'On stage, 19 April 2023'}].concat(STAGE[2].media.slice(0,1),CONC.slice(1).map(function(m,i){return {img:m.img,cap:i>=6&&i<10?'With the ensemble':(i===10?'The poster outside the hall':'On stage, 19 April 2023')};}),STAGE[2].media.slice(1,2));
 function stageById(id){ for(var i=0;i<STAGE.length;i++) if(STAGE[i].id===id) return STAGE[i]; }
 
 function playFilm(i){
@@ -1861,7 +1861,15 @@ document.querySelectorAll('#prods .rv').forEach(function(el){ io.observe(el); })
 var lbox=document.getElementById('lbox'), lbm=document.getElementById('lbm'), lbI=0, lbS=null;
 function lbRender(){
   var m=lbS.media[lbI];
+  if(window.__hls){ window.__hls.destroy(); window.__hls=null; }
   if(m.yt) lbm.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+m.yt+'?rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="'+esc(lbS.t)+'"></iframe>';
+  else if(m.hls){ lbm.innerHTML='<video'+(m.poster?' poster="'+m.poster+'"':'')+' controls playsinline preload="metadata"></video>'; var hv=lbm.querySelector('video');
+    if(hv.canPlayType('application/vnd.apple.mpegurl')) hv.src=m.hls;
+    else loadHls(function(ok){ if(!document.body.contains(hv)) return;
+      if(ok&&window.Hls&&Hls.isSupported()){ var h=new Hls({capLevelToPlayerSize:true}); window.__hls=h;
+        h.on(Hls.Events.ERROR,function(e,d){ if(d.fatal){ setTimeout(function(){ if(window.__hls===h){ h.destroy(); window.__hls=null; } if(document.body.contains(hv)) hv.src=m.mp4; },0); } });
+        h.loadSource(m.hls); h.attachMedia(hv); }
+      else hv.src=m.mp4; }); }
   else if(m.ig) lbm.innerHTML='<iframe class="ig" src="https://www.instagram.com/reel/'+m.ig+'/embed" allow="encrypted-media; autoplay" allowtransparency="true" scrolling="no" title="Instagram reel"></iframe>';
   else if(m.mp4) lbm.innerHTML='<video src="'+m.mp4+'"'+(m.poster?' poster="'+m.poster+'"':'')+' controls playsinline preload="metadata"></video>';
   else lbm.innerHTML='<img alt="'+esc(m.cap||lbS.t)+'" src="'+m.img+'">';
@@ -1869,6 +1877,12 @@ function lbRender(){
   document.getElementById('lbS').innerHTML=esc((m.cap?m.cap+' \u00b7 ':'')+(lbI+1)+' of '+lbS.media.length)+(m.ig?' \u00b7 <a href="https://www.instagram.com/reel/'+m.ig+'/" target="_blank" rel="noopener" style="color:var(--rose)">Open on Instagram</a>':'');
   document.getElementById('lbP').style.visibility=document.getElementById('lbN').style.visibility=lbS.media.length>1?'':'hidden';
 }
+var hlsState=0, hlsQ=[];
+function loadHls(cb){ if(hlsState===2) return cb(true); if(hlsState===3) return cb(false); hlsQ.push(cb); if(hlsState) return; hlsState=1;
+  var sc=document.createElement('script'); sc.src='https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js';
+  sc.onload=function(){ hlsState=2; hlsQ.splice(0).forEach(function(f){ f(true); }); };
+  sc.onerror=function(){ hlsState=3; hlsQ.splice(0).forEach(function(f){ f(false); }); };
+  document.head.appendChild(sc); }
 function openStage(id){ lbS=stageById(id); if(!lbS) return; lbI=0; lbRender(); openM(lbox); }
 document.getElementById('lbP').addEventListener('click',function(){ lbI=(lbI-1+lbS.media.length)%lbS.media.length; lbRender(); });
 document.getElementById('lbN').addEventListener('click',function(){ lbI=(lbI+1)%lbS.media.length; lbRender(); });
