@@ -40,7 +40,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Vazirmatn:wght@300;400;500&family=Courier+Prime:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
 <style>
   /* ================= COLOURS ================= */
   :root{
@@ -950,6 +950,45 @@
   .sn-vid{margin:.4em 0 1.4em;display:flex;justify-content:center}
   .sn-vid video{width:min(420px,100%);aspect-ratio:1/1;background:#000;border-radius:4px;box-shadow:0 18px 40px rgba(0,0,0,.25)}
 
+  /* ================= UNTRANSLATED: Persian pieces, left as written ================= */
+  .untr{padding:clamp(80px,10vw,150px) 0;position:relative;overflow:hidden;
+    background:radial-gradient(90% 70% at 15% 10%,rgba(30,107,82,.28),transparent 60%),radial-gradient(80% 60% at 90% 90%,rgba(110,18,32,.35),transparent 60%),#070F0C}
+  .untr::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .u-fa{font:400 clamp(44px,7vw,110px)/1.4 var(--nasta);color:rgba(238,151,164,.16);text-align:left;margin:-.4em 0 .1em;pointer-events:none;user-select:none}
+  .u-deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));max-width:760px;margin-left:auto;gap:clamp(20px,3vw,44px);margin-top:clamp(10px,2vw,30px)}
+  .u-card{position:relative;text-align:right;direction:rtl;cursor:pointer;border:1px solid rgba(251,247,240,.14);border-radius:4px;
+    background:linear-gradient(160deg,rgba(251,247,240,.06),rgba(251,247,240,.015));color:var(--ink);padding:clamp(26px,3vw,40px);min-height:clamp(300px,34vw,420px);
+    display:flex;flex-direction:column;gap:18px;overflow:hidden;transition:transform .6s var(--ease),border-color .4s,background .4s}
+  .u-card:hover,.u-card:focus-visible{transform:translateY(-6px);border-color:rgba(238,151,164,.55);background:linear-gradient(160deg,rgba(238,151,164,.1),rgba(251,247,240,.02))}
+  .u-card:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
+  .u-card .u-n{font:400 13px/1 var(--sans);letter-spacing:.3em;color:var(--rose);direction:ltr;text-align:right}
+  .u-card h3{font:400 clamp(34px,3.6vw,54px)/1.5 var(--nasta);margin:0;color:#FBF7F0}
+  .u-card .u-first{font:300 clamp(17px,1.35vw,21px)/2.05 "Vazirmatn",Tahoma,sans-serif;color:rgba(251,247,240,.78);margin:0;
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .u-card .u-go{margin-top:auto;display:flex;justify-content:space-between;align-items:center;direction:ltr;font:600 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .u-card .u-go b{font-weight:600;color:var(--rose)}
+  .u-card::after{content:attr(data-big);position:absolute;left:-.1em;bottom:-.45em;font:400 clamp(150px,16vw,240px)/1 var(--nasta);color:rgba(251,247,240,.035);pointer-events:none}
+  .u-read{position:fixed;inset:0;z-index:120;background:#060C0A;color:#EDE6DA;opacity:0;transition:opacity .5s}
+  .u-read.on{opacity:1}
+  .u-read[hidden]{display:none}
+  .u-scroll{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+  .u-page{max-width:680px;margin:0 auto;padding:clamp(90px,14vh,150px) clamp(22px,5vw,40px) 30vh}
+  .u-page h3{font:400 clamp(46px,7vw,86px)/1.35 var(--nasta);color:#F4A7B3;margin:0}
+  .u-meta{font:400 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#8FA398;direction:ltr;text-align:right;margin:10px 0 clamp(40px,7vh,70px)}
+  .u-body{font:300 clamp(18px,1.55vw,22px)/2.25 "Vazirmatn",Tahoma,sans-serif}
+  .u-body p{margin:0 0 1.35em;opacity:.12;transform:translateY(14px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .u-body.lines p{margin:0 0 .35em}
+  .u-body.lines p.gap{margin-top:1.3em}
+  .u-body p.seen{opacity:1;transform:none}
+  .u-body p.hit{color:#F4A7B3}
+  .u-end{text-align:center;color:#6E1220;font-size:22px;margin-top:3em}
+  .u-x{position:fixed;top:18px;right:18px;z-index:2;width:48px;height:48px;border-radius:50%;border:1px solid rgba(237,230,218,.25);background:rgba(6,12,10,.7);color:#EDE6DA;font-size:24px;cursor:pointer}
+  .u-x:hover,.u-x:focus-visible{border-color:#F4A7B3;outline:none}
+  .u-prog{position:fixed;left:0;right:0;top:0;height:2px;background:rgba(237,230,218,.08)}
+  .u-prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6E1220,#F4A7B3);margin-left:auto}
+  @media (prefers-reduced-motion:reduce){ .u-body p{opacity:1;transform:none;transition:none} .u-read{transition:none} }
+
 </style>
 </head>
 <body>
@@ -1192,9 +1231,29 @@
 </section>
 
 <!-- ============ SECTION: EVERYTHING SO FAR ============ -->
+<section id="untranslated" class="untr">
+  <div class="wrap">
+    <div class="shead rv"><span class="idx">08</span><h2 class="dsp"><span class="ln"><span>Untranslated</span></span></h2>
+      <p class="sub">Some things only exist in Persian. These stay the way I wrote them.</p></div>
+    <div class="u-fa rv" lang="fa" dir="rtl">بی‌ترجمه</div>
+    <div class="u-deck" id="uDeck"></div>
+  </div>
+  <div class="u-read" id="uRead" role="dialog" aria-modal="true" aria-labelledby="uTitle" hidden>
+    <button class="u-x" id="uClose" aria-label="Close">&times;</button>
+    <div class="u-scroll" id="uScroll">
+      <article class="u-page" lang="fa" dir="rtl">
+        <header><h3 id="uTitle"></h3><div class="u-meta" id="uMeta"></div></header>
+        <div class="u-body" id="uBody"></div>
+        <footer class="u-end">&#10022;</footer>
+      </article>
+    </div>
+    <div class="u-prog"><i id="uProg"></i></div>
+  </div>
+</section>
+
 <section id="sofar" class="sofar">
   <div class="wrap">
-    <div class="shead rv"><span class="idx">08</span><h2 class="dsp"><span class="ln"><span>Everything so far</span></span></h2>
+    <div class="shead rv"><span class="idx">09</span><h2 class="dsp"><span class="ln"><span>Everything so far</span></span></h2>
       <p class="sub">Every play, film, concert and essay, in order.</p></div>
     <div class="jstats rv">
       <div><b data-count="2">0</b><span>Plays</span></div>
@@ -1209,7 +1268,7 @@
 <!-- ============ SECTION: CONTACT ============ -->
 <section id="sites" class="sites">
   <div class="wrap">
-    <div class="shead rv"><span class="idx">09</span><h2 class="dsp"><span class="ln"><span>I build the stage too</span></span></h2>
+    <div class="shead rv"><span class="idx">10</span><h2 class="dsp"><span class="ln"><span>I build the stage too</span></span></h2>
       <p class="sub">I design and build websites. Flip the switch to see the plan underneath each one.</p></div>
     <div class="bench rv">
       <div class="browser" id="brw">
@@ -1225,7 +1284,7 @@
 
 <section id="contact" class="contact">
   <div class="wrap rv">
-    <div class="shead"><span class="idx">10</span><h2 class="dsp"><span class="ln"><span>Get in touch</span></span></h2>
+    <div class="shead"><span class="idx">11</span><h2 class="dsp"><span class="ln"><span>Get in touch</span></span></h2>
       <p class="sub">Collaborations, screenplay requests, or just to argue with me about a film.</p></div>
     <a class="big-mail" href="mailto:yasnamoghei@gmail.com">yasnamoghei@gmail.com</a>
     <ul class="soc">
@@ -2233,6 +2292,39 @@ var SITES=[
   document.getElementById('bpToggle').addEventListener('change',function(e){ brw.classList.toggle('blue',e.target.checked); });
   screen.addEventListener('click',function(){ screen.classList.toggle('scroll'); });
   show(0);
+})();
+
+var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "meta": "Prose · Persian", "mode": "para", "p": ["می گویند دریا یک زن است. اما من مخالفم. دریا پسرک بازیگوشیست که زودتر از آنچه که باید مرد شد. دریا مردی ترسناک است که هیچگاه نمیدانی در چرژفای وجودش چه چیزی پنهان کرده. دریا مردی است که درست زمانی که در آن احساس آرامش میکنی به تو خیانت میکند.", "اما من تو را با تمام طوفان های کشنده ات دوست دارم. این طوفان هایی که همه را خرد کرد و من نگاه میکردم. هنوز دوستت دارم و دست مهربانی بر سر طغیان های بی پروایت میکشم همچو مادری که همچنان عاشق فرزند خود است که به او خیانت کرده. ای کاش میگذاشتی کمکت کنم. ای کاش میگذاشتی آرامت کنم اما تو تشویق های آن کودکان نادانی که دورت جمع شده اند را میپرستی. تو ترس آن شناگری که عاشقت بود را میپرستی. تو زخم های آن پسرکی که میخواست با تو بازی کند را هم میپرستی. گاهی با خود میگویم آیا آن روز فرا میرسد که من را هم در خود غرق کنی و اشک هایم را ستایش کنی؟", "من هنوز هم نمیخواهم باور کنم تو چیزی بیش از یک کودک خشمگین باشی. من هنوز هم میخواهم تو را از خودت نجات دهم چرا که میدانم اگر تشویق ها و هیاهو های آن کودکان نبود، تو ارامترین بودی. نمیخواهم باور کنم این تو هستی که میخواهی همه را در خود غرق کنی. نمیخواهم باور کنم تو به آن معصومی که فکر میکردم نیستی. نمیخواهم دستان خونینت را ببینم. نمیخواهم لبخند انتقامت را ببینم. من دلم میخواهد همانطور که من تو را میبینم خودت را ببینی. دلم میخواهد دست بکشی از تغیان کردن و چشمانت را روی هم بگذاری.", "من میترسم. میترسم از آن روزی که دریایی خشمگین تر و بزرگتر از خودت پیدا کنی. میترسم که آن کودکان کورت کرده باشند و این بار تو باشی که غرق شوی. اگر غرق شوی چه میکنی؟ آیا اصلا به این فکر کرده ای که روزی ممکن است در این جنگ هایی که خودت راه می اندازی کشته شوی؟ من نمیتوانم نجاتت دهم همچون مریمی که با چشمانی خونین مرگ پسرش را شاهد بود.", "صداها. صداها به من میگویند که دست از تو بکشم. میگویند نمیتوانم به تو کمک کنم. میگویند اگر دستت را بگیرم من نیز غرق میشوم. ولی نمیدانند که من نمیتوانم ترکت کنم. اگر تو را ترک کنم چه کسی دست نوازش بر سرت بکشد آن زمان که دلت میخواهد به کودکیت باز گردی؟ اگر بدانی میخواهم ترکت کنم چه میکنی؟ مرا هم غرق میکنی؟ من غرق شدن صدها تن را دیده ام در دریای خشمت و هیچ نگفتم. شاید این سزای سکوت من است که در راه رفتن از پیش تو به اعماق وجود تاریکت بروم. شاید اینبار توانستم تو را بشناسم. اگر بمانم چه؟ من را در زندان شیشه ای دوستی ات زندانی میکنی و بازمیگردی به همان کودکانی که برایت فریاد میزنند؟", "این زندان شیشه ای دوستی.", "شاید تو بنایی بودی که بتوانم ببینم چیست این زندان دوستی ای که از آن دم میزنند.", "تو اگر میخواهی یک دین جدید را میان مردم پایگذاری کنی نمیتوانی با زور شمشیر ایمان انها را محکم کنی. شاید این راه حل تا مدتی جوابگو باشد اما بعد از مدتی دینت از هم میپاشد. ایمان از قلب نشات میگیرد. جایی که عشق و دوستی خانه دارد. برای یک دین موفق تو باید به قلب انسان ها راه یابی.", "و اما تو چه کردی؟ تو با اغوشی گرم و مهربان نشان دوستی دادی و زمانی که تو را در اغوش گرفتم تیزی خنجری در پهلوی خود حس کردم. نمیدانم کدامین تو را باور کنم. تویی که مهربانی و لبخند میزنی و اهمیت میدهی و دوست میداری. یا تویی که همه میگویند ترسناک و سواستفاده گر و خشمگین است.", "به من بگو این تو هستی که خنجری در پهلوی من نگه داشتی؟ یا این منم که میترسم اگر از اغوشت فاصله بگیرم خنجری در قلبم فرو میکنی؟", "نمیدانم. دیگر تو را نمیدانم. دیگر دوستی ات را نمیدانم. دیگر خودم را نمیدانم."], "hit": [10]}];
+(function(){
+  var deck=document.getElementById('uDeck'); if(!deck) return;
+  var rd=document.getElementById('uRead'), sc=document.getElementById('uScroll'), bd=document.getElementById('uBody'), pr=document.getElementById('uProg'), last=null, io2=null;
+  deck.innerHTML=UNTR.map(function(u,i){
+    return '<button class="u-card rv" data-u="'+i+'" data-big="'+esc(u.big)+'" lang="fa" aria-label="'+esc(u.t)+', read in Persian">'
+      + '<span class="u-n">0'+(i+1)+'</span><h3>'+esc(u.t)+'</h3><p class="u-first">'+esc(u.p[0])+(u.mode==='lines'?' '+esc(u.p[1]):'')+'</p>'
+      + '<span class="u-go"><b>Read in Persian</b><span>'+(u.mode==='lines'?u.p.length+' lines':u.p.length+' paragraphs')+'</span></span></button>';
+  }).join('');
+  deck.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  function open(i){
+    var u=UNTR[i]; last=document.activeElement;
+    document.getElementById('uTitle').textContent=u.t;
+    document.getElementById('uMeta').textContent=u.meta;
+    bd.className='u-body'+(u.mode==='lines'?' lines':'');
+    bd.innerHTML=u.p.map(function(p,k){ var c=[]; if(u.gap&&u.gap.indexOf(k)>-1) c.push('gap'); if(u.hit&&u.hit.indexOf(k)>-1) c.push('hit');
+      return '<p'+(c.length?' class="'+c.join(' ')+'"':'')+'>'+esc(p)+'</p>'; }).join('');
+    rd.hidden=false; document.documentElement.style.overflow='hidden'; sc.scrollTop=0; pr.style.width='0';
+    requestAnimationFrame(function(){ rd.classList.add('on'); });
+    if(io2) io2.disconnect();
+    io2=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('seen'); io2.unobserve(e.target); } }); },{root:sc,rootMargin:'0px 0px -12% 0px'});
+    [].forEach.call(bd.children,function(p){ if(reduce) p.classList.add('seen'); else io2.observe(p); });
+    document.getElementById('uClose').focus();
+  }
+  function close(){ rd.classList.remove('on'); document.documentElement.style.overflow=''; setTimeout(function(){ rd.hidden=true; },reduce?0:450); if(io2) io2.disconnect(); if(last) last.focus(); }
+  deck.addEventListener('click',function(e){ var c=e.target.closest('.u-card'); if(c) open(+c.dataset.u); });
+  document.getElementById('uClose').addEventListener('click',close);
+  addEventListener('keydown',function(e){ if(rd.hidden) return; if(e.key==='Escape') close(); if(e.key==='Tab'){ e.preventDefault(); document.getElementById('uClose').focus(); } });
+  sc.addEventListener('scroll',function(){ var m=sc.scrollHeight-sc.clientHeight; pr.style.width=(m>0?sc.scrollTop/m*100:0)+'%'; },{passive:true});
+  ['copy','cut','contextmenu','dragstart','selectstart'].forEach(function(ev){ rd.addEventListener(ev,function(e){ e.preventDefault(); }); });
+  addEventListener('keydown',function(e){ if(rd.hidden) return; var k=(e.key||'').toLowerCase(); if((e.ctrlKey||e.metaKey)&&'cxasp'.indexOf(k)>-1) e.preventDefault(); });
 })();
 
 })();
