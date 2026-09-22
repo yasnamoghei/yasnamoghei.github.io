@@ -718,7 +718,7 @@
 
   /* ================= LATEST WRITING: book covers ================= */
   .writing.paper{padding:clamp(80px,11vh,150px) 0}
-  .covers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(24px,3vw,50px);perspective:1400px}
+  .covers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:clamp(24px,3vw,50px);perspective:1400px}
   .ecover{all:unset;box-sizing:border-box;position:relative;cursor:pointer;min-height:clamp(420px,40vw,560px);display:flex;flex-direction:column;
     padding:clamp(24px,2.6vw,42px) clamp(24px,2.6vw,42px) clamp(24px,2.6vw,42px) clamp(38px,3.6vw,58px);
     background:var(--cc,#1C5744);color:#F4E9D8;border-radius:3px 10px 10px 3px;
@@ -807,6 +807,21 @@
   .flow .sp .dl{margin:0 14% 1em 17%}
   .flow .sp .tr{text-align:right;text-transform:uppercase;margin:1.2em 0}
   .flow .sp .end{text-align:center;font-weight:700;letter-spacing:.2em;margin-top:2.4em}
+
+  /* ---- video essay card ---- */
+  .vcover{position:relative;overflow:hidden;isolation:isolate}
+  .vcover .cnum{display:none}
+  .vcover .vbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;z-index:-1;opacity:.42;filter:saturate(.8);transition:opacity .5s,transform 1.2s var(--ease)}
+  .vcover:hover .vbg{opacity:.5;transform:scale(1.04)}
+  .vcover .vplay{align-self:center;margin:auto 0;width:74px;height:74px;border-radius:50%;border:1px solid rgba(244,233,216,.6);background:rgba(20,10,20,.35);cursor:pointer;display:grid;place-items:center;transition:transform .3s var(--ease),background .3s}
+  .vcover .vplay span{width:0;height:0;border-left:20px solid #F4E9D8;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:6px}
+  .vcover .vplay:hover{transform:scale(1.1);background:rgba(142,22,38,.7)}
+  .vcover .cq{margin-top:0;font-size:clamp(18px,1.5vw,24px)}
+  .vcover .cq::before{display:none}
+  .vcover .vbtns{display:flex;gap:18px;flex-wrap:wrap}
+  .vcover .vbtns .cg{background:none;border:0;padding:0;color:inherit;cursor:pointer}
+  .vcover .vplay:focus-visible,.vcover .vbtns .cg:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
+  #lbox .lbm video.vert{width:auto;height:100%;max-width:100%;aspect-ratio:9/16}
 
   /* ================= TICKET STUBS ================= */
   .stubs{padding:clamp(80px,10vw,150px) 0;position:relative;overflow:hidden;
@@ -1250,6 +1265,21 @@
       <div class="lbn"><button class="rbtn" id="lbP" aria-label="Previous">&#8592;</button><button class="rbtn" id="lbN" aria-label="Next">&#8594;</button></div></div></div>
 </div>
 
+<script type="text/x-essay" id="w-stunts">
+<p class="lede">Hollywood action history has been written on the bodies of women who rarely saw their names included in the credits. My project will explore early female stunt doubles and how their work replicated the stunts of male stunt performers, but with the additional complications of gendered clothing that was restrictive and virtually total erasure from public recognition.</p>
+<p>My main case study is Bonnie Gray (Verna Smith), an early 1920s rodeo pioneer and early film stuntwoman whose dangerous stunts, including riding her horse King Tut over cars and airplanes, challenged gendered norms and impacted the stunt business. Helen Gibson, one of the very first professional stuntwomen of the silent era, embodied physical danger during the 1910s but was marketed as an actress rather than recognized as a labourer. Zoë Bell, a contemporary stuntwoman who doubled Lucy Lawless in <em>Xena</em> and Uma Thurman in <em>Kill Bill</em>, shows how the invisibility of stuntwomen persists today, even in an industry with broader conversations about gender and credit.</p>
+<p>I will connect these figures to feminist labour analysis through our course reading on approaches to Hollywood women&rsquo;s labour. This shows how &ldquo;below-the-line&rdquo; labour has historically been feminized, underpaid and uncounted. This trend indicates a line of flight from early Hollywood to current media labour.</p>
+<p>For the Knowledge Mobilization piece, I will create a concise TikTok explainer video (about one minute) interspersing archival footage, short narration and a clear visual narrative. The viewers are 18 to 25 year olds who could be interested in film, feminism, or even those with only minimal interest in these topic areas, as it is made for non-academic audiences. The nature of TikTok allows me to tell a story through rapid shots and emotionally charged words.</p>
+<p>I will lead audiences to question why the face they support on screen is not always the body that did the work. This work is connected to course work and to the purposes of knowledge mobilization, and it acknowledges women in the media industry who have never received the credit they deserve.</p>
+<hr>
+<div class="bib">
+<h5>Annotated bibliography</h5>
+<p>Barnette, Amanda. <em>Bonnie Gray, the King Tut Cowgirl: Pioneering Stunts and Paving the Way for Women to Stunt Double in Western Film.</em> Master&rsquo;s thesis, University of Central Oklahoma, 2024.<br>Barnette&rsquo;s thesis provides a richly contextualized history of Verna &ldquo;Bonnie&rdquo; Gray, a rodeo rider whose death-defying stunts during the 1920s and 1930s transitioned into early Hollywood stunts. The study charts the ways in which Gray performed dangerous, highly sensationalized stunts while her name and labour stayed on the periphery of the public record. This source is used for my main case study and offers concrete evidence of gendered labour, spectacle and erasure in early Hollywood stunt performance.</p>
+<p>Banks, Miranda J., and Lauren Steimer. &ldquo;The Heroic Body: Toughness, Femininity and the Stunt Double.&rdquo; <em>The Sociological Review</em> 63, no. S1 (2015): 144-157.<br>Banks and Steimer examine how the work of stuntwomen in television and film is erased by systematic processes of editing, publicity and industry hierarchies. They also observe historical and contemporary gendered disparities within the world of stunts, like the continued erasure in spite of the fact that stuntwomen perform central physical stunts. They provide the theoretical grounding for bridging Bonnie Gray&rsquo;s original erasure with more contemporary stunt work and women such as Zoë Bell.</p>
+<p>Donoghue, Courtney Brannon. &ldquo;Methodological Approaches to Women&rsquo;s Work in Hollywood.&rdquo; In <em>The Routledge Companion to Media Industries</em>, edited by Paul McDonald, 172-181. London: Routledge, 2021.<br>Donoghue&rsquo;s chapter explores methodological models for examining Hollywood women&rsquo;s labour, based on how women&rsquo;s labour has been feminized, under-documented and structurally excluded. This material helps place my Knowledge Mobilization project within the broader frame of feminist media labour, placing stuntwomen as one of numerous &ldquo;invisible&rdquo; below-the-line labours in Hollywood.</p>
+</div>
+
+</script>
 <script type="text/x-essay" id="w-runaway">
 <div class="sp">
 <p class="tp"><b>Logline</b> Trapped in a nightmarish hallway that repeats itself, a terrified young man is hunted by whispers and shadows that blur the line between guilt and reality — until he faces the monster wearing his own face.</p>
@@ -1520,7 +1550,10 @@ var ESSAYS=[
    c:'#1C5744',
    s:'Two thousand years ago Seneca complained that people read the Odyssey for the map instead of the mind. We are still doing it.',
    q:'We didn\u2019t read the Odyssey. We watched it.',
-   src:'w-odyssey'}
+   src:'w-odyssey'},
+  {t:'The Stunts You Never Saw',m:'2026 \u00b7 Video essay',c:'#3A2A4A',kind:'Video essay',reel:'stunts',
+   s:'How early female stunt doubles defied danger and disappeared from history. A short reel, and the proposal behind it.',
+   src:'w-stunts',act:'reel:stunts',linkText:'Watch the reel'}
 ]; /* add {t:'Title',m:'2026 \u00b7 Writing',c:'#1C5744',s:'One line',b:'Full text or summary',link:'',linkText:''} */
 var FAVOURITES=[
   {t:'Taste of Cherry',m:'Abbas Kiarostami · 1997',imdb:'tt0120265'},
@@ -1729,6 +1762,7 @@ function openBook(it,kind){
      +  '<p class="sub">'+esc(it.s||'')+'</p></div>';
   if(tpl){ html+=tpl.textContent; }
   else { html+='<p>'+esc(it.b||(kind==='f'?'From my list of the best films I have ever seen.':''))+'</p>'; }
+  if(it.act){ html+='<p><a class="read" href="#" data-act="'+it.act+'">'+esc(it.linkText||'Watch')+' \u203a</a></p>'; }
   if(it.link){
     html+='<p><a class="read" href="'+esc(it.link)+'" target="_blank" rel="noopener">'
         + esc(it.linkText||'Read')+' \u203a</a></p>';
@@ -1874,6 +1908,7 @@ function act(a){
   if(p[0]==='film') playFilm(+p[1]);
   else if(p[0]==='book') openBook(p[1]==='s'?SCREENPLAYS[+p[2]]:ESSAYS[+p[2]],p[1]);
   else if(p[0]==='stage') openStage(p[1]);
+  else if(p[0]==='reel'){ if(bookM.classList.contains('open')) closeM(); openReel(p[1]); }
   else if(p[0]==='go'){ var el=document.querySelector(p[1]); if(el) el.scrollIntoView({behavior:reduce?'auto':'smooth'}); }
 }
 document.addEventListener('click',function(e){
@@ -1922,10 +1957,10 @@ if(!reduce) setInterval(function(){
 var PANELS=[
   {h:'Write',d:'Screenplays, essays and film criticism.',go:'#writing',
    imgs:['img/r-poster.jpg',IMG(FILMS[0].id,'maxresdefault'),IMG(FILMS[2].id,'maxresdefault')],
-   list:[{t:'Runaway',s:'Screenplay',a:'book:s:0'}].concat(ESSAYS.map(function(e,i){return {t:e.t,s:'Essay',a:'book:e:'+i};}))},
+   list:[{t:'Runaway',s:'Screenplay',a:'book:s:0'}].concat(ESSAYS.map(function(e,i){return {t:e.t,s:e.kind||'Essay',a:'book:e:'+i};}))},
   {h:'Film',d:'Three shorts made in Toronto since 2025.',go:'#films',
    imgs:[IMG(FILMS[2].id,'maxresdefault'),IMG(FILMS[1].id,'maxresdefault'),IMG(FILMS[0].id,'maxresdefault')],
-   list:[{t:'Runaway',s:'Writer · 2026',a:'film:0'},{t:'The Parking Garage',s:'Co-creator · 2025',a:'film:1'},{t:'59th Floor',s:'Writer & director · 2025',a:'film:2'}]},
+   list:[{t:'Runaway',s:'Writer · 2026',a:'film:0'},{t:'The Parking Garage',s:'Co-creator · 2025',a:'film:1'},{t:'59th Floor',s:'Writer & director · 2025',a:'film:2'},{t:'The Stunts You Never Saw',s:'Video essay · 2026',a:'reel:stunts'}]},
   {h:'Act',d:'On stage in Shiraz, as an actor and assistant director.',go:'#stage',
    imgs:[VERO[2].s,MONO[0].s,VERO[0].s,MONO[7].s,VERO[3].s],
    list:[{t:'Veronika Decides to Live',s:'2023',a:'stage:veronika'},{t:'Classical Monologues',s:'2022',a:'stage:monologues'}]},
@@ -2029,7 +2064,7 @@ function lbRender(){
   var m=lbS.media[lbI];
   if(window.__hls){ window.__hls.destroy(); window.__hls=null; }
   if(m.yt) lbm.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+m.yt+'?rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="'+esc(lbS.t)+'"></iframe>';
-  else if(m.hls){ lbm.innerHTML='<video'+(m.poster?' poster="'+m.poster+'"':'')+' controls playsinline preload="metadata"></video>'; var hv=lbm.querySelector('video');
+  else if(m.hls){ lbm.innerHTML='<video'+(m.vertical?' class="vert"':'')+(m.poster?' poster="'+m.poster+'"':'')+' controls playsinline preload="metadata"></video>'; var hv=lbm.querySelector('video');
     hv.addEventListener('error',function(){ if(/\.m3u8/.test(hv.currentSrc||hv.src)&&m.mp4) hv.src=m.mp4; });
     if(hv.canPlayType('application/vnd.apple.mpegurl')) hv.src=m.hls;
     else loadHls(function(ok){ if(!document.body.contains(hv)) return;
@@ -2050,6 +2085,8 @@ function loadHls(cb){ if(hlsState===2) return cb(true); if(hlsState===3) return 
   sc.onload=function(){ hlsState=2; hlsQ.splice(0).forEach(function(f){ f(true); }); };
   sc.onerror=function(){ hlsState=3; hlsQ.splice(0).forEach(function(f){ f(false); }); };
   document.head.appendChild(sc); }
+var REELS={stunts:{t:'The Stunts You Never Saw',card:'img/stunts-card.jpg',media:[{hls:'img/stunts-hls/s.m3u8',mp4:'img/stunts.mp4',poster:'img/stunts.jpg',vertical:1,cap:'Video essay \u00b7 2026'}]}};
+function openReel(id){ lbS=REELS[id]; if(!lbS) return; lbI=0; lbRender(); openM(lbox); }
 function openStage(id){ lbS=stageById(id); if(!lbS) return; lbI=0; lbRender(); openM(lbox); }
 document.getElementById('lbP').addEventListener('click',function(){ lbI=(lbI-1+lbS.media.length)%lbS.media.length; lbRender(); });
 document.getElementById('lbN').addEventListener('click',function(){ lbI=(lbI+1)%lbS.media.length; lbRender(); });
@@ -2066,6 +2103,14 @@ function readMins(e){ var t=e.src?document.getElementById(e.src):null; if(!t) re
   return Math.max(1,Math.round(d.textContent.trim().split(/\s+/).length/230))+' min read'; }
 var cvs=document.getElementById('covers');
 cvs.innerHTML=ESSAYS.map(function(e,i){
+  if(e.reel) return '<div class="ecover vcover rv" style="--cc:'+(e.c||'#1C5744')+'">'
+    + '<img class="vbg" loading="lazy" alt="" src="'+REELS[e.reel].card+'">'
+    + '<span class="cnum" aria-hidden="true">0'+(i+1)+'</span>'
+    + '<span class="ct"><span>'+esc(e.m||'')+'</span><span>1:33</span></span>'
+    + '<button class="vplay" data-act="reel:'+e.reel+'" aria-label="Watch '+esc(e.t)+'"><span></span></button>'
+    + '<span class="cq">'+esc(e.s||'')+'</span>'
+    + '<span class="cn">'+esc(e.t)+'</span>'
+    + '<span class="vbtns"><button class="cg" data-act="reel:'+e.reel+'">Watch the reel</button><button class="cg" data-act="book:e:'+i+'">Read the proposal</button></span></div>';
   return '<button class="ecover rv" data-act="book:e:'+i+'" style="--cc:'+(e.c||'#1C5744')+'" aria-label="Read '+esc(e.t)+'">'
     + '<span class="cnum" aria-hidden="true">0'+(i+1)+'</span>'
     + '<span class="ct"><span>'+esc(e.m||'')+'</span><span>'+readMins(e)+'</span></span>'
@@ -2088,6 +2133,7 @@ var TL=[
   {yr:'2023',sm:'19 April',w:'Shiraz · Concert',t:'Mehr dar Bahar',p:'Guitar with the Mehr-e-Taban DP Ensemble, in a charity concert for the victims of the Khoy earthquake. Two performances at the Greenland Complex.',img:CONC[0].s,wide:1,act:'stage:concert'},
   {yr:'2025',sm:'Toronto',w:'Toronto · Screen',t:'59th Floor',p:'My first student short, which I wrote and directed.',img:IMG(FILMS[2].id,'maxresdefault'),wide:1,act:'film:2'},
   {yr:'2025',sm:'Toronto',w:'Toronto · Screen',t:'The Parking Garage',p:'A comedy I co-created with Bianca Tomasi and Adelaide Zettler.',img:IMG(FILMS[1].id,'maxresdefault'),wide:1,act:'film:1'},
+  {yr:'2026',sm:'Toronto',w:'Toronto · Video essay',t:'The Stunts You Never Saw',p:'A short reel for students who never think about who took the fall: the stuntwomen Hollywood forgot, from Bonnie Gray to Zoë Bell.',img:'img/stunts.jpg',act:'reel:stunts'},
   {yr:'2026',sm:'Toronto',w:'Toronto · Screen & page',t:'Runaway, and the first essays',p:'My screenplay, directed by Negar Golshanibasir. The same year I started publishing criticism here.',img:'img/r-poster.jpg',act:'film:0'}
 ];
 document.getElementById('tl').innerHTML=TL.map(function(r){
