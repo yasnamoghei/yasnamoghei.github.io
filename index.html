@@ -1052,8 +1052,12 @@
   .u-nav:hover:not(:disabled),.u-nav:focus-visible{border-color:#F4A7B3;color:#F4A7B3;outline:none;transform:scale(1.06)}
   .u-nav:disabled{opacity:.25;cursor:default}
   .u-count{min-width:7em;text-align:center;font:400 15px/1 "Noto Naskh Arabic",Tahoma,serif;color:#CDB894}
-  .u-x{position:absolute;top:16px;right:16px;z-index:9;width:46px;height:46px;border-radius:50%;border:1px solid rgba(228,210,174,.3);background:rgba(20,14,10,.6);color:#E4D2AE;font-size:24px;cursor:pointer}
-  .u-x:hover,.u-x:focus-visible{border-color:#F4A7B3;outline:none}
+  .u-x{position:fixed;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));z-index:130;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border-radius:999px;
+    border:0;background:#E4D2AE;color:#2A1A0E;font:600 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:transform .25s,background .25s}
+  .u-x span{font-size:22px;line-height:1;letter-spacing:0;margin-top:-2px}
+  .u-x:hover,.u-x:focus-visible{background:#F4A7B3;outline:none;transform:scale(1.05)}
+  .u-shut{width:52px;height:52px;border-radius:50%;border:1px solid rgba(228,210,174,.35);background:rgba(20,14,10,.6);color:#E4D2AE;font-size:26px;line-height:1;cursor:pointer;margin-left:clamp(4px,2vw,20px);transition:all .3s}
+  .u-shut:hover,.u-shut:focus-visible{border-color:#F4A7B3;color:#F4A7B3;outline:none}
   .u-measure{position:absolute;left:-9999px;top:0;visibility:hidden}
   .u-measure .u-page{background:none}
   .u-read.single .u-book{--pw:min(92vw,calc((100vh - 150px) * .68),520px);width:var(--pw)}
@@ -1313,7 +1317,7 @@
     <div class="u-deck" id="uDeck"></div>
   </div>
   <div class="u-read" id="uRead" role="dialog" aria-modal="true" aria-label="Book" hidden>
-    <button class="u-x" id="uClose" aria-label="Close the book">&times;</button>
+    <button class="u-x" id="uClose" aria-label="Close the book"><span aria-hidden="true">&times;</span> Close</button>
     <div class="u-desk">
       <div class="u-book" id="uBook" lang="fa" dir="rtl">
         <div class="u-page u-r" id="uPR"></div>
@@ -1325,6 +1329,7 @@
       <button class="u-nav" id="uPrev" aria-label="Previous page">&rarr;</button>
       <span class="u-count" id="uCount" dir="rtl"></span>
       <button class="u-nav" id="uNext" aria-label="Next page">&larr;</button>
+      <button class="u-shut" id="uClose2" aria-label="Close the book"><span aria-hidden="true">&times;</span></button>
     </div>
     <div class="u-measure" id="uMeasure" lang="fa" dir="rtl" aria-hidden="true"><div class="u-page"><div class="u-txt" id="uMTxt"></div></div></div>
   </div>
@@ -2500,6 +2505,7 @@ var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می �
   window.__uClose=close;
   deck.addEventListener('click',function(e){ var c=e.target.closest('.u-card'); if(c) open(+c.dataset.u); });
   document.getElementById('uClose').addEventListener('click',close);
+  document.getElementById('uClose2').addEventListener('click',close);
   nx.addEventListener('click',function(){ turn(1); }); pv.addEventListener('click',function(){ turn(-1); });
   addEventListener('keydown',function(e){ if(rd.hidden) return;
     if(e.key==='Escape') close();
