@@ -718,7 +718,21 @@
 
   /* ================= LATEST WRITING: book covers ================= */
   .writing.paper{padding:clamp(80px,11vh,150px) 0}
-  .covers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:clamp(24px,3vw,50px);perspective:1400px}
+  /* the writing scrolls sideways, like a shelf you push along */
+  .covers{display:flex;gap:clamp(20px,2.4vw,40px);perspective:1400px;
+    overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-behavior:smooth;
+    padding:14px 0 26px;margin:0 calc(var(--pad) * -1);padding-left:var(--pad);padding-right:var(--pad);
+    scroll-padding-left:var(--pad);
+    -ms-overflow-style:none;scrollbar-width:none;overscroll-behavior-x:contain}
+  .covers::-webkit-scrollbar{display:none}
+  /* .ecover uses all:unset, so this needs to outrank it */
+  .covers>.ecover,.covers>.vcover,.covers>*{flex:0 0 clamp(268px,27vw,376px);scroll-snap-align:start}
+  .cvnav{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;gap:18px;
+    margin-top:clamp(4px,1vw,12px)}
+  .cvnav .marq-note{margin:0}
+  .cvnav .rbtn:disabled{opacity:.3;cursor:default;transform:none;background:rgba(0,0,0,.25);
+    border-color:rgba(238,151,164,.25)}
+  @media(prefers-reduced-motion:reduce){.covers{scroll-behavior:auto}}
   .ecover{all:unset;box-sizing:border-box;position:relative;cursor:pointer;min-height:clamp(420px,40vw,560px);display:flex;flex-direction:column;
     padding:clamp(24px,2.6vw,42px) clamp(24px,2.6vw,42px) clamp(24px,2.6vw,42px) clamp(38px,3.6vw,58px);
     background:var(--cc,#1C5744);color:#F4E9D8;border-radius:3px 10px 10px 3px;
@@ -2684,6 +2698,36 @@ cvs.innerHTML=ESSAYS.map(function(e,i){
     + '<span class="cn">'+esc(e.t)+'</span><span class="cg">Open the book</span></button>';
 }).join('');
 document.querySelectorAll('#covers .rv').forEach(function(el){ io.observe(el); });
+/* ---- push the writing shelf left and right ---- */
+(function(){
+  var cv=document.getElementById('covers'); if(!cv) return;
+  var nav=document.createElement('div'); nav.className='cvnav';
+  nav.innerHTML='<button class="rbtn" id="cvPrev" type="button" aria-label="Earlier writing">&#8592;</button>'
+    + '<div class="marq-note">Scroll, drag or use the arrows</div>'
+    + '<button class="rbtn" id="cvNext" type="button" aria-label="More writing">&#8594;</button>';
+  cv.parentNode.insertBefore(nav,cv.nextSibling);
+  var pv=document.getElementById('cvPrev'), nx=document.getElementById('cvNext');
+  function step(){ var c=cv.querySelector('.ecover'); if(!c) return 320;
+    return c.getBoundingClientRect().width+(parseFloat(getComputedStyle(cv).columnGap)||24); }
+  pv.addEventListener('click',function(){ cv.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'}); });
+  nx.addEventListener('click',function(){ cv.scrollBy({left:step(),behavior:reduce?'auto':'smooth'}); });
+  function upd(){ var max=cv.scrollWidth-cv.clientWidth;
+    pv.disabled=cv.scrollLeft<=8; nx.disabled=cv.scrollLeft>=max-8;
+    nav.style.display=max>8?'':'none'; }
+  cv.addEventListener('scroll',upd,{passive:true});
+  addEventListener('resize',function(){ setTimeout(upd,120); });
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(upd);
+  setTimeout(upd,300); upd();
+  /* drag with a mouse, the way the film reel already works */
+  var down=false,x0=0,s0=0,moved=0;
+  cv.addEventListener('pointerdown',function(e){ if(e.pointerType==='touch') return;
+    down=true; moved=0; x0=e.clientX; s0=cv.scrollLeft; });
+  cv.addEventListener('pointermove',function(e){ if(!down) return;
+    var d=e.clientX-x0; if(Math.abs(d)>3){ moved=Math.abs(d); cv.scrollLeft=s0-d; } });
+  function endDrag(){ down=false; setTimeout(function(){ moved=0; },0); }
+  addEventListener('pointerup',endDrag); addEventListener('pointercancel',endDrag);
+  cv.addEventListener('click',function(e){ if(moved>6){ e.preventDefault(); e.stopPropagation(); } },true);
+})();
 if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!reduce){
   [].forEach.call(cvs.querySelectorAll('.ecover'),function(c){
     c.addEventListener('mousemove',function(e){ var r=c.getBoundingClientRect(), px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
@@ -3014,7 +3058,8 @@ var TALKS=[
     pv.disabled=i===0; nx.disabled=i===BEATS.length-1;
     ticks.querySelectorAll('.nt-tick').forEach(function(t,k){
       t.classList.toggle('on',k===i); t.setAttribute('aria-selected',k===i?'true':'false'); });
-    if(!quiet){ pan.classList.remove('flip'); void pan.offsetWidth; pan.classList.add('flip'); }
+    if(quiet) return;              /* on load, never move the page */
+    pan.classList.remove('flip'); void pan.offsetWidth; pan.classList.add('flip');
     ticks.querySelectorAll('.nt-tick')[i].scrollIntoView({block:'nearest',inline:'nearest'});
   }
   ticks.addEventListener('click',function(e){ var t=e.target.closest('.nt-tick'); if(t) set(+t.dataset.i); });
