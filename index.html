@@ -23,7 +23,7 @@
 <meta name="author" content="Yasna Moghei">
 <link rel="canonical" href="https://yasnamoghei.github.io/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta name="theme-color" content="#0E241C">
+<meta name="theme-color" content="#1A181B">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Yasna Moghei | Screenwriter and Filmmaker">
 <meta property="og:description" content="Screenplays, short films and essays by Yasna Moghei, Toronto based screenwriter and filmmaker.">
@@ -46,11 +46,11 @@
   :root{
     --ink:#FBF7F0;
     --ink-2:#E6E0D5;
-    --muted:#B9C7BC;
-    --bg:#0E241C;
-    --green-1:#14392C;
-    --green-2:#1C5744;
-    --teal:#1E6B52;
+    --muted:#B6ADB0;
+    --bg:#1A181B;
+    --green-1:#232025;
+    --green-2:#2E2A31;
+    --teal:#4A2029;
     --red:#B3202E;
     --red-deep:#6E1220;
     --red-dark:#4A0E19;
@@ -82,12 +82,12 @@
 
   /* ================= LIVING BACKGROUND ================= */
   #bg{position:fixed;inset:0;z-index:-3;pointer-events:none;
-    background:linear-gradient(168deg,#0E241C 0%,#123328 40%,#1A1016 78%,#25121A 100%)}
+    background:linear-gradient(168deg,#1A181B 0%,#201D21 40%,#1A1016 78%,#25121A 100%)}
   .blob{position:fixed;border-radius:50%;filter:blur(70px);z-index:-2;pointer-events:none;
     will-change:transform;opacity:.55}
   .b1{width:56vw;height:56vw;left:-14vw;top:-12vw;background:radial-gradient(circle,rgba(179,32,46,.62),transparent 68%);
     animation:d1 26s ease-in-out infinite alternate}
-  .b2{width:62vw;height:62vw;right:-18vw;top:22vh;background:radial-gradient(circle,rgba(30,107,82,.72),transparent 68%);
+  .b2{width:62vw;height:62vw;right:-18vw;top:22vh;background:radial-gradient(circle,rgba(110,18,32,.72),transparent 68%);
     animation:d2 32s ease-in-out infinite alternate}
   .b3{width:48vw;height:48vw;left:18vw;bottom:-16vw;background:radial-gradient(circle,rgba(110,18,32,.58),transparent 68%);
     animation:d3 29s ease-in-out infinite alternate}
@@ -101,7 +101,7 @@
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='.9'/></svg>")}
 
   /* ================= CLAPPERBOARD INTRO ================= */
-  #intro{position:fixed;inset:0;z-index:100;background:#080f0c;display:grid;place-items:center;
+  #intro{position:fixed;inset:0;z-index:100;background:#0D0C0E;display:grid;place-items:center;
     perspective:1400px;overflow:hidden}
   #intro.gone{opacity:0;visibility:hidden;transition:opacity .6s ease,visibility .6s}
   .board{width:min(560px,84vw);transform-origin:50% 62%;
@@ -152,7 +152,7 @@
     background:linear-gradient(90deg,var(--red-deep),var(--rose))}
 
   /* ================= NAV ================= */
-  nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(14,36,28,.7);
+  nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(26,24,27,.7);
     backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:transform .45s var(--ease)}
   nav.hide{transform:translateY(-130%)}
   nav .inner{max-width:var(--maxw);margin:0 auto;padding:13px var(--pad);display:flex;
@@ -162,7 +162,7 @@
   nav .mark span{color:var(--rose)}
   nav .links{display:flex;gap:clamp(14px,1.8vw,28px);align-items:center}
   nav a{position:relative;text-decoration:none;font-size:clamp(11px,.75vw,13px);font-weight:500;
-    letter-spacing:.13em;text-transform:uppercase;color:#D6DED8;transition:color .3s;white-space:nowrap}
+    letter-spacing:.13em;text-transform:uppercase;color:#DDD6D3;transition:color .3s;white-space:nowrap}
   nav a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--rose);
     transition:width .35s var(--ease)}
   nav a:hover,nav a.active{color:var(--rose)}
@@ -175,7 +175,7 @@
   html.menu #burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   @media(max-width:820px){
     #burger{display:block}
-    nav .links{position:fixed;inset:0;background:rgba(11,28,22,.98);flex-direction:column;
+    nav .links{position:fixed;inset:0;background:rgba(23,21,24,.98);flex-direction:column;
       justify-content:center;gap:28px;transform:translateY(-100%);transition:transform .5s var(--ease)}
     html.menu nav .links{transform:none}
     nav a{font-size:17px;letter-spacing:.2em}
@@ -207,8 +207,8 @@
     animation:kb 15s ease-in-out infinite alternate;filter:saturate(.9) contrast(1.06)}
   @keyframes kb{from{transform:scale(1.06)}to{transform:scale(1.19) translate3d(-1.6%,-1.6%,0)}}
   .hero-media::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(14,36,28,.5) 0%,rgba(14,36,28,.22) 34%,rgba(14,36,28,.86) 78%,var(--bg) 100%),
-      linear-gradient(90deg,rgba(8,20,15,.84) 0%,rgba(8,20,15,.34) 44%,transparent 70%),
+    background:linear-gradient(180deg,rgba(26,24,27,.5) 0%,rgba(26,24,27,.22) 34%,rgba(26,24,27,.86) 78%,var(--bg) 100%),
+      linear-gradient(90deg,rgba(20,18,21,.84) 0%,rgba(20,18,21,.34) 44%,transparent 70%),
       radial-gradient(120% 80% at 16% 26%,rgba(110,18,32,.36),transparent 70%)}
   header.hero .wrap{position:relative;z-index:2;width:100%}
   header.hero h1{font-size:clamp(44px,9.6vw,152px);letter-spacing:-.02em}
@@ -261,7 +261,7 @@
   .theatre{padding-bottom:clamp(60px,8vh,120px)}
   .house{position:relative;background:
       radial-gradient(120% 90% at 50% 0%,rgba(110,18,32,.42),transparent 62%),
-      linear-gradient(180deg,#170d11 0%,#12100f 60%,#0d1512 100%);
+      linear-gradient(180deg,#170d11 0%,#12100f 60%,#131114 100%);
     border-top:1px solid rgba(238,151,164,.16);border-bottom:1px solid rgba(238,151,164,.16);
     overflow:hidden;padding:clamp(46px,7.6vw,112px) 0 clamp(30px,4vw,60px)}
   .valance{position:absolute;top:0;left:0;right:0;width:100%;height:clamp(38px,6.5vw,96px);z-index:5;
@@ -289,7 +289,7 @@
     animation:slide 44s linear infinite;padding:0 clamp(14px,2vw,30px)}
   .reel:hover .track,.reel:focus-within .track{animation-play-state:paused}
   @keyframes slide{to{transform:translateX(-50%)}}
-  .poster{flex:0 0 auto;width:clamp(230px,30vw,420px);background:#0c1512;border:1px solid rgba(238,151,164,.2);
+  .poster{flex:0 0 auto;width:clamp(230px,30vw,420px);background:#121013;border:1px solid rgba(238,151,164,.2);
     cursor:pointer;padding:0;text-align:left;font-family:inherit;color:inherit;
     transition:transform .5s var(--ease),border-color .4s,box-shadow .5s}
   .poster:hover{transform:translateY(-10px);border-color:var(--rose);
@@ -362,7 +362,7 @@
 
   /* ================= BOOK MODAL ================= */
   .modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:clamp(12px,3vw,40px);
-    background:rgba(6,15,11,.86);backdrop-filter:blur(8px);opacity:0;visibility:hidden;
+    background:rgba(12,11,13,.86);backdrop-filter:blur(8px);opacity:0;visibility:hidden;
     transition:opacity .45s,visibility .45s}
   .modal.open{opacity:1;visibility:visible}
   .modal .close{position:absolute;top:clamp(10px,2vw,26px);right:clamp(10px,2vw,26px);z-index:5;
@@ -500,7 +500,7 @@
   /* ================= HERO: live image wall ================= */
   header.hero{background:radial-gradient(90% 70% at 12% 30%,rgba(110,18,32,.35),transparent 70%)}
   header.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(90deg,var(--bg) 0%,rgba(14,36,28,.94) 34%,rgba(14,36,28,.35) 58%,rgba(14,36,28,.05) 100%),
+    background:linear-gradient(90deg,var(--bg) 0%,rgba(26,24,27,.94) 34%,rgba(26,24,27,.35) 58%,rgba(26,24,27,.05) 100%),
       linear-gradient(0deg,var(--bg) 0%,transparent 22%)}
   .wall{position:absolute;top:0;bottom:0;right:0;width:60%;z-index:0;display:grid;grid-template-columns:repeat(3,1fr);
     gap:14px;padding:0 14px;overflow:hidden;transform:rotate(-4deg) scale(1.14);transform-origin:70% 50%;
@@ -537,7 +537,7 @@
   @media(max-width:900px){
     .wall{width:100%;opacity:.42;grid-template-columns:repeat(2,1fr);transform:rotate(-4deg) scale(1.25);pointer-events:none}
     .wall .col:nth-child(3){display:none}
-    header.hero::before{background:linear-gradient(0deg,var(--bg) 8%,rgba(14,36,28,.75) 45%,rgba(14,36,28,.55) 100%)}
+    header.hero::before{background:linear-gradient(0deg,var(--bg) 8%,rgba(26,24,27,.75) 45%,rgba(26,24,27,.55) 100%)}
   }
 
   /* ---- ticker ---- */
@@ -564,7 +564,7 @@
   .pstack i.on{opacity:1}
   .panel:hover .pstack i.on,.panel:focus-within .pstack i.on{filter:saturate(1) brightness(.72);transform:scale(1.12)}
   .panel::after{content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(180deg,rgba(0,0,0,.15) 20%,rgba(8,14,11,.94) 100%)}
+    background:linear-gradient(180deg,rgba(0,0,0,.15) 20%,rgba(13,12,14,.94) 100%)}
   .panel .pc{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(20px,2.4vw,40px)}
   .panel .num{display:flex;justify-content:space-between;align-items:center;font:600 12px/1 var(--sans);letter-spacing:.22em;color:var(--rose)}
   .panel .dots{display:flex;gap:5px}
@@ -682,9 +682,9 @@
   .rbtn:hover{background:var(--red-deep);border-color:var(--rose);transform:scale(1.08)}
 
   /* ================= ON STAGE ================= */
-  .stage2{padding:clamp(80px,11vh,160px) 0;background:linear-gradient(180deg,#120A0D,#0E1512);z-index:4}
+  .stage2{padding:clamp(80px,11vh,160px) 0;background:linear-gradient(180deg,#120A0D,#141215);z-index:4}
   .prods{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:clamp(14px,1.8vw,26px);align-items:stretch}
-  .prod{all:unset;box-sizing:border-box;position:relative;cursor:pointer;display:flex;flex-direction:column;background:#0A0F0D;
+  .prod{all:unset;box-sizing:border-box;position:relative;cursor:pointer;display:flex;flex-direction:column;background:#0F0E10;
     border:1px solid rgba(238,151,164,.16);transition:transform .6s var(--ease),border-color .4s,box-shadow .6s;overflow:hidden}
   .prod:hover,.prod:focus-visible{transform:translateY(-8px);border-color:var(--rose);box-shadow:0 30px 60px rgba(0,0,0,.5)}
   .prod .pm{position:relative;aspect-ratio:3/4;overflow:hidden;background:#000}
@@ -734,7 +734,7 @@
   @media(prefers-reduced-motion:reduce){.covers{scroll-behavior:auto}}
   .ecover{all:unset;box-sizing:border-box;position:relative;cursor:pointer;min-height:clamp(420px,40vw,560px);display:flex;flex-direction:column;
     padding:clamp(24px,2.6vw,42px) clamp(24px,2.6vw,42px) clamp(24px,2.6vw,42px) clamp(38px,3.6vw,58px);
-    background:var(--cc,#1C5744);color:#F4E9D8;border-radius:3px 10px 10px 3px;
+    background:var(--cc,#2E2A31);color:#F4E9D8;border-radius:3px 10px 10px 3px;
     box-shadow:0 2px 0 rgba(0,0,0,.2),0 34px 60px -26px rgba(40,20,10,.7);
     transform-style:preserve-3d;transition:transform .6s var(--ease),box-shadow .6s}
   .ecover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:22px;border-radius:3px 0 0 3px;
@@ -770,7 +770,7 @@
   .tl li.on .tlrow::before{transform:scaleY(1)}
   .tlrow:focus-visible{outline:2px solid var(--rose);outline-offset:-2px}
   .flap{display:inline-flex;gap:3px}
-  .flap i{font:400 clamp(20px,1.9vw,28px)/1 var(--display);font-style:normal;background:#0B1A14;color:var(--ink);border-radius:3px;padding:5px 4px 4px;min-width:.9em;text-align:center;position:relative;box-shadow:inset 0 -1px 0 rgba(0,0,0,.6)}
+  .flap i{font:400 clamp(20px,1.9vw,28px)/1 var(--display);font-style:normal;background:#151316;color:var(--ink);border-radius:3px;padding:5px 4px 4px;min-width:.9em;text-align:center;position:relative;box-shadow:inset 0 -1px 0 rgba(0,0,0,.6)}
   .flap i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.55)}
   .tl li.on .flap i{background:var(--red-deep)}
   .tl li.flip .flap i{animation:flip .5s var(--ease) both}
@@ -780,7 +780,7 @@
   .tlt b{display:block;font:600 clamp(18px,1.55vw,24px)/1.15 var(--serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .tlt small{display:block;margin-top:4px;font:600 10px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   .gate{font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--rose);border:1px solid rgba(238,151,164,.4);border-radius:999px;padding:6px 9px;white-space:nowrap}
-  .screen2{position:sticky;top:90px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0B1A14;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+  .screen2{position:sticky;top:90px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#151316;box-shadow:0 30px 70px rgba(0,0,0,.45)}
   .screen2 .sim{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
   .screen2 .sim img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:opacity .6s,transform 1.4s var(--ease)}
   .screen2 .sim img.out{opacity:0;transform:scale(1.04)}
@@ -859,9 +859,46 @@
   .vcover .vplay:focus-visible,.vcover .vbtns .cg:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
   #lbox .lbm video.vert{width:auto;height:100%;max-width:100%;aspect-ratio:9/16}
 
+  /* ---- script preview: the story, then a gate ---- */
+  .flow .synop{margin:0 0 1.4em;padding:0 0 1.2em;border-bottom:1px solid #d8cab1}
+  .flow .synop h5{margin:0 0 .7em;font:600 clamp(10px,.75vw,12px)/1 var(--sans);letter-spacing:.22em;
+    text-transform:uppercase;color:#8A5A34}
+  .flow .synop p{font-family:var(--sans);font-size:clamp(13.5px,.95vw,15.5px);line-height:1.68;color:#4A3928;margin-bottom:.8em}
+  .flow .synop p:last-child{margin-bottom:0}
+  .flow .sgate{margin:1.8em 0 0;padding:1.3em 0 0;border-top:2px solid #8E1626;break-inside:avoid}
+  .flow .sgate h5{margin:0 0 .6em;font:600 clamp(10px,.75vw,12px)/1 var(--sans);letter-spacing:.22em;
+    text-transform:uppercase;color:#8E1626}
+  .flow .sgate p{font-family:var(--sans);font-size:clamp(13px,.92vw,15px);line-height:1.62;color:#4A3928;margin-bottom:.8em}
+  .flow .gbtn{cursor:pointer;border:1px solid #8E1626;background:#8E1626;color:#F7F0E4;border-radius:2px;
+    padding:12px 20px;font:600 clamp(10px,.75vw,12px)/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+    transition:background .25s,color .25s}
+  .flow .gbtn:hover{background:transparent;color:#8E1626}
+  .flow .gmail{font-size:clamp(11.5px,.82vw,13px);color:#6A553D}
+  .flow .gmail a{color:#8E1626}
+
+  /* ---- hiring CTAs, so contact is not only at the bottom ---- */
+  .navcta{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 18px;
+    border-radius:999px;background:var(--red-deep);color:var(--ink) !important;border:1px solid var(--red-deep);
+    font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+    transition:background .25s,border-color .25s,color .25s,transform .25s}
+  .navcta:hover{background:transparent;border-color:var(--rose);color:var(--rose) !important;transform:translateY(-1px)}
+  .navcta::after{display:none !important}
+  .hireband{position:relative;z-index:2;background:var(--red-deep);color:var(--ink);overflow:hidden}
+  .hireband .wrap{display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,3vw,50px);
+    flex-wrap:wrap;padding-top:clamp(44px,6vw,80px);padding-bottom:clamp(44px,6vw,80px)}
+  .hireband h3{margin:0;max-width:20ch;font:400 clamp(28px,4.4vw,62px)/.98 var(--display);text-transform:uppercase;
+    letter-spacing:.01em}
+  .hireband h3 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--rose);letter-spacing:0}
+  .hireband .hside{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .hireband p{margin:0;max-width:34ch;font:400 clamp(14px,1.02vw,16.5px)/1.65 var(--sans);color:rgba(251,247,240,.8)}
+  .hireband .hbtn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#2A1015;
+    border:1px solid var(--ink);border-radius:999px;padding:14px 26px;text-decoration:none;
+    font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:.25s var(--ease)}
+  .hireband .hbtn:hover{background:transparent;color:var(--ink)}
+
   /* ================= TICKET STUBS ================= */
   .stubs{padding:clamp(80px,10vw,150px) 0;position:relative;overflow:hidden;
-    background:radial-gradient(120% 80% at 80% 0%,rgba(142,22,38,.28),transparent 60%),#0B1C16}
+    background:radial-gradient(120% 80% at 80% 0%,rgba(142,22,38,.28),transparent 60%),#171518}
   .stub-tools{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:clamp(26px,3vw,44px) 0 18px}
   .chips{display:flex;gap:8px;flex-wrap:wrap}
   .chip{font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);background:transparent;
@@ -893,7 +930,7 @@
   .ticket .stub .bc{width:30px;height:46px;background:repeating-linear-gradient(0deg,#2A2119 0 2px,transparent 2px 4px,#2A2119 4px 5px,transparent 5px 8px)}
   .ticket.torn .stub{transform:rotate(18deg) translate(16px,30px);opacity:0}
   .ticket.alt{--tc:#EE97A4;--ta:#4A0E19}
-  .ticket.alt2{--tc:#CFE0D2;--ta:#1E6B52}
+  .ticket.alt2{--tc:#DCD3CE;--ta:#4A2029}
   .stub-note{position:relative;margin-top:10px;display:grid;place-items:center}
   .stub-note[hidden]{display:none}
   .sn-paper{width:min(760px,100%);background:var(--paper);color:var(--paper-ink);border-radius:4px;padding:clamp(26px,4vw,52px);
@@ -907,25 +944,25 @@
   .sn-body p{margin:0 0 .8em}
   .sn-foot{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-top:22px;padding-top:14px;border-top:1px solid #d8cab1;font:600 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#8a7662}
   .sn-foot a{color:#8E1626;text-decoration:none}
-  .sn-x{position:absolute;top:-20px;right:max(0px,calc(50% - 400px));z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#0E241C;color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+  .sn-x{position:absolute;top:-20px;right:max(0px,calc(50% - 400px));z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#1A181B;color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
   .sn-x:hover{border-color:var(--rose)}
   .ph{background:rgba(238,151,164,.25);border-radius:3px;padding:0 4px}
 
   /* ================= SITES ================= */
-  .sites{padding:clamp(80px,10vw,150px) 0;background:linear-gradient(180deg,#0E241C,#0A1914)}
+  .sites{padding:clamp(80px,10vw,150px) 0;background:linear-gradient(180deg,#1A181B,#141215)}
   .bench{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(22px,3vw,46px);margin-top:clamp(30px,4vw,56px);align-items:start}
-  .browser{border-radius:12px;overflow:hidden;background:#15201B;border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.5)}
-  .browser .bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#1B2A23;border-bottom:1px solid var(--line)}
-  .browser .bar i{width:11px;height:11px;border-radius:50%;background:#3B4B43}
-  .browser .bar i:nth-child(1){background:#B3202E}.browser .bar i:nth-child(2){background:#C9A24A}.browser .bar i:nth-child(3){background:#1E6B52}
-  .browser .url{flex:1;margin:0 10px;background:#0E1813;border-radius:6px;padding:7px 12px;font:500 12px/1 var(--sans);color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .browser{border-radius:12px;overflow:hidden;background:#1D1A1E;border:1px solid var(--line);box-shadow:0 40px 90px rgba(0,0,0,.5)}
+  .browser .bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#262327;border-bottom:1px solid var(--line)}
+  .browser .bar i{width:11px;height:11px;border-radius:50%;background:#3E3A40}
+  .browser .bar i:nth-child(1){background:#B3202E}.browser .bar i:nth-child(2){background:#C9A24A}.browser .bar i:nth-child(3){background:#4A2029}
+  .browser .url{flex:1;margin:0 10px;background:#181619;border-radius:6px;padding:7px 12px;font:500 12px/1 var(--sans);color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
   .bp{display:flex;align-items:center;gap:8px;cursor:pointer;font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   .bp input{position:absolute;opacity:0;pointer-events:none}
-  .bp .sw{width:34px;height:19px;border-radius:99px;background:#3B4B43;position:relative;transition:background .3s}
+  .bp .sw{width:34px;height:19px;border-radius:99px;background:#3E3A40;position:relative;transition:background .3s}
   .bp .sw::after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:var(--ink);transition:transform .3s var(--ease)}
   .bp input:checked+.sw{background:#2F6FB0}.bp input:checked+.sw::after{transform:translateX(15px)}
   .bp input:focus-visible+.sw{outline:2px solid var(--rose);outline-offset:2px}
-  .screen{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0E241C}
+  .screen{position:relative;aspect-ratio:16/10;overflow:hidden;background:#1A181B}
   .screen img{width:100%;display:block;transform:translateY(0);transition:transform 7s linear,filter .6s}
   .browser:hover .screen img,.screen.scroll img{transform:translateY(calc(-100% + var(--sh,62%)))}
   .screen .grid{position:absolute;inset:0;opacity:0;transition:opacity .5s;pointer-events:none;
@@ -988,7 +1025,7 @@
 
   /* ================= UNTRANSLATED: Persian pieces, left as written ================= */
   .untr{padding:clamp(80px,10vw,150px) 0;position:relative;overflow:hidden;
-    background:radial-gradient(90% 70% at 15% 10%,rgba(30,107,82,.28),transparent 60%),radial-gradient(80% 60% at 90% 90%,rgba(110,18,32,.35),transparent 60%),#070F0C}
+    background:radial-gradient(90% 70% at 15% 10%,rgba(110,18,32,.28),transparent 60%),radial-gradient(80% 60% at 90% 90%,rgba(110,18,32,.35),transparent 60%),#0C0B0D}
   .untr::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
   .u-fa{font:400 clamp(44px,7vw,110px)/1.18 var(--nasta);color:rgba(238,151,164,.16);text-align:left;margin:-.4em 0 .1em;pointer-events:none;user-select:none}
@@ -1169,7 +1206,7 @@
 .nt-btn:disabled{opacity:.32;cursor:default}
 .nt-c{font:400 11px/1 "Courier Prime",ui-monospace,monospace;letter-spacing:.2em;color:var(--muted)}
 .nt-long{margin-left:auto;font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(185,199,188,.35);padding-bottom:4px;
+  color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(182,173,176,.35);padding-bottom:4px;
   transition:color .25s,border-color .25s}
 .nt-long:hover{color:var(--rose);border-color:var(--rose)}
 
@@ -1287,6 +1324,7 @@
       <a href="#notes">Notes</a>
       <a href="#sites">Sites</a>
       <a href="#contact">Contact</a>
+      <a class="navcta" href="#contact">Work with me</a>
     </div>
     <button id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
   </div>
@@ -1383,6 +1421,15 @@
 </section>
 
 <!-- ============ SECTION: WRITING ============ -->
+<section class="hireband">
+  <div class="wrap">
+    <h3>Looking for a writer who <em>finishes things</em>?</h3>
+    <div class="hside">
+      <p>Three shorts produced, two screenplays on the shelf, essays and criticism published here. I write, I direct, and I hit deadlines.</p>
+      <a class="hbtn" href="#contact">Work with me &rsaquo;</a>
+    </div>
+  </div>
+</section>
 <section id="writing" class="writing paper">
   <div class="wrap">
     <div class="shead rv"><span class="idx">05</span><h2 class="dsp"><span class="ln"><span>Latest writing</span></span></h2>
@@ -1615,9 +1662,9 @@
 </script>
 <script type="text/x-essay" id="w-runaway">
 <div class="sp">
-<p class="tp"><b>Logline</b> Trapped in a nightmarish hallway that repeats itself, a terrified young man is hunted by whispers and shadows that blur the line between guilt and reality — until he faces the monster wearing his own face.</p>
+<p class="tp"><b>Logline</b> Trapped in a nightmarish hallway that repeats itself, a terrified young man is hunted by whispers and shadows that blur the line between guilt and reality, until he faces the monster wearing his own face.</p>
 <p class="tp"><b>Trigger warnings</b> Psychological horror, implied violence, implied child endangerment.</p>
-<p class="tp wb">Written by<br>Yasna Moghei</p>
+<div class="synop"><h5>The story</h5><p>Jason, twenty, comes to in a residential hallway that will not let him leave. Every door is locked except the one that opens, and each one that opens has a child behind it. A girl. A boy holding a bent photograph of the three of them in a backyard, in the sun, all of them smiling.</p><p>The hallway keeps giving him back to itself. In the last room there is nothing but a tall mirror, and his reflection is a half second behind him. Then it stops following him altogether. It is wearing his face and somebody else’s blood, and it is calm, and it wants to know why he did not protect them.</p><p>The clock in the hallway reads 3:07 when he arrives. It reads 3:07 when it is over.</p></div>
 <p class="sl">INT. HALLWAY — NIGHT</p>
 <p class="ac">A long, narrow residential hallway — the kind that shouldn’t feel ominous, but does.</p>
 <p class="ac">Its proportions are slightly off. Too long. Too narrow. The ceiling a little too low. It feels like the walls lean inward when Jason isn’t looking.</p>
@@ -1651,117 +1698,13 @@
 <p class="ac">Jason hesitates…</p>
 <p class="ac">Then rushes toward it.</p>
 <p class="ac">He steps inside.</p>
-<p class="sl">INT. ROOM A — CONTINUOUS</p>
-<p class="ac">A small bedroom, stripped of anything comforting.</p>
-<p class="ac">The same wallpaper continues inside, but more damaged. Long tears run down the wall like old wounds. The air smells damp — fabric, dust, something metallic underneath.</p>
-<p class="ac">A dim table lamp in the corner flickers weakly.</p>
-<p class="ac">In the far corner sits a GIRL (12).</p>
-<p class="ac">She is curled tight, knees pulled to her chest, arms wrapped around herself. Her pajama shirt is dusty, pattern faded. Her hair clings to her face, damp with sweat. Her breathing is fast, shallow, painful.</p>
-<p class="ac">Jason freezes — caught between recognition and confusion.</p>
-<p class="ac">He kneels gently.</p>
-<p class="ch">JASON (CONT'D)</p>
-<p class="dl">Hey… hey… you’re okay…</p>
-<p class="pa">(beat)</p>
-<p class="dl">Do you… know me?</p>
-<p class="ac">The Girl doesn’t answer.</p>
-<p class="ac">She just stares — directly at him, through him, around him. Recognition… and accusation.</p>
-<p class="ac">On the wall behind her, in thick multicolored crayon:</p>
-<p class="ac">“IT’S YOU.”</p>
-<p class="ac">Jason doesn’t see it.</p>
-<p class="ac">Silence swallows the room — even Jason’s breathing feels muted, absorbed by the walls.</p>
-<p class="ac">He backs away and slips out.</p>
-<p class="sl">INT. HALLWAY — CONTINUOUS</p>
-<p class="ac">The hallway looks the same — but the atmosphere is different.</p>
-<p class="ac">The overhead bulb flickers slower now, heavier, like a heartbeat.</p>
-<p class="ac">Shadows tremble with each pulse.</p>
-<p class="ac">A handprint smears the wall beside Jason — fresh, faintly glistening.</p>
-<p class="ac">It’s unmistakably his.</p>
-<p class="ac">But he never touched the wall there.</p>
-<p class="ac">He staggers backward as whispers pour through the hallway like drifting fog.</p>
-<p class="ac">A door to his left creaks open.</p>
-<p class="ac">Jason swallows hard and enters.</p>
-<p class="sl">INT. ROOM B — CONTINUOUS</p>
-<p class="ac">This room feels colder.</p>
-<p class="ac">Not visually — just a subtle bite in the air.</p>
-<p class="ac">The ambient light has a bluish tint, as though something unseen casts it.</p>
-<p class="ac">A BOY (8) sits against the wall, clothes matching the Girl’s — same fabric texture, same faded style.</p>
-<p class="ac">His posture is rigid, arms wrapped tightly around his legs. His knuckles pale from the pressure.</p>
-<p class="ac">A small framed photograph lies in his lap, slightly bent.</p>
-<p class="ac">Jason approaches cautiously.</p>
-<p class="ac">He crouches.</p>
-<p class="ac">The Boy doesn’t lift his head.</p>
-<p class="ac">Jason gently picks up the photo.</p>
-<p class="ac">In it:</p>
-<p class="ac">Jason. The Girl. The Boy.</p>
-<p class="ac">Standing in a backyard under warm afternoon sun. All smiling — a moment that feels impossibly distant.</p>
-<p class="ac">Jason's hands tremble.</p>
-<p class="ac">His jaw tightens.</p>
-<p class="ch">BOY</p>
-<p class="pa">(quiet, barely formed)</p>
-<p class="dl">You were supposed to protect us.</p>
-<p class="ac">The Boy never looks up.</p>
-<p class="ac">Jason stumbles back.</p>
-<p class="ac">On the wall behind the Boy, a clock hangs crooked.</p>
-<p class="ch">3:07.</p>
-<p class="dl">The second hand unmoving.</p>
-<p class="ac">Jason fumbles for the door and slips out.</p>
-<p class="sl">INT. HALLWAY — CONTINUOUS</p>
-<p class="ac">Jason runs.</p>
-<p class="ac">He sprints past the same torn patch of wallpaper — again.</p>
-<p class="ac">Then again.</p>
-<p class="ac">The hallway bends subtly, curving in ways it shouldn’t, recoiling as if alive.</p>
-<p class="ac">More handprints appear on the walls — identical, repeating like a malfunction.</p>
-<p class="ac">The whispers merge, forming a single voice:</p>
-<p class="ch">VOICES (O.S.)</p>
-<p class="dl">JASON.</p>
-<p class="ac">He collapses to his knees.</p>
-<p class="ac">The shadows around him shiver sharply, reacting to his breath.</p>
-<p class="ac">He forces himself up.</p>
-<p class="ac">There is only one door left.</p>
-<p class="ac">He grabs the handle.</p>
-<p class="sl">INT. ROOM C — CONTINUOUS</p>
-<p class="ac">Jason slams the door shut and leans against it, shaking. His breath is uneven, almost breaking. His body stays tense as if expecting the door to burst open at any moment. He runs a trembling hand through his hair, trying and failing to steady himself.</p>
-<p class="ac">The room is almost empty.</p>
-<p class="ac">Across from him, a tall mirror leans against the wall. Its surface faintly ripples, like disturbed water.</p>
-<p class="ac">Jason notices it after a moment. He hesitates, then slowly walks toward it. Each step feels cautious, reluctant. He looks like someone forcing himself to confront something he doesn't want to see.</p>
-<p class="ac">He stops in front of the mirror and looks up.</p>
-<p class="ac">His reflection appears slightly delayed, as if struggling to keep up with him. Jason blinks, confused, and shifts his weight. Again, the reflection reacts a moment too late.</p>
-<p class="ac">Jason stiffens. Fear replaces confusion.</p>
-<p class="ac">He steps back slightly.</p>
-<p class="ac">The reflection does not.</p>
-<p class="ac">Instead, the reflection slowly tilts its head, studying him. Calm. Curious. Almost amused. The stillness of the reflection contrasts sharply with Jason’s frantic energy.</p>
-<p class="ac">Jason’s breathing becomes shaky again.</p>
-<p class="ac">Then the reflection changes.</p>
-<p class="ac">Blood stains its clothes and skin. Its posture relaxes, shoulders loose, comfortable. Where Jason looks exhausted and terrified, this version looks at ease, completely in control. Killer Jason smiles. Not wildly. Just a small, knowing grin, like someone enjoying a private joke.</p>
-<p class="ch">KILLER JASON (IN THE REFLECTION)</p>
-<p class="dl">You were supposed to protect us.</p>
-<p class="ac">Jason shakes his head violently, panic taking over.</p>
-<p class="ch">JASON</p>
-<p class="pa">(whispers)</p>
-<p class="dl">No...</p>
-<p class="ac">Killer Jason casually adjusts something draped over his shoulders, handling it as if it were nothing unusual. His movements are smooth and deliberate, almost graceful. He shows no fear, no urgency. He takes his time, watching Jason’s fear grow.</p>
-<p class="ac">Jason backs away, stumbling slightly, his breath hitching.</p>
-<p class="ac">His eyes dart around the room, searching for escape.</p>
-<p class="ac">Killer Jason steps forward inside the reflection, slow and confident, closing the distance. His expression never loses that calm certainty.</p>
-<p class="ac">Jason retreats further, overwhelmed, barely able to keep his footing.</p>
-<p class="ac">Suddenly the mirror’s surface ripples violently.</p>
-<p class="ac">Killer Jason lunges forward.</p>
-<p class="ac">Jason screams as he falls backward out of frame.</p>
-<p class="sl">INT. HALLWAY — SILENCE</p>
-<p class="ac">Everything is still. The hallway appears untouched, exactly as it was before.</p>
-<p class="ac">The overhead light flickers gently.</p>
-<p class="ac">The clock on the wall reads 3:07.</p>
-<p class="ac">Jason stands motionless in the center of the hallway, eyes closed. His chest rises and falls slowly.</p>
-<p class="ac">His breathing is calm now. Rhythmic. Peaceful.</p>
-<p class="ac">The light flickers once more.</p>
-<p class="ac">Darkness swallows the hallway.</p>
-<p class="ac">CUT TO BLACK.</p>
+<div class="sgate"><h5>That is the first scene</h5><p>The rest of the script is not on the internet. If you want to read it, or talk about making it, write to me and I will send the whole thing over.</p><p><button class="gbtn" type="button" data-act="go:#contact">Read the full script &rsaquo;</button></p><p class="gmail">Or straight to <a href="mailto:yasnamoghei@gmail.com?subject=Runaway%20script">yasnamoghei@gmail.com</a></p></div>
 </div>
 </script>
 <script type="text/x-essay" id="w-eat">
 <div class="sp">
 <p class="tp"><b>A comedy, freely adapted from <i>Hamlet</i></b></p>
-<p class="tp wb">Written by<br>Yasna Moghei</p>
+<div class="synop"><h5>The story</h5><p>Sam is thirty something, in sweatpants, holding his third donut of the night up to the light like Yorick’s skull. Behind him a treadmill blinks 0.0 KM. By the door, a bathroom scale waits.</p><p>His three roommates freeze mid motion to deliver the first line as a Greek chorus in pyjamas, and then leave him to it. What follows is the most famous soliloquy in the English language, rerouted through a fridge at midnight, with bacon where the slings and arrows should be.</p><p>It is a comedy about wanting the thing that is bad for you, and it ends the way that argument always ends.</p></div>
 <p class="tr">FADE IN:</p>
 <p class="sl">INT. SAM'S KITCHEN - NIGHT</p>
 <p class="ac">A fridge hums under dim light. SAM (30s, sweatpants, on his third donut of the night) stands centre, holding the donut aloft like Yorick's skull. In the corner, a TREADMILL sits ignored, its screen blinking "0.0 KM" reproachfully. Near the door, a BATHROOM SCALE waits, ominous. Behind Sam, three ROOMMATES freeze mid-motion, all facing camera.</p>
@@ -1782,33 +1725,7 @@
 <p class="ac">He glares at the treadmill like it's a disappointing ex.</p>
 <p class="ch">SAM (CONT'D)</p>
 <p class="dl">For in that double bacon cheeseburger what dreams may come, When we have shuffled off this mortal diet, Must give us pause.</p>
-<p class="ac">He takes a bite. Chews. Stops. Stares into the middle distance.</p>
-<p class="ch">SAM (CONT'D)</p>
-<p class="dl">To eat, to sup, to sup again, perchance to swell. Ay, there's the rub indeed: for in that swelling, What manner of man emerges from this bun, After we have surrendered every calorie, That must give us pause.</p>
-<p class="pa">(He pats his stomach, alarmed)</p>
-<p class="dl">There's the respect That makes calamity of so long a diet.</p>
-<p class="ac">The scale's digital display flickers on, watching him like an eye.</p>
-<p class="ch">SAM (CONT'D)</p>
-<p class="pa">(pointing accusingly at the scale)</p>
-<p class="dl">For who would bear the whips and scorns of Spanx, Th' oppressor's crash-diet, the proud man's gym membership, The pangs of despis'd love handles, the law's delay Of "just one more rep," the insolence of skinny men, And the spurns that patient merit of the well-fed Takes from the unworthy, when he himself might his own Peace make with a simple bowl of plain penne?</p>
-<p class="ac">The treadmill BEEPS, as if answering him. He jumps back.</p>
-<p class="ch">SAM (CONT'D)</p>
-<p class="dl">Who would these fardels bear, To grunt and sweat beneath a steamed zucchini, But that the dread of something after cheeseburgers. The undiscover'd stomachache, from whose bourn No waistband e'er returns, puzzles the will, And makes us rather bear those ills we have to eat, Than fly to others that we cook at home?</p>
-<p class="ac">He sinks into a chair.</p>
-<p class="ch">SAM (CONT'D)</p>
-<p class="dl">Thus fear of fatness does make cowards of us all, And thus the native hue of appetite Is sicklied o'er with the pale cast of guilt, And enterprises of great gorge and moment With this regard their currents turn awry And lose the name of dinner.</p>
-<p class="ac">(He stands, suddenly resolute, holding the donut up again like a trophy)</p>
-<p class="dl">Soft you now, the fair fridge! Stomach, in thy churnings Be all my sins remember'd.</p>
-<p class="ac">He takes a huge, defiant bite of the donut.</p>
-<p class="ch">SAM (CONT'D)</p>
-<p class="pa">(mouth full, to the fridge)</p>
-<p class="dl">Eat! Eat, thou greedy, bottomless, ever-hungry thing. And in thy churnings, prithee, keep a thought For my poor, fatty liver too.</p>
-<p class="ac">He raises the donut to the treadmill in a toast. The treadmill's screen flickers to "0.0 KM" one more time, unimpressed.</p>
-<p class="ch">SAM (CONT'D)</p>
-<p class="pa">(to the treadmill)</p>
-<p class="dl">The rest is... tomorrow.</p>
-<p class="ac">He exits toward the couch. The fridge light clicks off behind him.</p>
-<p class="tr">FADE OUT.</p>
+<div class="sgate"><h5>That is where the preview stops</h5><p>The rest of the script is not on the internet. If you want to read it, or talk about making it, write to me and I will send the whole thing over.</p><p><button class="gbtn" type="button" data-act="go:#contact">Read the full script &rsaquo;</button></p><p class="gmail">Or straight to <a href="mailto:yasnamoghei@gmail.com?subject=To%20Eat%20or%20Not%20to%20Eat%20script">yasnamoghei@gmail.com</a></p></div>
 </div>
 </script>
 <script type="text/x-essay" id="w-saduski">
@@ -2125,14 +2042,14 @@ var ESSAYS=[
    src:'w-critics'},
   {t:'Nolan\u2019s Odyssey Is Not About Odysseus',
    m:'2026 \u00b7 Essay',
-   c:'#1C5744',
+   c:'#2E2A31',
    s:'Two thousand years ago Seneca complained that people read the Odyssey for the map instead of the mind. We are still doing it.',
    q:'We didn\u2019t read the Odyssey. We watched it.',
    src:'w-odyssey'},
   {t:'The Stunts You Never Saw',m:'2026 \u00b7 Video essay',c:'#3A2A4A',kind:'Video essay',reel:'stunts',
    s:'How early female stunt doubles defied danger and disappeared from history. A short reel, and the proposal behind it.',
    src:'w-stunts',act:'reel:stunts',linkText:'Watch the reel'}
-]; /* add {t:'Title',m:'2026 \u00b7 Writing',c:'#1C5744',s:'One line',b:'Full text or summary',link:'',linkText:''} */
+]; /* add {t:'Title',m:'2026 \u00b7 Writing',c:'#2E2A31',s:'One line',b:'Full text or summary',link:'',linkText:''} */
 var FAVOURITES=[
   {t:'Taste of Cherry',m:'Abbas Kiarostami · 1997',imdb:'tt0120265'},
   {t:'Cléo from 5 to 7',m:'Agnès Varda · 1962',imdb:'tt0055852'},
@@ -2189,7 +2106,7 @@ for(var pass=0;pass<2;pass++){
 reel.innerHTML=rh;
 
 /* ---- shelves ---- */
-var CLOTH=['#5E1220','#24402F','#3B2A1A','#4A1020','#1F3B45','#43203A','#2C3A22','#6B2A16'];
+var CLOTH=['#5E1220','#2B272C','#3B2A1A','#4A1020','#1F3B45','#43203A','#312D30','#6B2A16'];
 function spine(item,i,kind){
   var len=(item.t||'').length;
   var h=104+Math.min(len,30)*2.6+((i*13)%16);            /* longer titles get taller books */
@@ -2488,7 +2405,9 @@ function act(a){
   else if(p[0]==='talk') openBook(TALKS[+p[1]],'e');
   else if(p[0]==='stage') openStage(p[1]);
   else if(p[0]==='reel'){ if(bookM.classList.contains('open')) closeM(); openReel(p[1]); }
-  else if(p[0]==='go'){ var el=document.querySelector(p[1]); if(el) el.scrollIntoView({behavior:reduce?'auto':'smooth'}); }
+  else if(p[0]==='go'){ if(document.querySelector('.modal.open')) closeM();
+    var el=document.querySelector(p[1]);
+    if(el) setTimeout(function(){ el.scrollIntoView({behavior:reduce?'auto':'smooth'}); },260); }
 }
 document.addEventListener('click',function(e){
   var b=e.target.closest('[data-act]'); if(!b) return;
@@ -2582,7 +2501,7 @@ var MINI=['The Cow','Taste of Cherry','Dune','Modern Times','Cléo from 5 to 7']
   for(var i=0;i<FAVOURITES.length;i++) if(FAVOURITES[i].t===t) return FAVOURITES[i]; }).filter(Boolean);
 document.getElementById('mini').innerHTML=MINI.map(function(it,i){ return spine(it,i+2,'f'); }).join('');
 document.getElementById('fan').innerHTML=ESSAYS.slice(0,2).map(function(e){
-  return '<div class="mcov" style="background:'+(e.c||'#1C5744')+'"><b>'+esc(e.t)+'</b><small>'+esc(e.m||'')+'</small></div>';}).join('');
+  return '<div class="mcov" style="background:'+(e.c||'#2E2A31')+'"><b>'+esc(e.t)+'</b><small>'+esc(e.m||'')+'</small></div>';}).join('');
 var bio=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); bio.unobserve(e.target);} }); },{threshold:.3});
 document.querySelectorAll('.beat').forEach(function(b){ bio.observe(b); });
 
@@ -2682,7 +2601,7 @@ function readMins(e){ var t=e.src?document.getElementById(e.src):null; if(!t) re
   return Math.max(1,Math.round(d.textContent.trim().split(/\s+/).length/230))+' min read'; }
 var cvs=document.getElementById('covers');
 cvs.innerHTML=ESSAYS.map(function(e,i){
-  if(e.reel) return '<div class="ecover vcover rv" style="--cc:'+(e.c||'#1C5744')+'">'
+  if(e.reel) return '<div class="ecover vcover rv" style="--cc:'+(e.c||'#2E2A31')+'">'
     + '<img class="vbg" loading="lazy" alt="" src="'+REELS[e.reel].card+'">'
     + '<span class="cnum" aria-hidden="true">0'+(i+1)+'</span>'
     + '<span class="ct"><span>'+esc(e.m||'')+'</span><span>1:33</span></span>'
@@ -2690,7 +2609,7 @@ cvs.innerHTML=ESSAYS.map(function(e,i){
     + '<span class="cq">'+esc(e.s||'')+'</span>'
     + '<span class="cn">'+esc(e.t)+'</span>'
     + '<span class="vbtns"><button class="cg" data-act="reel:'+e.reel+'">Watch the reel</button><button class="cg" data-act="book:e:'+i+'">Read the proposal</button></span></div>';
-  return '<button class="ecover rv" data-act="book:e:'+i+'" style="--cc:'+(e.c||'#1C5744')+'" aria-label="Read '+esc(e.t)+'">'
+  return '<button class="ecover rv" data-act="book:e:'+i+'" style="--cc:'+(e.c||'#2E2A31')+'" aria-label="Read '+esc(e.t)+'">'
     + '<span class="cnum" aria-hidden="true">0'+(i+1)+'</span>'
     + '<span class="ct"><span>'+esc(e.m||'')+'</span><span>'+readMins(e)+'</span></span>'
     + (e.q?'<span class="cq">'+esc(e.q)+'</span>':'<span class="cq">'+esc(e.s||'')+'</span>')
