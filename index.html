@@ -720,13 +720,12 @@
   .writing.paper{padding:clamp(80px,11vh,150px) 0}
   /* the writing scrolls sideways, like a shelf you push along */
   .covers{display:flex;gap:clamp(20px,2.4vw,40px);perspective:1400px;
-    overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-behavior:smooth;
+    overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;
     padding:14px 0 26px;margin:0 calc(var(--pad) * -1);padding-left:var(--pad);padding-right:var(--pad);
-    scroll-padding-left:var(--pad);
     -ms-overflow-style:none;scrollbar-width:none;overscroll-behavior-x:contain}
   .covers::-webkit-scrollbar{display:none}
   /* .ecover uses all:unset, so this needs to outrank it */
-  .covers>.ecover,.covers>.vcover,.covers>*{flex:0 0 clamp(268px,27vw,376px);scroll-snap-align:start}
+  .covers>.ecover,.covers>.vcover,.covers>*{flex:0 0 clamp(268px,27vw,376px)}
   .cvnav{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;gap:18px;
     margin-top:clamp(4px,1vw,12px)}
   .cvnav .marq-note{margin:0}
