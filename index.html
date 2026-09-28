@@ -1328,6 +1328,17 @@
 }
 @media(prefers-reduced-motion:reduce){ .pz-sl{transition:none} .pom-side.flip>*{animation:none} }
 
+/* a piece written in Persian: right to left, and a face that has the glyphs */
+.pom-side.fa{direction:rtl}
+.pom-side [dir="rtl"]{direction:rtl;text-align:right}
+.pom-side h4[dir="rtl"]{font:600 clamp(21px,2.4vw,33px)/1.55 "Vazirmatn",Tahoma,sans-serif}
+.pom-side .pom-lede[dir="rtl"]{font:400 clamp(14.5px,1.2vw,18px)/2 "Vazirmatn",Tahoma,sans-serif;font-style:normal}
+.pom-side p.pb[dir="rtl"]{font:300 clamp(13px,1vw,15.5px)/2.15 "Vazirmatn",Tahoma,sans-serif;
+  text-align:justify;text-align-last:right;max-width:58ch}
+.pom-side .pom-kk[dir="rtl"]{font-family:"Vazirmatn",Tahoma,sans-serif;letter-spacing:.08em}
+.pom-side.fa .pom-more{flex-direction:row-reverse}
+.pom-side.fa .pom-refs{direction:ltr;text-align:left}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Triumph of the Will (1935) and the Aestheticization of Political Power","author":{"@type":"Person","name":"Yasna Moghei","url":"https://yasnamoghei.github.io/"},"inLanguage":"en","datePublished":"2026","isAccessibleForFree":true,"publisher":{"@type":"Person","name":"Yasna Moghei"},"url":"https://yasnamoghei.github.io/#library","about":[{"@type":"Movie","name":"Triumph of the Will","datePublished":"1935","director":{"@type":"Person","name":"Leni Riefenstahl"}},"Film criticism","Propaganda","Documentary film","Political aesthetics"],"abstract":"How the artistic prestige of Leni Riefenstahl’s 1935 documentary allowed it to keep cultural legitimacy long after the regime it served collapsed, and how documentary aesthetics can obscure ideological intent."}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Side Characters Are Where the Writing Is","author":{"@type":"Person","name":"Yasna Moghei","url":"https://yasnamoghei.github.io/"},"inLanguage":"en","datePublished":"2026","isAccessibleForFree":true,"publisher":{"@type":"Person","name":"Yasna Moghei"},"url":"https://yasnamoghei.github.io/#library","about":[{"@type":"TVSeries","name":"Gilmore Girls","creator":{"@type":"Person","name":"Amy Sherman-Palladino"}},"Screenwriting","Character development","Television criticism"],"citation":"McKee, Robert. Story: Substance, Structure, Style, and the Principles of Screenwriting. Regan Books, 1997.","abstract":"How Gilmore Girls builds its supporting cast out of two traits that contradict each other, why that turns filler scenes into rewards, and what it costs to steal the technique."}</script>
@@ -3208,7 +3219,7 @@ var PIECES=[
   "t": "Apple decides who the villain is",
   "k": "Product placement",
   "mins": "2 min",
-  "d": "Here is an old character-reading trick that works on anything made after about 2005. Watch the phones.",
+  "d": "Here is an old character-reading trick that works on anything made after about 2007. Watch the phones.",
   "b": [
    "Apple lets productions use its devices, but there is a condition attached: villains cannot be shown using an iPhone on camera. This is not a rumour someone started. Rian Johnson said it out loud in 2020, while walking through a scene from Knives Out for Vanity Fair, and he knew what he was giving away, because it quietly narrows the suspect list in a murder mystery.",
    "So in a film that took Apple's cooperation, the phone in someone's hand is a costume choice. Not a neutral prop. A production designer decided that this character is allowed an iPhone and that one is not, and once you see it you cannot stop seeing it.",
@@ -3222,6 +3233,10 @@ var PIECES=[
    {
     "t": "IndieWire on the same interview",
     "u": "https://www.indiewire.com/2020/02/rian-johnson-apple-bad-guys-iphones-movies-1202213693/"
+   },
+   {
+    "t": "The first iPhone was released on 29 June 2007",
+    "u": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)"
    }
   ]
  },
@@ -3240,20 +3255,64 @@ var PIECES=[
   ],
   "src": [
    {
-    "t": "Sinister and dexter: the history of the left hand",
-    "u": "https://www.dictionary.com/articles/sinister-dexter-left-right-word-origin-history"
+    "t": "Latin sinister meant left, dexter meant right, and dexterity comes from dexter",
+    "u": "https://www.etymonline.com/word/sinister"
    },
    {
-    "t": "Hebrew yamin, right hand and south",
-    "u": "https://biblehub.com/hebrew/3225.htm"
+    "t": "Matthew 25:33, the sheep on the right hand and the goats on the left",
+    "u": "https://biblehub.com/matthew/25-33.htm"
    },
    {
-    "t": "Screen direction in film",
+    "t": "Sanskrit dakshina: south, as being on the right side of a person looking eastward",
+    "u": "https://www.wisdomlib.org/definition/dakshina"
+   },
+   {
+    "t": "Hebrew yamin, the right hand and the south, from an east-facing orientation",
+    "u": "https://biblesocietyinisrael.com/the-four-directions-in-ancient-hebrew/"
+   },
+   {
+    "t": "Screen direction, and left-to-right movement reading as the good one",
     "u": "https://en.wikipedia.org/wiki/Screen_direction"
    },
    {
     "t": "Mirroring interfaces for right to left languages, Spotify Engineering",
     "u": "https://engineering.atspotify.com/2019/04/right-to-left-the-mirror-world"
+   }
+  ]
+ },
+ {
+  "n": "03",
+  "t": "The rebirth of cinema",
+  "k": "Cinema",
+  "mins": "4 min",
+  "d": "Before we get into analysing any film at all, let us talk about cinema itself.",
+  "b": [
+   "For a while I really did think cinema was dying, and that it was time to put my profession and the thing I love aside. And it was not just the numbers. I was watching it with my own eyes. In the two years I have been in Canada, any time I felt like going to see a film, even one that had opened the day before, the hall still had plenty of empty seats. I never needed to book ahead. I knew that if I turned up five minutes before the show started I would still get the best seat in the house.",
+   "And now? The Odyssey is close to sold out until the end of the month. Not just IMAX, every cinema. For Spider-Man I could barely get two seats, and they were in the corner of the hall, in the middle of the day, in the middle of the week, and the place was still packed. Michael is a month in and still selling. And on the other side of it, Obsession, made on a limited budget with no exotic locations and no big stars, is breaking records.",
+   "So why? Did films suddenly get better? Did marketing transform itself? Did the screenplays descend from the sky?",
+   "I do not think so.",
+   "First of all, people are only now coming out the other side of COVID. They are only now relearning that going out is itself a thing you do for pleasure. Cinema is not a screen and some seats. It is a collective experience. Everyone laughing at the same moment, the whole hall losing its breath at the same shock, everyone applauding at the end, or afterwards arguing about the ending with the person beside you who was a stranger two hours ago. That is what Netflix and Disney Plus can never hand you. Your brain gets a dopamine hit from that shared experience that it will not get at home, however big your television is.",
+   "But something more important has happened as well. Cinema has finally worked out that if it wants to get the social media generation into the hall, it has to use their own weapon against them: social media.",
+   "It is not about the red carpet and the premiere any more. Now you have to pull the whole internet into your film. People have to be arguing about it before it is even out. Somebody guessing exactly what part Sydney Sweeney is playing, somebody starting a fight about why seventy millimetre IMAX makes that much difference, somebody making a meme about how Nicky looks exactly like every Iranian girlfriend. It does not matter whether the talk is good or bad. What matters is that everyone is talking.",
+   "When a film becomes the subject of the entire internet before it opens, it is not a film any more. It is an event. And nobody likes being left out of an event.",
+   "People are broker than they have ever been and cinema is more expensive than it has ever been, and the halls are fuller than they have ever been. That is what the rebirth of cinema looks like."
+  ],
+  "src": [
+   {
+    "t": "Obsession: a $750,000 film past $400m, the highest grossing ever made for under $1m",
+    "u": "https://nofilmschool.com/obsession-highest-grossing-indie-ever"
+   },
+   {
+    "t": "Variety on Obsession as an unprecedented box office breakout",
+    "u": "https://variety.com/2026/film/box-office/obsession-box-office-breakout-hit-horror-1236757946/"
+   },
+   {
+    "t": "2026 box office up 23 per cent, with 154 million tickets sold in Q1, a 16 per cent rise",
+    "u": "https://en.koreadaily.com/box-office-recovery-2026-report-theaters/"
+   },
+   {
+    "t": "Variety on the theatrical rebound and the 2026 slate",
+    "u": "https://variety.com/2026/film/box-office/movie-theaters-rebound-box-office-obsession-project-hail-mary-1236810214/"
    }
   ]
  }
@@ -3312,8 +3371,10 @@ var POM_GEO={cx:0.5012,cy:0.4941,r:0.4642,box:1254};  /* measured off the photog
     }
   }
   function write(first){
-    var p=PIECES[at], fa=/[؀-ۿ]/.test(p.t)?' dir="rtl"':'';
-    side.innerHTML='<span class="pom-kk">'+esc(p.k)+' &middot; '+esc(p.mins)+'</span>'
+    var p=PIECES[at], fa=(p.fa||/[\u0600-\u06FF]/.test(p.t))?' dir="rtl"':'';
+    side.classList.toggle('fa',!!fa);
+    side.innerHTML='<span class="pom-kk'+(fa?' r':'')+'"'+fa+'>'+esc(p.k)
+      +(fa?' \u200f\u00b7\u200f ':' \u00b7 ')+esc(p.mins)+'</span>'
       +'<h4'+fa+'>'+esc(p.t)+'</h4>'
       +'<p class="pom-lede"'+fa+'>'+esc(p.d)+'</p>'
       +p.b.map(function(x){return '<p class="pb"'+fa+'>'+esc(x)+'</p>';}).join('')
