@@ -1291,6 +1291,43 @@
   padding:11px 19px;font:600 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:.25s var(--ease)}
 .nt-btn:hover{border-color:var(--rose);color:var(--ink)}
 
+/* ---- A piece of my mind: a photograph of a pizza, cut into pieces ---- */
+.pom{background:linear-gradient(180deg,var(--bg) 0%,var(--green-1) 44%,var(--bg) 100%)}
+.pom-stage{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:clamp(22px,3.6vw,64px);align-items:start;margin-top:clamp(24px,3.4vw,50px)}
+.pom-hold{position:sticky;top:clamp(84px,11vh,116px)}
+.pom-wrap{position:relative;width:100%;max-width:clamp(280px,40vw,520px);margin:0 auto}
+.pom-svg{width:100%;height:auto;display:block;overflow:visible}
+.pz-sl{cursor:pointer;outline:none;transition:transform .55s var(--ease);will-change:transform}
+.pz-sl .dim{opacity:.26;transition:opacity .55s var(--ease)}
+.pz-sl.sel .dim{opacity:0}
+.pz-sl:focus-visible .cut{stroke:var(--rose);stroke-width:5}
+.pom-cap{margin:16px 0 0;text-align:center;font:400 10px/1 "Courier Prime",ui-monospace,monospace;
+  letter-spacing:.2em;text-transform:uppercase;color:#6d646a}
+.pom-side{min-height:clamp(320px,38vw,440px);display:flex;flex-direction:column}
+.pom-side.flip>*{animation:pomfade .5s var(--ease)}
+@keyframes pomfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pom-kk{font:600 9.5px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:var(--rose)}
+.pom-side h4{margin:13px 0 15px;font:600 clamp(23px,2.7vw,38px)/1.1 var(--serif);color:var(--ink)}
+.pom-lede{margin:0 0 16px;font:italic 400 clamp(15px,1.35vw,21px)/1.5 var(--serif);color:var(--ink-2);max-width:52ch}
+.pom-side p.pb{margin:0 0 1em;font:400 clamp(13.5px,1vw,15.5px)/1.75 var(--sans);color:var(--muted);max-width:60ch}
+.pom-more{margin-top:auto;padding-top:clamp(16px,2vw,24px);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pom-src{cursor:pointer;border:1px solid var(--line);background:none;color:var(--muted);border-radius:999px;
+  padding:10px 17px;font:600 9.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:.25s var(--ease)}
+.pom-src:hover{border-color:var(--rose);color:var(--rose)}
+.pom-n{font:400 10.5px/1 "Courier Prime",ui-monospace,monospace;letter-spacing:.2em;color:#6d646a}
+.pom-refs{margin:14px 0 0;padding:0;list-style:none;display:none}
+.pom-refs.open{display:block}
+.pom-refs li{margin:0 0 9px;font:400 12px/1.6 var(--sans);color:var(--muted)}
+.pom-refs a{color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(238,151,164,.34)}
+.pom-refs a:hover{border-color:var(--rose)}
+@media(max-width:900px){
+  .pom-stage{grid-template-columns:1fr}
+  .pom-hold{position:static}
+  .pom-side{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){ .pz-sl{transition:none} .pom-side.flip>*{animation:none} }
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Triumph of the Will (1935) and the Aestheticization of Political Power","author":{"@type":"Person","name":"Yasna Moghei","url":"https://yasnamoghei.github.io/"},"inLanguage":"en","datePublished":"2026","isAccessibleForFree":true,"publisher":{"@type":"Person","name":"Yasna Moghei"},"url":"https://yasnamoghei.github.io/#library","about":[{"@type":"Movie","name":"Triumph of the Will","datePublished":"1935","director":{"@type":"Person","name":"Leni Riefenstahl"}},"Film criticism","Propaganda","Documentary film","Political aesthetics"],"abstract":"How the artistic prestige of Leni Riefenstahl’s 1935 documentary allowed it to keep cultural legitimacy long after the regime it served collapsed, and how documentary aesthetics can obscure ideological intent."}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Side Characters Are Where the Writing Is","author":{"@type":"Person","name":"Yasna Moghei","url":"https://yasnamoghei.github.io/"},"inLanguage":"en","datePublished":"2026","isAccessibleForFree":true,"publisher":{"@type":"Person","name":"Yasna Moghei"},"url":"https://yasnamoghei.github.io/#library","about":[{"@type":"TVSeries","name":"Gilmore Girls","creator":{"@type":"Person","name":"Amy Sherman-Palladino"}},"Screenwriting","Character development","Television criticism"],"citation":"McKee, Robert. Story: Substance, Structure, Style, and the Principles of Screenwriting. Regan Books, 1997.","abstract":"How Gilmore Girls builds its supporting cast out of two traits that contradict each other, why that turns filler scenes into rewards, and what it costs to steal the technique."}</script>
@@ -1393,6 +1430,7 @@
       <a href="#stubs">Stubs</a>
       <a href="#library">Shelf</a>
       <a href="#notes">Notes</a>
+      <a href="#mind">Mind</a>
       <a href="#sites">Sites</a>
       <a href="#contact">Contact</a>
       <a class="navcta" href="#contact">Work with me</a>
@@ -1555,9 +1593,21 @@
   </div>
 </section>
 
+<section id="mind" class="pom">
+  <div class="wrap">
+    <div class="shead rv"><span class="idx">09</span><h2 class="dsp"><span class="ln"><span>A piece of my mind</span></span></h2>
+      <p class="sub">Short pieces where I say what I actually think. One slice each. Hover or tap one.</p></div>
+    <div class="pom-stage rv">
+      <div class="pom-hold"><div class="pom-wrap"><svg class="pom-svg" id="pomSvg" viewBox="0 0 980 980" aria-label="Pick a slice"></svg></div>
+        <p class="pom-cap" id="pomCap"></p></div>
+      <div class="pom-side" id="pomSide"></div>
+    </div>
+  </div>
+</section>
+
 <section id="untranslated" class="untr">
   <div class="wrap">
-    <div class="shead rv"><span class="idx">09</span><h2 class="dsp"><span class="ln"><span>Untranslated</span></span></h2>
+    <div class="shead rv"><span class="idx">10</span><h2 class="dsp"><span class="ln"><span>Untranslated</span></span></h2>
       <p class="sub">Some things only exist in Persian. These stay the way I wrote them.</p></div>
     <div class="u-fa rv" lang="fa" dir="rtl">بی‌ترجمه</div>
     <div class="u-rail"><div class="u-deck" id="uDeck"></div></div>
@@ -1584,7 +1634,7 @@
 
 <section id="sofar" class="sofar">
   <div class="wrap">
-    <div class="shead rv"><span class="idx">10</span><h2 class="dsp"><span class="ln"><span>Everything so far</span></span></h2>
+    <div class="shead rv"><span class="idx">11</span><h2 class="dsp"><span class="ln"><span>Everything so far</span></span></h2>
       <p class="sub">Every play, film, concert and essay, in order. Pick a line on the board.</p></div>
     <div class="jstats rv">
       <div><b data-count="2">0</b><span>Plays</span></div>
@@ -1603,7 +1653,7 @@
 <!-- ============ SECTION: CONTACT ============ -->
 <section id="sites" class="sites">
   <div class="wrap">
-    <div class="shead rv"><span class="idx">11</span><h2 class="dsp"><span class="ln"><span>I design the stage too</span></span></h2>
+    <div class="shead rv"><span class="idx">12</span><h2 class="dsp"><span class="ln"><span>I design the stage too</span></span></h2>
       <p class="sub">I design websites, and the team at Torqal builds them. Flip the switch to see the plan underneath each one.</p></div>
     <div class="bench rv">
       <div class="browser" id="brw">
@@ -1619,7 +1669,7 @@
 
 <section id="contact" class="contact">
   <div class="wrap rv">
-    <div class="shead"><span class="idx">12</span><h2 class="dsp"><span class="ln"><span>Get in touch</span></span></h2>
+    <div class="shead"><span class="idx">13</span><h2 class="dsp"><span class="ln"><span>Get in touch</span></span></h2>
       <p class="sub">Collaborations, screenplay requests, or just to argue with me about a film.</p></div>
     <a class="big-mail" href="mailto:yasnamoghei@gmail.com">yasnamoghei@gmail.com</a>
     <ul class="soc">
@@ -3150,6 +3200,138 @@ var TAPES=[
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'){ if(read.classList.contains('open')) read.classList.remove('open');
       else if(at>=0) shut(); } });
+})();
+
+var PIECES=[
+ {
+  "n": "01",
+  "t": "Apple decides who the villain is",
+  "k": "Product placement",
+  "mins": "2 min",
+  "d": "Here is an old character-reading trick that works on anything made after about 2005. Watch the phones.",
+  "b": [
+   "Apple lets productions use its devices, but there is a condition attached: villains cannot be shown using an iPhone on camera. This is not a rumour someone started. Rian Johnson said it out loud in 2020, while walking through a scene from Knives Out for Vanity Fair, and he knew what he was giving away, because it quietly narrows the suspect list in a murder mystery.",
+   "So in a film that took Apple's cooperation, the phone in someone's hand is a costume choice. Not a neutral prop. A production designer decided that this character is allowed an iPhone and that one is not, and once you see it you cannot stop seeing it.",
+   "Two things to keep in mind before you go hunting. It binds the productions that want Apple's cooperation, so a film that buys its own props can hand an iPhone to whoever it likes. And I have not found anything confirming that rival brands have no equivalent rule. They may simply have nobody famous complaining about them in an interview."
+  ],
+  "src": [
+   {
+    "t": "Rian Johnson on Apple and villains, CNBC, February 2020",
+    "u": "https://www.cnbc.com/2020/02/26/apple-wont-let-bad-guys-use-iphones-in-movies-says-knives-out-director.html"
+   },
+   {
+    "t": "IndieWire on the same interview",
+    "u": "https://www.indiewire.com/2020/02/rian-johnson-apple-bad-guys-iphones-movies-1202213693/"
+   }
+  ]
+ },
+ {
+  "n": "02",
+  "t": "Why the bar fills from the left",
+  "k": "Screens and symbols",
+  "mins": "3 min",
+  "d": "Every progress bar you have ever watched fills from left to right. YouTube, Spotify, the loading screen of a game. The easy answer is that Latin script reads left to right and the people who built these interfaces read that way, so time got drawn that way too.",
+  "b": [
+   "That answer is mostly correct and slightly boring, so here is the part underneath it.",
+   "Left has been the bad side for a very long time. The Latin for left is sinister, which is where the English word comes from, and the Latin for right is dexter, which is where dexterity comes from. The Gospel of Matthew puts the sheep on the right hand and the goats on the left. Left-handed children were being corrected out of it within living memory.",
+   "And the directions themselves were named off a body. Several languages fix the compass by facing the sunrise: in Hebrew, yamin means both the right hand and the south, and in Sanskrit, dakshina does exactly the same. Stand facing east, and south is on your right. That is not a coincidence, that is where the word came from.",
+   "So the bar filling rightward is carrying a much older idea than interface design, which is that forward, alive and good are over there. Film knows this too. Lateral movement to the right tends to read as progress and movement to the left as retreat, which is why a director who wants you uneasy will send the hero the other way without telling you why.",
+   "One honest correction, since I got this wrong the first time I said it. I used to think the rule came from facing north, which would put east on your right. It is the other way around. You face the sunrise, and the south lands on your right hand. And I would not lean too hard on the idea that interfaces built for right to left languages do the same thing, because a lot of them mirror properly and run the bar the other way."
+  ],
+  "src": [
+   {
+    "t": "Sinister and dexter: the history of the left hand",
+    "u": "https://www.dictionary.com/articles/sinister-dexter-left-right-word-origin-history"
+   },
+   {
+    "t": "Hebrew yamin, right hand and south",
+    "u": "https://biblehub.com/hebrew/3225.htm"
+   },
+   {
+    "t": "Screen direction in film",
+    "u": "https://en.wikipedia.org/wiki/Screen_direction"
+   },
+   {
+    "t": "Mirroring interfaces for right to left languages, Spotify Engineering",
+    "u": "https://engineering.atspotify.com/2019/04/right-to-left-the-mirror-world"
+   }
+  ]
+ }
+];
+var POM_IMG="img/pizza.webp";
+var POM_ROT=0;
+
+/* ---- A piece of my mind: a photograph of a pizza, cut into pieces ---- */
+var POM_GEO={cx:0.5012,cy:0.4941,r:0.4642,box:1254};  /* measured off the photograph */
+(function(){
+  var svg=document.getElementById('pomSvg'), side=document.getElementById('pomSide'),
+      cap=document.getElementById('pomCap');
+  if(!svg||typeof PIECES==='undefined'||!PIECES.length) return;
+  var B=POM_GEO.box, cx=POM_GEO.cx*B, cy=POM_GEO.cy*B, R=POM_GEO.r*B,
+      N=PIECES.length, ROT=(typeof POM_ROT!=='undefined'?POM_ROT:0), LIFT=0.06,
+      at=0, slices=[], geo=[];
+  function wedge(i){
+    var off=(ROT-90)*Math.PI/180;
+    var a0=(i/N)*Math.PI*2+off, a1=((i+1)/N)*Math.PI*2+off, mid=(a0+a1)/2, RR=R*1.02;
+    var x0=cx+Math.cos(a0)*RR, y0=cy+Math.sin(a0)*RR,
+        x1=cx+Math.cos(a1)*RR, y1=cy+Math.sin(a1)*RR, big=(a1-a0)>Math.PI?1:0;
+    return {d:'M '+cx.toFixed(1)+' '+cy.toFixed(1)+' L '+x0.toFixed(1)+' '+y0.toFixed(1)
+             +' A '+RR.toFixed(1)+' '+RR.toFixed(1)+' 0 '+big+' 1 '+x1.toFixed(1)+' '+y1.toFixed(1)+' Z',
+            mx:Math.cos(mid),my:Math.sin(mid)};
+  }
+  /* built once: after this only transforms change, so every slice eases the same way */
+  function build(){
+    svg.setAttribute('viewBox','0 0 '+B+' '+B);   /* the photo sets the coordinate space */
+    for(var i=0;i<N;i++) geo.push(wedge(i));
+    var d='<defs><radialGradient id="pomB" cx="50%" cy="46%">'
+      +'<stop offset="0%" stop-color="#2b262c"/><stop offset="100%" stop-color="#141216"/></radialGradient>'
+      +'<filter id="pomS" x="-35%" y="-35%" width="170%" height="170%">'
+      +'<feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#000" flood-opacity=".6"/></filter>';
+    for(var j=0;j<N;j++) d+='<clipPath id="pomC'+j+'"><path d="'+geo[j].d+'"/></clipPath>';
+    d+='</defs>';
+    var g=d+'<circle cx="'+cx.toFixed(1)+'" cy="'+(cy+8).toFixed(1)+'" r="'+(R*1.16).toFixed(1)+'" fill="url(#pomB)"/>'
+      +'<circle cx="'+cx.toFixed(1)+'" cy="'+(cy+8).toFixed(1)+'" r="'+(R*1.16).toFixed(1)
+      +'" fill="none" stroke="rgba(251,247,240,.10)" stroke-width="2"/>';
+    for(var k=0;k<N;k++){
+      g+='<g class="pz-sl" data-i="'+k+'" tabindex="0" role="button" aria-label="'+esc(PIECES[k].t)+'" transform="translate(0,0)">'
+        +'<g clip-path="url(#pomC'+k+')">'
+        +'<image href="'+POM_IMG+'" x="0" y="0" width="'+B+'" height="'+B+'" preserveAspectRatio="none"/>'
+        +'<path class="dim" d="'+geo[k].d+'" fill="#0b0a0c"/></g>'
+        +'<path class="cut" d="'+geo[k].d+'" fill="none" stroke="rgba(38,25,16,.55)" stroke-width="2.2"'
+        +' clip-path="url(#pomC'+k+')"/></g>';
+    }
+    svg.innerHTML=g;
+    slices=[].slice.call(svg.querySelectorAll('.pz-sl'));
+  }
+  function lift(){
+    for(var i=0;i<slices.length;i++){
+      var sel=(i===at), L=sel?R*LIFT:0, w=geo[i];
+      slices[i].setAttribute('transform','translate('+(w.mx*L).toFixed(2)+','+(w.my*L).toFixed(2)+')');
+      slices[i].classList.toggle('sel',sel);
+      if(sel) slices[i].setAttribute('filter','url(#pomS)'); else slices[i].removeAttribute('filter');
+    }
+  }
+  function write(first){
+    var p=PIECES[at], fa=/[؀-ۿ]/.test(p.t)?' dir="rtl"':'';
+    side.innerHTML='<span class="pom-kk">'+esc(p.k)+' &middot; '+esc(p.mins)+'</span>'
+      +'<h4'+fa+'>'+esc(p.t)+'</h4>'
+      +'<p class="pom-lede"'+fa+'>'+esc(p.d)+'</p>'
+      +p.b.map(function(x){return '<p class="pb"'+fa+'>'+esc(x)+'</p>';}).join('')
+      +'<div class="pom-more"><button class="pom-src" type="button">Where I checked</button>'
+      +'<span class="pom-n">Slice '+esc(p.n)+' of '+N+'</span></div>'
+      +'<ul class="pom-refs">'+p.src.map(function(s){
+          return '<li><a href="'+esc(s.u)+'" target="_blank" rel="noopener">'+esc(s.t)+'</a></li>';}).join('')+'</ul>';
+    side.querySelector('.pom-src').addEventListener('click',function(){
+      var r=side.querySelector('.pom-refs'); r.classList.toggle('open');
+      this.textContent=r.classList.contains('open')?'Hide sources':'Where I checked'; });
+    if(!first){ side.classList.remove('flip'); void side.offsetWidth; side.classList.add('flip'); }
+    cap.textContent=N+(N===1?' slice':' slices')+' · hover one';
+  }
+  function set(i){ if(i===at) return; at=i; lift(); write(); }
+  svg.addEventListener('mouseover',function(e){var g=e.target.closest('.pz-sl'); if(g) set(+g.dataset.i);});
+  svg.addEventListener('click',function(e){var g=e.target.closest('.pz-sl'); if(g) set(+g.dataset.i);});
+  svg.addEventListener('focusin',function(e){var g=e.target.closest('.pz-sl'); if(g) set(+g.dataset.i);});
+  build(); lift(); write(true);
 })();
 
 })();
