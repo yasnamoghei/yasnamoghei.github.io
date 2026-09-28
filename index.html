@@ -1155,74 +1155,122 @@
   font-size:clamp(13px,.95vw,15.5px)}
 .u-txt p.vs+p.vs{margin-top:-.75em}
 
-/* ---- Notes from the room: the talk, scrubbed like a tape ---- */
+/* ---- Notes from the room: cassettes that unspool into film ---- */
 .ntr{background:linear-gradient(180deg,var(--bg) 0%,var(--green-1) 46%,var(--bg) 100%)}
+/* ===== the rack: all you see at rest ===== */
+.nr-rack{display:flex;gap:clamp(16px,2vw,30px);flex-wrap:wrap;margin-top:clamp(26px,3.4vw,48px)}
+.nr-cass{position:relative;cursor:pointer;border:0;padding:0;background:none;color:inherit;text-align:left;
+  flex:0 0 clamp(250px,25vw,330px);transition:transform .45s var(--ease)}
+.nr-cass:hover{transform:translateY(-5px)}
+.nr-cass:focus-visible{outline:2px solid var(--rose);outline-offset:6px;border-radius:8px}
+.nr-shell{display:block;position:relative;border-radius:7px;padding:13px;
+  background:linear-gradient(158deg,#342e34 0%,#221e24 55%,#1a171c 100%);
+  box-shadow:0 18px 40px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.09),inset 0 1px 0 rgba(255,255,255,.14);
+  transition:box-shadow .45s var(--ease)}
+.nr-cass:hover .nr-shell,.nr-cass.live .nr-shell{box-shadow:0 22px 52px rgba(0,0,0,.55),inset 0 0 0 1px rgba(238,151,164,.5)}
+.nr-label{display:block;border-radius:3px;padding:11px 12px 12px;background:linear-gradient(170deg,#efe7d9,#ded3c0);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
+.nr-ty{display:flex;justify-content:space-between;align-items:baseline;gap:8px;
+  font:700 8.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#8E1626}
+.nr-ty em{font-style:normal;color:#7b6f5c;font-weight:600}
+.nr-t{display:block;margin:9px 0 4px;font:600 clamp(16px,1.4vw,21px)/1.15 var(--serif);color:#231d16}
+.nr-m{display:block;margin:0;font:400 10px/1.45 var(--mono);letter-spacing:.04em;color:#6d6252}
+.nr-win{margin-top:11px;height:36px;border-radius:3px;background:#0e0c0f;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),inset 0 2px 7px rgba(0,0,0,.8);
+  display:flex;align-items:center;justify-content:space-around;padding:0 16px;position:relative;overflow:hidden}
+.nr-win::after{content:"";position:absolute;left:14%;right:14%;top:50%;height:7px;transform:translateY(-50%);
+  background:linear-gradient(180deg,#4a4038,#2b241f);border-radius:1px}
+.nr-sp{position:relative;z-index:2;width:22px;height:22px;border-radius:50%;
+  background:conic-gradient(from 0deg,#cdc5b8 0 12%,#7d7468 12% 25%,#cdc5b8 25% 37%,#7d7468 37% 50%,
+   #cdc5b8 50% 62%,#7d7468 62% 75%,#cdc5b8 75% 87%,#7d7468 87% 100%);
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.45),0 0 0 4px #0e0c0f;animation:nrspin 3s linear infinite;animation-play-state:paused}
+.nr-cass.live .nr-sp{animation-play-state:running}
+@keyframes nrspin{to{transform:rotate(360deg)}}
+.nr-screw{display:block;position:absolute;width:5px;height:5px;border-radius:50%;background:#151216;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.nr-screw.a{left:7px;top:7px}.nr-screw.b{right:7px;top:7px}
+.nr-screw.c{left:7px;bottom:7px}.nr-screw.d{right:7px;bottom:7px}
+.nr-go{display:block;margin-top:10px;font:600 9px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);transition:color .3s}
+.nr-cass:hover .nr-go,.nr-cass.live .nr-go{color:var(--rose)}
 
-.nt-head{display:grid;gap:clamp(18px,3vw,54px);align-items:end;margin:clamp(24px,3.4vw,44px) 0 clamp(26px,3.6vw,48px);
-  grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}
-.nt-kick{display:block;font:400 clamp(10px,.78vw,12px)/1 "Courier Prime",ui-monospace,monospace;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:clamp(10px,1.2vw,16px)}
-.nt-name{margin:0 0 clamp(8px,1vw,14px);font:600 clamp(34px,4.6vw,68px)/1 var(--serif);color:var(--ink);letter-spacing:-.015em}
-.nt-role{margin:0;font:400 clamp(12.5px,.92vw,14.5px)/1.65 var(--sans);color:var(--muted);max-width:44ch}
-.nt-dek{margin:0;font:400 clamp(14.5px,1.12vw,18px)/1.62 var(--sans);color:var(--ink-2);max-width:56ch}
+/* ===== the film, unspooled ===== */
+.nr-film{overflow:hidden;max-height:0;opacity:0;transition:max-height .7s var(--ease),opacity .4s var(--ease),margin .7s var(--ease);margin-top:0}
+.nr-film.open{max-height:1400px;opacity:1;margin-top:clamp(28px,3.4vw,46px)}
+.nr-fbar{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.nr-fbar h3{margin:0;font:600 clamp(19px,2.1vw,29px)/1.1 var(--serif)}
+.nr-fbar .sub2{margin:0;flex:1 1 auto;min-width:0;font:400 12.5px/1.55 var(--sans);color:var(--muted);max-width:60ch}
+.nr-wind{cursor:pointer;border:1px solid var(--line);background:none;color:var(--muted);border-radius:999px;
+  padding:9px 15px;font:600 9.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:.25s var(--ease)}
+.nr-wind:hover{border-color:var(--rose);color:var(--rose)}
 
-/* the tape */
-.nt-deck{display:flex;align-items:center;gap:clamp(12px,2vw,28px)}
-.nt-reel{flex:0 0 auto;width:clamp(36px,4.2vw,54px);height:clamp(36px,4.2vw,54px);border-radius:50%;
-  background:radial-gradient(circle,rgba(0,0,0,.72) 0 56%,rgba(255,255,255,.07) 57% 100%);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 3px 9px rgba(0,0,0,.6);display:grid;place-items:center}
-.nt-hub{width:54%;height:54%;border-radius:50%;transition:transform .8s var(--ease);
-  background:conic-gradient(from 0deg,#d9d2c6 0 12%,#8e8579 12% 25%,#d9d2c6 25% 37%,#8e8579 37% 50%,
-   #d9d2c6 50% 62%,#8e8579 62% 75%,#d9d2c6 75% 87%,#8e8579 87% 100%);box-shadow:inset 0 0 0 2px rgba(0,0,0,.4)}
-.nt-line{position:relative;flex:1 1 auto;min-width:0;height:4px;border-radius:2px;background:rgba(251,247,240,.16)}
-.nt-fill{position:absolute;left:0;top:0;bottom:0;border-radius:2px;background:var(--rose);transition:width .45s var(--ease)}
-.nt-ticks{position:absolute;left:0;right:0;top:-10px;display:flex}
-.nt-tick{position:relative;flex:1 1 0;min-width:0;cursor:pointer;border:0;background:none;padding:0;color:var(--muted);
-  display:flex;flex-direction:column;align-items:center;gap:9px}
-.nt-tick::after{content:"";position:absolute;left:0;right:0;top:-13px;height:48px}
-.nt-tick i{width:2px;height:22px;border-radius:1px;background:rgba(251,247,240,.28);transition:.3s var(--ease)}
-.nt-tick span{font:600 8.5px/1.35 var(--sans);letter-spacing:.06em;text-transform:uppercase;text-align:center;
-  max-width:12ch;opacity:0;transform:translateY(-4px);transition:.3s var(--ease)}
-.nt-tick:hover i,.nt-tick.on i{background:var(--rose);height:31px}
-.nt-tick:hover span,.nt-tick.on span{opacity:1;transform:none;color:var(--ink-2)}
-.nt-tick.on span{color:var(--rose)}
-.nt-tick:focus-visible{outline:2px solid var(--rose);outline-offset:4px;border-radius:3px}
+.nr-strip{position:relative;background:#0c0b0d;border-radius:2px;padding:20px 0;
+  box-shadow:0 22px 46px rgba(0,0,0,.5),inset 0 0 60px rgba(0,0,0,.7);
+  overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;
+  margin:0 calc(var(--pad) * -1);scroll-behavior:smooth;cursor:grab}
+.nr-strip.drag{cursor:grabbing;scroll-behavior:auto}
+.nr-strip::-webkit-scrollbar{display:none}
+/* sprocket holes, top and bottom */
+.nr-strip::before,.nr-strip::after{content:"";position:absolute;left:0;height:12px;width:max-content;min-width:100%;
+  background-image:repeating-linear-gradient(90deg,transparent 0 9px,#d8d2c6 9px 25px,transparent 25px 34px);
+  opacity:.9;pointer-events:none}
+.nr-strip::before{top:4px}.nr-strip::after{bottom:4px}
+.nr-frames{display:flex;gap:3px;padding:0 var(--pad);width:max-content}
+.nr-fr{flex:0 0 clamp(214px,19vw,266px);position:relative;cursor:pointer;border:0;padding:0;color:inherit;
+  text-align:left;background:#151317;box-shadow:inset 0 0 0 1px rgba(251,247,240,.30);
+  transition:.35s var(--ease)}
+.nr-fr:hover,.nr-fr:focus-visible{background:#221d24;box-shadow:inset 0 0 0 1px var(--rose);outline:none}
+.nr-fr.photo{background:#000}
+.nr-fr.photo .im{box-shadow:inset 0 0 0 1px rgba(251,247,240,.30)}
+.nr-fr .im{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(.96) contrast(1.02)}
+.nr-fr .pad{display:flex;padding:16px 15px 17px;min-height:clamp(214px,19vw,266px);display:flex;flex-direction:column}
+.nr-fr .fn{display:block;font:400 9.5px/1 var(--mono);letter-spacing:.24em;color:var(--rose)}
+.nr-fr h5{margin:10px 0 9px;font:600 clamp(15px,1.25vw,18px)/1.22 var(--serif);color:var(--ink)}
+.nr-fr p{margin:0;font:400 11.5px/1.62 var(--sans);color:var(--muted);
+  display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.nr-fr .cap{display:block;position:absolute;left:0;right:0;bottom:0;padding:26px 13px 12px;
+  background:linear-gradient(0deg,rgba(6,5,7,.92),transparent);
+  font:600 9.5px/1.35 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#efe7d9}
+.nr-fr .open{position:absolute;right:11px;top:11px;width:24px;height:24px;border-radius:50%;
+  background:rgba(12,10,13,.68);display:grid;place-items:center;color:#efe7d9;font-size:11px;
+  opacity:0;transition:opacity .3s}
+.nr-fr:hover .open{opacity:1}
+.nr-fr.soon{background:repeating-linear-gradient(45deg,#1b181d 0 9px,#161418 9px 18px);cursor:default;box-shadow:inset 0 0 0 1px rgba(251,247,240,.30)}
+.nr-fr.soon:hover{box-shadow:inset 0 0 0 1px rgba(251,247,240,.30)}
+.nr-fr.soon .pad{justify-content:center;align-items:center;text-align:center}
+.nr-fr.soon h5{color:var(--muted);font-style:italic}
+.nr-hint{margin:13px 0 0;font:400 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:#6d646a}
 
-/* the panel */
-.nt-panel{margin-top:clamp(54px,6vw,78px);padding-top:clamp(20px,2.6vw,32px);
-  border-top:1px solid rgba(251,247,240,.13);min-height:clamp(270px,27vw,320px);
-  display:flex;flex-direction:column}
-.nt-panel.flip>*{animation:ntfade .45s var(--ease)}
-@keyframes ntfade{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
-.nt-n{font:400 clamp(11px,.82vw,13px)/1 "Courier Prime",ui-monospace,monospace;letter-spacing:.3em;color:var(--rose)}
-.nt-panel h4{margin:10px 0 clamp(14px,1.8vw,20px);font:600 clamp(22px,2.8vw,38px)/1.12 var(--serif);color:var(--ink)}
-.nt-panel blockquote{margin:0 0 clamp(14px,1.8vw,20px);padding-left:clamp(14px,1.6vw,22px);
-  border-left:2px solid var(--rose);font:italic 400 clamp(16px,1.5vw,24px)/1.5 var(--serif);color:var(--ink);max-width:56ch}
-.nt-a{margin:0;font:400 clamp(14px,1.02vw,16.5px)/1.75 var(--sans);color:var(--muted);max-width:74ch}
-.nt-nav{margin-top:auto;padding-top:clamp(20px,2.6vw,30px);display:flex;align-items:center;gap:clamp(12px,1.6vw,20px);flex-wrap:wrap}
-.nt-btn{cursor:pointer;border:1px solid var(--line);background:none;color:var(--ink-2);border-radius:999px;
-  padding:11px 19px;font:600 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:.25s var(--ease)}
-.nt-btn:hover:not(:disabled){border-color:var(--rose);color:var(--ink)}
-.nt-btn:disabled{opacity:.32;cursor:default}
-.nt-c{font:400 11px/1 "Courier Prime",ui-monospace,monospace;letter-spacing:.2em;color:var(--muted)}
-.nt-long{margin-left:auto;font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(182,173,176,.35);padding-bottom:4px;
-  transition:color .25s,border-color .25s}
-.nt-long:hover{color:var(--rose);border-color:var(--rose)}
-
+/* reader */
+.nr-read{position:fixed;inset:0;z-index:90;background:rgba(9,8,10,.9);backdrop-filter:blur(8px);
+  display:none;align-items:center;justify-content:center;padding:var(--pad)}
+.nr-read.open{display:flex}
+.nr-rbox{width:min(760px,100%);max-height:86vh;overflow:auto;border-radius:6px;padding:clamp(24px,3vw,46px);
+  background:linear-gradient(165deg,#28242b,#1a171c);border:1px solid var(--line)}
+.nr-rbox .fn{font:400 11px/1 var(--mono);letter-spacing:.3em;color:var(--rose)}
+.nr-rbox h4{margin:12px 0 20px;font:600 clamp(22px,2.6vw,35px)/1.14 var(--serif)}
+.nr-rbox blockquote{margin:0 0 20px;padding-left:18px;border-left:2px solid var(--rose);
+  font:italic 400 clamp(16px,1.45vw,23px)/1.5 var(--serif);max-width:56ch}
+.nr-rbox .ans{margin:0;font:400 14.5px/1.76 var(--sans);color:var(--muted);max-width:70ch}
+.nr-rbox img{display:block;width:100%;border-radius:3px;margin-bottom:18px}
+.nr-rnav{margin-top:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 @media(max-width:860px){
-  .nt-head{grid-template-columns:1fr;align-items:start}
-  .nt-tick span{display:none}
-  .nt-panel{margin-top:40px}
-  .nt-long{margin-left:0;width:100%}
+  .nr-cass{flex:1 1 100%}
+  .nr-fr{flex:0 0 74vw}
 }
 @media(prefers-reduced-motion:reduce){
-  .nt-panel.flip>*{animation:none}
-  .nt-hub{transition:none}
+  .nr-sp{animation:none}
+  .nr-film{transition:none}
 }
+
+/* small button used inside the frame reader */
+.nt-btn{cursor:pointer;border:1px solid var(--line);background:none;color:var(--ink-2);border-radius:999px;
+  padding:11px 19px;font:600 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:.25s var(--ease)}
+.nt-btn:hover{border-color:var(--rose);color:var(--ink)}
 
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Triumph of the Will (1935) and the Aestheticization of Political Power","author":{"@type":"Person","name":"Yasna Moghei","url":"https://yasnamoghei.github.io/"},"inLanguage":"en","datePublished":"2026","isAccessibleForFree":true,"publisher":{"@type":"Person","name":"Yasna Moghei"},"url":"https://yasnamoghei.github.io/#library","about":[{"@type":"Movie","name":"Triumph of the Will","datePublished":"1935","director":{"@type":"Person","name":"Leni Riefenstahl"}},"Film criticism","Propaganda","Documentary film","Political aesthetics"],"abstract":"How the artistic prestige of Leni Riefenstahl’s 1935 documentary allowed it to keep cultural legitimacy long after the regime it served collapsed, and how documentary aesthetics can obscure ideological intent."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Side Characters Are Where the Writing Is","author":{"@type":"Person","name":"Yasna Moghei","url":"https://yasnamoghei.github.io/"},"inLanguage":"en","datePublished":"2026","isAccessibleForFree":true,"publisher":{"@type":"Person","name":"Yasna Moghei"},"url":"https://yasnamoghei.github.io/#library","about":[{"@type":"TVSeries","name":"Gilmore Girls","creator":{"@type":"Person","name":"Amy Sherman-Palladino"}},"Screenwriting","Character development","Television criticism"],"citation":"McKee, Robert. Story: Substance, Structure, Style, and the Principles of Screenwriting. Regan Books, 1997.","abstract":"How Gilmore Girls builds its supporting cast out of two traits that contradict each other, why that turns filler scenes into rewards, and what it costs to steal the technique."}</script>
 </head>
 <body>
 
@@ -1478,38 +1526,9 @@
 <section id="notes" class="ntr">
   <div class="wrap">
     <div class="shead rv"><span class="idx">08</span><h2 class="dsp"><span class="ln"><span>Notes from the room</span></span></h2>
-      <p class="sub">People from the industry come and talk to our class. I write down what was actually said, and then I argue with some of it.</p></div>
-
-    <div class="nt-head rv">
-      <div class="nt-who">
-        <span class="nt-kick">Side A &middot; 13.08.26 &middot; 2 hrs</span>
-        <h3 class="nt-name">Kirk Saduski</h3>
-        <p class="nt-role">Producer, Playtone. Band of Brothers, John Adams, The Pacific, Charlie Wilson&rsquo;s War, Game Change. In Toronto through the American Film Showcase.</p>
-      </div>
-      <p class="nt-dek">I expected a war stories afternoon. What I got was two hours of a man telling a room full of screenwriting students to stop making things up. Twelve things he said, and what I make of them.</p>
-    </div>
-
-    <div class="nt-deck rv">
-      <div class="nt-reel" aria-hidden="true"><div class="nt-hub"></div></div>
-      <div class="nt-line">
-        <div class="nt-fill" id="ntFill"></div>
-        <div class="nt-ticks" id="ntTicks" role="tablist" aria-label="Chapters"></div>
-      </div>
-      <div class="nt-reel" aria-hidden="true"><div class="nt-hub"></div></div>
-    </div>
-
-    <div class="nt-panel" id="ntPanel">
-      <span class="nt-n" id="ntN"></span>
-      <h4 id="ntH"></h4>
-      <blockquote id="ntQ"></blockquote>
-      <p class="nt-a" id="ntA"></p>
-      <div class="nt-nav">
-        <button class="nt-btn" id="ntPrev">&larr; Back</button>
-        <span class="nt-c" id="ntC"></span>
-        <button class="nt-btn" id="ntNext">Next &rarr;</button>
-        <a class="nt-long" href="#" data-act="talk:0">Read the long version &rsaquo;</a>
-      </div>
-    </div>
+      <p class="sub">Talks, festivals, rooms I was in. I write down what was actually said, and then I argue with some of it.</p></div>
+    <div class="nr-rack rv" id="nrRack"></div>
+    <div class="nr-film" id="nrFilm"></div>
   </div>
 </section>
 
@@ -1548,7 +1567,7 @@
       <div><b data-count="2">0</b><span>Plays</span></div>
       <div><b data-count="1">0</b><span>Concert</span></div>
       <div><b data-count="3">0</b><span>Short films</span></div>
-      <div><b data-count="3">0</b><span>Published essays</span></div>
+      <div><b data-count="4">0</b><span>Published essays</span></div>
     </div>
     <div class="dboard rv">
       <div class="blist"><div class="bhead" aria-hidden="true"><span>When</span><span>What</span><span>Where</span></div><ol class="tl" id="tl"></ol></div>
@@ -1659,6 +1678,32 @@
 <p><em>Take One.</em> &ldquo;Leni Riefenstahl Visits Montreal.&rdquo; <em>Take One</em>, October 1976.<br><a href="https://archive.org/details/take-one-1976-10" target="_blank" rel="noopener">https://archive.org/details/take-one-1976-10</a></p>
 <p>Wahl, Chris. &ldquo;Triumph of the Will (1935): On the Way to an Archaeological Biography of an Iconic Film.&rdquo; <em>Research in Film and History</em>, no. 7 (2025): 1-50.<br><a href="https://doi.org/10.25969/mediarep/24051" target="_blank" rel="noopener">https://doi.org/10.25969/mediarep/24051</a></p>
 </div>
+</script>
+<script type="text/x-essay" id="w-gilmore">
+<p class="lede">Most writers spend everything they have on the leads. All the thought, all the characterisation, all the careful layering goes into the two or three people the show is actually about, because those are the ones the audience has to attach to. That is not a criticism. It is the correct allocation of effort, and <em>Gilmore Girls</em> does it too. Sometimes it works and you connect with the main character. Sometimes it does not and you spend six seasons politely tolerating someone. But watch what this show does with the people around the edges.</p>
+<p>Normally a supporting character gets one thing. One costume you remember. One tic. One catchphrase. Or they get a direct line to the lead, and you remember them through that relationship rather than through anything of their own. Think of any side character you can name and you will usually find a single peg holding them in your memory.</p>
+<p><em>Gilmore Girls</em> gives them two, and makes the two fight each other.</p>
+<p>Take Sookie St. James, played by Melissa McCarthy, the chef at the Independence Inn and later co-owner of the Dragonfly (&ldquo;Sookie St. James&rdquo;). Start with the job. She is a professional cook in a small town where everybody loves her food, which means she has to be quick, precise and good with her hands. Knives, heat, timing, all of it.</p>
+<p>Now the contradiction: she is spectacularly clumsy. Not charmingly a-bit-scattered. Actively unsafe around the exact equipment her competence depends on. That alone would be a decent joke. But the writers add a second thing on top, and the second thing is what makes her work.</p>
+<p>She is also extraordinarily lucky. She goes into the road and the car that should hit her does not. She sets something on fire and the fire goes out. The universe declines to punish her.</p>
+<p>Think about how rare that combination actually is. On screen, a character this accident-prone is a disaster engine. They exist so something can go wrong. They get hurt, or they hurt somebody, or they wreck the wedding in act three. The clumsiness is load-bearing for the plot. Sookie&rsquo;s clumsiness carries no consequences, because the luck cancels it out, and so it stops being a plot device and becomes a personality. You do not see that often on television and you almost never see it in life. That is the whole trick, and it is not a small one. The two traits should not be able to live in the same person, and because they do, she becomes someone rather than something.</p>
+<p>The same architecture is under the diner. Luke Danes runs the place everybody in Stars Hollow eats at, and he is bad-tempered. Not misanthropic exactly, but short, blunt, unenthusiastic about people. Sit with the logic of that for a second. If you are not a warm person, how do you own a restaurant, serve that town every day, and still make a living at it? It should not hold together and again somehow it does.</p>
+<p>And then the writers put the contradiction inside him rather than beside him. He disapproves of Lorelai&rsquo;s coffee habit. He says so, repeatedly, at length. And he pours it anyway, every time. The disapproval is real and so is the pouring, and the gap between the two is the entire character. That is where his warmth lives, and the show never once makes him announce it.</p>
+<blockquote><p>&ldquo;The disapproval is real and so is the pouring, and the gap between the two is the entire character.&rdquo;</p><cite>On Luke Danes</cite></blockquote>
+<p>What I want to be precise about is the calibration, because this is where people copying the technique go wrong. Luke is not a negative character. He is not there to be the sour one. He is a fundamentally positive person whose temperament simply runs opposite to the town&rsquo;s. Everyone in a show of this shape is warm and cute and bright, and he is the reverse of that, but by a measured amount. Turn the dial any further and he is just unpleasant and you lose him.</p>
+<p>Robert McKee has a distinction I keep coming back to here. He separates characterisation, which is the sum of the observable stuff, from true character, which is what a person&rsquo;s choices under pressure actually reveal. And his argument is that when those two match, you get somebody flat and predictable. Dimension comes from the gap between them. A character has to not be, at heart, what they look like at face value (McKee, <em>Story</em>).</p>
+<p>McKee is talking about leads. Everybody applies it to leads. What <em>Gilmore Girls</em> does is spend that on the supporting cast, which nobody does, because on paper it is a waste of effort on people who are not carrying the story. Except it is not a waste.</p>
+<p>Shows and films cannot run at full intensity the whole time. Between the big events they put in smaller scenes, filler, so the audience&rsquo;s brain gets a moment to regulate and the tempo smooths out instead of hammering. That is normal and necessary. And filler scenes are almost always carried by the supporting cast, because the leads are busy being load-bearing elsewhere.</p>
+<p>So the quality of your side characters decides what those scenes feel like. If they are one peg deep, the audience sits through the filler waiting for it to end, thinking back to the real story. If they are built on a contradiction, the audience is pleased to see them walk in. The scene is not a gap any more. It is a reward.</p>
+<p>That is the difference between a show you watch and a show you live in, and it is the reason people rewatch this one on a loop while claiming nothing happens in it. Nothing does happen in it. That was never the point. The point is that the filler is populated by people you want to spend time near, and you want to spend time near them because they were written with the same care as the leads and then given one trait that should not fit.</p>
+<p>It is not an expensive technique. It costs one decision per character. Find the thing the job or the role demands, then give them the opposite of it, then find the second trait that lets the contradiction survive instead of collapsing into a joke.</p>
+<p>Other writers should steal it.</p>
+<hr>
+<div class="bib"><h5>Bibliography</h5>
+<p><em>Gilmore Girls.</em> Created by Amy Sherman-Palladino. The WB, 2000 to 2006; The CW, 2006 to 2007. Seven seasons, 153 episodes. Primary source for all character material discussed here.</p>
+<p>McKee, Robert. <em>Story: Substance, Structure, Style, and the Principles of Screenwriting.</em> Regan Books / HarperCollins, 1997. On the distinction between characterisation and true character, and on dimension arising from contradiction. Excerpted as &ldquo;Structure and Character,&rdquo; Writers Store.<br><a href="https://writersstore.com/blogs/news/structure-and-character-excerpted-with-permission-from-the-book-story-part-one" target="_blank" rel="noopener">https://writersstore.com/blogs/news/structure-and-character-excerpted-with-permission-from-the-book-story-part-one</a></p>
+</div>
+
 </script>
 <script type="text/x-essay" id="w-runaway">
 <div class="sp">
@@ -2028,6 +2073,12 @@ var SCREENPLAYS=[
    src:'w-eat'}
 ];
 var ESSAYS=[
+  {t:'The Side Characters Are Where the Writing Is',
+   m:'2026 \u00b7 Essay',
+   c:'#6A4A2A',
+   q:'Give them the thing the job demands, then give them the opposite of it.',
+   s:'Gilmore Girls spends on its supporting cast what everybody else spends on the leads, and that is why people rewatch a show where nothing happens.',
+   src:'w-gilmore'},
   {t:'Triumph of the Will and the Aestheticization of Political Power',
    m:'2026 \u00b7 Essay',
    c:'#5A1A1A',
@@ -2663,7 +2714,9 @@ var TL=[
   {yr:'2025',sm:'Toronto',w:'Toronto · Screen',t:'The Parking Garage',p:'A comedy I co-created with Bianca Tomasi and Adelaide Zettler.',img:IMG(FILMS[1].id,'maxresdefault'),wide:1,act:'film:1'},
   {yr:'2026',sm:'Toronto',w:'Toronto · Video essay',t:'The Stunts You Never Saw',p:'A short reel for students who never think about who took the fall: the stuntwomen Hollywood forgot, from Bonnie Gray to Zoë Bell.',img:'img/stunts.jpg',act:'reel:stunts'},
   {yr:'2026',sm:'Toronto',w:'Toronto · Screen & page',t:'Runaway, and the first essays',p:'My screenplay, directed by Negar Golshanibasir. The same year I started publishing criticism here.',img:'img/r-poster.jpg',act:'film:0'},
-  {yr:'2026',sm:'Toronto',w:'Toronto · Page',t:'Triumph of the Will',p:'An essay on how documentary form laundered a propaganda film into a masterpiece, and how its images outlived the regime that paid for them.',img:'img/tri-card.jpg',act:'book:e:0'}
+  {yr:'2026',sm:'September',w:'Toronto · Festival',t:'Cyrus International Film Festival',p:'Five days of world cinema at the Aga Khan Museum. Notes and photos in Notes from the room.',img:'img/cyrus/screen.jpg',act:'go:#notes'},
+  {yr:'2026',sm:'Toronto',w:'Toronto · Page',t:'The Side Characters',p:'An essay on Gilmore Girls, and on building a supporting cast out of contradictions so the quiet scenes become the ones people rewatch.',img:'img/gg-card.jpg',act:'book:e:0'},
+  {yr:'2026',sm:'Toronto',w:'Toronto · Page',t:'Triumph of the Will',p:'An essay on how documentary form laundered a propaganda film into a masterpiece, and how its images outlived the regime that paid for them.',img:'img/tri-card.jpg',act:'book:e:1'}
 ];
 (function(){
   var tl=document.getElementById('tl'), img=document.getElementById('tlImg'), cur=-1, auto=null, touched=false;
@@ -2950,50 +3003,130 @@ var UNTR=[{"t": "جنگجو کوچولو", "big": "دریا", "parts": [["می �
 
 var BEATS=[{"n": "01", "h": "How he got in", "q": "I got to know so many people in different positions. That is how I learned about production without actually being in production.", "a": "He managed a closed brewery in Los Angeles that got rented out as a filming location. Forty acres, twenty buildings. He was not in the industry. He was standing exactly where it walked past, every day, being useful to everyone who came through. That is the whole origin story."}, {"n": "02", "h": "Do the job you are given", "q": "If it is getting coffee for the producer, if it is parking lot security, do it to the best of your ability, and you will be noticed. More than if you think you have something smart to say about the latest movie.", "a": "Josh Feldman wrote with Tom Hanks in the morning and fetched coffee in the afternoon, and never once acted like the second one was beneath him. I believe the advice. I also notice it is a story told from the end, by someone who got the phone call."}, {"n": "03", "h": "The book is your first Bible", "q": "Our first Bible was the Ambrose book. Somebody has been there before you. They have scouted the territory.", "a": "That is the entire argument for adaptation in one line. It is also why Nolan bought American Prometheus instead of just reading it. The rights buy you somebody else's two years of research, already organised."}, {"n": "04", "h": "The script that never gets made", "q": "We were not going to make it. It was not a movie we were going to make. But we kept Erik in mind.", "a": "Erik Jendresen got Band of Brothers off an unmade script about Saint Exupéry flying airmail. John Orloff got two episodes off an unmade script about who really wrote Shakespeare. Your script is not a product. It is a sample of how your brain works, and the producer who liked your brain calls you about something else entirely."}, {"n": "05", "h": "The door, and who is holding it", "q": "If their agent had not sent us their scripts, we never would have known them. We would not have accepted a script from them. You cannot do that.", "a": "Festivals feed agents, agents feed producers. He said all three parts calmly and none of them as a problem. Nobody mentioned that the loop costs money, and that perseverance is doing a lot of work in a sentence where the real variable is who can afford to keep submitting."}, {"n": "06", "h": "Steal a shape", "q": "No drama Obama is perfect if you are a candidate. It is dead if you are trying to turn it into a story.", "a": "Game Change started as Clinton against Obama, a prizefight, round by round. It failed. They rebuilt it as Frankenstein, with the strategist as the doctor who loses control of what he made. Research tells you what happened. Structure tells you where to put the camera."}, {"n": "07", "h": "The best thing he said", "q": "If we cannot make that dramatic without making shit up, then shame on us.", "a": "They recut Band of Brothers to give Richard Winters a fake fumbling arc. Winters watched it and was furious: he trained two years to do that job. He lost his rifle on the jump and earned the Distinguished Service Cross by the end of the day. They put it back. Every note that ever made my work worse was some version of add conflict here."}, {"n": "08", "h": "Where the line is", "q": "You are going to have to make certain compromises when you tell a true story. The compromise you cannot make is the one that changes the nature of the story.", "a": "His example is Darkest Hour, where Londoners on the Tube stiffen a wavering Churchill. Churchill was the one stiffening the waverers. Compress time, merge three people into one, invent a line to get across a scene. Do not invert the meaning of what happened so the third act lands."}, {"n": "09", "h": "Answer notes with notes", "q": "More conflict means nothing. Be specific. Where can the conflict come from?", "a": "Agree where you agree, and give a reason where you do not. He named Danny Strong as the master of it. And since most of us will be giving notes as often as taking them, be that specific in both directions."}, {"n": "10", "h": "Do not ask how to make it commercial", "q": "If you are already thinking about platforms and commercial viability, you are thinking about it wrong.", "a": "This is advice from the one place in the industry that is allowed to ignore the market, and he said so himself before anyone could point it out. That admission is the reason I trust the rest of it."}, {"n": "11", "h": "The question someone asked", "q": "There has never been one minute of any kind of heat from a network, a studio or a public figure. Who knows what will happen in the future.", "a": "A student asked how Playtone manages its relationship with the State Department. He corrected the premise: there is no relationship, he is here under its auspices for this programme. Then he answered the real question anyway, and added the last sentence himself."}, {"n": "12", "h": "Read, and listen", "q": "The TikTok Instagram of it all does not help you develop the sense and sensibility you need. Defamation is not an art.", "a": "I am going to sit inside that contradiction rather than pretend it is not there, because one of the pieces on this site is a one minute video essay made for a feed. Scrolling does not build judgement. The format is not the problem. Short work made out of nothing is nothing. Short work made out of two years of reading hands that reading to someone who would never open the book."}];
 
-/* ---- Notes from the room: the talk, scrubbed like a tape ---- */
+/* ---- Notes from the room: cassettes that unspool into film ---- */
 var TALKS=[
   {t:'The Man Who Made Band of Brothers Told Us to Stop Making Things Up',
-   m:'August 2026 · Notes from the room',
+   m:'September 2026 · Notes from the room',
    s:'Two hours with the producer of Band of Brothers, John Adams and Game Change, on adaptation, getting in, and the one compromise you are not allowed to make.',
    src:'w-saduski'}
 ];
+var TAPES=[
+ {id:'kirk',type:'Talk',t:'Kirk Saduski',when:'September 2026',
+  meta:'Playtone · 2 hrs · 12 tracks',
+  sub:'Producer at Playtone. Band of Brothers, John Adams, The Pacific, Game Change. Brought to Toronto by the U.S. Consulate General and the American Film Showcase. I expected a war stories afternoon. I got two hours of a man telling a room of screenwriting students to stop making things up.',
+  frames:(typeof BEATS!=='undefined'?BEATS:[]).map(function(b){return {k:'note',n:b.n,h:b.h,q:b.q,a:b.a};})
+    .concat([{k:'link',h:'The long version',p:'Every word he said, and everything I make of it.',act:'talk:0'}])},
+ {id:'cyrus',type:'Festival',t:'Cyrus International Film Festival',when:'September 2026',
+  meta:'Aga Khan Museum, Toronto · 5 photos',
+  sub:'Cyrus International Film Festival, September 2026, at the Aga Khan Museum in Toronto.',
+  frames:[
+   {k:'photo',src:'img/cyrus/screen-t.jpg',full:'img/cyrus/screen.jpg',cap:'The opening'},
+   {k:'soon',h:'What I thought'},
+   {k:'photo',src:'img/cyrus/backdrop-t.jpg',full:'img/cyrus/backdrop.jpg',cap:'Before the doors'},
+   {k:'photo',src:'img/cyrus/close-t.jpg',full:'img/cyrus/close.jpg',cap:'The step and repeat'},
+   {k:'soon',h:'What I learnt'},
+   {k:'photo',src:'img/cyrus/carpet-t.jpg',full:'img/cyrus/carpet.jpg',cap:'On the carpet'},
+   {k:'photo',src:'img/cyrus/carpet2-t.jpg',full:'img/cyrus/carpet2.jpg',cap:'On the carpet'},
+   {k:'soon',h:'My full review'}]}
+];
 (function(){
-  var ticks=document.getElementById('ntTicks'); if(!ticks||typeof BEATS==='undefined') return;
-  var fill=document.getElementById('ntFill'), pan=document.getElementById('ntPanel'),
-      eN=document.getElementById('ntN'), eH=document.getElementById('ntH'), eQ=document.getElementById('ntQ'),
-      eA=document.getElementById('ntA'), eC=document.getElementById('ntC'),
-      pv=document.getElementById('ntPrev'), nx=document.getElementById('ntNext'), at=-1;
-  ticks.innerHTML=BEATS.map(function(b,i){
-    return '<button class="nt-tick" data-i="'+i+'" role="tab" aria-label="'+esc(b.n+'. '+b.h)+'">'
-      + '<i></i><span>'+esc(b.h)+'</span></button>';
+  var rack=document.getElementById('nrRack'), film=document.getElementById('nrFilm'), at=-1;
+  if(!rack||!film) return;
+  var read=document.createElement('div');
+  read.className='nr-read'; read.id='nrRead';
+  read.innerHTML='<div class="nr-rbox" id="nrRbox"></div>';
+  document.body.appendChild(read);
+
+  rack.innerHTML=TAPES.map(function(t,i){
+    return '<button class="nr-cass" data-i="'+i+'" aria-expanded="false"><span class="nr-shell">'
+      +'<i class="nr-screw a"></i><i class="nr-screw b"></i><i class="nr-screw c"></i><i class="nr-screw d"></i>'
+      +'<span class="nr-label"><span class="nr-ty">'+esc(t.type)+'<em>'+esc(t.when)+'</em></span>'
+      +'<span class="nr-t">'+esc(t.t)+'</span><span class="nr-m">'+esc(t.meta)+'</span></span>'
+      +'<span class="nr-win"><i class="nr-sp"></i><i class="nr-sp"></i></span></span>'
+      +'<span class="nr-go">Play &rsaquo;</span></button>';
   }).join('');
-  function set(i,quiet){
-    i=Math.max(0,Math.min(BEATS.length-1,i)); if(i===at) return; at=i;
-    var b=BEATS[i];
-    eN.textContent=b.n; eH.textContent=b.h; eQ.textContent='“'+b.q+'”'; eA.textContent=b.a;
-    eC.textContent=(i+1)+' / '+BEATS.length;
-    fill.style.width=((i+1)/BEATS.length*100)+'%';
-    pv.disabled=i===0; nx.disabled=i===BEATS.length-1;
-    ticks.querySelectorAll('.nt-tick').forEach(function(t,k){
-      t.classList.toggle('on',k===i); t.setAttribute('aria-selected',k===i?'true':'false'); });
-    if(quiet) return;              /* on load, never move the page */
-    pan.classList.remove('flip'); void pan.offsetWidth; pan.classList.add('flip');
-    ticks.querySelectorAll('.nt-tick')[i].scrollIntoView({block:'nearest',inline:'nearest'});
+
+  function frameHtml(f,i){
+    if(f.k==='photo') return '<button class="nr-fr photo" data-f="'+i+'" aria-label="'+esc(f.cap)+'">'
+      +'<img class="im" src="'+esc(f.src)+'" alt="'+esc(f.cap)+'" loading="lazy">'
+      +'<span class="open">&#10530;</span><span class="cap">'+esc(f.cap)+'</span></button>';
+    if(f.k==='link') return '<button class="nr-fr" data-act="'+esc(f.act)+'"><span class="pad">'
+      +'<span class="fn">&rarr;</span><h5>'+esc(f.h)+'</h5><p>'+esc(f.p)+'</p></span></button>';
+    if(f.k==='soon') return '<div class="nr-fr soon"><span class="pad"><h5>'+esc(f.h)+'</h5></span></div>';
+    return '<button class="nr-fr" data-f="'+i+'"><span class="pad">'
+      +'<span class="fn">'+esc(f.n)+'</span><h5>'+esc(f.h)+'</h5><p>'+esc(f.q)+'</p></span></button>';
   }
-  ticks.addEventListener('click',function(e){ var t=e.target.closest('.nt-tick'); if(t) set(+t.dataset.i); });
-  pv.addEventListener('click',function(){ set(at-1); });
-  nx.addEventListener('click',function(){ set(at+1); });
-  ticks.addEventListener('keydown',function(e){
-    if(e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); set(at+1); ticks.querySelectorAll('.nt-tick')[at].focus(); }
-    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); set(at-1); ticks.querySelectorAll('.nt-tick')[at].focus(); }
-  });
-  /* swipe the panel on a phone */
-  var x0=null;
-  pan.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
-  pan.addEventListener('touchend',function(e){ if(x0===null) return;
-    var dx=e.changedTouches[0].clientX-x0; x0=null;
-    if(Math.abs(dx)>52) set(at+(dx<0?1:-1)); });
-  set(0,true);
+  function open(i){
+    if(i===at){ shut(); return; }
+    at=i; var t=TAPES[i];
+    rack.querySelectorAll('.nr-cass').forEach(function(c,k){
+      c.classList.toggle('live',k===i); c.setAttribute('aria-expanded',k===i?'true':'false');
+      c.querySelector('.nr-go').textContent=(k===i?'Playing':'Play ›'); });
+    film.innerHTML='<div class="nr-fbar"><h3>'+esc(t.t)+'</h3>'
+      +'<p class="sub2">'+esc(t.sub)+'</p>'
+      +'<button class="nr-wind" id="nrWind">Wind back</button></div>'
+      +'<div class="nr-strip" id="nrStrip"><div class="nr-frames">'
+      + t.frames.map(frameHtml).join('') +'</div></div>'
+      +'<p class="nr-hint">Drag the film sideways</p>';
+    film.classList.add('open');
+    document.getElementById('nrWind').addEventListener('click',shut);
+    wire(document.getElementById('nrStrip'));
+  }
+  function shut(){
+    at=-1; film.classList.remove('open');
+    rack.querySelectorAll('.nr-cass').forEach(function(c){
+      c.classList.remove('live'); c.setAttribute('aria-expanded','false');
+      c.querySelector('.nr-go').textContent='Play ›'; });
+    setTimeout(function(){ if(at===-1) film.innerHTML=''; },700);
+  }
+  function wire(strip){
+    /* drag to scroll, but never capture the pointer: capture retargets the
+       click away from the frame and the frame would stop opening */
+    var down=false,x0=0,l0=0,moved=0,hit=null;
+    strip.addEventListener('pointerdown',function(e){
+      if(e.button) return;
+      down=true;moved=0;x0=e.clientX;l0=strip.scrollLeft;
+      hit=e.target.closest('.nr-fr'); strip.classList.add('drag'); });
+    window.addEventListener('pointermove',function(e){
+      if(!down) return; var dx=e.clientX-x0; moved=Math.max(moved,Math.abs(dx));
+      if(moved>4) strip.scrollLeft=l0-dx; });
+    window.addEventListener('pointerup',function(){
+      if(!down) return; down=false; strip.classList.remove('drag'); });
+    strip.addEventListener('click',function(e){
+      if(moved>6){ e.preventDefault(); e.stopPropagation(); moved=0; hit=null; return; }
+      var fr=(e.target.closest&&e.target.closest('.nr-fr'))||hit; hit=null;
+      if(!fr) return;
+      if(fr.dataset.f!==undefined){ e.stopPropagation(); show(TAPES[at].frames[+fr.dataset.f]); return; }
+      if(fr.dataset.act){ e.preventDefault();
+        document.dispatchEvent(new CustomEvent('nr-act',{detail:fr.dataset.act}));
+        act(fr.dataset.act); }
+    },true);
+  }
+  function act(a){
+    var p=String(a).split(':');
+    if(p[0]==='talk' && typeof openBook==='function') openBook(TALKS[+p[1]],'e');
+  }
+  function show(f){
+    var box=document.getElementById('nrRbox');
+    if(f.k==='photo'){
+      box.innerHTML='<img src="'+esc(f.full)+'" alt="'+esc(f.cap)+'">'
+        +'<span class="fn">Cyrus International Film Festival</span>'
+        +'<h4 style="margin-bottom:0">'+esc(f.cap)+'</h4>'
+        +'<div class="nr-rnav"><button class="nt-btn" data-x>Close</button></div>';
+    }else{
+      box.innerHTML='<span class="fn">'+esc(f.n)+'</span><h4>'+esc(f.h)+'</h4>'
+        +'<blockquote>“'+esc(f.q)+'”</blockquote>'
+        +'<p class="ans">'+esc(f.a)+'</p>'
+        +'<div class="nr-rnav"><button class="nt-btn" data-x>Close</button></div>';
+    }
+    read.classList.add('open');
+  }
+  rack.addEventListener('click',function(e){var c=e.target.closest('.nr-cass'); if(c) open(+c.dataset.i);});
+  read.addEventListener('click',function(e){
+    if(e.target===read||e.target.hasAttribute('data-x')) read.classList.remove('open'); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){ if(read.classList.contains('open')) read.classList.remove('open');
+      else if(at>=0) shut(); } });
 })();
 
 })();
