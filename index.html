@@ -1233,12 +1233,14 @@
   margin:0 calc(var(--pad) * -1);scroll-behavior:smooth;cursor:grab}
 .nr-strip.drag{cursor:grabbing;scroll-behavior:auto}
 .nr-strip::-webkit-scrollbar{display:none}
-/* sprocket holes, top and bottom */
-.nr-strip::before,.nr-strip::after{content:"";position:absolute;left:0;height:12px;width:max-content;min-width:100%;
+/* sprocket holes, top and bottom — attached to the film itself (.nr-frames,
+   which spans the full scrollable width) so the edge runs the entire
+   length instead of stopping at the visible viewport */
+.nr-frames{position:relative;display:flex;gap:3px;padding:0 var(--pad);width:max-content}
+.nr-frames::before,.nr-frames::after{content:"";position:absolute;left:0;right:0;height:12px;
   background-image:repeating-linear-gradient(90deg,transparent 0 9px,#d8d2c6 9px 25px,transparent 25px 34px);
   opacity:.9;pointer-events:none}
-.nr-strip::before{top:4px}.nr-strip::after{bottom:4px}
-.nr-frames{display:flex;gap:3px;padding:0 var(--pad);width:max-content}
+.nr-frames::before{top:-16px}.nr-frames::after{bottom:-16px}
 .nr-fr{flex:0 0 clamp(214px,19vw,266px);position:relative;cursor:pointer;border:0;padding:0;color:inherit;
   text-align:left;background:#151317;box-shadow:inset 0 0 0 1px rgba(251,247,240,.30);
   transition:.35s var(--ease)}
